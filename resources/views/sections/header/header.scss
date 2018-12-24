@@ -1,0 +1,240 @@
+.header{
+  background-image: linear-gradient(85deg, $med-blue, #05a8d4);
+  color: $white;
+  padding: 10px 40px 20px 40px;
+  @include font-settings(14px, 1.43);
+
+
+  & .headline-1{
+    color: $white;
+
+    & h1{
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.header_top{
+  width: 100%;
+  margin-bottom: 17px;
+  @include for-flex(row, space-between, center);
+  @media (max-width: 870px) {
+    @include for-flex(column, space-between, center);
+    & .logo{
+      order: 1;
+      margin-bottom: 10px;
+    }
+
+    & .main-nav{
+      order: 2;
+      margin-bottom: 20px;
+    }
+    & .user-block{
+      order: 3;
+      justify-content: space-around;
+      & .user{
+
+      }
+    }
+  }
+
+}
+
+
+.header_bottom {
+  width: 100%;
+  @include for-flex(row, space-between, center);
+  flex-wrap: wrap;
+
+  & .search {
+    flex-grow: 1;
+    margin-right: 30px;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+}
+
+.main-nav_list{
+  @include for-flex(row, flex-start);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav_item{
+  margin-right: 23px;
+}
+
+.main-nav_link{
+  text-decoration: none;
+  color: $white;
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  height: 40px;
+  border-radius: 4px;
+  background-color: rgba(247, 247, 247, 0.5);
+  position: relative;
+
+  & .search_input {
+    background-color: inherit;
+    border: none;
+    height: 40px;
+
+    &::-webkit-input-placeholder {
+      color: $white;
+      opacity: 1;
+      @include font-settings(12px, 1, 83);
+    }
+    &::-moz-placeholder {
+      color: $white;
+      @include font-settings(12px, 1, 83);
+      opacity: 1;
+
+    }
+    &:-ms-input-placeholder {
+      color: $white;
+      @include font-settings(12px, 1, 83);
+      opacity: 1;
+
+    }
+    &:-moz-placeholder {
+      color: $white;
+      @include font-settings(12px, 1, 83);
+      opacity: 1;
+
+    }
+    &::placeholder {
+      @include font-settings(12px, 1, 83);
+      opacity: 1;
+
+    }
+  }
+  &::after {
+    content: '';
+    @include centering('y');
+    right: 22px;
+    background-image: url('./../../../public/svg/search.svg');
+    width: 12px;
+    height: 12px;
+    background-repeat: no-repeat;
+    @media (max-width: 610px) {
+      right: 12px;
+    }
+  }
+}
+
+
+.add-tour{
+  display: inline-block;
+  width: 180px;
+  color: $med-blue;
+  height: 40px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
+  font-weight: bold;
+  padding-top: 10px;
+
+}
+
+.header.mobile.opened{
+  width: 100%;
+  background-image: linear-gradient(36deg, #084599, #05a8d4);
+  padding: 40px;
+  padding-top: 95px;
+  @include for-flex(column);
+  position: relative;
+
+  & .header_top{
+    margin-bottom: 0;
+  }
+
+  & .header_top, & .header_bottom, & .user-block, & .main-nav_list{
+    @include for-flex(column);
+
+  }
+
+  .user-block{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  & .main-nav_item{
+    margin-bottom: 31px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  & .add-tour{
+    width: 100%;
+    color: $white;
+  }
+
+  & .menu-toggler{
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+
+    &::before, &::after{
+      position: absolute;
+      content: '';
+      height: 36px;
+      width: 3px;
+      background-color: $white;
+      top: -5px;
+      right: 12px;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+  }
+}
+
+.header.mobile.closed{
+  height: 80px;
+  box-shadow: 0 3px 6px 0 rgba(2, 56, 129, 0.26);
+  background-image: linear-gradient(76deg, #084599, #05a8d4);
+  @include for-flex(row, space-between, center);
+  padding: 22px 20px;
+
+  & .logo{
+    margin: 0;
+  }
+  & .menu-toggler{
+    width: 39px;
+    height: 27px;
+
+    & .menu_icon{
+
+      width: 39px;
+      height: 27px;
+      stroke: $white;
+      stroke-width: 3px;
+    }
+  }
+}
+
+.menu-toggler{
+  cursor: pointer;
+}
+
+.user_entry{
+  color: $white;
+  text-decoration: none;
+}

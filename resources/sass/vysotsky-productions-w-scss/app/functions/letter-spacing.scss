@@ -1,0 +1,24 @@
+/**
+    Функции расcчитывают значения letter-spacing на основании данных из Photoshop (Adobe XD, etc).
+    Расчет может производиться как в пикселях (letter-spacing), так и в em (letter-spacing-em). Для расчета в пикселях необходимо указать размер шрифта.
+    
+    @src https://iskraa.ru/blog/development/letter-spacing
+    
+    @var number $src-data Значение letter-spacing в графическом редакторе
+    @var number $font-size Размер шрифта
+    
+    @example "letter-spacing(10, 14px) -> 0.14px"
+    @example "letter-spacing(50px, 26px) -> 1.3px"
+    @example "letter-spacing(20) -> 0.02em"
+    
+ */
+
+@import './strip-unit';
+
+@function letter-spacing($src-data, $font-size:null){
+    @if($font-size){
+        @return unquote((strip-unit($src-data) * strip-unit($font-size) / 1000) + "px");
+    } @else {
+        @return unquote(strip-unit($src-data) / 1000 + "em");
+    }
+}

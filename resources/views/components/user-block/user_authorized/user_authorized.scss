@@ -1,0 +1,13 @@
+.user.authorized {
+  &::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-image: url('./../../../public/img/pavl.jpg');
+    border-radius: 50%;
+    left: 10px;
+    @include centering('y');
+  }
+}
+

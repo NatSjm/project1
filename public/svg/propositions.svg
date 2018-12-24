@@ -1,0 +1,22 @@
+<svg class="icons" id="propositions" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.999 10">
+  <defs>
+    <style>
+      fill: none;
+      .cls-1 {
+        fill: #084599;
+      }
+    </style>
+  </defs>
+  <g id="tag" transform="translate(-0.019)">
+    <g id="Group_454" data-name="Group 454" transform="translate(0.019)">
+      <g id="Group_453" data-name="Group 453">
+        <path id="Path_199" data-name="Path 199" class="cls-1" d="M5.231,0,.361,4.88a1.174,1.174,0,0,0,0,1.656l3.115,3.12A1.164,1.164,0,0,0,4.3,10h0a1.164,1.164,0,0,0,.828-.343l4.885-4.879V0ZM9.237,4.454,4.581,9.1a.388.388,0,0,1-.276.114h0A.388.388,0,0,1,4.029,9.1L.913,5.984a.391.391,0,0,1,0-.552L5.556.781H9.237Z" transform="translate(-0.019)"/>
+      </g>
+    </g>
+    <g id="Group_456" data-name="Group 456" transform="translate(6.737 2.031)">
+      <g id="Group_455" data-name="Group 455">
+        <circle id="Ellipse_30" data-name="Ellipse 30" class="cls-1" cx="0.625" cy="0.625" r="0.625"/>
+      </g>
+    </g>
+  </g>
+</svg>

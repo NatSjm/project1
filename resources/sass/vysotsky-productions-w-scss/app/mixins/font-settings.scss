@@ -1,0 +1,25 @@
+/**
+    Миксин позволяет комплексно задать типографские настройки - размер шрифта, межстрочный интервал,
+    межсимвольный интервал. Для корректной работы миксину необходима функция letter-spacing.
+
+    @var string $font-size Размер шрифта
+    @var string $line-height Межстрочный интервал
+    @var string $letter-spacing Межсимвольный интервал
+
+    @example "@include font-settings(12px, 1, normal)" -> font-size: 12px; line-height: 1; letter-spacing: normal;"
+    @example "@include font-settings(12px)" -> font-size: 12px; line-height: normal; letter-spacing: normal;"
+    @example "@include font-settings(12px, 24px)" -> font-size: 12px; line-height: 24px; letter-spacing: normal;"
+    @example "@include font-settings(24px, 24px, 40)" -> font-size: 24px; line-height: 24px; letter-spacing: 0.96px;"
+
+ */
+@import "./../functions/letter-spacing";
+
+@mixin font-settings($font-size, $line-height: normal, $letter-spacing: normal) {
+  font-size:      $font-size;
+  line-height:    $line-height;
+  @if $letter-spacing == normal {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: letter-spacing($letter-spacing, $font-size);
+  }
+}

@@ -1,0 +1,18 @@
+.logo{
+  @include for-flex(row, center, center);
+}
+
+
+.logo_icon{
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+  fill: $white;
+
+}
+
+
+.full-size .logo{
+  margin-left: auto;
+  margin-right: auto;
+}

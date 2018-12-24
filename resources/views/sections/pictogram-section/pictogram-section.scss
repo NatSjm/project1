@@ -1,0 +1,25 @@
+.pictogram_container{
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  border: 1px solid $light-grey;
+  position: relative;
+}
+.pictogram{
+  @include for-flex();
+  flex-wrap: wrap;
+  @include font-settings(12px, 1.67);
+  color: $med-blue;
+}
+
+.pictogram_block{
+  @include for-flex(column, space-between, center);
+
+}
+
+.pictogram_icon{
+  width: 23px;
+  height: 21px;
+  @include centering('both');
+  fill: transparent;
+}

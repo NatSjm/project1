@@ -1,0 +1,25 @@
+/**
+* Миксин формирует колоночную сетку с помощью float
+*
+* @var string $column Колличество колонок
+* @var string $indent Отступ между колонками
+*
+* @example "@include grid(3, 20px)"
+* @example "@include grid(6, 10px)"
+* @example "@include grid(8)"
+*/
+
+@mixin grid($column: 1, $indent: 0)
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$indent / 2;
+    margin-right: -$indent / 2;
+
+    > *
+    {
+        width: calc( (100% / #{$column}) - #{$indent} );
+        margin-left: $indent / 2;
+        margin-right: $indent / 2;
+    }
+}

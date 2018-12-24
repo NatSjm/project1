@@ -1,0 +1,13 @@
+/**
+* Count letter-spacing for browser from Adobe Photoshop
+*
+* @var string $photoshop-spacing Photoshop letter-spacing value
+* @var string $font-size Letters font size
+*
+* @example "@include floatgrid(50, 14px)"
+*/
+
+@mixin letter-spacing($font-size, $photoshop-spacing: 0)
+{
+    letter-spacing: ($photoshop-spacing * $font-size / 1000);
+}

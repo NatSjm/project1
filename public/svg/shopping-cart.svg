@@ -1,0 +1,15 @@
+<svg class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+  <defs>
+    <style>
+      fill: none;
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="shopping-cart_1_" data-name="shopping-cart (1)" transform="translate(0 0)">
+    <g id="shopping-cart">
+      <path id="Path_193" data-name="Path 193" class="cls-1" d="M3.6,9.6a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,3.6,9.6ZM0,0V1.2H1.2L3.36,5.76,2.52,7.2a2.132,2.132,0,0,0-.12.6A1.2,1.2,0,0,0,3.6,9h7.2V7.8H3.84a.129.129,0,0,1-.12-.12V7.62L4.26,6.6H8.7A1.094,1.094,0,0,0,9.72,6l2.16-3.9A.33.33,0,0,0,12,1.8a.567.567,0,0,0-.6-.6H2.52L1.98,0ZM9.6,9.6a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,9.6,9.6Z"/>
+    </g>
+  </g>
+</svg>

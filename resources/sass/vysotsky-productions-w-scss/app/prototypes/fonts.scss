@@ -1,0 +1,8 @@
+@mixin title($level: 1) {
+
+    @if $level == 1 {
+
+    } @else if $level == 2 {
+
+    }
+}

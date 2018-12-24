@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url('./../fonts/ProximaNova-Regular.eot');
+  src: url('./../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+  url('./../fonts/ProximaNova-Regular.woff') format('woff'),
+  url('./../fonts/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('./../fonts/ProximaNova-Bold.eot');
+  src: url('./../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),
+  url('./../fonts/ProximaNova-Bold.woff') format('woff'),
+  url('./../fonts/ProximaNova-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.main_text{
+  width: calc((100% - 160px) / 2 );
+  margin-right: 80px;
+}
+
+.list_marked, .list_numbered{
+  width: calc((100% - 160px) / 4 );
+  margin-right: 80px;
+}
+
+.headline{
+  font-family: $fbold;
+  color: $nero;
+}
+
+.headline-1 {
+  & h1,h2,h3,h4{
+    @include font-settings (24px);
+  }
+}
+
+.headline-2{
+  & h1,h2,h3,h4 {
+    @include font-settings (22px, 1.09);
+  }
+}
+
+.headline-3{
+  & h1,h2,h3,h4 {
+    @include font-settings(18px, 1.11);
+  }
+}
+
+.headline-4{
+  & h1,h2,h3,h4 {
+    @include font-settings(16px, 1.38);
+  }
+}
+
+
+
+
+
+.text_normal p{
+  @include font-settings(14px, 1.57);
+  color: $med-grey;
+  margin-bottom: 25px;
+}
+
+.text_small p{
+  @include font-settings(12px, 1.5);
+  color: $nero
+}
+
+.list_marked ul{
+  margin-top: -10px;
+  & li{
+    list-style-type: none;
+    @include font-settings(14px, 1.86);
+    color: $nero;
+    &:before {
+      color: $med-blue;
+      font-size: 25px;
+      content: '\2022';
+      position: relative;
+      top: 1px;
+      padding-right: 14px;
+    }
+  }
+}
+
+
+.list_numbered ol {
+  list-style-type: none;
+  counter-reset: num;
+  color: $med-grey;
+  & li{
+    @include font-settings(14px, 1.57);
+    &::before{
+      content: counter(num) '. ';
+      counter-increment: num;
+      color: $med-blue;
+      padding-right: 5px;
+    }
+  }
+}

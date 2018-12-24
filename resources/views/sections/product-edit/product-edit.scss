@@ -1,0 +1,7 @@
+.product-edit {
+  @extend %clearfix;
+  & article {
+    float: left;
+    margin-right: 50px;
+  }
+}

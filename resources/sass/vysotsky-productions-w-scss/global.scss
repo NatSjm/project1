@@ -1,0 +1,46 @@
+*
+{
+    box-sizing: border-box;
+}
+
+
+
+body{
+font-family: $fnorm;
+}
+
+.cont{
+  max-width: 1240px;
+  margin-left: 40px;
+
+}
+.cont-med{
+  margin-left: 60px;
+  margin-right: 60px;
+  max-width: 1120px;
+}
+
+.gydeline-section{
+  margin-bottom: 80px;
+
+}
+
+.gydeline-headline-1{
+  margin-left: 40px;
+}
+
+.gydeline-headline-2{
+  color: $med-green;
+  font-size: 16px ;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.gydeline-headline-3{
+    font-size: 14px;
+    line-height: 1.57;
+    letter-spacing: 0.4px;
+    color: #747474;
+    margin-left: -20px;
+}
+

@@ -1,0 +1,11 @@
+.cart{
+  margin-left: 30px;
+  & svg{
+    fill: $white;
+    width: 12px;
+    height: 12px;
+  }
+  .price{
+    white-space: nowrap;
+  }
+}

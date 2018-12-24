@@ -1,0 +1,21 @@
+/**
+    Функция для получения числового значения из величины с единицами измерения
+    
+    @src https://css-tricks.com/snippets/sass/strip-unit-function/
+    
+    @var string $value Строка для удаления единиц измерения
+    
+    @example "strip-unit(50px) -> 50"
+    @example "strip-unit(50em) -> 50"
+    @example "strip-unit(50rem) -> 50"
+    @example "strip-unit(50vh) -> 50"
+    
+ */
+
+@function strip-unit($value) {
+    @if type-of($value) == 'number' and not unitless($value) {
+        @return $value / ($value * 0 + 1);
+    }
+    
+    @return $value;
+}

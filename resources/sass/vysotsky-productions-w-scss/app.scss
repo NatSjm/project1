@@ -1,0 +1,54 @@
+// Bootstrap
+@import './app/core';
+@import "./app/normalize";
+@import "./global";
+
+// Proto mixins
+ //@import "./proto/**/*.scss";
+@import "./proto/colors";
+@import "./proto/typo";
+
+
+
+// Import pages & components from views
+//@import "./../../views/**/*.scss";
+
+
+
+
+//components
+
+@import "./../../views/components/buttons/button";
+@import "./../../views/components/checkboxes/checkbox";
+@import "./../../views/components/input/input";
+@import "./../../views/components/links/link";
+@import "./../../views/components/pagination/pagination";
+@import "./../../views/components/table/table";
+@import "./../../views/components/popup/popup";
+@import "./../../views/components/product-card/product-card";
+@import "./../../views/components/user-block/user-block";
+@import "./../../views/components/user-block/user_authorized/user_authorized";
+@import "./../../views/components/user-block/user_unauthorized/user_unauthorized";
+@import "./../../views/components/logo/logo";
+@import "./../../views/components/cart/cart";
+
+
+
+//sections
+
+@import "./../../views/sections/color/colors";
+@import "./../../views/sections/typo/typo";
+@import "./../../views/sections/product-edit/product-edit";
+@import "./../../views/sections/active-elements/active-elements";
+@import "./../../views/sections/header/header";
+@import "./../../views/sections/menu-section/menu-section";
+@import "./../../views/sections/footer/footer";
+@import "./../../views/sections/footer-section/footer-section";
+@import "./../../views/sections/pictogram-section/pictogram-section";
+
+
+
+
+
+
+

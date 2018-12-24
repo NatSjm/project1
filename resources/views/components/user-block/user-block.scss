@@ -1,0 +1,10 @@
+
+.user-block{
+  @include for-flex(row, flex-end, center);
+}
+
+.user{
+  padding-left: 46px;
+  position: relative;
+
+}

@@ -1,0 +1,20 @@
+/**
+    Миксин генерирует css-шлюз для указанного свойства в заданных границах значений на указанном диапазоне ширины экрана
+
+    @src https://fvsch.com/code/css-locks/
+    @src https://habrahabr.ru/company/mailru/blog/315196/
+    
+    @var string $property Название свойства, для которого нужно выставить размер
+    @var number $minSize Минимальное значение размера
+    @var number $maxSize Максимальное значение размера
+    @var number $minWidth Минимальное значение ширины, с которой происходит начинает изменяться размер
+    @var number $maxWidth Максимальное значение ширины, с которой происходит начинает изменяться размер
+    
+    @example "@include fluid-size(width, 100, 500, 700, 1200)"
+    @example "@include fluid-size(font-size, 12, 18)"
+    @example "@include fluid-size(font-size, 12, 18, 640, 1280)"
+    
+ */
+@mixin fluid-size($property, $minSize, $maxSize, $minWidth:320, $maxWidth:1920) {
+    #{$property}: calc(#{$minSize + px} + (#{$maxSize - $minSize}) * (100vw - #{$minWidth + px}) / (#{$maxWidth - $minWidth}));
+}

@@ -1,0 +1,7 @@
+.link a{
+  color: $nero;
+  @include font-settings(14px, 1.57);
+  &:hover{
+    color: $med-blue;
+  }
+}

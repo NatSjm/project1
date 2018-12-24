@@ -1,0 +1,41 @@
+.table table{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 2px;
+  border: 2px solid $dark-milk;
+  @include font-settings(14px, 1.57);
+  color: $nero;
+  & tr{
+    border-bottom: 1px solid #f9f9f9;
+
+  }
+  & td{
+    padding-left: 30px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    &:last-child{
+      padding-right: 40px;
+    }
+  }
+
+  & thead {
+    height: 50px;
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #084599, #05a8d4);
+    color: $white;
+    @include font-settings(16px, 1.25);
+    & td{
+      &:first-child{
+        width: 70%;
+        padding-top: 13px;
+        padding-bottom: 16px;
+      }
+      &:last-child{
+        width: 15%;
+      }
+      &:nth-child(2n){
+        width:15%;
+      }
+    }
+  }
+}

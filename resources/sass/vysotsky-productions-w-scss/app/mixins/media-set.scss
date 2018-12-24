@@ -1,0 +1,19 @@
+/**
+* Миксин группирует свойства по медиа запросам
+*
+* @var string $property Изменяемое свойство
+* @var string $values Массив со значениями для разрешения
+*
+* @example "@include media-set(font-size, (m: 12px, t: 14px, d: 16px))"
+* @example "@include media-set(margin-bottom, (m: 10px, d: 30px, d-3k: 50px))"
+*/
+
+@mixin media-set($property, $values: ()) {
+    @each $breakpoint, $value in $values
+    {
+        @include media($breakpoint)
+        {
+            #{$property} : $value;
+        }
+    }
+}

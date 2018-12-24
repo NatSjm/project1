@@ -1,0 +1,29 @@
+.footer {
+  font-family: $fbold;
+  width: 100%;
+  @include for-flex(column, space-evenly, center);
+  @include media-set(background-image, (m: linear-gradient(58deg, $med-blue, #05a8d4), t: linear-gradient(58deg, $med-blue, #05a8d4) , d: linear-gradient(81deg, $med-blue, #05a8d4)));
+  height: 200px;
+  color: $white;
+
+  & .add-tour{
+    color: $white;
+    width: 170px;
+  }
+
+  & .user.unauthorized {
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.copyright{
+  @include font-settings(12px, 1.83);
+  @include for-flex();
+  & span:first-child{
+    margin-right: 32px;
+  }
+}

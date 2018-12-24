@@ -1,0 +1,30 @@
+/**
+* Миксин формирует колоночную сетку с помощью inline-block
+*
+* @var string $column Колличество колонок
+* @var string $indent Отступ между колонками
+*
+* @example "@include inlinegrid(2, 20px)"
+* @example "@include inlinegrid(6, 10px)"
+* @example "@include inlinegrid(8)"
+*/
+
+@mixin inlinegrid($column: 1, $indent: 0, $vertical-indent: 0) {
+    display:       block;
+    margin-left:   -$indent / 2;
+    margin-right:  -$indent / 2;
+    margin-bottom: -$vertical-indent;
+
+    font-size:     0;
+
+    > *
+    {
+        display:       inline-block;
+        width:         -webkit-calc((100% / #{$column}) - #{$indent});
+        width:         -moz-calc((100% / #{$column}) - #{$indent});
+        width:         calc((100% / #{$column}) - #{$indent});
+        margin-left:   $indent / 2;
+        margin-right:  $indent / 2;
+        margin-bottom: $vertical-indent;
+    }
+}

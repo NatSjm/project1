@@ -1,0 +1,13 @@
+.active-elements_section{
+  @include for-flex();
+  flex-wrap: wrap;
+  & .table{
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+  }
+  & .inputs_input,.button{
+    margin-bottom: 40px;
+    margin-right: 40px;
+  }
+}
