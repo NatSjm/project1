@@ -1,8 +1,47 @@
 .header{
+  height: 120px;
   background-image: linear-gradient(85deg, $med-blue, #05a8d4);
   color: $white;
   padding: 10px 40px 20px 40px;
   @include font-settings(14px, 1.43);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+   & use{
+     fill: $white;
+   }
+
+
+  @media(max-width:1279px){
+    height: 80px;
+    box-shadow: 0 3px 6px 0 rgba(2, 56, 129, 0.26);
+    background-image: linear-gradient(76deg, #084599, #05a8d4);
+    padding: 22px 20px;
+
+    & .logo{
+      margin: 0;
+    }
+
+    & .main-nav, & .user-block, & .header_bottom{
+      display: none;
+    }
+    & .menu-toggler{
+      display: block;
+      width: 39px;
+      height: 27px;
+
+      & .menu_icon{
+
+        width: 39px;
+        height: 27px;
+        stroke: $white;
+        stroke-width: 3px;
+
+      }
+    }
+  }
 
 
   & .headline-1{
@@ -16,36 +55,15 @@
 }
 
 .header_top{
-  width: 100%;
   margin-bottom: 17px;
   @include for-flex(row, space-between, center);
-  @media (max-width: 870px) {
-    @include for-flex(column, space-between, center);
-    & .logo{
-      order: 1;
-      margin-bottom: 10px;
-    }
-
-    & .main-nav{
-      order: 2;
-      margin-bottom: 20px;
-    }
-    & .user-block{
-      order: 3;
-      justify-content: space-around;
-      & .user{
-
-      }
-    }
-  }
-
 }
 
 
 .header_bottom {
-  width: 100%;
   @include for-flex(row, space-between, center);
   flex-wrap: wrap;
+
 
   & .search {
     flex-grow: 1;
@@ -69,11 +87,12 @@
   margin-right: 23px;
 }
 
-.main-nav_link{
+.main-nav_link, .min-nav_link{
   text-decoration: none;
   color: $white;
   margin: 0;
   padding: 0;
+  font-family: $fbold;
 }
 
 .search {
@@ -124,9 +143,7 @@
     width: 12px;
     height: 12px;
     background-repeat: no-repeat;
-    @media (max-width: 610px) {
-      right: 12px;
-    }
+
   }
 }
 
@@ -151,13 +168,14 @@
   padding: 40px;
   padding-top: 95px;
   @include for-flex(column);
+  @include font-settings(18px, 1.33);
   position: relative;
 
   & .header_top{
     margin-bottom: 0;
   }
 
-  & .header_top, & .header_bottom, & .user-block, & .main-nav_list{
+  & .header_top, & .header_bottom, & .user-block, & .min-nav_list{
     @include for-flex(column);
 
   }
@@ -167,11 +185,17 @@
     margin-bottom: auto;
   }
 
-  & .main-nav_item{
+  & .min-nav_item{
     margin-bottom: 31px;
     &:last-child{
       margin-bottom: 0;
     }
+  }
+
+  & .min-nav_list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   & .add-tour{
@@ -238,3 +262,4 @@
   color: $white;
   text-decoration: none;
 }
+

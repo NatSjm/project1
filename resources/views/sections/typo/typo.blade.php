@@ -1,4 +1,4 @@
-<section class="gydeline-section cont typo">
+<section class="gydeline-section gydeline-cont typo">
     <h2 class="gydeline-headline-2">02. Типографика</h2>
 
     <div class="headline-section">

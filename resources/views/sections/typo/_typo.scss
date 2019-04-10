@@ -7,4 +7,14 @@
   flex-direction: row;
   max-width: 932px;
   margin-left: 60px;
+
+  & .main_text{
+    width: calc((100% - 160px) / 2 );
+    margin-right: 80px;
+  }
+
+  & .list_marked, .list_numbered{
+    width: calc((100% - 160px) / 4 );
+    margin-right: 80px;
+  }
 }

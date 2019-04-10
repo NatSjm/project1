@@ -17,5 +17,9 @@
   & .header.mobile.closed {
     width: 320px;
   }
+
+  & .header{
+    position: static;
+  }
 }
 

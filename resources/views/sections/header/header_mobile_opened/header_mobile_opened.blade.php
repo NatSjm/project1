@@ -2,11 +2,11 @@
     <div class="menu-toggler">
     </div>
     <div class="header_top">
-        <nav class="main-nav">
-            <ul class="main-nav_list">
-                <li class="main-nav_item"><a href="" class="main-nav_link">Автобусные туры</a></li>
-                <li class="main-nav_item"><a href="" class="main-nav_link">Авиационные туры</a></li>
-                <li class="main-nav_item"><a href="" class="main-nav_link">Круизы</a></li>
+        <nav class="min-nav">
+            <ul class="min-nav_list">
+                <li class="min-nav_item"><a href="" class="min-nav_link">Автобусные туры</a></li>
+                <li class="min-nav_item"><a href="" class="min-nav_link">Авиационные туры</a></li>
+                <li class="min-nav_item"><a href="" class="min-nav_link">Круизы</a></li>
             </ul>
         </nav>
     </div>

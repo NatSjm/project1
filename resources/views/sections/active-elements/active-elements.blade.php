@@ -1,20 +1,36 @@
-<section class="gydeline-section cont active-elements">
+<section class="gydeline-section gydeline-cont active-elements">
     <h2 class="gydeline-headline-2">03. Активные элементы и состояния</h2>
     <div class="active-elements_section cont-med">
 
+        <div class="buttons">
+            <h3 class="gydeline-headline-3">Кнопки</h3>
+            <div class="buttons">
+                @include('components/buttons/button-blue')
+                @include('components/buttons/button-green')
+            </div>
+        </div>
 
-        @include('./../components.buttons.button')
+        <div class="checkboxes">
+            <h3 class="gydeline-headline-3">Чекбоксы</h3>
+            @include('./../components.checkboxes.checkbox')
+        </div>
 
-        @include('./../components.checkboxes.checkbox')
-
+        <div class="links">
+            <h3 class="gydeline-headline-3">Ссылки</h3>
         @include('./../components.links.link')
+        </div>
 
-        @include('./../components.input.input')
+        <div class="inputs">
+            <h3 class="gydeline-headline-3">Input</h3>
+            @include('./../components.input.input')
+        </div>
 
-        @include('./../components.pagination.pagination')
+        <div class="paginations">
+            <h3 class="gydeline-headline-3">Pagination</h3>
+            @include('./../components.pagination.pagination')
+        </div>
 
-        @include('./../components.table.table')
-
-    </div>
-
+            <h3 class="gydeline-headline-3">Таблица</h3>
+            @include('./../components.table.table')
+        </div>
 </section>

@@ -4,11 +4,13 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   position: relative;
   box-sizing: border-box;
+
   & a {
     font-family: $fnorm;
     @include font-settings(12px, 22px);
     color: $med-grey;
     text-decoration: none;
+
   }
   &:after{
     content: "";
@@ -64,7 +66,7 @@
   position: relative;
   margin-bottom: 5px;
 
-  & svg{
+  & use{
     fill: $med-grey;
   }
 }
@@ -73,7 +75,7 @@
   & a {
     color: $med-blue;
   }
-  & svg{
+  & use{
     fill: $med-blue;
   }
 }
@@ -90,7 +92,7 @@
   transform: translateY(2px);
   margin-left: 8px;
 
-  & svg {
+  & use {
     fill: $med-grey;
   }
 }

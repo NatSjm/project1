@@ -18,7 +18,8 @@
 
 //components
 
-@import "./../../views/components/buttons/button";
+
+@import "../../views/components/buttons/button";
 @import "./../../views/components/checkboxes/checkbox";
 @import "./../../views/components/input/input";
 @import "./../../views/components/links/link";
@@ -31,6 +32,8 @@
 @import "./../../views/components/user-block/user_unauthorized/user_unauthorized";
 @import "./../../views/components/logo/logo";
 @import "./../../views/components/cart/cart";
+@import "./../../views/components/pictogram-line/pictogram-line";
+
 
 
 
@@ -46,6 +49,11 @@
 @import "./../../views/sections/footer-section/footer-section";
 @import "./../../views/sections/pictogram-section/pictogram-section";
 
+
+//pages
+
+@import "./../../views/pages/gydeline";
+@import "./../../views/pages/index";
 
 
 

@@ -20,15 +20,7 @@
 
 
 
-.main_text{
-  width: calc((100% - 160px) / 2 );
-  margin-right: 80px;
-}
 
-.list_marked, .list_numbered{
-  width: calc((100% - 160px) / 4 );
-  margin-right: 80px;
-}
 
 .headline{
   font-family: $fbold;
@@ -75,8 +67,11 @@
 }
 
 .list_marked ul{
-  margin-top: -10px;
+  margin: 0;
+  padding: 0;
+//  margin-top: -10px;
   & li{
+    margin: 0;
     list-style-type: none;
     @include font-settings(14px, 1.86);
     color: $nero;
@@ -93,6 +88,8 @@
 
 
 .list_numbered ol {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   counter-reset: num;
   color: $med-grey;

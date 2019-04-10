@@ -1,0 +1,137 @@
+.main-banner{
+  max-width: 100%;
+  height: unquote("calc( #{$win-height} - 80px )");
+  background: url('./../../../../public/img/main-banner.jpg') bottom center / cover no-repeat;
+  @include for-flex(column, center, center );
+}
+
+
+.main-banner_text-block{
+  @include for-flex(column, space-between, center);
+  color: $white;
+  font-family: $fbold;
+}
+
+.main-banner_title{
+  @include font-settings(30px, 0.8, 0.8);
+  margin-bottom: 12px;
+}
+
+.main-banner_description{
+  @include font-settings(18px, 1.33);
+  margin-bottom: 15px;
+}
+
+.main-banner_link.button{
+  border: 2px solid $white;
+  width: 160px;
+}
+
+.section-headlines{
+  @include for-flex(column, space-between);
+  @include media('d'){
+    flex-direction: row;
+  }
+
+}
+
+.recreation-types{
+  @include for-flex(row, space-between, center);
+  background-color: $med-milk;
+  min-height: 80px;
+  //padding-left: 20px;
+  width: 100%;
+  overflow: hidden;
+  & p{
+    display: none;
+  }
+}
+
+
+
+.recreation-types_wrapper{
+  @include for-flex(row, space-between, center);
+  width: 100%;
+  & h3{
+    color: $dark-blue;
+    margin-right: 15px;
+    white-space: nowrap;
+  }
+
+  & .pictogram{
+    margin-right: 21px;
+  }
+
+  & .pictogram_container:hover,
+  & .pictogram_container:active,
+  & .pictogarm_container:focus{
+    background-image: linear-gradient(to bottom, #084599, #05a8d4);
+    border: none;
+    & use{
+      fill: white;
+    }
+  }
+}
+
+.recommendations{
+  padding-top:56px;
+  & h3{
+    margin: 0;
+  }
+
+
+
+  & .show-all{
+    text-decoration: none;
+    color: $dark-grey;
+    @include font-settings(14px, 1.43);
+    font-weight: 600;
+  }
+}
+
+.hot-tours {
+  @extend .recommendations ;
+}
+
+.products-list {
+  @include grid(3, 20px);
+  justify-content: space-between;
+  @media only screen and (max-width: 980px){
+    justify-content: center;
+  }
+  margin-top: 34px;
+  @include media('d') {
+    margin-top: 20px;
+  }
+
+  & .product-card {
+    flex: 0 1;
+    @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
+  }
+}
+
+.products-list-top {
+  @include grid(2, 20px);
+  justify-content: center;
+  margin-top: 34px;
+  @include media-set(display, (m: none, t: none, d: flex));
+}
+
+
+.about{
+  margin-bottom: 100px;
+  & p{
+    position: relative;
+    margin-bottom: 21px;
+    &::after {
+      content: '';
+      height: 80px;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      @include media-set(display, (m: block, t: block, d: none));
+    }
+  }
+}

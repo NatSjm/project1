@@ -1,1 +1,1 @@
-<button class="button color-light-green">Заказать</button>
+<a class="button color-light-green">Заказать</a>

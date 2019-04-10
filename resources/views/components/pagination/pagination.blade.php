@@ -1,5 +1,5 @@
 <div class="pagination">
-    <h3 class="pagination_headline gydeline-headline-3">Pagination</h3>
+
     <ul>
         <li><a href="" class="pagination_item"><</a></li>
         <li><a href="" class="pagination_item">1</a></li>

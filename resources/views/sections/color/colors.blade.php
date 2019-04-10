@@ -5,7 +5,7 @@
 @endphp
 
 
-<section class="gydeline-section colors cont ">
+<section class="gydeline-section colors gydeline-cont">
 
     <h2 class="gydeline-headline-2">01. цвета</h2>
 

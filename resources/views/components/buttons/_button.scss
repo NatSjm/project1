@@ -9,6 +9,10 @@
   outline: none;
   cursor: pointer;
   transition: $transition;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding-top: 9px;
 }
 
 .button.color-med-blue{
@@ -25,5 +29,4 @@
   &:hover{
     background-color: $med-green;
   }
-
 }

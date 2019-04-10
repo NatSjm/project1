@@ -16,7 +16,7 @@
     <body>
 
 
-  <h1 class="gydeline-headline-1  headline headline-1">Gydeline</h1>
+  <h1 class="gydeline-cont headline headline-1">Gydeline</h1>
 
     @include('sections.color.colors')
     @include('sections.typo.typo')
@@ -28,11 +28,6 @@
     @include('sections.menu-section.menu-section')
     @include('sections.footer-section.footer-section')
     @include('sections.pictogram-section.pictogram-section')
-
-
-
-
-
 
     </body>
 </html>
