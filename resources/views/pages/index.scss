@@ -1,7 +1,7 @@
 .main-banner{
   max-width: 100%;
   height: unquote("calc( #{$win-height} - 80px )");
-  background: url('./../../../../public/img/main-banner.jpg') bottom center / cover no-repeat;
+  background: url('/img/main-banner.jpg') bottom center / cover no-repeat;
   @include for-flex(column, center, center );
 }
 
