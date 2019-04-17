@@ -883,6 +883,14 @@ svg circle.cls-2 {
   letter-spacing: 0.0033px;
 }
 
+.input::-moz-placeholder {
+  color: #666666;
+  font-size: 11px;
+  line-height: 1.27;
+  letter-spacing: 0.0033px;
+  opacity: 1;
+}
+
 .input:-ms-input-placeholder {
   color: #666666;
   font-size: 11px;
@@ -1698,6 +1706,14 @@ div.color-box.color-white {
   font-size: 12px;
   line-height: 1;
   letter-spacing: 0.996px;
+}
+
+.search .search_input::-moz-placeholder {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.996px;
+  opacity: 1;
 }
 
 .search .search_input:-ms-input-placeholder {
