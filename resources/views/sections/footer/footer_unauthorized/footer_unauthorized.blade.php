@@ -1,5 +1,5 @@
 <footer class="full-size authorized footer">
-    <a href="" class="color-light-green button add-tour">+ Добавить тур</a>
+    <a href="" class="mod_color-light-green button add-tour">+ Добавить тур</a>
     @include('components.user-block.user_unauthorized.user_unauthorized')
 
     <div class="copyright">

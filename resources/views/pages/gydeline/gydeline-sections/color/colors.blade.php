@@ -16,7 +16,7 @@
             <div class="colors-line">
                 @foreach ($mainColors as $key => $color)
                     <div>
-                        <div class="color-box color-{{ $color }}"></div>
+                        <div class="color-box mod_color-{{ $color }}"></div>
                         <p>{{ $key }}</p>
                     </div>
                 @endforeach
@@ -29,7 +29,7 @@
             <div class="colors-line">
                 @foreach ($accentColors as $key => $color)
                     <div>
-                        <div class="color-box color-{{ $color }}"></div>
+                        <div class="color-box mod_color-{{ $color }}"></div>
                         <p>{{ $key }}</p>
                     </div>
                 @endforeach
@@ -41,7 +41,7 @@
             <div class="colors-line">
                 @foreach ($supplementaryColors as $key => $color)
                     <div>
-                        <div class="color-box color-{{ $color }}"></div>
+                        <div class="color-box mod_color-{{ $color }}"></div>
                         <p>{{ $key }}</p>
                     </div>
                 @endforeach

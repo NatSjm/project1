@@ -1,1 +1,1 @@
-<a href="" class="button color-med-blue">Подробнее</a>
+<a href="" class="button mod_color-med-blue">Подробнее</a>

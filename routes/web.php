@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('/pages/index', ['name1' =>'img/mountains.jpg',
+    return view('/pages/index/index', ['name1' =>'img/mountains.jpg',
                                        'name2' =>'img/palm.jpg',
                                         'name3' =>'img/train.jpg',
                                        'name' => 'null']);
 });
 
 Route::get('/gydeline', function () {
-    return view('welcome', ['name' => 'img/mountains.jpg']);
+    return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
 });

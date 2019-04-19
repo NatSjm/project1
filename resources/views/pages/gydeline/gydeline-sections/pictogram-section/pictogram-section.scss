@@ -1,0 +1,11 @@
+.pictogram-section_wrapper {
+    @include for-flex();
+    flex-wrap: wrap;
+    @include font-settings(12px, 1.67);
+    color:     $med-blue;
+    & .pictogram {
+        margin:        18px;
+        margin-bottom: 40px;
+    }
+}
+

@@ -1,0 +1,25 @@
+.menu-section {
+    & .gydeline-headline-2 {
+        margin-left: 40px;
+    }
+    & .gydeline-headline-3 {
+        margin-left: 40px;
+    }
+    & header {
+        margin-bottom: 83px;
+    }
+
+    & .header.mobile.opened {
+        // width: 320px;
+        height: 440px;
+    }
+
+    & .header.mobile.closed {
+        // width: 320px;
+    }
+
+    & .header {
+        position: static;
+    }
+}
+

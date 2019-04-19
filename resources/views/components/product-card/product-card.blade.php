@@ -13,11 +13,11 @@
             </div>
 
         </div>
-        <div class="delimiter color-light-green"></div>
+        <div class="delimiter mod_color-light-green"></div>
     </header>
-    <div class="product-card_main headline headline-3">
-        <h3 class="product-card_title ">Индонезия (о.Бали)</h3>
-        <h4 class="product-card_description">Вылет из Киева</h4>
-        <a href="" class="button color-light-green">Заказать</a>
+    <div class="product-card_main">
+        <h3 class="product-card_title headline-3 ">Индонезия (о.Бали)</h3>
+        <h4 class="product-card_description headline-4">Вылет из Киева</h4>
+        <a href="" class="button mod_color-light-green">Заказать</a>
     </div>
 </article>

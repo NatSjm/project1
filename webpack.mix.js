@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const globImporter = require('node-sass-glob-importer');
 
 
 /*
@@ -14,7 +14,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/vysotsky-productions-w-scss/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css', {importer: globImporter()});
 
 

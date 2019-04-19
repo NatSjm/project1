@@ -1,12 +1,13 @@
 
 .user.unauthorized {
   padding-left: 36px;
+  font-family: $fbold;
   &::before {
     content: "";
     position: absolute;
     width: 16px;
     height: 16px;
-    background-image: url('./../../../public/svg/user.svg');
+    background-image: url('/svg/user.svg');
     left: 10px;
     @include centering('y');
   }

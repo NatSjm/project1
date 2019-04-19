@@ -1,4 +1,4 @@
-<div class="popup cont-med color-white">
+<div class="popup cont-med mod_color-white">
     <div class="popup_main">
         <ul class="personal-menu">
             <li class="personal-menu_item my-propo active"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
@@ -15,7 +15,7 @@
                        </svg></span><a href="" class="personal-menu_link">Личные данные</a></li>
         </ul>
     </div>
-    <div class="popup_bottom color-dark-milk">
+    <div class="popup_bottom mod_color-dark-milk">
         <a class="popup-bottom_link" href="">Выйти</a><span class="popup-bottom_icon"><svg viewBox="0 0 9.999 10">
                         <use xlink:href="#logout"></use></svg></span>
     </div>

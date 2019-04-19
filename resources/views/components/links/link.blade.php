@@ -1,5 +1,4 @@
-<div class="link">
 
-    <a href="#">Вход</a>
 
-</div>
+    <a class="link" href="#">Вход</a>
+

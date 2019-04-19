@@ -1,21 +1,23 @@
-.pictogram_container{
-  height: 46px;
-  width: 46px;
-  border-radius: 50%;
-  border: 1px solid $light-grey;
-  position: relative;
-  & use{
-    fill: $light-grey;
-  }
+.pictogram_container {
+    height:        46px;
+    width:         46px;
+    border-radius: 50%;
+    border:        1px solid $light-grey;
+    position:      relative;
+    & use {
+        fill: $light-grey;
+    }
 }
 
-.pictogram{
-  @include for-flex(column, space-between, center);
+.pictogram {
+    @include for-flex(column, space-between, center);
+    @extend .pictogram_container;
+    border: none;
 
 }
 
-.pictogram_icon{
-  width: 23px;
-  height: 21px;
-  @include centering('both');
+.pictogram_icon {
+    width:  23px;
+    height: 21px;
+    @include centering('both');
 }

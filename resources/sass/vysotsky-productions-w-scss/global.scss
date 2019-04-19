@@ -1,30 +1,25 @@
-*
-{
+* {
     box-sizing: border-box;
 }
 
+body {
+    font-family: $fnorm;
 
-
-body{
-font-family: $fnorm;
-
-  @include media-set(padding-top, (m: 80px, t: 80px, d: 120px));
+    @include media-set(padding-top, (m: 80px, t: 80px, d: 120px));
 }
 
-
-.cont{
-  max-width: 940px;
-  width: calc(100% - 40px);
-  margin: 0 auto;
+.cont {
+    max-width: 940px;
+    width:     calc(100% - 40px);
+    margin:    0 auto;
 }
-
 
 svg path,
-svg circle{
-  fill: transparent;
-  &.cls-2{
-    fill: inherit;
-  }
+svg circle {
+    fill: transparent;
+    &.cls-2 {
+        fill: inherit;
+    }
 }
 
 

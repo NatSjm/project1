@@ -1,26 +1,37 @@
-.pagination li{
-  list-style: none;
-  display: inline-block;
-  margin-right: 10px;
-  & span{
-    color: $nero;
-    @include font-settings(16px, 1.38);
-  }
+.pagination{
+    padding: 0;
+    @include media(m-only){
+        .dots{
+            display: none;
+        }
+    }
 }
 
-.pagination_item{
-  text-decoration: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 2px;
-  background-color: $dark-milk;
-  padding: 3px 10px 6px 10px;
-  color: $nero;
-  @include font-settings(16px, 1.38);
-  &.active{
-    background-color: $med-green;
-    color: $white;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  }
+.pagination li {
+    list-style:   none;
+    display:      inline-block;
+    margin-right: 10px;
+    font-family: $fbold;
+    & span {
+        color:       $nero;
+        @include font-settings(16px, 1.38);
+    }
+
+}
+
+.pagination_item {
+    text-decoration:  none;
+    width:            30px;
+    height:           30px;
+    border-radius:    2px;
+    background-color: $dark-milk;
+    padding:          3px 10px 6px 10px;
+    color:            $nero;
+    @include font-settings(16px, 1.38);
+    &.active {
+        background-color: $med-green;
+        color:            $white;
+        box-shadow:       0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    }
 
 }

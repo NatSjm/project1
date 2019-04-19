@@ -1,32 +1,36 @@
-.button{
-  width: 140px;
-  height: 40px;
-  border-radius: 4px;
-  color: $white;
-  font-family:$fbold;
-  @include font-settings(16px, 1.25);
-  border:none;
-  outline: none;
-  cursor: pointer;
-  transition: $transition;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  padding-top: 9px;
+.button {
+    width:           140px;
+    height:          40px;
+    border-radius:   4px;
+    color:           $white;
+    font-family:     $fbold;
+    @include font-settings(16px, 1.25);
+    border:          none;
+    outline:         none;
+    cursor:          pointer;
+    transition:      $transition;
+    text-decoration: none;
+    display:         inline-block;
+    text-align:      center;
+    padding-top:     9px;
+
+    &.mod_color-med-blue {
+        &:hover {
+            background-color: $dark-blue;
+        }
+
+        &:active {
+            box-shadow: 0 3px 6px 0 $dark-blue;
+        }
+    }
+
+    &.mod_color-light-green {
+        box-shadow: 0 3px 6px 0 $med-green;
+
+        &:hover {
+            background-color: $med-green;
+        }
+    }
+
 }
 
-.button.color-med-blue{
-  &:hover{
-    background-color: $dark-blue;
-  }
-  &:active{
-    box-shadow: 0 3px 6px 0 $dark-blue ;
-  }
-}
-
-.button.color-light-green{
-  box-shadow: 0 3px 6px 0 $med-green ;
-  &:hover{
-    background-color: $med-green;
-  }
-}

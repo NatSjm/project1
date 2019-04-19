@@ -7,8 +7,12 @@
             </svg>
 
         </div>
+
     </a>
-    <p>Индустриальный</p>
+    <p class="pictogram_title">Индустриальный</p>
+    <div class="triangle mod_blue"></div>
+    <div class="triangle mod_white"></div>
+
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -20,7 +24,7 @@
 
         </div>
     </a>
-    <p>Шоппинг</p>
+    <p class="pictogram_title" >Шоппинг</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -32,7 +36,7 @@
 
         </div>
     </a>
-    <p>Экстрим</p>
+    <p class="pictogram_title">Экстрим</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -44,7 +48,7 @@
 
         </div>
     </a>
-    <p>Luxury</p>
+    <p class="pictogram_title">Luxury</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -56,7 +60,7 @@
 
         </div>
     </a>
-    <p>Все включено</p>
+    <p class="pictogram_title">Все включено</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -68,7 +72,7 @@
 
         </div>
     </a>
-    <p>Программы развлечений</p>
+    <p class="pictogram_title">Программы развлечений</p>
 </div>
 <div class="pictogram" >
     <a href="" class="pictogram_link">
@@ -80,7 +84,7 @@
 
         </div>
     </a>
-    <p>Пляжный</p>
+    <p class="pictogram_title" >Пляжный</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -92,20 +96,9 @@
 
         </div>
     </a>
-    <p>Гастрономический</p>
+    <p class="pictogram_title">Гастрономический</p>
 </div>
-<div class="pictogram">
-    <a href="" class="pictogram_link">
-        <div class="pictogram_container">
 
-            <svg class="pictogram_icon"  viewBox="0 0 23 21">
-                <use xlink:href="#spa"></use>
-            </svg>
-
-        </div>
-    </a>
-    <p>SPA</p>
-</div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
         <div class="pictogram_container">
@@ -116,7 +109,7 @@
 
         </div>
     </a>
-    <p>Семейный</p>
+    <p class="pictogram_title">Семейный</p>
 </div>
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -128,5 +121,18 @@
 
         </div>
     </a>
-    <p>Спокойный отдых</p>
+    <p class="pictogram_title">Спокойный отдых</p>
+</div>
+
+<div class="pictogram">
+    <a href="" class="pictogram_link">
+        <div class="pictogram_container">
+
+            <svg class="pictogram_icon"  viewBox="0 0 23 21">
+                <use xlink:href="#spa"></use>
+            </svg>
+
+        </div>
+    </a>
+    <p class="pictogram_title">SPA</p>
 </div>

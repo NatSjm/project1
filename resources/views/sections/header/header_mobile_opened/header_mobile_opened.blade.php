@@ -18,7 +18,7 @@
     </div>
 
     <div class="header_bottom">
-        <a class="add-tour button color-light-green" href="">+ Добавить тур</a>
+        <a class="add-tour button mod_color-light-green" href="">+ Добавить тур</a>
     </div>
 
 </header>
