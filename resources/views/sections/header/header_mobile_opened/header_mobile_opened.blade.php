@@ -1,6 +1,6 @@
 <header class="header mobile opened ">
-    <div class="menu-toggler">
-    </div>
+    {{--<div class="menu-toggler">--}}
+    {{--</div>--}}
     <div class="header_top">
         <nav class="min-nav">
             <ul class="min-nav_list">

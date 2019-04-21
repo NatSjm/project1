@@ -1,3 +1,6 @@
+//@import "hamburgers";
+
+
 .header {
     height:           120px;
     background-image: linear-gradient(85deg, $med-blue, #05a8d4);
@@ -17,28 +20,33 @@
         height:           80px;
         box-shadow:       0 3px 6px 0 rgba(2, 56, 129, 0.26);
         background-image: linear-gradient(76deg, #084599, #05a8d4);
-        padding:          22px 20px;
+        padding: 0 20px;
+        @include for-flex(column, center)
 
         & .logo {
             margin: 0;
         }
 
+        & .header_top{
+            margin-bottom: 0;
+        }
+
         & .main-nav, & .user-block, & .header_bottom {
             display: none;
         }
-        & .menu-toggler {
+        & .hamburger {
             display: block;
-            width:   39px;
-            height:  27px;
+            //width:   60px;
+            //height:  27px;
 
-            & .menu_icon {
-
-                width:        39px;
-                height:       27px;
-                stroke:       $white;
-                stroke-width: 3px;
-
-            }
+            //& .menu_icon {
+            //
+            //    width:        39px;
+            //    height:       27px;
+            //    stroke:       $white;
+            //    stroke-width: 3px;
+            //
+            //}
         }
     }
 
@@ -74,6 +82,7 @@
     margin:     0;
     padding:    0;
     list-style: none;
+
 }
 
 .main-nav_item {
@@ -208,29 +217,29 @@
         color: $white;
     }
 
-    & .menu-toggler {
+    & .hamburger {
 
-        position: absolute;
-        top:      20px;
-        right:    20px;
-        width:    28px;
-        height:   28px;
+        //position: absolute;
+        //top:      20px;
+        //right:    20px;
+        //width:    28px;
+        //height:   28px;
 
-        &::before, &::after {
-            position:         absolute;
-            content:          '';
-            height:           36px;
-            width:            3px;
-            background-color: $white;
-            top:              -5px;
-            right:            12px;
-        }
-        &::before {
-            transform: rotate(45deg);
-        }
-        &::after {
-            transform: rotate(-45deg);
-        }
+        //&::before, &::after {
+        //    position:         absolute;
+        //    content:          '';
+        //    height:           36px;
+        //    width:            3px;
+        //    background-color: $white;
+        //    top:              -5px;
+        //    right:            12px;
+        //}
+        //&::before {
+        //    transform: rotate(45deg);
+        //}
+        //&::after {
+        //    transform: rotate(-45deg);
+        //}
 
     }
 }
@@ -245,22 +254,25 @@
     & .logo {
         margin: 0;
     }
-    & .menu-toggler {
+    & .hamburger {
         width:  39px;
         height: 27px;
 
-        & .menu_icon {
-
-            width:        39px;
-            height:       27px;
-            stroke:       $white;
-            stroke-width: 3px;
-        }
+        //& .menu_icon {
+        //
+        //    width:        39px;
+        //    height:       27px;
+        //    stroke:       $white;
+        //    stroke-width: 3px;
+        //}
     }
 }
 
-.menu-toggler {
+.hamburger {
     cursor: pointer;
+    border: none;
+    outline: none;
+    display: none;
 }
 
 .user_entry {
@@ -268,3 +280,8 @@
     text-decoration: none;
 }
 
+
+//.hamburger{
+//    border: none;
+//    outline: none;
+//}

@@ -7,7 +7,7 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    {{--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">--}}
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
@@ -29,5 +29,6 @@
 @include('pages/gydeline/gydeline-sections.footer-section.footer-section')
 @include('pages/gydeline/gydeline-sections.pictogram-section.pictogram-section')
 
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

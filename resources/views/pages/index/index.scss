@@ -60,12 +60,15 @@
 
     & .pictogram {
         margin-right: 21px;
-        position:     relative;
+
+        //position:     relative;
 
         & .pictogram_title {
             display: none;
         }
         @include media('d-only') {
+          //  position: relative;
+
             &:hover {
                 & .pictogram_title {
                     display:          block;
@@ -80,6 +83,7 @@
                     white-space:      nowrap;
                     top:              30px;
                     background-color: white;
+                    z-index:          10;
                     &:after,
                     &:before {
                         content:      '';
@@ -106,7 +110,7 @@
 
 .recreation-types_wrapper {
     @include for-flex(row, space-between, center);
-    overflow:   hidden;
+    @include media-set(overflow-x,('d': visible, 't': auto, 'm': auto));
     height:     100%;
     min-height: 80px;
     @include media('d-only') {

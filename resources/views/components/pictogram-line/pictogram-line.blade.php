@@ -111,18 +111,7 @@
     </a>
     <p class="pictogram_title">Семейный</p>
 </div>
-<div class="pictogram">
-    <a href="" class="pictogram_link">
-        <div class="pictogram_container">
 
-            <svg class="pictogram_icon"  viewBox="0 0 23 21">
-                <use xlink:href="#camera"></use>
-            </svg>
-
-        </div>
-    </a>
-    <p class="pictogram_title">Спокойный отдых</p>
-</div>
 
 <div class="pictogram">
     <a href="" class="pictogram_link">
@@ -135,4 +124,16 @@
         </div>
     </a>
     <p class="pictogram_title">SPA</p>
+</div>
+<div class="pictogram">
+    <a href="" class="pictogram_link">
+        <div class="pictogram_container">
+
+            <svg class="pictogram_icon"  viewBox="0 0 23 21">
+                <use xlink:href="#camera"></use>
+            </svg>
+
+        </div>
+    </a>
+    <p class="pictogram_title">Спокойный отдых</p>
 </div>
