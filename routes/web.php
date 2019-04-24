@@ -15,9 +15,18 @@ Route::get('/', function () {
     return view('/pages/index/index', ['name1' =>'img/mountains.jpg',
                                        'name2' =>'img/palm.jpg',
                                         'name3' =>'img/train.jpg',
-                                       'name' => 'null']);
+                                       'name' => 'null',
+                                       'title' => 'index']);
+
 });
 
 Route::get('/gydeline', function () {
     return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
+});
+
+Route::get('/seller', function () {
+    return view('/pages/seller/seller', ['name' => 'img/mountains.jpg',
+                                                'title'=> 'seller',
+                                                 'crumb_level2'=>'Михаил Павлов',
+                                                 'crumb_level3'=> 'Мои предложения']);
 });

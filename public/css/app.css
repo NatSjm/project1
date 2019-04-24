@@ -2185,6 +2185,36 @@ svg circle.cls-2 {
   padding-right: 5px;
 }
 
+ul.breadcrumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.breadcrumbs .breadcrumbs_item {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.27;
+  letter-spacing: normal;
+  letter-spacing: 0.3px;
+  margin-right: 8px;
+}
+
+ul.breadcrumbs .breadcrumbs_item + li:before {
+  padding-right: 12px;
+  color: #37db67;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: 'Montserrat', sans-serif;
+  content: "\2192";
+}
+
+ul.breadcrumbs .breadcrumbs_item a {
+  text-decoration: none;
+  color: #666666;
+}
+
 .button {
   width: 140px;
   height: 40px;
