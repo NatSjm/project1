@@ -1,6 +1,9 @@
 .main-banner {
     max-width:  100%;
-    height:     unquote("calc( #{$win-height} - 80px )");
+    height: unquote("calc( #{$win-height} - 80px )");
+    @include media('d-only') {
+        height: unquote("calc( #{$win-height} - 120px )");
+    }
     background: url('/img/main-banner.jpg') bottom center / cover no-repeat;
     @include for-flex(column, center, center);
 }
@@ -13,16 +16,16 @@
 
 .main-banner_title {
     @include font-settings(30px, 0.8);
-    @include media('d-only'){
-    @include font-settings(48px, 0.5, 1.2px);
+    @include media('d-only') {
+        @include font-settings(48px, 0.5, 1.2px);
     }
     margin-bottom: 12px;
 }
 
 .main-banner_description {
     @include font-settings(18px, 1.33);
-    @include media('d-only'){
-    @include font-settings(24px, 1);
+    @include media('d-only') {
+        @include font-settings(24px, 1);
     }
     margin-bottom: 15px;
 }
@@ -37,12 +40,12 @@
     @include media('d-only') {
         flex-direction: row;
     }
-& .headline-2{
-    @include font-settings(22px, 1.09);
-    color: $nero;
-}
+    & .headline-2 {
+        @include font-settings(22px, 1.09);
+        color: $nero;
+    }
 
-    & .show-all{
+    & .show-all {
         @include font-settings(14px, 1.43);
         color: $dark-grey;
     }
@@ -67,7 +70,7 @@
             display: none;
         }
         @include media('d-only') {
-          //  position: relative;
+            //  position: relative;
 
             &:hover {
                 & .pictogram_title {
@@ -110,102 +113,105 @@
 
 .recreation-types_wrapper {
     @include for-flex(row, space-between, center);
-    @include media-set(overflow-x,('d': visible, 't': auto, 'm': auto));
-    height:     100%;
-    min-height: 80px;
-    @include media('d-only') {
-        min-height: 100px;
-    }
+    overflow-x: auto;
+    @media screen and (min-width: 1279px) {
+        overflow-x: visible;
 
-    @media screen and (max-width: 980px) {
-        width:  100%;
-        margin: 0 0;
+        height:     100%;
+        min-height: 80px;
+        @include media('d-only') {
+            min-height: 100px;
+        }
+    }
+        @media screen and (max-width: 980px) {
+            width:  100%;
+            margin: 0 0;
+            & h3 {
+                margin-left: 20px;
+            }
+
+        }
         & h3 {
-            margin-left: 20px;
+            color:        $dark-blue;
+            white-space:  nowrap;
+            margin-right: 52px;
         }
 
-    }
-    & h3 {
-        color:        $dark-blue;
-        white-space:  nowrap;
-        margin-right: 52px;
-    }
+        & .pictogram_container:hover,
+        & .pictogram_container:active,
+        & .pictogarm_container:focus {
+            background-image: linear-gradient(to bottom, #084599, #05a8d4);
+            border:           none;
+            & use {
+                fill: white;
 
-    & .pictogram_container:hover,
-    & .pictogram_container:active,
-    & .pictogarm_container:focus {
-        background-image: linear-gradient(to bottom, #084599, #05a8d4);
-        border:           none;
-        & use {
-            fill: white;
-
+            }
         }
     }
-}
 
-.recommendations {
-    padding-top: 56px;
-    & h3 {
-        margin: 0;
+    .recommendations {
+        padding-top: 56px;
+        & h3 {
+            margin: 0;
+        }
+
+        & .show-all {
+            text-decoration: none;
+            color:           $dark-grey;
+            @include font-settings(14px, 1.43);
+            font-weight:     600;
+        }
     }
 
-    & .show-all {
-        text-decoration: none;
-        color:           $dark-grey;
-        @include font-settings(14px, 1.43);
-        font-weight:     600;
+    .hot-tours {
+        @extend .recommendations ;
     }
-}
 
-.hot-tours {
-    @extend .recommendations ;
-}
+    .products-list {
+        @include grid(3, 20px);
+        justify-content: space-between;
+        @media only screen and (max-width: 980px) {
+            @include grid(2, 20px);
+            & .product-card {
+                flex-grow: 1;
+            }
 
-.products-list {
-    @include grid(3, 20px);
-    justify-content: space-between;
-    @media only screen and (max-width: 980px) {
-        @include grid(2, 20px);
+        }
+        margin-top:      34px;
+        @include media('d-only') {
+            margin-top: 20px;
+        }
+
         & .product-card {
-            flex-grow: 1;
-        }
-
-    }
-    margin-top:      34px;
-    @include media('d-only') {
-        margin-top: 20px;
-    }
-
-    & .product-card {
-        // flex: 0 1;
-        @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
-    }
-}
-
-.products-list-top {
-    @include grid(2, 20px);
-    justify-content: center;
-    margin-top:      34px;
-    @include media-set(display, (m: none, t: none, d: flex));
-}
-
-.about {
-    margin-bottom: 100px;
-    .headline-2{
-        @include font-settings(22px, 1.09);
-    }
-    & p {
-        position:      relative;
-        margin-bottom: 21px;
-        &::after {
-            content:          '';
-            height:           80px;
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
-            position:         absolute;
-            bottom:           0;
-            right:            0;
-            left:             0;
-            @include media-set(display, (m: block, t: block, d: none));
+            // flex: 0 1;
+            @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
         }
     }
-}
+
+    .products-list-top {
+        @include grid(2, 20px);
+        justify-content: center;
+        margin-top:      34px;
+        @include media-set(display, (m: none, t: none, d: flex));
+    }
+
+    .about {
+        margin-bottom: 100px;
+        .headline-2 {
+            @include font-settings(22px, 1.09);
+        }
+        & p {
+            position:      relative;
+            margin-bottom: 21px;
+            &::after {
+                content:          '';
+                height:           80px;
+                background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+                position:         absolute;
+                bottom:           0;
+                right:            0;
+                left:             0;
+                @include media-set(display, (m: block, t: block, d: none));
+            }
+        }
+    }

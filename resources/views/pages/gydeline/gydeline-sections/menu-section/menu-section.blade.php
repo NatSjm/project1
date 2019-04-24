@@ -10,7 +10,7 @@
 
     <h3 class="gydeline-headline-3">Меню - мобильная версия</h3>
 
-    @include('sections.header.header_mobile_opened.header_mobile_opened')
+    {{--@include('sections.header.header_mobile_opened.header_mobile_opened')--}}
 
     @include('sections.header.header_mobile_closed.header_mobile_closed')
 

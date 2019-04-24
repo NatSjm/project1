@@ -1,4 +1,5 @@
-<header class="header mobile opened ">
+
+<div class="header-mobile mod_opened ">
     {{--<div class="menu-toggler">--}}
     {{--</div>--}}
     <div class="header_top">
@@ -21,4 +22,4 @@
         <a class="add-tour button mod_color-light-green" href="">+ Добавить тур</a>
     </div>
 
-</header>
+</div>

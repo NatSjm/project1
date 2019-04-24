@@ -20,15 +20,19 @@
         height:           80px;
         box-shadow:       0 3px 6px 0 rgba(2, 56, 129, 0.26);
         background-image: linear-gradient(76deg, #084599, #05a8d4);
-        padding: 0 20px;
-        @include for-flex(column, center)
+      //  padding: 0 20px;
+        @include for-flex(column, center);
+        padding: 0;
 
         & .logo {
-            margin: 0;
+            margin-left: 20px;
+            z-index: 30;
+
         }
 
         & .header_top{
             margin-bottom: 0;
+
         }
 
         & .main-nav, & .user-block, & .header_bottom {
@@ -36,17 +40,8 @@
         }
         & .hamburger {
             display: block;
-            //width:   60px;
-            //height:  27px;
-
-            //& .menu_icon {
-            //
-            //    width:        39px;
-            //    height:       27px;
-            //    stroke:       $white;
-            //    stroke-width: 3px;
-            //
-            //}
+            margin-right: 20px;
+            z-index: 30;
         }
     }
 
@@ -164,86 +159,67 @@
     padding-top:     10px;
 
 }
+.additional-block {
 
-.header.mobile.opened {
-    width:            100%;
-    background-image: linear-gradient(36deg, #084599, #05a8d4);
-    padding:          40px;
-    padding-top:      95px;
-    @include for-flex(column);
-    @include font-settings(18px, 1.33);
-    position:         relative;
+    display: none;
+    z-index: 20;
+    @include absolute-extend();
 
-    & .header_top {
-        margin-bottom: 0;
-    }
+    .header-mobile.mod_opened {
+        width:            100%;
+        height:           $win-height;
+        background-image: linear-gradient(36deg, #084599, #05a8d4);
+        padding:          40px;
+        padding-top:      95px;
+        @include for-flex(column, center);
 
-    & .header_top, & .header_bottom, & .user-block, & .min-nav_list {
-        @include for-flex(column);
+        @include font-settings(18px, 1.33);
+        // position:         relative;
 
-    }
+        & .header_top {
+            margin-bottom: 52px;
+        }
 
-    .user-block {
-        margin-top:    auto;
-        margin-bottom: auto;
-        & .user.unauthorized{
-            padding-left: 24px;
+        & .header_top, & .header_bottom, & .user-block, & .min-nav_list {
+           @include for-flex(column);
 
-            &::before{
-                background-image: url('/svg/user-bold.svg');
-                left:0;
-                width: 14px;
-                height: 14px;
+        }
 
+      &  .user-block {
+           margin-bottom: 50px;
+            & .user.unauthorized {
+                padding-left: 24px;
+
+                &::before {
+                    background-image: url('/svg/user-bold.svg');
+                    left:             0;
+                    width:            14px;
+                    height:           14px;
+
+                }
             }
         }
-    }
 
-    & .min-nav_item {
-        margin-bottom: 31px;
-        &:last-child {
-            margin-bottom: 0;
+        & .min-nav_item {
+            margin-bottom: 31px;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
-    }
 
-    & .min-nav_list {
-        margin:     0;
-        padding:    0;
-        list-style: none;
-    }
+        & .min-nav_list {
+            margin:     0;
+            padding:    0;
+            list-style: none;
+        }
 
-    & .add-tour {
-        width: 100%;
-        color: $white;
-    }
-
-    & .hamburger {
-
-        //position: absolute;
-        //top:      20px;
-        //right:    20px;
-        //width:    28px;
-        //height:   28px;
-
-        //&::before, &::after {
-        //    position:         absolute;
-        //    content:          '';
-        //    height:           36px;
-        //    width:            3px;
-        //    background-color: $white;
-        //    top:              -5px;
-        //    right:            12px;
-        //}
-        //&::before {
-        //    transform: rotate(45deg);
-        //}
-        //&::after {
-        //    transform: rotate(-45deg);
-        //}
+        & .add-tour {
+            width: 100%;
+            color: $white;
+        }
 
     }
 }
-
 .header.mobile.closed {
     height:           80px;
     box-shadow:       0 3px 6px 0 rgba(2, 56, 129, 0.26);
@@ -253,18 +229,15 @@
 
     & .logo {
         margin: 0;
+
+        z-index: 30;
     }
     & .hamburger {
         width:  39px;
         height: 27px;
+        z-index: 30;
 
-        //& .menu_icon {
-        //
-        //    width:        39px;
-        //    height:       27px;
-        //    stroke:       $white;
-        //    stroke-width: 3px;
-        //}
+
     }
 }
 
@@ -280,8 +253,3 @@
     text-decoration: none;
 }
 
-
-//.hamburger{
-//    border: none;
-//    outline: none;
-//}

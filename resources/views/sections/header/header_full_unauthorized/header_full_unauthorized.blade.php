@@ -1,5 +1,6 @@
 <header class="header full-size ">
 
+
     <div class="header_top">
         <nav class="main-nav">
             <ul class="main-nav_list">
@@ -12,16 +13,10 @@
         @include('components.logo.logo')
 
 
-        {{--<div class="menu-toggler">--}}
-            {{--<svg class="menu_icon" viewBox="0 0 39 27">--}}
-                {{--<use xlink:href="#gamburger"></use>--}}
-            {{--</svg>--}}
-        {{--</div>--}}
-
         <button class="hamburger hamburger--spin" type="button">
-  <span class="hamburger-box">
-    <span class="hamburger-inner"></span>
-  </span>
+        <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+        </span>
         </button>
 
 
@@ -30,6 +25,11 @@
             @include('components.cart.cart')
         </div>
     </div>
+
+    <div class="additional-block">
+        @include ('sections/header/header_mobile_opened/header_mobile_opened')
+    </div>
+
     <div class="header_bottom">
         <div class="search">
             <form action="">
