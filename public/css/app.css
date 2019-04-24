@@ -2011,9 +2011,15 @@ body {
 }
 
 .cont {
-  max-width: 940px;
   width: calc(100% - 40px);
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (d-only) {
+  .cont {
+    width: calc(100% - 80px);
+  }
 }
 
 svg path,
@@ -3110,6 +3116,10 @@ div.color-box.mod_color-white {
   margin-left: -20px;
 }
 
+.index .cont {
+  max-width: 940px;
+}
+
 .main-banner {
   max-width: 100%;
   height: calc( 100vh - 80px );
@@ -3543,6 +3553,163 @@ div.color-box.mod_color-white {
   .about p::after {
     display: none;
   }
+}
+
+.seller .cont {
+  padding-top: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media (min-width: 1280px) {
+  .seller .cont .checkbox {
+    width: 200px;
+    margin-right: 40px;
+  }
+}
+
+.seller .cont .breadcrumbs {
+  margin-bottom: 20px;
+}
+
+.seller .cont .headline-2 {
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 38px;
+}
+
+.seller .cont .main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
+}
+
+@media (min-width: 1280px) {
+  .seller .cont .main-content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .seller .cont .products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.seller .cont .products-list {
+  margin: 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 70px;
+}
+
+.seller .cont .pagination {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .seller .cont .pagination {
+    display: block;
+    margin-bottom: 100px;
+  }
+}
+
+.seller .cont .filter_title {
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: normal;
+  font-family: "Proxima Nova Bold", sans-serif;
+  color: #023881;
+  text-transform: uppercase;
+  border: solid 4px #f6fafb;
+  border-radius: 2px;
+  padding-left: 21px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+}
+
+.seller .cont .filter_fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
+  margin: 0;
+  margin-top: 20px;
+  border: solid 4px #f6fafb;
+  border-radius: 2px;
+  padding-left: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.seller .cont .filter_fields .checkbox_input:checked + .checkbox_label:before {
+  line-height: 11px;
+}
+
+.seller .cont .filter_fields .checkbox_label {
+  margin-bottom: 16px;
+  font-size: 11px;
+  line-height: 1.27;
+  letter-spacing: normal;
+  letter-spacing: 0.3px;
+  color: #666666;
+}
+
+.seller .cont .filter_fields .checkbox_label:before {
+  bottom: -1px;
 }
 
 .footer {

@@ -9,9 +9,14 @@ body {
 }
 
 .cont {
-    max-width: 940px;
-    width:     calc(100% - 40px);
+
+    width: calc(100% - 40px);
+    max-width: 1200px;
     margin:    0 auto;
+    @media('d-only') {
+        width: calc(100% - 80px);
+    }
+
 }
 
 svg path,

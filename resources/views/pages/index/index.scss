@@ -1,3 +1,7 @@
+.index .cont{
+    max-width: 940px;
+}
+
 .main-banner {
     max-width:  100%;
     height: unquote("calc( #{$win-height} - 80px )");

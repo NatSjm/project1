@@ -1,6 +1,103 @@
 
-.seller{
+.seller .cont {
+    padding-top: 22px;
+    @include for-flex(column, space-between, flex-start);
+
+
+        & .checkbox{
+            @include media('d-only'){
+            width: 200px;
+                margin-right: 40px;
+            }
+        }
+
+
+
+    & .breadcrumbs{
+        margin-bottom: 20px;
+    }
+     & .headline-2{
+         margin: 0;
+         text-transform: uppercase;
+         margin-bottom: 38px;
+     }
+    & .main-content{
+        @include for-flex(column);
+        @include media('d-only'){
+            flex-direction: row;
+        }
+
+    }
+    & .products{
+        @include media('d-only'){
+            @include for-flex(column);
+            align-items: center;
+        }
+    }
+
+    & .products-list{
+        margin: 0;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: 70px;
+    }
+    & .pagination{
+        display: none;
+        @include media('d-only'){
+            display: block;
+            margin-bottom: 100px;
+        }
+    }
+
+
+
+    & .filter_title{
+        @include font-settings(18px, 1.11);
+        font-family: $fbold;
+        color: $dark-blue;
+        text-transform: uppercase;
+        border: solid 4px #f6fafb;
+        border-radius: 2px;
+        padding-left: 21px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        }
+
+
+
+    & .filter_fields{
+        @include for-flex(row);
+        margin: 0;
+        margin-top: 20px;
+        border: solid 4px #f6fafb;
+        border-radius: 2px;
+        padding-left: 18px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+
+
+
+        & .checkbox_input:checked + .checkbox_label:before {
+            line-height:    11px;
+        }
+
+
+        & .checkbox_label{
+            margin-bottom: 16px;
+            @include font-settings(11px,1.27);
+            letter-spacing: 0.3px;
+            color: $med-grey;
+            &:before{
+                bottom: -1px;
+            }
+
+        }
+    }
+
 
 }
-
 
