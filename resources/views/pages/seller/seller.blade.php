@@ -24,12 +24,11 @@
                         <input type="checkbox" class="checkbox_input" id="all-inclus">
                         <label class="checkbox_label" for="all-inclus">Все включено</label>
 
-                        <input type="checkbox" class="checkbox_input" id="family">
-                        <label class="checkbox_label" for="family">Семейный отдых</label>
+                        <input type="checkbox" class="checkbox_input" id="fam">
+                        <label class="checkbox_label" for="fam">Семейный отдых</label>
 
                         <input type="checkbox" class="checkbox_input" id="gastro">
                         <label class="checkbox_label" for="gastro">Гастрономический</label>
-
 
                         <input type="checkbox" class="checkbox_input" id="keep-calm">
                         <label class="checkbox_label" for="keep-calm">Спокойный отдых</label>
@@ -37,8 +36,8 @@
                         <input type="checkbox" class="checkbox_input" id="intertainment">
                         <label class="checkbox_label" for="intertainment">Программа развлечений</label>
 
-                        <input type="checkbox" class="checkbox_input" id="shopping">
-                        <label class="checkbox_label" for="shopping">Шоппинг</label>
+                        <input type="checkbox" class="checkbox_input" id="shop">
+                        <label class="checkbox_label" for="shop">Шоппинг</label>
 
                         <input type="checkbox" class="checkbox_input" id="extreem">
                         <label class="checkbox_label" for="extreem">Экстрим</label>
@@ -46,23 +45,16 @@
                         <input type="checkbox" class="checkbox_input" id="beach">
                         <label class="checkbox_label" for="beach">Пляжный</label>
 
-                        <input type="checkbox" class="checkbox_input" id="spa">
-                        <label class="checkbox_label" for="spa">SPA</label>
+                        <input type="checkbox" class="checkbox_input" id="sp">
+                        <label class="checkbox_label" for="sp">SPA</label>
 
                     </fieldset>
 
                 </form>
             </section>
 
-            <section class="products">
-                <div class="products-list">
-                    @for ($i = 0; $i < 12; $i++)
-                        @include ('components.product-card.product-card')
-                    @endfor
-                </div>
-                @include('components.pagination.pagination')
-            </section>
 
+            @include('sections.products.products')
 
         </div>
     </div>

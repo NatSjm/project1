@@ -174,6 +174,9 @@
     .products-list {
         @include grid(3, 20px);
         justify-content: space-between;
+        & .product-card {
+            @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
+        }
         @media only screen and (max-width: 980px) {
             @include grid(2, 20px);
             & .product-card {
@@ -186,10 +189,7 @@
             margin-top: 20px;
         }
 
-        & .product-card {
-            // flex: 0 1;
-            @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
-        }
+
     }
 
     .products-list-top {
@@ -197,6 +197,10 @@
         justify-content: center;
         margin-top:      34px;
         @include media-set(display, (m: none, t: none, d: flex));
+        & .article {
+            flex-basis: 300px;
+            flex-grow: 2;
+        }
     }
 
     .about {
@@ -217,5 +221,11 @@
                 left:             0;
                 @include media-set(display, (m: block, t: block, d: none));
             }
+        }
+    }
+
+    .show-more{
+        @include media('d-only'){
+            display: none;
         }
     }

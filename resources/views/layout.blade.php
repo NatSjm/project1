@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
-<body class="{{ $title }}">
+<body class="{{ $body_class }}">
 
 {!! file_get_contents(asset('svg/sprite.svg')) !!}
 

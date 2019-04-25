@@ -1,0 +1,85 @@
+.search {
+    @extend .seller;
+
+    & .cont {
+        padding-top: 24px;
+
+        & .breadcrumbs {
+            margin-bottom: 0;
+        }
+
+        & h2.headline-2 {
+            margin: 0;
+            margin-bottom: 12px;
+        }
+        & .products {
+            @include for-flex(column);
+            align-items: center;
+            & .pagination {
+                @include media('m') {
+                    display:       block;
+                    margin-bottom: 100px;
+                }
+
+            }
+        }
+
+        & .filter{
+            @include for-flex(column);
+            & .filter_toggler{
+                align-self: center;
+                color: $med-blue;
+                text-transform: uppercase;
+                font-family: $fbold;
+                @include font-settings(18px, 1.1);
+                margin-bottom: 24px;
+            }
+        }
+
+        & .filter_info{
+            @include for-flex();
+            & span{
+                @include font-settings(11px, 1.27);
+                letter-spacing: 0.3px;
+                color: $med-grey;
+            }
+
+            & .filter_sorter{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border: none;
+                outline: none;
+                @include font-settings(12px, 1.5);
+                color: $nero;
+                position: relative;
+                padding-right: 10px;
+                z-index: 2;
+                background: transparent;
+                & option{
+                    background: transparent;
+                }
+
+
+            }
+
+            & .filter_icon{
+                width: 10px;
+                height: 10px;
+                margin-left: -12px;
+                z-index: 3;
+                stroke: $nero;
+
+            }
+
+
+
+        }
+
+
+        & .filter_form {
+            display: none;
+        }
+
+    }
+}
