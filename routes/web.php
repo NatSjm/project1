@@ -27,14 +27,14 @@ Route::get('/gydeline', function () {
 
 Route::get('/seller', function () {
     return view('/pages/seller/seller', ['name' => 'img/mountains.jpg',
-                                                'body_class'=> 'seller',
+                                                'body_class'=> 'seller-page',
                                                  'crumb_level2'=>'Михаил Павлов',
                                                  'crumb_level3'=> 'Мои предложения']);
 });
 
 Route::get('/search', function () {
     return view('/pages/search/search', ['name' => 'img/mountains.jpg',
-                                         'body_class'=> 'search',
+                                         'body_class'=> 'search-page',
                                          'crumb_level2'=>'Поиск']);
 });
 

@@ -10,7 +10,7 @@ body {
 
 .cont {
 
-    width: calc(100% - 40px);
+    width:     calc(100% - 40px);
     max-width: 1200px;
     margin:    0 auto;
     @media('d-only') {
@@ -27,6 +27,11 @@ svg circle {
     }
 }
 
+ul {
+    margin:     0;
+    padding:    0;
+    list-style: none;
+}
 
 
 

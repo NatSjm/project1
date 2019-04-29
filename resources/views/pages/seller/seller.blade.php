@@ -11,8 +11,8 @@
         <div class="main-content">
             <section class="filter">
                 <form class="checkbox" action="#" id="filter_form">
+                    @csrf
                     <label class="filter_title" for="filter_form">Категория</label>
-                    {{--<p class="filter_title">Категория</p>--}}
                     <fieldset class="filter_fields">
 
                         <input type="checkbox" class="checkbox_input" id="ind">
