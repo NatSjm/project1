@@ -47,6 +47,7 @@
         & .filter_fields {
             @include for-flex(row);
             margin:         0;
+           //
             margin-top:     20px;
             border:         solid 4px #f6fafb;
             border-radius:  2px;

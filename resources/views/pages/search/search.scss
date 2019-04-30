@@ -27,6 +27,9 @@
             @include for-flex(column);
             margin-bottom: 40px;
             &_toggler {
+                @include media('d-only'){
+                    display: none;
+                }
                 align-self:     center;
                 color:          $med-blue;
                 text-transform: uppercase;
@@ -74,6 +77,9 @@
         }
         & .products-filter_display {
             @include for-flex(column, space-between, stretch);
+            @include media('d-only'){
+                @include for-flex(row, space-between, center);
+            }
             padding:       20px;
             border:        solid 4px #f6fafb;
             border-radius: 4px;
@@ -124,6 +130,11 @@
         }
 
         & .filter_form {
+            padding: 0;
+            & .filter_fields{
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
             // display: none;
         }
 
@@ -145,7 +156,7 @@
 
         & .fieldset {
             padding:       20px;
-            marhin-bottom: 20px;
+            margin-bottom: 20px;
             & .fieldset_title {
                 @include font-settings(18px, 1.33);
                 font-weight:    bold;
@@ -172,6 +183,7 @@
                 z-index:            3;
                 background:         transparent;
                 width:              100%;
+                min-width: 160px;
 
                 & .filter_option {
 
@@ -205,6 +217,12 @@
 
         & .radio_wrapper {
             @include grid(2);
+            @include media('d-only'){
+                @include grid(1);
+                @include for-flex(column, space-between, flex-start);
+               // flex-wrap: nowrap;
+
+            }
             //justify-content: space-between;
             & .mod_column-left,
             & .mod_column-right {
@@ -238,7 +256,10 @@
         display: none;
 
     }
-
+    & .filter_fields{
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
     & .filter-wrapper.mod_desctop{
         display: none;
         @include media('d-only'){
