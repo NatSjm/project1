@@ -1,21 +1,43 @@
-.index .cont{
+.index .cont {
     max-width: 940px;
 }
 
 .main-banner {
-    max-width:  100%;
-    height: unquote("calc( #{$win-height} - 80px )");
+    max-width: 100%;
+    height:    unquote("calc( #{$win-height} - 80px )");
     @include media('d-only') {
         height: unquote("calc( #{$win-height} - 120px )");
     }
-    background: url('/img/main-banner.jpg') bottom center / cover no-repeat;
-    @include for-flex(column, center, center);
+    // background: url('/img/main-banner.jpg') bottom center / cover no-repeat;
+    // @include for-flex(column, center, center);
+
+}
+
+.swiper-container {
+    width:  100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+
+}
+
+.main-banner_img {
+    //
+    width:      100%;
+    height:     100%;
+    object-fit: cover;
+    z-index:    2;
+
 }
 
 .main-banner_text-block {
     @include for-flex(column, space-between, center);
     color:       $white;
     font-family: $fbold;
+    @include centering('both');
+    z-index:     3;
 }
 
 .main-banner_title {
@@ -68,7 +90,7 @@
     & .pictogram {
         margin-right: 21px;
 
-        //position:     relative;
+
 
         & .pictogram_title {
             display: none;
@@ -127,105 +149,104 @@
             min-height: 100px;
         }
     }
-        @media screen and (max-width: 980px) {
-            width:  100%;
-            margin: 0 0;
-            & h3 {
-                margin-left: 20px;
-            }
-
-        }
+    @media screen and (max-width: 980px) {
+        width:  100%;
+        margin: 0 0;
         & h3 {
-            color:        $dark-blue;
-            white-space:  nowrap;
-            margin-right: 52px;
+            margin-left: 20px;
         }
-
-        & .pictogram_container:hover,
-        & .pictogram_container:active,
-        & .pictogarm_container:focus {
-            background-image: linear-gradient(to bottom, #084599, #05a8d4);
-            border:           none;
-            & use {
-                fill: white;
-
-            }
-        }
-    }
-
-    .recommendations {
-        padding-top: 56px;
-        & h3 {
-            margin: 0;
-        }
-
-        & .show-all {
-            text-decoration: none;
-            color:           $dark-grey;
-            @include font-settings(14px, 1.43);
-            font-weight:     600;
-        }
-    }
-
-    .hot-tours {
-        @extend .recommendations ;
-    }
-
-    .products-list {
-        @include grid(3, 20px);
-        justify-content: space-between;
-        & .product-card {
-            @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
-        }
-        @media only screen and (max-width: 980px) {
-            @include grid(2, 20px);
-            & .product-card {
-                flex-grow: 1;
-            }
-
-        }
-        margin-top:      34px;
-        @include media('d-only') {
-            margin-top: 20px;
-        }
-
 
     }
+    & h3 {
+        color:        $dark-blue;
+        white-space:  nowrap;
+        margin-right: 52px;
+    }
 
-    .products-list-top {
+    & .pictogram_container:hover,
+    & .pictogram_container:active,
+    & .pictogarm_container:focus {
+        background-image: linear-gradient(to bottom, #084599, #05a8d4);
+        border:           none;
+        & use {
+            fill: white;
+
+        }
+    }
+}
+
+.recommendations {
+    padding-top: 56px;
+    & h3 {
+        margin: 0;
+    }
+
+    & .show-all {
+        text-decoration: none;
+        color:           $dark-grey;
+        @include font-settings(14px, 1.43);
+        font-weight:     600;
+    }
+}
+
+.hot-tours {
+    @extend .recommendations ;
+}
+
+.products-list {
+    @include grid(3, 20px);
+    justify-content: space-between;
+    & .product-card {
+        @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
+    }
+    @media only screen and (max-width: 980px) {
         @include grid(2, 20px);
-        justify-content: center;
-        margin-top:      34px;
-        @include media-set(display, (m: none, t: none, d: flex));
-        & .article {
-            flex-basis: 300px;
-            flex-grow: 2;
+        & .product-card {
+            flex-grow: 1;
         }
+
+    }
+    margin-top:      34px;
+    @include media('d-only') {
+        margin-top: 20px;
     }
 
-    .about {
-        margin-bottom: 100px;
-        .headline-2 {
-            @include font-settings(22px, 1.09);
-        }
-        & p {
-            position:      relative;
-            margin-bottom: 21px;
-            &::after {
-                content:          '';
-                height:           80px;
-                background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
-                position:         absolute;
-                bottom:           0;
-                right:            0;
-                left:             0;
-                @include media-set(display, (m: block, t: block, d: none));
-            }
-        }
-    }
+}
 
-    .show-more{
-        @include media('d-only'){
-            display: none;
+.products-list-top {
+    @include grid(2, 20px);
+    justify-content: center;
+    margin-top:      34px;
+    @include media-set(display, (m: none, t: none, d: flex));
+    & .article {
+        flex-basis: 300px;
+        flex-grow:  2;
+    }
+}
+
+.about {
+    margin-bottom: 100px;
+    .headline-2 {
+        @include font-settings(22px, 1.09);
+    }
+    & p {
+        position:      relative;
+        margin-bottom: 21px;
+        &::after {
+            content:          '';
+            height:           80px;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+            position:         absolute;
+            bottom:           0;
+            right:            0;
+            left:             0;
+            @include media-set(display, (m: block, t: block, d: none));
         }
     }
+}
+
+.show-more {
+    @include media('d-only') {
+        display: none;
+    }
+}

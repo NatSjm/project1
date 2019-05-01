@@ -3,12 +3,45 @@
 
 @section('content')
     <section class="main-banner">
-        <div class="main-banner_text-block">
-            <h2 class="main-banner_title">Чудеса Катара</h2>
-            <h3 class="main-banner_description">Вся роскошь востока</h3>
-            <a href="" class="main-banner_link button">Перейти к туру</a>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+
+                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
+                    <div class="main-banner_text-block">
+                        <h2 class="main-banner_title">Чудеса Катара</h2>
+                        <h3 class="main-banner_description">Вся роскошь востока</h3>
+                        <a href="" class="main-banner_link button">Перейти к туру</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
+                    <div class="main-banner_text-block">
+                        <h2 class="main-banner_title">Чудеса Катара</h2>
+                        <h3 class="main-banner_description">Вся роскошь востока</h3>
+                        <a href="" class="main-banner_link button">Перейти к туру</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
+                    <div class="main-banner_text-block">
+                        <h2 class="main-banner_title">Чудеса Катара</h2>
+                        <h3 class="main-banner_description">Вся роскошь востока</h3>
+                        <a href="" class="main-banner_link button">Перейти к туру</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+
+
+
+
 
     <section class="recreation-types">
         <div class="recreation-types_wrapper cont">
