@@ -3650,6 +3650,7 @@ div.color-box.mod_color-white {
   line-height: 1.1;
   letter-spacing: normal;
   margin-bottom: 24px;
+  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
@@ -3906,6 +3907,8 @@ div.color-box.mod_color-white {
   height: 22px;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1280px) {

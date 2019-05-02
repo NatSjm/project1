@@ -36,6 +36,7 @@
                 font-family:    $fbold;
                 @include font-settings(18px, 1.1);
                 margin-bottom:  24px;
+                cursor: pointer;
             }
         }
 
@@ -209,6 +210,8 @@
             width:        22px;
             height:       22px;
             align-self:   flex-end;
+            cursor: pointer;
+            margin-bottom: 20px;
             @include media('d-only') {
                 display: none;
             }
@@ -217,6 +220,7 @@
 
         & .radio_wrapper {
             @include grid(2);
+
             @include media('d-only'){
                 @include grid(1);
                 @include for-flex(column, space-between, flex-start);

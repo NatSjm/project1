@@ -194,22 +194,23 @@
                             <label class="fieldset_title" for="food">Питание</label>
                             <div class="radio_wrapper">
 
+                                <div class="mod_column-left">
+                                    <input type="radio" name="food" value="any" class="checkbox_input" id="any">
+                                    <label class="checkbox_label" for="any">Любое</label>
 
-                                <input type="radio" name="food" value="any" class="checkbox_input" id="any">
-                                <label class="checkbox_label" for="any">Любое</label>
+                                    <input type="radio" name="food" value="breakfast-supper" class="checkbox_input"
+                                           id="breakfast-supper">
+                                    <label class="checkbox_label" for="breakfast-supper">Завтрак и ужин</label>
+                                </div>
+                                <div class="mod_column-right">
+                                    <input type="radio" name="food" value="breakfast" class="checkbox_input"
+                                           id="breakfast">
+                                    <label class="checkbox_label" for="breakfast">Завтрак</label>
 
-                                <input type="radio" name="food" value="breakfast-supper" class="checkbox_input"
-                                       id="breakfast-supper">
-                                <label class="checkbox_label" for="breakfast-supper">Завтрак и ужин</label>
-
-
-                                <input type="radio" name="food" value="breakfast" class="checkbox_input" id="breakfast">
-                                <label class="checkbox_label" for="breakfast">Завтрак</label>
-
-                                <input type="radio" name="food" value="without" class="checkbox_input"
-                                       id="without">
-                                <label class="checkbox_label" for="without">Без питания</label>
-
+                                    <input type="radio" name="food" value="without" class="checkbox_input"
+                                           id="without">
+                                    <label class="checkbox_label" for="without">Без питания</label>
+                                </div>
 
                             </div>
 
@@ -220,31 +221,35 @@
 
                             <div class="radio_wrapper">
 
+                                <div class="mod_column-left">
+                                    <input type="radio" name="price" value="to-10" class="checkbox_input" id="to-10">
+                                    <label class="checkbox_label" for="to-10">до 10</label>
 
-                                <input type="radio" name="price" value="to-10" class="checkbox_input" id="to-10">
-                                <label class="checkbox_label" for="to-10">до 10</label>
+                                    <input type="radio" name="price" value="from51-to100" class="checkbox_input"
+                                           id="from51-to100">
+                                    <label class="checkbox_label" for="from51-to100">от 51 до 100</label>
 
-                                <input type="radio" name="price" value="from51-to100" class="checkbox_input"
-                                       id="from51-to100">
-                                <label class="checkbox_label" for="from51-to100">от 51 до 100</label>
+                                    <input type="radio" name="price" value="from501-to1000" class="checkbox_input"
+                                           id="from501-to1000">
+                                    <label class="checkbox_label" for="from501-to1000">от 501 до 1000</label>
 
-                                <input type="radio" name="price" value="from501-to1000" class="checkbox_input"
-                                       id="from501-to1000">
-                                <label class="checkbox_label" for="from501-to1000">от 501 до 1000</label>
-
-                                <input type="radio" name="price" value="from11-to50" class="checkbox_input"
-                                       id="from11-to50">
-                                <label class="checkbox_label" for="from11-to50">от 11 до 50</label>
-
-                                <input type="radio" name="price" value="from100-to500" class="checkbox_input"
-                                       id="from100-to500">
-                                <label class="checkbox_label" for="from100-to500">от 100 до 500</label>
-
-                                <input type="radio" name="price" value="over1000" class="checkbox_input"
-                                       id="over1000">
-                                <label class="checkbox_label" for="over1000">Более 1000</label>
+                                </div>
 
 
+                                <div class="mod_column-right">
+                                    <input type="radio" name="price" value="from11-to50" class="checkbox_input"
+                                           id="from11-to50">
+                                    <label class="checkbox_label" for="from11-to50">от 11 до 50</label>
+
+                                    <input type="radio" name="price" value="from100-to500" class="checkbox_input"
+                                           id="from100-to500">
+                                    <label class="checkbox_label" for="from100-to500">от 100 до 500</label>
+
+                                    <input type="radio" name="price" value="over1000" class="checkbox_input"
+                                           id="over1000">
+                                    <label class="checkbox_label" for="over1000">Более 1000</label>
+
+                                </div>
                             </div>
 
                         </fieldset>

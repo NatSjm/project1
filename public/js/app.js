@@ -14000,7 +14000,8 @@ module.exports = __webpack_require__(37);
  */
 
 __webpack_require__(12);
-__webpack_require__(36);
+//require('./index');
+
 
 // window.Vue = require('vue');
 //
@@ -14014,8 +14015,8 @@ __webpack_require__(36);
 //
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 //
-// // const files = require.context('./', true, /\.vue$/i)
-// // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 //
 // /**
 //  * Next, we will create a fresh Vue application instance and attach it to
@@ -14026,6 +14027,8 @@ __webpack_require__(36);
 // const app = new Vue({
 //     el: '#app'
 // });
+
+__webpack_require__(36);
 
 /***/ }),
 /* 12 */
@@ -36759,7 +36762,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-//$('body').css('background-color','red');
+//menu
 
 var addition = $(".additional-block");
 $(document).ready(function () {
@@ -36777,6 +36780,18 @@ $(document).ready(function () {
         },
 
         loop: true
+    });
+
+    //filter
+
+    $(".products-filter_toggler").click(function () {
+        $(".filter-wrapper").show(600);
+        $(this).hide();
+    });
+
+    $(".filter-close").click(function () {
+        $(".filter-wrapper").hide(600);
+        $(".products-filter_toggler").show();
     });
 });
 

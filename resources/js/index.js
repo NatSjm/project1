@@ -3,7 +3,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-//$('body').css('background-color','red');
+//menu
 
 let addition = $(".additional-block");
 $(document).ready(function(){
@@ -22,5 +22,20 @@ $(document).ready(function(){
         },
 
         loop: true
-    })
+    });
+
+
+//filter
+
+    $(".products-filter_toggler").click(function(){
+        $(".filter-wrapper").show(600);
+        $(this).hide();
+    });
+
+    $(".filter-close").click(function(){
+        $(".filter-wrapper").hide(600);
+        $(".products-filter_toggler").show();
+    });
 });
+
+
