@@ -156,7 +156,7 @@
         @include for-flex(column, space-between, stretch);
 
         & .fieldset {
-            padding:       20px;
+            padding:       16px;
             margin-bottom: 20px;
             & .fieldset_title {
                 @include font-settings(18px, 1.33);
@@ -247,6 +247,9 @@
                 @include font-settings(11px, 1.27);
                 letter-spacing: 0.3px;
                 color:          $med-grey;
+                font-family: $fnorm;
+                white-space: nowrap;
+
                 &:before {
                     bottom: -1px;
                 }

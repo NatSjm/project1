@@ -13,8 +13,9 @@
             </div>
 
         </div>
-        <div class="delimiter mod_color-light-green"></div>
+
     </header>
+    <div class="delimiter mod_color-light-green"></div>
     <div class="product-card_main">
         <h3 class="product-card_title headline-3 ">Индонезия (о.Бали)</h3>
         <h4 class="product-card_description headline-4">Вылет из Киева</h4>

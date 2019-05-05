@@ -25,7 +25,9 @@
 @section ('footer')
     @include('sections.footer.footer_unauthorized.footer_unauthorized')
 @show
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+
+@stack('scripts')
+
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

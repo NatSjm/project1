@@ -96,5 +96,7 @@
 
 
 @endsection
-
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+@endpush
 

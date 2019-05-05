@@ -1,16 +1,20 @@
  .products {
      @include media('d-only') {
          @include for-flex(column);
+
          align-items: center;
      }
      & .product-card {
          @include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
+
      }
+
      & .products-list {
          margin:        0;
          margin-left:   -10px;
          margin-right:  -10px;
          margin-bottom: 70px;
+
          @include media('d-only') {
              @include grid(3, 30px);
          }

@@ -255,7 +255,7 @@
                         </fieldset>
 
                         <fieldset class="filter_fields fieldset" id="children-accessibility">
-                            <label class="fieldset_title" for="children-accessibility">Доступно для детей</label>
+                            <label class="fieldset_title" for="children-accessibility">Доступно <br>для детей</label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="children-accessibility" id="">
                                     <option class="filter_option" value="yes">Да</option>
