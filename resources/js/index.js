@@ -13,6 +13,17 @@ $(document).ready(function(){
         addition.slideToggle(500);
     });
 
+    //about_button
+
+    $(".about_button").click(function(e){
+        e.preventDefault();
+        $(this).css("display", "none");
+
+        $(".about_info").css("height", "auto").addClass("unmasked");
+
+
+    });
+
 
 //swiper
     if($("body").hasClass("index")) {
@@ -46,6 +57,9 @@ $(document).ready(function(){
             filter.css('display', 'block');
         }
     });
+
+
+
 });
 
 

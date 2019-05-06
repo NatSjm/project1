@@ -3547,12 +3547,19 @@ div.color-box.mod_color-white {
   letter-spacing: normal;
 }
 
-.about p {
+.about .about_info {
   position: relative;
   margin-bottom: 21px;
 }
 
-.about p::after {
+@media screen and (max-width: 1279px) {
+  .about .about_info {
+    height: 400px;
+    overflow: hidden;
+  }
+}
+
+.about .about_info::after {
   content: '';
   height: 80px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
@@ -3564,26 +3571,34 @@ div.color-box.mod_color-white {
 }
 
 @media all and (min-width: 1px) {
-  .about p::after {
+  .about .about_info::after {
     display: block;
   }
 }
 
 @media all and (min-width: 600px) {
-  .about p::after {
+  .about .about_info::after {
     display: block;
   }
 }
 
 @media all and (min-width: 1280px) {
-  .about p::after {
+  .about .about_info::after {
     display: none;
   }
 }
 
-@media (min-width: 1280px) {
-  .show-more {
-    display: none;
+.about .about_info.unmasked::after {
+  display: none;
+}
+
+.about_button {
+  display: none;
+}
+
+@media (min-width: 1px) and (max-width: 599px) {
+  .about_button {
+    display: block;
   }
 }
 

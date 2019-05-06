@@ -90,8 +90,6 @@
     & .pictogram {
         margin-right: 21px;
 
-
-
         & .pictogram_title {
             display: none;
         }
@@ -229,9 +227,13 @@
     .headline-2 {
         @include font-settings(22px, 1.09);
     }
-    & p {
+    & .about_info {
         position:      relative;
         margin-bottom: 21px;
+        @media screen and(max-width: 1279px) {
+            height:   400px;
+            overflow: hidden;
+        }
         &::after {
             content:          '';
             height:           80px;
@@ -241,12 +243,17 @@
             right:            0;
             left:             0;
             @include media-set(display, (m: block, t: block, d: none));
+
+        }
+        &.unmasked::after {
+            display: none;
         }
     }
 }
 
-.show-more {
-    @include media('d-only') {
-        display: none;
+.about_button {
+    display: none;
+    @include media('m-only') {
+        display: block;
     }
 }
