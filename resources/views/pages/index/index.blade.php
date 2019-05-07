@@ -85,7 +85,7 @@
         </div>
     </section>
 
-    <section class="about cont  ">
+    <section class="about cont ">
         <h2 class="about_headline headline-2">О нас</h2>
         <p class="about_info text mod_normal">Туроператор ООО «Джоин АП!», плательщик налога на прибыль предприятий на
             общих

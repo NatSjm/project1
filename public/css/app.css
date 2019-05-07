@@ -3578,7 +3578,7 @@ div.color-box.mod_color-white {
 
 @media all and (min-width: 600px) {
   .about .about_info::after {
-    display: block;
+    display: none;
   }
 }
 
@@ -3588,7 +3588,12 @@ div.color-box.mod_color-white {
   }
 }
 
-.about .about_info.unmasked::after {
+.about .about_info.mod_full-size {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.about .about_info.mod_full-size::after {
   display: none;
 }
 

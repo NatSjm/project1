@@ -13,16 +13,18 @@ $(document).ready(function(){
         addition.slideToggle(500);
     });
 
+
+
     //about_button
 
     $(".about_button").click(function(e){
         e.preventDefault();
         $(this).css("display", "none");
 
-        $(".about_info").css("height", "auto").addClass("unmasked");
-
-
+        let newHeight = $(".about_info")[0].scrollHeight;
+        $(".about_info").addClass("mod_full-size").height(newHeight);
     });
+
 
 
 //swiper
@@ -57,7 +59,6 @@ $(document).ready(function(){
             filter.css('display', 'block');
         }
     });
-
 
 
 });

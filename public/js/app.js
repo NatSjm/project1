@@ -36778,7 +36778,8 @@ $(document).ready(function () {
         e.preventDefault();
         $(this).css("display", "none");
 
-        $(".about_info").css("height", "auto").addClass("unmasked");
+        var newHeight = $(".about_info")[0].scrollHeight;
+        $(".about_info").addClass("mod_full-size").height(newHeight);
     });
 
     //swiper
