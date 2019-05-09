@@ -1,5 +1,15 @@
+
+
 .index .cont {
     max-width: 940px;
+}
+
+.index .product-card{
+    @media screen and(max-width: 660px) {
+        &:nth-child(6) {
+            display: block;
+        }
+    }
 }
 
 .main-banner {
@@ -11,6 +21,11 @@
     // background: url('/img/main-banner.jpg') bottom center / cover no-repeat;
     // @include for-flex(column, center, center);
 
+}
+.arrow{
+    width: 24px;
+    height: 24px;
+    fill: $dark-grey;
 }
 
 .swiper-container {
@@ -42,10 +57,17 @@
 
 .main-banner_title {
     @include font-settings(30px, 0.8);
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+
     @include media('d-only') {
-        @include font-settings(48px, 0.5, 1.2px);
+        @include font-settings(48px, 0.5);
+        letter-spacing: 2px;
+
     }
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .main-banner_description {
@@ -53,12 +75,19 @@
     @include media('d-only') {
         @include font-settings(24px, 1);
     }
-    margin-bottom: 15px;
+    margin-bottom: 26px;
+    padding-left: 2px;
+    margin-top: 0;
+    word-spacing: 3px;
 }
 
 .main-banner_link.button {
     border: 2px solid $white;
     width:  160px;
+   padding-left: 8px;
+    letter-spacing: normal;
+    //word-spacing: -1px;
+
 }
 
 .section-headlines {
@@ -74,6 +103,7 @@
     & .show-all {
         @include font-settings(14px, 1.43);
         color: $dark-grey;
+
     }
 
 }
@@ -81,14 +111,14 @@
 .recreation-types {
     @include for-flex(row, space-between, center);
     background-color: $med-milk;
-    min-height:       80px;
+    height:       80px;
     width:            100%;
     @include media('d-only') {
-        min-height: 100px;
+        height: 100px;
     }
 
     & .pictogram {
-        margin-right: 21px;
+        margin-right: 20px;
 
         & .pictogram_title {
             display: none;
@@ -150,16 +180,32 @@
     @media screen and (max-width: 980px) {
         width:  100%;
         margin: 0 0;
-        & h3 {
+        & .headline-3 {
             margin-left: 20px;
         }
 
     }
-    & h3 {
+    & .headline-3 {
         color:        $dark-blue;
         white-space:  nowrap;
-        margin-right: 52px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 3px;
+
+        margin-right: 4px;
+
+        letter-spacing: 0.6px;
+
     }
+
+
+    & .arrow{
+        fill: $dark-blue;
+        margin-right: 14px;
+
+    }
+
+
 
     & .pictogram_container:hover,
     & .pictogram_container:active,
@@ -174,7 +220,9 @@
 }
 
 .recommendations {
-    padding-top: 56px;
+    padding-top: 60px;
+    letter-spacing: 1px;
+    word-spacing: 4px;
     & h3 {
         margin: 0;
     }
@@ -183,13 +231,30 @@
         text-decoration: none;
         color:           $dark-grey;
         @include font-settings(14px, 1.43);
+        word-spacing: normal;
         font-weight:     600;
+        padding: 0;
+        margin-top: -5px;
+        @include for-flex(row, flex-left, center);
+        & .arrow{
+            margin-left: 14px;
+            margin-top: 5px;
+
+        }
+
+
     }
 }
 
 .hot-tours {
     @extend .recommendations ;
+    padding-top: 42px;
+
+    & .show-all{
+
+    }
 }
+
 
 .products-list {
     @include grid(3, 20px);
@@ -204,7 +269,7 @@
         }
 
     }
-    margin-top:      34px;
+    margin-top:      26px;
     @include media('d-only') {
         margin-top: 20px;
     }
@@ -224,12 +289,13 @@
 
 .about {
     margin-bottom: 100px;
+    padding-top: 22px;
     .headline-2 {
         @include font-settings(22px, 1.09);
     }
     & .about_info {
         position:      relative;
-        margin-bottom: 21px;
+        margin-bottom: 38px;
 
 
 

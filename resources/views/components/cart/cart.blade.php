@@ -3,6 +3,6 @@
         <use xlink:href="#shopping-cart"></use>
     </svg>
 
-    <span>Корзина</span> <span class="price">(3 555 ₿)</span>
+    <span>Корзина</span> <span class="price">(3 555 ₿ )</span>
 </div>
 
