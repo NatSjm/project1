@@ -4,12 +4,16 @@
         padding-top: 24px;
 
         & .breadcrumbs {
-            margin-bottom: 0;
+            margin-bottom: 2px;
+
         }
 
         & h2.headline-2 {
             margin:        0;
             margin-bottom: 12px;
+            @include media('d-only'){
+                margin-bottom: 37px;
+            }
         }
         & .products {
             @include for-flex(column);
@@ -157,13 +161,15 @@
 
         & .fieldset {
             padding:       16px;
+            padding-top: 18px;
+
             margin-bottom: 20px;
             & .fieldset_title {
                 @include font-settings(18px, 1.33);
-                font-weight:    bold;
+                font-family: $fbold;
                 text-transform: uppercase;
                 color:          $dark-blue;
-                margin-bottom:  20px;
+                margin-bottom:  18px;
             }
             & .select-wrapper {
                 width:         100%;
@@ -180,7 +186,9 @@
                 @include font-settings(12px, 1.5);
                 color:              $nero;
                 position:           relative;
-                padding:            20px;
+                padding-left:            20px;
+                padding-top: 10px;
+                padding-bottom: 13px;
                 z-index:            3;
                 background:         transparent;
                 width:              100%;

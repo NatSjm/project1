@@ -1,151 +1,145 @@
-.product-card{
-  //width: 300px;
-  margin-bottom: 20px;
-  //@include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
+.product-card {
+    //width: 300px;
+    margin-bottom: 20px;
+    //@include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
     @media screen and(max-width: 660px) {
         &:nth-child(n+6) {
             display: none;
         }
     }
-  &:hover{
-    box-shadow: 0 4px 8px 0 rgba(2, 56, 129, 0.17);
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(2, 56, 129, 0.17);
 
-  }
-
-  &.seller_view:hover{
-    box-shadow: none;
-
-    & .product-card_mask{
-      opacity: 1;
     }
-  }
 
+    &.seller_view:hover {
+        box-shadow: none;
 
-}
-
-
-.product-card_header{
-
-
-  position: relative;
-  height: 216px;
-
+        & .product-card_mask {
+            opacity: 1;
+        }
+    }
 
 }
 
-.product-card_img{
-  //border-bottom: 4px solid $light-green;
- @include absolute-extend();
+.product-card_header {
+
+    position: relative;
+    height:   216px;
+
+}
+
+.product-card_img {
+
+    @include absolute-extend();
     object-fit: cover;
 
 }
 
-.delimiter{
-  //position:absolute;
-  width: 100%;
-  height: 4px;
+.delimiter {
+
+    width:            100%;
+    height:           4px;
     background-color: $light-green;
- // bottom: 0;
-  //left: 0;
-  //right: 0;
+
 }
 
-.product-card_info{
-  position: absolute;
-  bottom: 16px;
-  left: 20px;
-  right: 20px;
-  color: $white;
-  font-weight: bold;
-  @include for-flex();
-  align-items: baseline;
+.product-card_info {
+    position:    absolute;
+    bottom:      10px;
+    left:        20px;
+    right:       20px;
+    color:       $white;
+    font-weight: bold;
+    @include for-flex();
+    align-items: baseline;
 }
 
-.product-card_term{
-  @include font-settings(14px, 1.43);
+.product-card_term {
+    @include font-settings(14px, 1.43);
 }
 
 .product-card_icon {
-  width: 14px;
-  height: 13px;
-  & use{
-    fill: $white;
-  }
+    width:        14px;
+    height:       13px;
+    margin-right: 5px;
+    & use {
+        fill: $white;
+    }
 }
 
-.product-card_price{
-  @include font-settings(18px, 1.33)
+.product-card_price {
+    @include font-settings(18px, 1.33)
 }
 
-.product-card_main{
-  @include for-flex(column, center);
-  height: 160px;
-  align-items: center;
-  border-radius: 0 0 4px 4px;
-  border: 2px solid #f6fafb;
-  padding-top: 18px;
-  padding-bottom: 40px;
-  & h3.product-card_title{
-    color: $med-blue;
-    line-height: 1.33;
-    margin: 0;
-  }
-  & h4.product-card_description{
-    margin-top: 0;
-    @include font-settings(14px, 1.43);
-    color: $light-grey;
-    font-weight: normal;
-  }
+.product-card_main {
+    @include for-flex(column, center);
+    height:         160px;
+    align-items:    center;
+    border-radius:  0 0 4px 4px;
+    border:         2px solid #f6fafb;
+    padding-top:    18px;
+    padding-bottom: 40px;
+    & h3.product-card_title {
+        color:       $med-blue;
+        line-height: 1.33;
+        margin:      0;
+    }
+    & h4.product-card_description {
+        margin-top:  0;
+        @include font-settings(14px, 1.43);
+        color:       $light-grey;
+        font-weight: normal;
+    }
 
-  & .button{
-    margin-top: auto;
-  }
+    & .button {
+        margin-top: auto;
+    }
 }
 
 .product-card_mask {
-  display: block;
-  background-color: rgba(0, 0, 0, .5);
-  @include absolute-extend();
-  opacity: 0;
-  transition: $transition;
+    display:          block;
+    background-color: rgba(0, 0, 0, .5);
+    @include absolute-extend();
+    opacity:          0;
+    transition:       $transition;
 }
 
-.edit-icons{
-  @include centering('both');
-  @include for-flex(row, center);
+.edit-icons {
+    @include centering('both');
+    @include for-flex(row, center);
 
-  & div{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: solid 1px $white;
-    position: relative;
-    & use{
-      fill: $white;
+    & div {
+        width:         30px;
+        height:        30px;
+        border-radius: 50%;
+        border:        solid 1px $white;
+        position:      relative;
+        & use {
+            fill: $white;
+        }
+
+        & .edit-icon {
+            width:    14px;
+            height:   14px;
+            position: absolute;
+            left:     7px;
+            top:      7px;
+
+        }
+
+        & .delete-icon {
+            width:    12px;
+            height:   16px;
+            position: absolute;
+            left:     8px;
+            top:      6px;
+
+        }
+
+        &:first-child {
+            margin-right: 10px;
+        }
     }
-
-    & .edit-icon{
-      width: 14px;
-      height: 14px;
-      position: absolute;
-      left: 7px;
-      top: 7px;
-
-    }
-
-    & .delete-icon{
-      width: 12px;
-      height: 16px;
-      position: absolute;
-      left: 8px;
-      top: 6px;
-
-
-    }
-
-    &:first-child{
-      margin-right: 10px;
-    }
-  }
 }
 

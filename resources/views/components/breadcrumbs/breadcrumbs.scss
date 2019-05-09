@@ -1,27 +1,28 @@
-ul.breadcrumbs{
+ul.breadcrumbs {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin:     0;
+    padding:    0;
 
 
     & .breadcrumbs_item {
         display:        inline-block;
         @include font-settings(11px, 1.27);
         letter-spacing: 0.3px;
-        margin-right:   8px;
+        margin-right:   3px;
 
-        &+li:before{
-            padding-right: 12px;
-            color:$light-green;
-            @include font-settings(14px);
-            font-family: 'Montserrat', sans-serif;
-            content: "\2192";
+        & + li:before {
+            padding-right: 5px;
+            color:         $light-green;
+            @include font-settings(10px);
+            font-family:   'Montserrat', sans-serif;
+            content:       "\2192";
+
 
         }
 
-        & a{
+        & a {
             text-decoration: none;
-            color: $med-grey;
+            color:           $med-grey;
         }
     }
 }
