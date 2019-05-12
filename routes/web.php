@@ -19,7 +19,7 @@ Route::get('/', function () {
                                        'name' => 'null',
                                        'title' => 'index',
                                         'body_class' => 'index',
-                                         'slider' => 'true']);
+                                         'slider' => true]);
 
 });
 
@@ -44,7 +44,7 @@ Route::get('/product', function () {
     return view('/pages/product/product', ['name' => 'img/mountains.jpg',
                                          'body_class'=> 'product-page',
                                          'crumb_level2'=>'Поиск',
-                                          'slider' => 'true']);
+                                          'slider' => true]);
 });
 
 
