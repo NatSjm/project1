@@ -5,7 +5,7 @@ $.ajaxSetup({
 });
 //menu
 
-let addition = $(".additional-block");
+let addition = $(".menu-mobile_wrapper");
 $(document).ready(function(){
     $(".hamburger").click(function (e) {
         e.preventDefault();

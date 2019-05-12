@@ -11,13 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('/pages/index/index', ['name1' =>'img/mountains.jpg',
                                        'name2' =>'img/palm.jpg',
                                         'name3' =>'img/train.jpg',
                                        'name' => 'null',
                                        'title' => 'index',
-                                        'body_class' => 'index']);
+                                        'body_class' => 'index',
+                                         'slider' => 'true']);
 
 });
 
@@ -37,4 +39,13 @@ Route::get('/search', function () {
                                          'body_class'=> 'search-page',
                                          'crumb_level2'=>'Поиск']);
 });
+
+Route::get('/product', function () {
+    return view('/pages/product/product', ['name' => 'img/mountains.jpg',
+                                         'body_class'=> 'product-page',
+                                         'crumb_level2'=>'Поиск',
+                                          'slider' => 'true']);
+});
+
+
 

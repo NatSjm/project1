@@ -26,6 +26,14 @@
     @include('sections.footer.footer_unauthorized.footer_unauthorized')
 @show
 
+
+
+
+@if($slider)
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+
+@endif
 @stack('scripts')
 
 <script src="{{ mix('js/app.js') }}"></script>

@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="additional-block">
+    <div class="menu-mobile_wrapper">
         @include ('sections/header/header_mobile_opened/header_mobile_opened')
     </div>
 
