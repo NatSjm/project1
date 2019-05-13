@@ -1,14 +1,23 @@
-ul.breadcrumbs {
+.breadcrumbs {
     list-style: none;
     margin:     0;
     padding:    0;
-
 
     & .breadcrumbs_item {
         display:        inline-block;
         @include font-settings(11px, 1.27);
         letter-spacing: 0.3px;
         margin-right:   3px;
+        &.mod_current {
+            color: $med-grey;
+            &:first-of-type:before {
+                padding-right: 5px;
+                color:         $light-green;
+                @include font-settings(10px);
+                font-family:   'Montserrat', sans-serif;
+                content:       "\2192";
+            }
+        }
 
         & + li:before {
             padding-right: 5px;
@@ -17,12 +26,12 @@ ul.breadcrumbs {
             font-family:   'Montserrat', sans-serif;
             content:       "\2192";
 
-
         }
 
         & a {
             text-decoration: none;
             color:           $med-grey;
         }
+
     }
 }

@@ -1,0 +1,23 @@
+.product-page{
+ & .product-page_breadcrumbs{
+     margin-top: 25px;
+ }
+   & .breadcrumbs {
+     @include for-flex(row, flex-left);
+       flex-wrap: wrap;
+   }
+
+
+    & .breadcrumbs_item{
+       white-space: nowrap;
+
+
+    }
+
+  &  .product_title{
+        text-transform: uppercase;
+
+    }
+
+
+}

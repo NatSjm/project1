@@ -13,13 +13,13 @@
 
 
 Route::get('/', function () {
-    return view('/pages/index/index', ['name1' =>'img/mountains.jpg',
-                                       'name2' =>'img/palm.jpg',
-                                        'name3' =>'img/train.jpg',
-                                       'name' => 'null',
-                                       'title' => 'index',
-                                        'body_class' => 'index',
-                                         'slider' => true]);
+    return view('/pages/index/index', ['name1'      => 'img/mountains.jpg',
+                                       'name2'      => 'img/palm.jpg',
+                                       'name3'      => 'img/train.jpg',
+                                       'name'       => 'null',
+                                       'title'      => 'index',
+                                       'body_class' => 'index',
+                                       'slider'     => true]);
 
 });
 
@@ -28,23 +28,25 @@ Route::get('/gydeline', function () {
 });
 
 Route::get('/seller', function () {
-    return view('/pages/seller/seller', ['name' => 'img/mountains.jpg',
-                                                'body_class'=> 'seller-page',
-                                                 'crumb_level2'=>'Михаил Павлов',
-                                                 'crumb_level3'=> 'Мои предложения']);
+    return view('/pages/seller/seller', ['name'         => 'img/mountains.jpg',
+                                         'body_class'   => 'seller-page',
+                                         'crumb_level2' => 'Михаил Павлов',
+                                         'crumb_level3' => ['Мои предложения']
+    ]);
 });
 
 Route::get('/search', function () {
-    return view('/pages/search/search', ['name' => 'img/mountains.jpg',
-                                         'body_class'=> 'search-page',
-                                         'crumb_level2'=>'Поиск']);
+    return view('/pages/search/search', ['name'         => 'img/mountains.jpg',
+                                         'body_class'   => 'search-page',
+                                         'crumb_level2' => 'Поиск']);
 });
 
 Route::get('/product', function () {
-    return view('/pages/product/product', ['name' => 'img/mountains.jpg',
-                                         'body_class'=> 'product-page',
-                                         'crumb_level2'=>'Поиск',
-                                          'slider' => true]);
+    return view('/pages/product/product', ['name'         => 'img/mountains.jpg',
+                                           'body_class'   => 'product-page',
+                                           'crumb_level2' => 'Михаил Павлов',
+                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*'],
+                                           'slider'       => true]);
 });
 
 
