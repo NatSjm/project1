@@ -11,7 +11,7 @@
 
         <div class="main-content">
             <div class="filter-wrapper mod_desctop">
-                <sidebar class="filter">
+                <aside class="filter">
                     <svg class="filter-close">
                         <use xlink:href="#close"></use>
                     </svg>
@@ -125,7 +125,8 @@
                         </fieldset>
 
                         <fieldset class="filter_fields fieldset" id="children-accessibility">
-                            <label class="fieldset_title" for="children-accessibility">Доступно <br>для детей</label>
+                            <label class="fieldset_title" for="children-accessibility"><span>Доступно </span><span>для
+                                    детей</span></label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="children-accessibility" id="">
                                     <option class="filter_option" value="yes">Да</option>
@@ -139,7 +140,7 @@
                         </fieldset>
 
                     </form>
-                </sidebar>
+                </aside>
             </div>
 
             <div class="main-content_wrapper">

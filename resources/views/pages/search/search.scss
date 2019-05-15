@@ -148,6 +148,8 @@
     .filter {
 
         padding: 20px;
+        padding-left: 0;
+        padding-right: 0;
         @include media('d-only'){
             padding: 0;
 
@@ -170,6 +172,12 @@
                 text-transform: uppercase;
                 color:          $dark-blue;
                 margin-bottom:  18px;
+                &[for="children-accessibility"]{
+                    @include for-flex(row, left);
+                    @include media('d-only'){
+                        flex-direction: column;
+                    }
+                }
             }
             & .select-wrapper {
                 width:         100%;
