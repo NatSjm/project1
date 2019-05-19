@@ -1,16 +1,26 @@
 
 .seller-page {
+    //& .header_top.mod_fixed,
+    //& .header_bottom.mod_fixed{
+    //    @include media('d-only') {
+    //        max-width:    1200px;
+    //        margin-left:  auto;
+    //        margin-right: auto;
+    //    }
+    //}
     & .cont {
         padding-top: 22px;
         @include for-flex(column, space-between, flex-start);
     }
-        & .checkbox {
+        & .filter_form {
             @include media('d-only') {
                 width:        200px;
                 margin-right: 40px;
             }
         }
-
+    & .filter_input{
+        margin-bottom:  16px;
+    }
         & .breadcrumbs {
             margin-bottom: 20px;
             @include media('d-only')
@@ -60,13 +70,15 @@
                 line-height: 11px;
             }
 
+
+
             & .checkbox_label {
-                margin-bottom:  16px;
+
                 @include font-settings(11px, 1.27);
                 letter-spacing: 0.3px;
                 color:          $med-grey;
                 &:before {
-                    bottom: -1px;
+                    bottom: -2px;
                 }
 
             }

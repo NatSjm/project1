@@ -1,17 +1,8 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+
+
+
 //menu
 
-let addition = $(".menu-mobile_wrapper");
-$(document).ready(function(){
-    $(".hamburger").click(function (e) {
-        e.preventDefault();
-        $(this).toggleClass("is-active");
-        addition.slideToggle(500);
-    });
 
 
 
@@ -25,36 +16,6 @@ $(document).ready(function(){
         $(".about_info").addClass("mod_full-size").height(newHeight);
     });
 
-
-
-//swiper
-    if($("body").hasClass("index")) {
-        var mySwiper = new Swiper('.swiper-container', {
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-
-            loop: true
-        });
-    }
-
-
-    if($("body").hasClass("product-page")){
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 'auto',
-            spaceBetween: 20,
-            centeredSlides: true,
-
-
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-
-            loop: true
-        });
-    }
 
 
 
@@ -80,6 +41,6 @@ $(document).ready(function(){
     });
 
 
-});
+
 
 

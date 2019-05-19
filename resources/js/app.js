@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -6,12 +5,27 @@
  */
 
 require('./bootstrap');
-//require('./index');
+/*components*/
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    require('./../views/sections/header/header');
+
+    require('./../views/pages/search/filter/filter');
 
 
+    if ($("body").hasClass("index")) {
+        require('./../views/pages/index/index');
+    } else if ($("body").hasClass("product-page")) {
+        require('./../views/pages/product/product');
+    }
 
 
-
+});
 // window.Vue = require('vue');
 //
 // /**
@@ -37,5 +51,4 @@ require('./bootstrap');
 //     el: '#app'
 // });
 
-require('./index');
 

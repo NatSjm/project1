@@ -12,12 +12,19 @@
 
         <div class="checkboxes">
             <h3 class="gydeline-headline-3">Чекбоксы</h3>
-            @include('./../components.checkboxes.checkbox')
+            @include('./../components.checkboxes.checkbox',['checkbox_name' => 'furniture',
+                                                             'checkbox_id' => 'sofa',
+                                                              'checkbox_value' => 'sofa',
+                                                              'checkbox_label' => 'Диван'
+                                                              ])
+
         </div>
+
+
 
         <div class="links">
             <h3 class="gydeline-headline-3">Ссылки</h3>
-        @include('./../components.links.link')
+            @include('./../components.links.link')
         </div>
 
         <div class="inputs">
@@ -30,7 +37,7 @@
             @include('./../components.pagination.pagination')
         </div>
 
-            <h3 class="gydeline-headline-3">Таблица</h3>
-            @include('./../components.table.table')
-        </div>
+        <h3 class="gydeline-headline-3">Таблица</h3>
+        @include('./../components.table.table')
+    </div>
 </section>

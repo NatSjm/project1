@@ -18,8 +18,8 @@ Route::get('/', function () {
                                        'name3'      => 'img/train.jpg',
                                        'name'       => 'null',
                                        'title'      => 'index',
-                                       'body_class' => 'index',
-                                       'slider'     => true]);
+                                       'body_class' => 'index'
+                                       ]);
 
 });
 
@@ -31,7 +31,11 @@ Route::get('/seller', function () {
     return view('/pages/seller/seller', ['name'         => 'img/mountains.jpg',
                                          'body_class'   => 'seller-page',
                                          'crumb_level2' => 'Михаил Павлов',
-                                         'crumb_level3' => ['Мои предложения']
+                                         'crumb_level3' => ['Мои предложения'],
+                                         'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
+                                                              'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep calm'=>'Спокойный отдых',
+                                                              'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
+                                                              'beach'=>'Пляжный', 'sp'=> 'SPA']
     ]);
 });
 
@@ -45,8 +49,8 @@ Route::get('/product', function () {
     return view('/pages/product/product', ['name'         => 'img/mountains.jpg',
                                            'body_class'   => 'product-page',
                                            'crumb_level2' => 'Михаил Павлов',
-                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*'],
-                                           'slider'       => true]);
+                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*']
+                                           ]);
 });
 
 
