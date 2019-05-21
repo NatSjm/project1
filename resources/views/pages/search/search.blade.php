@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="content_wrapper cont">
+    <div class="search-page_content-wrapper cont">
 
         @include('components.breadcrumbs.breadcrumbs')
 
-        <h2 class="headline-2">Поиск</h2>
+        <h2 class="search-page_title headline-2">Поиск</h2>
 
 
-        <div class="main-content">
+        <div class="search-page_main-content">
             <div class="filter-wrapper mod_desctop">
                 <aside class="filter">
                     <svg class="filter-close">
@@ -22,8 +22,10 @@
                             <label class="fieldset_title" for="country">Страна</label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="country" id="">
-                                    <option class="filter_option" value="all">Все</option>
-
+                                    <option class="filter_option" value="">Все</option>
+                                    <option class="filter_option" value="Germany">Германия</option>
+                                    <option class="filter_option" value="Hungary">Венгрия</option>
+                                    <option class="filter_option" value="France">Франция</option>
                                 </select>
                                 <svg class="filter_icon">
                                     <use xlink:href="#selector"></use>
@@ -36,6 +38,9 @@
                             <label class="fieldset_title" for="hotel-class">Класс отеля</label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="hotel-class" id="">
+                                    <option class="filter_option" value="">Любой</option>
+                                    <option class="filter_option" value="1-star">1<sup>*</sup></option>
+                                    <option class="filter_option" value="2-star">2<sup>*</sup></option>
                                     <option class="filter_option" value="3-star">3<sup>*</sup></option>
 
                                 </select>
@@ -49,9 +54,11 @@
                         <fieldset class="filter_fields fieldset" id="tour-type">
                             <label class="fieldset_title" for="tour-tipe">Тип тура</label>
                             <div class="select-wrapper">
-                                <select class="filter_select" name="tour-type" id="">
-                                    <option class="filter_option" value="keep-calm">Спокойный отдых</option>
-
+                                <select class="filter_select" name="category" id="">
+                                    <option class="filter_option" value="">Любой</option>
+                                    @foreach ($categories as $key=>$value)
+                                        <option class="filter_option" value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <svg class="filter_icon">
                                     <use xlink:href="#selector"></use>
@@ -65,8 +72,8 @@
                             <div class="radio_wrapper">
 
                                 <div class="mod_column-left">
-                                    <input type="radio" name="food" value="any" class="checkbox_input" id="any">
-                                    <label class="checkbox_label" for="any">Любое</label>
+                                    <input type="radio" name="food" value="supper" class="checkbox_input" id="supper">
+                                    <label class="checkbox_label" for="supper">Ужин</label>
 
                                     <input type="radio" name="food" value="breakfast-supper" class="checkbox_input"
                                            id="breakfast-supper">
@@ -129,7 +136,9 @@
                                     детей</span></label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="children-accessibility" id="">
-                                    <option class="filter_option" value="yes">Да</option>
+                                    <option class="filter_option" value="">Не имеет значения</option>
+                                    <option class="filter_option" value="yes">Доступно</option>
+                                    <option class="filter_option" value="yes">Не доступно</option>
 
                                 </select>
                                 <svg class="filter_icon">
@@ -161,14 +170,20 @@
                         </div>
                     </div>
                     <div class="products-filter_display">
-                        <ul class=products-filter_list">
-                            <li class="products-filter_item"><span>3<sup>*</sup></span></li>
+                        <ul class="products-filter_list">
                         </ul>
                         <div class="products-filter_reset">
                             <span>Очистить фильтр</span>
+                            <span class="dell-them-all">
+                            <svg class="filter-cleaner_icon">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                            </span>
                         </div>
 
                     </div>
+
+
                 </section>
 
 

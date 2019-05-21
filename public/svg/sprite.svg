@@ -415,6 +415,24 @@
         <path id="Path_487" data-name="Path 487" class="cls-2" d="M16.01,11H4v2H16.01v3L20,12,16.01,8Z"/>
     </symbol>
 
+    <syymbol class="icons" id="close-grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.533 10.533">
+        <defs>
+            <style>
+                fill: none;
+                .cls-1 {
+                fill: none;
+                stroke: black;
+                stroke-linecap: round;
+                }
+            </style>
+        </defs>
+        <g id="Group_703" data-name="Group 703" transform="translate(-377.174 -284.793)">
+            <line id="Line_54" data-name="Line 54" class="cls-1" x2="12.895" transform="translate(377.881 285.5) rotate(45)"/>
+            <line id="Line_55" data-name="Line 55" class="cls-1" y2="12.895" transform="translate(387 285.5) rotate(45)"/>
+        </g>
+    </syymbol>
+
+
 
 
 
