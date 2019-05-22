@@ -2,12 +2,16 @@
     list-style: none;
     margin:     0;
     padding:    0;
+    @include for-flex(row, flex-left);
+    flex-wrap: wrap;
 
     & .breadcrumbs_item {
         display:        inline-block;
         @include font-settings(11px, 1.27);
         letter-spacing: 0.3px;
         margin-right:   3px;
+        white-space: nowrap;
+
         &.mod_current {
             color: $med-grey;
             &:first-of-type:before {

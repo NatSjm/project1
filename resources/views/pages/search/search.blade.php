@@ -138,7 +138,7 @@
                                 <select class="filter_select" name="children-accessibility" id="">
                                     <option class="filter_option" value="">Не имеет значения</option>
                                     <option class="filter_option" value="yes">Доступно</option>
-                                    <option class="filter_option" value="yes">Не доступно</option>
+                                    <option class="filter_option" value="no">Не доступно</option>
 
                                 </select>
                                 <svg class="filter_icon">

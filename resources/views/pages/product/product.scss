@@ -1,22 +1,16 @@
 .product-page {
-    & .product-page_breadcrumbs {
+    &_breadcrumbs {
         margin-top: 25px;
-    }
-    & .breadcrumbs {
-        @include for-flex(row, flex-left);
-        flex-wrap: wrap;
-    }
-
-    & .breadcrumbs_item {
-        white-space: nowrap;
 
     }
 
-    & .product_title {
+    &_title {
         text-transform: uppercase;
         margin-bottom: 20px;
 
     }
+
+
 
     & .swiper-container {
         width:  100%;
@@ -54,34 +48,10 @@
         height:                  200px;
     }
 
-    & .product_img {
-        border-radius: 4px;
-        width:         100%;
-        height:        auto;
-        object-fit:    cover;
-    }
 
-    & .mod_cont-mobile{
-        @media screen and(max-width: 1279px){
-            width:     calc(100% - 40px);
-            margin: 0 auto;
-        }
-    }
 
-   & .product_purchase{
-       margin-bottom: 20px;
-       @include for-flex(column, space-between, center);
-   }
-    .product_price{
-        margin-bottom: 2px;
-        background-color: $light-milk;
-        color: $med-blue;
-        font-size: 22px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        font-weight: bold;
 
-    }
+
 
     & .product_tags{
         margin-bottom: 40px;
@@ -101,7 +71,37 @@
 
     }
 
-    & .product_buy-button{
+
+}
+.product{
+    & .product_img {
+        border-radius: 4px;
+        width:         100%;
+        height:        auto;
+        object-fit:    cover;
+    }
+
+    & product_info.mod_cont-mobile{
+        @media screen and(max-width: 1279px){
+            width:     calc(100% - 40px);
+            margin: 0 auto;
+        }
+    }
+}
+
+.purchase{
+    margin-bottom: 20px;
+    @include for-flex(column, space-between, center);
+    &_price{
+        margin-bottom: 2px;
+        background-color: $light-milk;
+        color: $med-blue;
+        font-size: 22px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-weight: bold;
+    }
+    &_buy-button{
         background-color: $light-milk;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -110,5 +110,5 @@
             font-size: 18px;
         }
     }
-
 }
+

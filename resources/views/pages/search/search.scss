@@ -1,6 +1,7 @@
 .search-page {
     @extend .seller-page;
 
+
     &_main-content {
         @include for-flex(column);
         @include media('d-only') {
@@ -131,36 +132,20 @@
                 color:            $nero;
                 @include font-settings(12px, 1.5);
                 @include for-flex(row, space-between);
-
-                //display:          inline-block;
                 margin-right:     10px;
-               //position:         relative;
+                 & .products-filter_text{
+                     margin-right: 10px;
+                 }
 
-                //&::after {
-                //    content:          "";
-                //    width:            10px;
-                //    height:           10px;
-                //    background-image: url('/svg/close-grey.svg');
-                //    @include centering('y');
-                //    right:            20px;
-                //
-                //}
+
+
 
             }
             & .products-filter_reset {
                 @include font-settings(12px, 1.83);
                 color:         $med-grey;
                 padding-right: 20px;
-                //position:      relative;
-                //&::after {
-                //    content:          "";
-                //    width:            10px;
-                //    height:           10px;
-                //    background-image: url('/svg/close-grey.svg');
-                //    @include centering('y');
-                //    right:            0;
-                //
-                //}
+
             }
         }
 
@@ -202,7 +187,7 @@
             font-family:    $fbold;
             text-transform: uppercase;
             color:          $dark-blue;
-            margin-bottom:  18px;
+            margin-bottom: 18px;
             &[for="children-accessibility"] {
                 @include for-flex(row, left);
                 @include media('d-only') {
@@ -215,6 +200,7 @@
             position:      relative;
             background:    $light-milk;
             border-radius: 4px;
+            margin-top: 18px;
         }
         & .filter_select {
             -webkit-appearance: none;
@@ -233,9 +219,6 @@
             width:              100%;
             min-width:          160px;
 
-            & .filter_option {
-
-            }
 
         }
         & .filter_icon {
@@ -267,6 +250,7 @@
 
     & .radio_wrapper {
         @include grid(2);
+        margin-top: 18px;
 
         @include media('d-only') {
             @include grid(1);

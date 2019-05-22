@@ -6,7 +6,9 @@
  */
 
 require('./bootstrap');
-/*components*/
+
+
+
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
@@ -14,11 +16,11 @@ $(document).ready(function() {
         }
     });
 
+
     require('./../views/sections/header/header');
 
     require('./../views/pages/search/filter/filter');
 
-    require('./index');
 
 
 
