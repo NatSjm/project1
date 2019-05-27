@@ -1,15 +1,49 @@
 import Swiper from 'Swiper';
 
-var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 'auto',
-        spaceBetween: 20,
-        centeredSlides: true,
+
+function  sliderResiser() {
+    if (window.matchMedia("screen and (min-width: 1280px)").matches) {
+
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            loop: true,
+            freeMode: true,
+            loopedSlides: 5, //looped slides should be the same
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+
+        });
+        var galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+            loop:true,
+            loopedSlides: 5,
+            //looped slides should be the same
+
+            thumbs: {
+                swiper: galleryThumbs,
+
+            },
+        });
+
+    } else {
 
 
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        },
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            centeredSlides: true,
 
-        loop: true
-    });
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+
+            loop: true
+        });
+
+    }
+}
+sliderResiser();
+$(window).resize(sliderResiser);

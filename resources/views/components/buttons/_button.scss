@@ -33,5 +33,18 @@
         }
     }
 
+    &.mod_green-bordered{
+        background-color: white;
+        border: solid 2px $light-green;
+        color: $light-green;
+        width: auto;
+        padding-left: 22px;
+        padding-right: 22px;
+        font-size: 14px;
+        line-height: 36px;
+
+
+    }
+
 }
 

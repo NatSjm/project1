@@ -18,29 +18,35 @@
     font-style:  normal;
 }
 
-
+h1, h2, h3, h4{
+    padding: 0;
+    margin: 0;
+}
 .headline{
     &-1{
         @include font-settings (24px);
         font-family: $fbold;
         color:       $nero;
+
     }
     &-2{
         @include font-settings(18px, 1.11);
         font-family: $fbold;
         color:       $nero;
+
     }
 
     &-3{
         @include font-settings(18px, 1.11);
         font-family: $fbold;
         color:       $nero;
+
     }
 
     &-4{
         @include font-settings(16px, 1.38);
         font-family: $fbold;
-        color:       $nero;
+
     }
 }
 

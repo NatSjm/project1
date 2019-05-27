@@ -18,9 +18,11 @@ $(document).ready(function() {
 
 
     require('./../views/sections/header/header');
+    // require('./storage');
 
     require('./../views/pages/search/filter/filter');
 
+    require('./index');
 
 
 

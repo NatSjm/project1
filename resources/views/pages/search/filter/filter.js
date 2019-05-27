@@ -45,6 +45,7 @@ var Storage = (function() {
     };
 })();
 
+
 var form = $('.filter_form');
 var select = $('.filter_select');
 var input = $('.checkbox_input');
@@ -85,10 +86,6 @@ form.on('change', 'select, input', function (e) {
     }else{
         Collection.removeFilterItem(name);
     }
-    console.log(filterItem);
-
-
-
 });
 
 filterCleaner.click(function () {
