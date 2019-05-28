@@ -15,9 +15,28 @@
         height:        100%;
         margin-bottom: 20px;
         @include media('d-only') {
-            height:       300px;
+
             margin-left:  auto;
             margin-right: auto;
+            &.gallery-top {
+                height:        340px;
+                margin-bottom: 10px;
+                width:         100%
+            }
+            &.gallery-thumbs {
+                height:     70px;
+                box-sizing: border-box;
+                //padding:    10px 0;
+                & .swiper-slide {
+                    flex:          0 0 70px;
+                    border-radius: 4px;
+                    height:        100%;
+                    opacity:       0.4;
+                    &.swiper-slide-thumb-active {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
     & .swiper-slide {
@@ -49,37 +68,34 @@
                 content:          '';
             }
         }
-        @media screen and(min-width: 1280px) {
+        @include media ('d-only') {
             background-size:     cover;
             background-position: center;
-
-            & .gallery-top {
-                height: 80%;
-                width:  100%;
-            }
-            & .gallery-thumbs {
-                height:     20%;
-                box-sizing: border-box;
-                padding:    10px 0;
-            }
-            & .gallery-thumbs .swiper-slide {
-                height:  100%;
-                opacity: 0.4;
-            }
-            & .gallery-thumbs .swiper-slide-thumb-active {
-                opacity: 1;
-            }
-
         }
     }
 
-    &_revews{
+    &_revews {
         margin-bottom: 50px;
+    }
+
+    &_similar{
+        margin-bottom: 60px;
+        @include media('d-only'){
+            margin-bottom: 100px;
+        }
     }
 
 }
 
 .product {
+    @include media ('d-only') {
+        @include for-flex(row, space-between, stretch);
+        max-width:     1200px;
+        margin:        0 auto;
+        width:         calc(100% - 80px);
+        margin-bottom: 40px;
+
+    }
     &_slider {
         &.mod_mobile {
             display: block;
@@ -90,8 +106,16 @@
         &.mod_desctop {
             display: none;
             @include media('d-only') {
-                display: block;
+                display:       block;
+                width:         420px;
+                border:        4px solid $light-milk;
+                border-radius: 4px;
+                padding:       40px;
+                border-right:  none;
+                order:         1;
+
             }
+
         }
 
     }
@@ -104,23 +128,38 @@
     }
 
     &_info,
-    &_description{
+    &_description {
 
         &.mod_cont-mobile {
             @media screen and(max-width: 1279px) {
-                width:  calc(100% - 40px);
-                margin: 0 auto;
-                margin-bottom: 40px;
+                width:          calc(100% - 40px);
+                margin:         0 auto;
+                margin-bottom:  40px;
                 padding-bottom: 0;
-                margin-bottom: 40px;
+                margin-bottom:  40px;
             }
         }
 
     }
 
-&_description p{
-    margin-bottom: 20px;
-}
+    &_info {
+        @include media('d-only') {
+            order:       3;
+            flex:        0 0 240px;
+            margin-left: 20px;
+        }
+    }
+
+    &_description {
+        @include media('d-only') {
+            order:       2;
+            border-left: none;
+            padding:     40px 40px 40px 0;
+        }
+        & p {
+            margin-bottom: 20px;
+        }
+    }
 
 }
 
@@ -166,22 +205,22 @@
 }
 
 .tag {
-     padding-top: 15px;
+    padding-top:    15px;
     padding-bottom: 20px;
-    &.mod_seller{
+    &.mod_seller {
         padding-left: 55px;
-        position: relative;
+        position:     relative;
 
-        &:before{
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        &:before {
+            content:          '';
+            position:         absolute;
+            width:            40px;
+            height:           40px;
+            border-radius:    50%;
             background-color: $light-grey;
-            left: 0;
+            left:             0;
             background-image: url('/img/pavl-large.jpg');
-            background-size: contain;
+            background-size:  contain;
 
         }
     }
@@ -195,71 +234,129 @@
     }
 }
 
-.tags{
-    padding-top: 0;
+.tags {
+    padding-top:    0;
     padding-bottom: 0;
     &_item {
-    border-bottom: 4px solid $light-milk;
-        &:last-child{
+        border-bottom: 4px solid $light-milk;
+        &:last-child {
             border-bottom: none;
         }
-}
+    }
 }
 
-.categories{
+.categories {
     @include for-flex(row, space-between);
     margin-bottom: 20px;
 }
 
-.description.text.mod_normal{
+.description.text.mod_normal {
     color: $nero;
 
 }
 
-.revews{
+.revews {
 
-    &_title{
+    &_title {
         margin-bottom: 15px;
 
     }
-    &_group{
-       margin-bottom: 40px;
-        padding-top: 0;
+    &_group {
+        margin-bottom:  40px;
+        padding-top:    0;
         padding-bottom: 0;
+        &.mod_border-grey {
+            @include media('d-only') {
+                padding: 0;
+
+            }
+        }
     }
 }
 
-.revew{
-    color: $med-grey;
+.revew {
+    color:         $med-grey;
     border-bottom: 4px solid $light-milk;
-    padding-top: 20px;
-    &:last-child{
+    padding-top:   20px;
+    @include media('d-only') {
+        padding:      40px;
+        padding-left: 195px;
+        position: relative;
+        &:before{
+            content: '';
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            background-image: url('/img/Efremova.jpg');
+            background-size:  contain;
+            position: absolute;
+            left: 40px;
+            top: 40px;
+
+
+        }
+    }
+    &:last-child {
         border-bottom: none;
     }
-    &_title{
+    &_title {
         color: $dark-blue;
     }
-    &_date{
+    &_date {
         @include font-settings(11px, 1.27);
         letter-spacing: 0.3px;
     }
 
-    &_revewer-link{
+    &_revewer-link {
 
         color: $med-grey;
 
-
+    }
+    &_text{
+        p{
+            margin-top: 10px;
+        }
     }
 }
 
-.revew-form{
-    &_label{
+.revew-form {
+    &_label {
         @include font-settings(18px, 1.11);
         font-weight: bold;
+        //margin-bottom: 15px;
+
     }
-    &_fieldset{
-        @include for-flex(column, space-between, stretch);
+    &_fieldset {
+        //@include for-flex(column, space-between, stretch);
+        margin-top: 15px;
+        @include media('d-only'){
+            padding: 40px;
+
+
+        }
+
     }
+
+    &_fieldset-wrapper{
+        @include media('d-only') {
+            @include for-flex(row, space-between, stretch);
+        }
+    }
+    &_textarea-wrapper{
+      flex-grow: 2;
+    }
+    &_input-wrapper{
+
+        @include media('d-only') {
+
+            @include for-flex(column, space-between);
+
+            flex: 0 0 400px;
+            margin-left: 20px;
+        }
+    }
+
+
     &_input {
         margin-bottom:    20px;
         border:           none;
@@ -269,63 +366,105 @@
         padding:          20px;
         color:            $med-grey;
         @include font-settings(11px, 1.27);
+        @include media('d-only'){
+            height: 40px;
+        }
+        &.mod_text{
+            height: 220px;
+            @include media('d-only'){
+                height: 160px;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+
+
+
+
     }
-    &_submit{
-        width: 100%;
-        height: 50px;
+    &_submit {
+        width:       100%;
+        height:      50px;
         line-height: 50px;
-        cursor: pointer;
+        cursor:      pointer;
+        @include media ('d-only'){
+            height: 40px;
+            line-height: 40px;
+        }
+
 
     }
 }
-.similar{
-    &_title{
+
+.similar {
+    &_title {
         margin-bottom: 15px;
     }
-    &_group{
+    &_group {
+
         @include grid(2, 20px);
-        @media screen and(max-width: 599px){
+        @media screen and(max-width: 599px) {
             @include grid(1, 20px);
+        }
+        @include media('d-only'){
+            @include grid(4, 30px);
+            flex-wrap: nowrap;
+            & .product-card{
+                flex: 0 0 300px;
+                &.products-link{
+                    flex: 0 2;
+                }
+            }
+
         }
     }
 
 }
-.products-link{
-    @extend .product-card;
+
+.products-link {
+   // @extend .product-card;
+
     @include for-flex(column, center, center);
 
-    &_icon{
-        width: 54px;
-        height: 54px;
+
+
+    &_icon {
+        width:         54px;
+        height:        54px;
         border-radius: 50%;
-        border: 2px solid $dark-blue;
-        position: relative;
+        border:        2px solid $dark-blue;
+        position:      relative;
         &:before,
-        &:after{
-            content: '';
-            width: 2px;
-            height: 28px;
+        &:after {
+            content:          '';
+            width:            2px;
+            height:           28px;
             background-color: $dark-blue;
             @include centering('both');
         }
-        &:after{
+        &:after {
             transform: rotate(90deg) translateX(-14px);
 
         }
     }
-    &_link{
+    &_link {
         @include for-flex(column, center, center);
         text-decoration: none;
-        color: $dark-blue;
-        width: 200px;
+        color:           $dark-blue;
+        width:           200px;
     }
 
-    &_text{
+    &_text {
         @include font-settings(14px, 1.43);
         font-weight: bold;
-        text-align: center;
+        text-align:  center;
 
     }
 }
 
-
+//.fieldtest{
+//    @include media('d-only') {
+//        @include for-flex(row, space-between, stretch);
+//    }
+//}
