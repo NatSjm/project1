@@ -186,47 +186,6 @@
 
 
 
-// if (window.matchMedia("screen and (min-width: 1280px)").matches) {
-//
-//   var flag = true;
-//
-// } else {
-//
-//    var flag= false;
-//     /* the viewport is less than 400 pixels wide */
-// }
-//
-// $(window).resize(function(){
-//
-//     if((this.matchMedia("screen and (min-width: 1280px)").matches) && (flag===false)){
-//        flag= true;
-//     }
-//
-//     if((!this.matchMedia("screen and (min-width: 1280px)").matches) && (flag===true)){
-//         flag = false;
-//     }
-// });
-//
-//
-// if(flag===true){
-//     $('body').css("background-color", "red");
-// }else{
-//     $('body').css("background-color", "blue");
-// }
-
-// function  sliderResiser() {
-//     if (window.matchMedia("screen and (min-width: 1280px)").matches) {
-//         $('body').css("background-color", "red");
-//
-//
-// } else {
-//
-//         $('body').css("background-color", "blue");
-//     }
-// }
-// sliderResiser();
-// $(window).resize(sliderResiser);
-
 
 
 

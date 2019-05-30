@@ -58,5 +58,13 @@ Route::get('/product', function () {
                                            ]);
 });
 
+Route::get('/orders', function () {
+    return view('/pages/orders/orders', ['body_class'   => 'orders-page',
+                                               'crumb_level2' => 'Михаил Павлов',
+                                                'crumb_level3' => ['Мои заказы']
+    ]);
+});
+
+
 
 

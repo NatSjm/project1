@@ -117,9 +117,7 @@
             border:        solid 4px #f6fafb;
             border-radius: 4px;
 
-            & .products-filter_reset {
-                align-self: center;
-            }
+
             & .products-filter_list {
                 @include for-flex(row, flex-start);
             }
@@ -143,8 +141,13 @@
             }
             & .products-filter_reset {
                 @include font-settings(12px, 1.83);
+                align-self: center;
                 color:         $med-grey;
                 padding-right: 20px;
+
+                @media screen and(max-width: 1279px){
+                    margin-top: 10px;
+                }
 
             }
         }
@@ -302,6 +305,11 @@
 
     z-index:     3;
     stroke:      $nero;
+
+}
+
+.dell-them-all{
+    margin-left: 10px;
 
 }
 

@@ -22,6 +22,8 @@ $(document).ready(function() {
 
     require('./../views/pages/search/filter/filter');
 
+    require('./../views/pages/orders/orders');
+
     require('./index');
 
 
