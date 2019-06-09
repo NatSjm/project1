@@ -22,6 +22,18 @@
                             <img class="product_img" src="img/islands.jpg" alt=""></div>
                         <div class="swiper-slide">
                             <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
+                        <div class="swiper-slide">
+                            <img class="product_img" src="img/islands.jpg" alt=""></div>
                     </div>
 
                 </div>

@@ -18,13 +18,11 @@ $(document).ready(function() {
 
 
     require('./../views/sections/header/header');
-    // require('./storage');
 
-    require('./../views/pages/search/filter/filter');
 
-    require('./../views/pages/orders/orders');
 
     require('./index');
+
 
 
 
@@ -32,9 +30,13 @@ $(document).ready(function() {
         require('./../views/pages/index/index');
     } else if ($("body").hasClass("product-page")) {
         require('./../views/pages/product/product');
+    } else if ($("body").hasClass("search-page")) {
+        require('./../views/pages/search/filter/filter');
+    } else if($("body").hasClass("cart-page")){
+        require('./../views/pages/cart/cart');
+    } else if($("body").hasClass("orders-page")){
+        require('./../views/pages/orders/orders');
     }
-
-
 });
 // window.Vue = require('vue');
 //

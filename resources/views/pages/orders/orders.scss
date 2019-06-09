@@ -19,20 +19,16 @@
     }
 
     &_orders {
-        padding:       20px;
+        padding-bottom:       0;
         margin-bottom: 60px;
         @include media('d-only'){
             margin-bottom: 100px;
-            padding:       40px;
+            padding-bottom:       20px;
         }
     }
 }
 
-.orders {
-    width:           100%;
-    border-collapse: collapse;
 
-}
 
 .order {
     @include font-settings(16px, 1.38);

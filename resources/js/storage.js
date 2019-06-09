@@ -21,3 +21,5 @@ var Storage = (function() {
 
     };
 })();
+
+export default Storage;

@@ -4,8 +4,6 @@ import Swiper from 'Swiper';
 function  sliderResiser() {
     if (window.matchMedia("screen and (min-width: 1280px)").matches) {
 
-
-
         var galleryThumbs = new Swiper('.gallery-thumbs', {
             spaceBetween: 20,
             slidesPerView: 4,
@@ -25,6 +23,7 @@ function  sliderResiser() {
             spaceBetween: 10,
             loop:true,
             loopedSlides: 10,
+
 
 
 
@@ -51,12 +50,23 @@ function  sliderResiser() {
 
 
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false
             },
 
+
+            breakpointsInverse: true,
+            breakpoints: {
+
+                1279: {
+                    autoplay: false
+                }
+
+            },
             loop: true
+
         });
+
 
 
     }

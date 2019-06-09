@@ -6,7 +6,7 @@
         </div>
         <h2 class="headline-2 orders-page_title">Мои заказы</h2>
         <section class="orders-page_orders mod_border-grey">
-            <table class="orders">
+            <table class="orders table">
                 <tbody>
 
                 <tr class="order mod_color-light-milk">

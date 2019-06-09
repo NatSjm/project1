@@ -78,9 +78,9 @@
         margin-bottom: 50px;
     }
 
-    &_similar{
+    &_similar {
         margin-bottom: 60px;
-        @include media('d-only'){
+        @include media('d-only') {
             margin-bottom: 100px;
         }
     }
@@ -167,6 +167,9 @@
 
     @include for-flex(column, space-between, stretch);
     margin-bottom: 20px;
+    @include media('d-only') {
+        padding: 20px;
+    }
 
     &_price {
         background-color: $light-milk;
@@ -237,6 +240,10 @@
 .tags {
     padding-top:    0;
     padding-bottom: 0;
+    @include media('d-only') {
+        padding-left:  20px;
+        padding-right: 20px;
+    }
     &_item {
         border-bottom: 4px solid $light-milk;
         &:last-child {
@@ -281,18 +288,17 @@
     @include media('d-only') {
         padding:      40px;
         padding-left: 195px;
-        position: relative;
-        &:before{
-            content: '';
-            width: 100px;
-            height: 100px;
-            border-radius: 4px;
+        position:     relative;
+        &:before {
+            content:          '';
+            width:            100px;
+            height:           100px;
+            border-radius:    4px;
             background-image: url('/img/Efremova.jpg');
             background-size:  contain;
-            position: absolute;
-            left: 40px;
-            top: 40px;
-
+            position:         absolute;
+            left:             40px;
+            top:              40px;
 
         }
     }
@@ -312,8 +318,8 @@
         color: $med-grey;
 
     }
-    &_text{
-        p{
+    &_text {
+        p {
             margin-top: 10px;
         }
     }
@@ -329,33 +335,31 @@
     &_fieldset {
         //@include for-flex(column, space-between, stretch);
         margin-top: 15px;
-        @include media('d-only'){
+        @include media('d-only') {
             padding: 40px;
-
 
         }
 
     }
 
-    &_fieldset-wrapper{
+    &_fieldset-wrapper {
         @include media('d-only') {
             @include for-flex(row, space-between, stretch);
         }
     }
-    &_textarea-wrapper{
-      flex-grow: 2;
+    &_textarea-wrapper {
+        flex-grow: 2;
     }
-    &_input-wrapper{
+    &_input-wrapper {
 
         @include media('d-only') {
 
             @include for-flex(column, space-between);
 
-            flex: 0 0 400px;
+            flex:        0 0 400px;
             margin-left: 20px;
         }
     }
-
 
     &_input {
         margin-bottom:    20px;
@@ -366,21 +370,18 @@
         padding:          20px;
         color:            $med-grey;
         @include font-settings(11px, 1.27);
-        @include media('d-only'){
+        @include media('d-only') {
             height: 40px;
         }
-        &.mod_text{
+        &.mod_text {
             height: 220px;
-            @include media('d-only'){
-                height: 160px;
+            @include media('d-only') {
+                height:         160px;
                 padding-bottom: 0;
-                margin-bottom: 0;
-                width: 100%;
+                margin-bottom:  0;
+                width:          100%;
             }
         }
-
-
-
 
     }
     &_submit {
@@ -388,11 +389,10 @@
         height:      50px;
         line-height: 50px;
         cursor:      pointer;
-        @include media ('d-only'){
-            height: 40px;
+        @include media ('d-only') {
+            height:      40px;
             line-height: 40px;
         }
-
 
     }
 }
@@ -407,12 +407,12 @@
         @media screen and(max-width: 599px) {
             @include grid(1, 20px);
         }
-        @include media('d-only'){
+        @include media('d-only') {
             @include grid(4, 30px);
             flex-wrap: nowrap;
-            & .product-card{
+            & .product-card {
                 flex: 0 0 300px;
-                &.products-link{
+                &.products-link {
                     flex: 0 2;
                 }
             }
@@ -423,11 +423,9 @@
 }
 
 .products-link {
-   // @extend .product-card;
+    // @extend .product-card;
 
     @include for-flex(column, center, center);
-
-
 
     &_icon {
         width:         54px;

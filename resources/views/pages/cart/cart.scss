@@ -1,0 +1,178 @@
+.cart-page {
+
+    &_breadcrumbs{
+        margin-top: 24px;
+        @include media('d-only'){
+            margin-top: 22px;
+        }
+    }
+    &_title {
+        text-transform: uppercase;
+        margin-bottom:  37px;
+    }
+    &_main{
+        margin-bottom: 60px;
+        @include media('d-only'){
+            margin-bottom: 100px;
+        }
+    }
+
+}
+
+.full-cart{
+    @include for-flex(column, space-between, flex-end);
+    &_main{
+        align-self: stretch;
+    }
+    &_total{
+        @include for-flex(column, space-between, stretch);
+        @include media('d-only'){
+            width: 50%;
+            padding: 16px 36px;
+            @include for-flex(row, space-between, center);
+        }
+
+        width: 100%;
+
+
+    }
+    &_order-button{
+        margin-left: 40px;
+        @media screen and(max-width: 1279px){
+            width: 100%;
+            margin-left: 0;
+            margin-top: 15px;
+        }
+    }
+}
+
+.sum{
+    @include font-settings(22px, 1.09);
+    @include for-flex(row, space-between);
+    flex-grow: 3;
+    font-family: $fbold;
+    color: $nero;
+    text-transform: uppercase;
+    &_value{
+        color: $med-blue;
+        font-weight: bold;
+    }
+}
+
+
+
+.cart-products {
+    border-collapse: separate;
+    border-spacing: 0 16px;
+    @include media('d-only') {
+        border-spacing: 0 20px;
+        margin-bottom: 40px;
+    }
+    padding-top:     0;
+    padding-bottom:  0;
+    margin-bottom: 20px;
+
+    & td {
+        border: none;
+
+    }
+    @include media('d-only') {
+        & td:first-child {
+            padding-left: 40px;
+        }
+
+        & td:last-child {
+            padding-right: 60px;
+            text-align:    center;
+
+        }
+        padding-top:     16px;
+        padding-bottom:  16px;
+    }
+
+    &_head {
+
+        height:        60px;
+        color:         $med-blue;
+        font-weight:   bold;
+        @include font-settings(16px, 1.38);
+        border-bottom: 20px;
+        @media screen and(max-width: 1279px){
+            display: none;
+        }
+    }
+
+
+    &_delete {
+        width: 15%;
+    }
+    &_price {
+        width: 15%;
+
+    }
+
+}
+
+.cart-product {
+    &_name{
+        padding-right: 18px;
+    }
+
+    &_details {
+        @include for-flex(row, flex-left, center);
+    }
+    &_link {
+        text-decoration: none;
+        @include font-settings(12px, 1.5);
+        color:           $nero;
+    }
+
+    &_img {
+        width:        60px;
+        height:       60px;
+        margin-right: 20px;
+        @media screen and (max-width: 1279px){
+            display: none;
+        }
+
+    }
+    &_price {
+        color:       $nero;
+        @include font-settings(16px, 1.38);
+        font-weight: bold;
+        font-family: $fbold;
+        white-space: nowrap;
+    }
+    &_delete {
+        text-align: center;
+        @media screen and(max-width: 1279px){
+            padding-right: 18px;
+            padding-left: 18px;
+        }
+    }
+
+    &_delete-container {
+        width:         30px;
+        height:        30px;
+        border-radius: 50%;
+        border:        1px solid $light-grey;
+        display:       inline-block;
+        position:      relative;
+        cursor:        pointer;
+
+    }
+    &_delete-icon {
+        width:  12px;
+        height: 15px;
+        fill: $light-grey;
+        color: $light-grey;
+
+
+        @include centering('both');
+
+    }
+
+}
+
+
+

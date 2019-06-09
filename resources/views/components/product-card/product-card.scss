@@ -115,9 +115,9 @@
         border-radius: 50%;
         border:        solid 1px $white;
         position:      relative;
-        & use {
-            fill: $white;
-        }
+        //& use {
+        //    fill: $white;
+        //}
 
         & .edit-icon {
             width:    14px;
@@ -125,6 +125,7 @@
             position: absolute;
             left:     7px;
             top:      7px;
+            fill: white;
 
         }
 
@@ -134,6 +135,7 @@
             position: absolute;
             left:     8px;
             top:      6px;
+            fill: white;
 
         }
 
