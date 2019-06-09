@@ -35,7 +35,7 @@ $(document).ready(function() {
     } else if($("body").hasClass("cart-page")){
         require('./../views/pages/cart/cart');
     } else if($("body").hasClass("orders-page")){
-        require('./../views/pages/orders/orders');
+        require('./../views/pages/orders/order/order');
     }
 });
 // window.Vue = require('vue');

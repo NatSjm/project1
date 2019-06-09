@@ -1,0 +1,33 @@
+.order-item {
+    @include for-flex(row, space-between, stretch);
+    padding-bottom: 20px;
+    color:          $nero;
+    &_img {
+        width:        60px;
+        height:       60px;
+        flex:         0 0 60px;
+        margin-right: 20px;
+    }
+    &_info {
+        @include for-flex(row, space-between, center);
+        flex-grow: 2;
+        @media screen and (max-width: 1279px) {
+            @include for-flex(column, center, flex-start);
+        }
+    }
+    &_tags {
+        @include font-settings(12px, 1.5);
+        @media screen and (max-width: 1279px) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &_price {
+        @include media('d-only') {
+            width:      125px;
+            text-align: left;
+        }
+        @include font-settings(16px, 1.38);
+        font-weight: bold;;
+    }
+}
