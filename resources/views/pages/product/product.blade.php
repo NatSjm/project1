@@ -52,7 +52,7 @@
                         <div class="swiper-slide" style="background-image:url('/img/islands.jpg')"></div>
                         <div class="swiper-slide" style="background-image:url('/img/islands.jpg')"></div>
                     </div>
-                    <!-- Add Arrows -->
+
 
                 </div>
                 <div class="swiper-container gallery-thumbs">

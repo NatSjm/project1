@@ -74,7 +74,7 @@
                                 </div>
                             </td>
 
-                            <td class="cart-product_price">24 000 ₿</td>
+                            <td class="cart-product_price">24 000 </td>
                             <td class="cart-product_delete">
                                 <div class="cart-product_delete-container">
                                     <svg class="cart-product_delete-icon">

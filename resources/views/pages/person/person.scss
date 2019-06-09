@@ -1,0 +1,47 @@
+.person-page {
+    &_breadcrumbs {
+     margin-top: 24px;
+    }
+    &_title {
+        text-transform: uppercase;
+        margin-bottom:  35px;
+    }
+}
+
+.person {
+    margin-bottom: 40px;
+    &_input {
+        margin-bottom:    24px;
+        margin-top: 15px;
+        border:           none;
+        outline:          none;
+        background-color: $light-milk;
+        width:            100%;
+        padding:          12px 20px;
+        color:            $nero;
+        @include font-settings(12px, 1.5);
+        &[type="email"]{
+            margin-bottom: 0;
+        }
+    }
+    &_img{
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 45px;
+        margin-bottom: 40px;
+    }
+    &_label{
+        font-family: $fbold;
+        @include font-settings(16px, 1.38);
+        color: $nero;
+        font-weight: bold;
+    }
+    &_submit{
+       width: 100%;
+        margin-bottom: 60px;
+        @include media('d-only'){
+            margin-bottom: 100px;
+        }
+
+    }
+}

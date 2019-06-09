@@ -73,6 +73,13 @@ Route::get('/cart', function () {
     ]);
 });
 
+Route::get('/person', function () {
+    return view('/pages/person/person', ['body_class'   => 'person-page',
+                                     'crumb_level2' => 'Михаил Павлов',
+                                     'crumb_level3' => ['Личные данные']
+    ]);
+});
+
 
 
 
