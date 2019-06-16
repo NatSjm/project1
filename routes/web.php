@@ -44,7 +44,7 @@ Route::get('/search', function () {
                                          'body_class'   => 'search-page',
                                          'crumb_level2' => 'Поиск',
                                           'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
-                                                           'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep calm'=>'Спокойный отдых',
+                                                           'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
                                                            'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
                                                            'beach'=>'Пляжный', 'sp'=> 'SPA']
     ]);

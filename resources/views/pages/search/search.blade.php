@@ -72,8 +72,8 @@
                             <div class="radio_wrapper">
 
                                 <div class="mod_column-left">
-                                    <input type="radio" name="food" value="supper" class="checkbox_input" id="supper">
-                                    <label class="checkbox_label" for="supper">Ужин</label>
+                                    <input checked type="radio" name="food" value="" class="checkbox_input" id="any">
+                                    <label class="checkbox_label" for="any">Любое</label>
 
                                     <input type="radio" name="food" value="breakfast-supper" class="checkbox_input"
                                            id="breakfast-supper">
@@ -99,12 +99,13 @@
                             <div class="radio_wrapper">
 
                                 <div class="mod_column-left">
-                                    <input type="radio" name="price" value="to-10" class="checkbox_input" id="to-10">
-                                    <label class="checkbox_label" for="to-10">до 10</label>
+                                    <input checked type="radio" name="price" value="" class="checkbox_input"
+                                           id="to-10">
+                                    <label class="checkbox_label" for="to-10">Не важно</label>
 
-                                    <input type="radio" name="price" value="from51-to100" class="checkbox_input"
-                                           id="from51-to100">
-                                    <label class="checkbox_label" for="from51-to100">от 51 до 100</label>
+                                    <input type="radio" name="price" value="to100" class="checkbox_input"
+                                           id="to100">
+                                    <label class="checkbox_label" for="to100">до 100</label>
 
                                     <input type="radio" name="price" value="from501-to1000" class="checkbox_input"
                                            id="from501-to1000">
@@ -136,7 +137,7 @@
                                     детей</span></label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="children-accessibility" id="">
-                                    <option class="filter_option" value="">Не имеет значения</option>
+                                    <option class="filter_option" value="">Не важно</option>
                                     <option class="filter_option" value="yes">Доступно</option>
                                     <option class="filter_option" value="no">Не доступно</option>
 

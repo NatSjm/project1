@@ -13,7 +13,6 @@ html{
 body {
     font-family: $fnorm;
     @include media-set(padding-top, (m: 80px, t: 80px, d: 120px));
-
 }
 
 .cont {

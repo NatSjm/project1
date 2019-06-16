@@ -10,7 +10,7 @@ var addition = $(".menu-mobile_wrapper");
     $(".hamburger").click(function (e) {
         e.preventDefault();
         $(this).toggleClass("is-active");
-        addition.slideToggle(500);
+        addition.slideToggle(300);
     });
 
 
