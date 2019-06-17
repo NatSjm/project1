@@ -2,6 +2,7 @@
     @include font-settings(16px, 1.38);
     font-weight: bold;
     color:       $nero;
+    cursor: pointer;
     @media screen and(max-width: 1279px) {
         & td:nth-child(n + 3) {
             display: none;
