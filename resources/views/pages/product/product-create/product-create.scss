@@ -8,11 +8,12 @@
 
 .product-form{
     & .product-form_submit{
-        width: 251px;
+        width: 100%;
         margin-top: 40px;
         margin-bottom: 60px;
         @include media('d-only'){
             margin-bottom: 100px;
+            width: 251px;
         }
     }
     & .product-form_fieldset{
@@ -69,9 +70,7 @@
     }
 
     & .product-select_title {
-        font-weight: bold;
-        @include font-settings(16px, 1.38);
-        font-family: $fbold;
+        @extend %label-title;
 
     }
 
@@ -153,9 +152,7 @@
         margin-top: 40px;
     }
     & .textarea_title{
-        font-weight: bold;
-        @include font-settings(16px, 1.38);
-        font-family: $fbold;
+        @extend %label-title;
     }
     & .textarea_input{
         margin-top: 16px;

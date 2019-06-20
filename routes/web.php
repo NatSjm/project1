@@ -91,6 +91,13 @@ Route::get('/product/create', function () {
     ]);
 });
 
+Route::get('/enter', function () {
+    return view('/pages/enter/enter', ['body_class'   => 'enter-page'
+
+    ]);
+});
+
+
 
 
 

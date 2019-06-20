@@ -1,0 +1,95 @@
+.enter-page{
+    & .enter-page_breadcrumbs{
+        margin-top: 28px;
+
+    }
+
+    & .enter-page_title{
+        margin-bottom: 34px;
+        @include media('d-only') {
+            margin-bottom: 95px;
+        }
+    }
+
+    & .enter-page_form{
+        margin-bottom: 20px;
+        padding-bottom: 40px;
+    }
+
+    & .enter-page_main{
+        margin-bottom: 60px;
+       @include media('d-only'){
+           @include grid(2, 40px);
+           margin-bottom: 120px;
+
+       }
+    }
+}
+
+.entrance{
+    @include for-flex(column, space-between, stretch);
+
+    & .entrance_top{
+        margin-top: 17px;
+        @include for-flex(column);
+        @include media('d-only'){
+            @include for-flex(row);
+            @include grid(2, 20px);
+        }
+
+    }
+
+    & .entrance_input{
+        @media screen and(max-width: 1279px){
+            margin-bottom: 20px;
+        }
+    }
+
+    & .entrance_bottom{
+        @include for-flex(column, space-between, center);
+        @include media('d-only') {
+            @include for-flex(row, space-between, flex-start);
+        }
+    }
+
+    & .entrance_submit{
+        margin-top: 20px;
+        &.mod_color-light-green{
+            width: 100%;
+            @include media('d-only') {
+                width: calc(50% - 10px);
+            }
+        }
+        &.mod_color-med-blue{
+            @media screen and(max-width: 1279px){
+                order: 2;
+                width: 100%;
+            }
+        }
+
+    }
+
+    & .entrance_title{
+        @extend %label-title;
+        @media screen and(max-width: 1279px){
+            align-self: center;
+        }
+    }
+
+    & .entrance_link{
+        @include font-settings(12px, 1.83);
+        cursor: pointer;
+        @media screen and(max-width: 1279px){
+            order: 1;
+            margin-bottom: 30px;
+        }
+    }
+
+
+}
+
+%label-title{
+    font-weight: bold;
+    @include font-settings(16px, 1.38);
+    font-family: $fbold;
+}
