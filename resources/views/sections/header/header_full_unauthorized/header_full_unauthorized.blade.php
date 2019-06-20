@@ -33,7 +33,7 @@
     <div class="header_bottom">
         <div class="search">
             <form action="">
-                <input placeholder="Поиск предложений" type="search" class=" input search_input">
+                <input placeholder="Поиск предложений" type="search" class=" ginput search_input">
             </form>
         </div>
         <a class="add-tour mod_color-white" href="">+ Добавить тур</a>

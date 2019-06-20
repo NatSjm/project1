@@ -1,4 +1,4 @@
-.input {
+.ginput {
     width:         330px;
     @include media('m-only'){
         width: 100%;
@@ -37,5 +37,80 @@
     &.invalid {
         border: 1px solid #bf4924;
     }
+}
+.input{
+
+    border:           none;
+    outline:          none;
+    background-color: $light-milk;
+    width:            100%;
+    padding:          20px;
+    color:            $nero;
+    @include font-settings(12px, 1.5);
+
+    &::-webkit-input-placeholder {
+        color: $med-grey;
+        @include font-settings(11px, 1.27, 0.3px);
+    }
+    &::-moz-placeholder {
+        color:   $med-grey;
+        @include font-settings(11px, 1.27, 0.3px);
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: $med-grey;
+        @include font-settings(11px, 1.27, 0.3px);
+    }
+    &:-moz-placeholder {
+        color: $med-grey;
+        @include font-settings(11px, 1.27, 0.3px);
+    }
+    &::placeholder {
+        @include font-settings(11px, 1.27, 0.3px);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
 
 }
+
+ .select-wrapper {
+    width:         100%;
+    position:      relative;
+    background:    $light-milk;
+    border-radius: 4px;
+ }
+ .select {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border:             none;
+    outline:            none;
+    @include font-settings(12px, 1.5);
+    color:              $nero;
+    position:           relative;
+    padding-left:       20px;
+    padding-top:        10px;
+    padding-bottom:     13px;
+    z-index:            3;
+    background:         transparent;
+    width:              100%;
+     cursor: pointer;
+
+
+}
+.select_icon {
+    width:    12px;
+    //height:      10px;
+    //margin-left: -12px;
+    position: absolute;
+    right:    20px;
+    z-index:  2;
+    stroke:   $nero;
+    @include centering('y');
+
+
+}
+

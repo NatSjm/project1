@@ -10,6 +10,25 @@
 
 .person {
     margin-bottom: 40px;
+    @include media('d-only'){
+        width: 940px;
+        margin: 0 auto;
+        @include for-flex(row, space-between, stretch);
+        margin-bottom: 40px;
+    }
+
+    &_data{
+        @include media('d-only'){
+            @include for-flex(row, space-between);
+        }
+    }
+
+    &_fullname{
+        @include media('d-only'){
+            margin-right: 40px;
+        }
+    }
+
     &_input {
         margin-bottom:    24px;
         margin-top: 15px;
@@ -27,8 +46,16 @@
     &_img{
         width: 100%;
         border-radius: 4px;
-        margin-bottom: 45px;
         margin-bottom: 40px;
+
+        @include media('d-only'){
+            width: 180px;
+            height: 180px;
+            margin-right: 40px;
+            margin-bottom: 0;
+
+        }
+
     }
     &_label{
         font-family: $fbold;
@@ -39,8 +66,15 @@
     &_submit{
        width: 100%;
         margin-bottom: 60px;
+
         @include media('d-only'){
             margin-bottom: 100px;
+            width: 250px;
+
+            text-align: center;
+            margin-left: 130px;
+
+
         }
 
     }

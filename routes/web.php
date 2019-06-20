@@ -80,6 +80,17 @@ Route::get('/person', function () {
     ]);
 });
 
+Route::get('/product/create', function () {
+    return view('/pages/product/product-create/product-create', ['body_class'   => 'product-create-page',
+                                         'crumb_level2' => 'Михаил Павлов',
+                                         'crumb_level3' => ['Новое объявление'],
+                                         'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
+                                                                                  'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
+                                                                                  'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
+                                                                                  'beach'=>'Пляжный', 'sp'=> 'SPA']
+    ]);
+});
+
 
 
 

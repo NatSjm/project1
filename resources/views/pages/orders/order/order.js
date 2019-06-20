@@ -7,9 +7,9 @@
 //
 // });
 
-var switcher = $('.order');
-switcher.click(function(e){
-    let others = switcher.not($(this));
+var $switcher = $('.order');
+$switcher.click(function(e){
+    let others = $switcher.not($(this));
 
     if (others.hasClass('mod_opened')){
         others.removeClass('mod_opened');

@@ -33,8 +33,8 @@
 
 
             </div>
-            <input type="submit" class="person_submit button mod_color-med-blue" form="person_data" value="Сохранить
-            изменения">
+            <button type="submit" class="person_submit button mod_color-med-blue" form="person_data">Сохранить
+                изменения</button>
 
 
         </section>
