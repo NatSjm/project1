@@ -21,6 +21,7 @@ class AddForeignsToToursTable extends Migration
             $table->foreign('start_location_id')->references('id')->on('locations');
             $table->foreign('nutrition_id')->references('id')->on('nutritions');
             $table->foreign('hotel_id')->references('id')->on('hotels');
+            $table->foreign('seller_id')->references('id')->on('users');
         });
     }
 
@@ -39,6 +40,7 @@ class AddForeignsToToursTable extends Migration
             $table->dropForeign(['start_location_id']);
             $table->dropForeign(['nutrition_id']);
             $table->dropForeign(['hotel_id']);
+            $table->dropForeign(['seller_id']);
             //
         });
     }

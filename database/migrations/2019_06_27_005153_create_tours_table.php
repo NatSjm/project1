@@ -23,13 +23,13 @@ class CreateToursTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('tour_type_id');
             $table->unsignedBigInteger('seller_id');
-            $table->foreign('seller_id')->references('id')->on('users');
             $table->dateTime('start_at');
             $table->dateTime('finish_at');
             $table->unsignedInteger('start_location_id');
-            $table->boolean('for_children');
+            $table->boolean('for_children')->default(true);
             $table->unsignedInteger('nutrition_id');
             $table->unsignedInteger('hotel_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
