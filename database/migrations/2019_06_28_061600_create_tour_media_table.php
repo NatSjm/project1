@@ -18,7 +18,7 @@ class CreateTourMediaTable extends Migration
             $table->foreign('tour_id')->references('id')->on('tours');
             $table->unsignedBigInteger('media_id');
             $table->unique(['tour_id', 'media_id']);
-            $table->foreign('media_id')->references('id')->on('medias');
+            $table->foreign('media_id')->references('id')->on('media');
             $table->timestamps();
         });
     }

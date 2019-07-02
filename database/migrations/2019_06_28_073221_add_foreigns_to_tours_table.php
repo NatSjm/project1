@@ -15,7 +15,7 @@ class AddForeignsToToursTable extends Migration
     {
         Schema::table('tours', function (Blueprint $table) {
             $table->foreign('country_id')->references('id')->on('countries');
-            $table->foreign('main_img_id')->references('id')->on('medias');
+            $table->foreign('main_img_id')->references('id')->on('media');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('tour_type_id')->references('id')->on('tour_types');
             $table->foreign('start_location_id')->references('id')->on('locations');
