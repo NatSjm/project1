@@ -13,7 +13,7 @@ class CreateNutritionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nutritions', function (Blueprint $table) {
+        Schema::create('nutrition', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nutrition_type');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateNutritionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nutritions');
+        Schema::dropIfExists('nutrition');
     }
 }

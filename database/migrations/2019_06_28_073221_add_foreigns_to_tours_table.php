@@ -19,7 +19,7 @@ class AddForeignsToToursTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('tour_type_id')->references('id')->on('tour_types');
             $table->foreign('start_location_id')->references('id')->on('locations');
-            $table->foreign('nutrition_id')->references('id')->on('nutritions');
+            $table->foreign('nutrition_id')->references('id')->on('nutrition');
             $table->foreign('hotel_id')->references('id')->on('hotels');
             $table->foreign('seller_id')->references('id')->on('users');
         });

@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
         factory(\App\Models\Deal::class, 10)->create();
         factory(\App\Models\Media::class, 50)->create();
         $this->call(CategoriesTableSeeder::class);
-        //factory(\App\Models\Order::class, 30)->create();
+        $this->call(NutritionsTableSeeder::class);
+        $this->call(HotelsTableSeeder::class);
+        factory(\App\Models\Tour::class, 50)->create();
+        factory(\App\Models\Order::class, 30)->create();
+        factory(\App\Models\Comment::class, 50)->create();
 
 
     }

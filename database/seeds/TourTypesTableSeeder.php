@@ -21,10 +21,10 @@ class TourTypesTableSeeder extends Seeder
                  'gastronomic', 'family', 'spa', 'camera'];
         $tourTypes = [];
 
-        for ($i = 0; $i <= 10; $i++){
+        foreach ($tourTypesNames as $key => $tourType){
             $tourTypes[] = [
-            'name' => $tourTypesNames[$i],
-            'icon' => $icons[$i],
+            'name' => $tourType,
+            'icon' => $icons[$key],
             'created_at' => now(),
             'updated_at' => now(),
             ];

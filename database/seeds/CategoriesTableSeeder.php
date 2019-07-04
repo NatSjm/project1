@@ -15,9 +15,9 @@ class CategoriesTableSeeder extends Seeder
         $categoriesNames = ['Автобусные туры', 'Авиационные туры', 'Круизы'];
         $categories =[];
 
-        for ($i = 0; $i <= 2; $i++) {
-            $tourTypes[] = [
-                'name' => $categoriesNames[$i],
+        foreach ($categoriesNames as $cat) {
+            $categories[] = [
+                'name' => $cat,
             ];
         }
         DB::table('categories')->insert($categories);
