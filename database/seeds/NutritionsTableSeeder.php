@@ -15,11 +15,14 @@ class NutritionsTableSeeder extends Seeder
         $nutritionTypes = ['завтрак', 'завтрак и ужин', 'без питания'];
 
         foreach ($nutritionTypes as $nutr){
-            $newNutrition = new App\Models\Nutrition;
-
-            $newNutrition->nutrition_type = $nutr;
-
-            $newNutrition->save();
+//            $newNutrition = new App\Models\Nutrition;
+////
+////            $newNutrition->nutrition_type = $nutr;
+////
+////            $newNutrition->save();
+            App\Models\Nutrition::create([
+                'nutrition_type' => $nutr]);
+///
         }
 
         }

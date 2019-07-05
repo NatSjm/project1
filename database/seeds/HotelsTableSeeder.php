@@ -9,16 +9,19 @@ class HotelsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run ()
     {
 
 
-        for($i = 1; $i < 5; $i++){
-            $newHotel = new App\Models\Hotel;
+        for ($i = 1; $i < 5; $i++) {
 
-            $newHotel->hotel_class = $i;
-
-            $newHotel->save();
+            App\Models\Hotel::create([
+                'hotel_class' => $i]);
+//            $newHotel = new App\Models\Hotel;
+//
+//            $newHotel->hotel_class = $i;
+//
+//            $newHotel->save();
         }
 
     }

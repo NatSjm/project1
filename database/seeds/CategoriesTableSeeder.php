@@ -10,16 +10,14 @@ class CategoriesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run ()
     {
         $categoriesNames = ['Автобусные туры', 'Авиационные туры', 'Круизы'];
-        $categories =[];
 
         foreach ($categoriesNames as $cat) {
-            $categories[] = [
-                'name' => $cat,
-            ];
+            App\Models\Category::create([
+                'name' => $cat]);
+
         }
-        DB::table('categories')->insert($categories);
     }
 }

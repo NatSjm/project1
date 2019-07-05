@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run ()
     {
         factory(\App\Models\User::class, 10)->create();
         $this->call(TourTypesTableSeeder::class);

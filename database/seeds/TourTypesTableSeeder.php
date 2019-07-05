@@ -11,25 +11,19 @@ class TourTypesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run ()
     {
-        $tourTypesNames =  ['Индустриальный', 'Luxury', 'Все включено',
-                            'Семейный отдых', 'Гастрономический', 'Спокойный отдых',
-                            'Программа развлечений', 'Шоппинг', 'Экстрим',
-                            'Пляжный', 'SPA'];
+        $tourTypesNames = ['Индустриальный', 'Шоппинг', 'Экстрим', 'Luxury', 'Все включено', 'Программа развлечений',
+                           'Пляжный', 'Гастрономический',  'Семейный отдых', 'SPA','Спокойный отдых'];
         $icons = ['industrial', 'shopping', 'bike', 'boat', 'flower', 'entertainment', 'pool',
-                 'gastronomic', 'family', 'spa', 'camera'];
-        $tourTypes = [];
+                  'gastronomic', 'family', 'spa', 'camera'];
 
-        foreach ($tourTypesNames as $key => $tourType){
-            $tourTypes[] = [
-            'name' => $tourType,
-            'icon' => $icons[$key],
-            'created_at' => now(),
-            'updated_at' => now(),
-            ];
+
+        foreach ($tourTypesNames as $key => $tourType) {
+            App\Models\Tourtype::create([
+                'name' => $tourType,
+                'icon' => $icons[$key],
+            ]);
         }
-
-         DB::table('tour_types')->insert($tourTypes);
     }
 }

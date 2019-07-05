@@ -4,16 +4,24 @@
 
 html,
 body{
-    min-height: 100%;
+  //  min-height: 100%;
     min-height: 100vh;
 }
 html{
     position: relative;
 }
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 body {
     font-family: $fnorm;
     @include media-set(padding-top, (m: 80px, t: 80px, d: 120px));
+    padding-bottom: 200px;
+
 }
 
 .cont {
