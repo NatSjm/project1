@@ -6,7 +6,7 @@
 
         @include('components.breadcrumbs.breadcrumbs')
     </div>
-    <h2 class="headline-2 product-page_title cont">Отель Мираколь Неаполь </h2>
+    <h2 class="headline-2 product-page_title cont">{{ $tour->name }}</h2>
 
     <section class="product-page_main">
         <div class="product">
@@ -146,31 +146,33 @@
         </div>
     </section>
     <section class="product-page_revews cont">
-        <div class="revews">
-            <h2 class=" revews_title headline-2">Отзывы</h2>
 
-            <div class="revews_group mod_border-grey">
-                <div class="revew">
-                    <h3 class="headline-2 revew_title">Мария Ефремова</h3>
-                    <div class="revew_date">22 сентября 2018</div>
-                    <a href="" class="revew_revewer-link link">все объявления</a>
-                    <div class="revew_text text mod_normal">
-                        <p>Оценивайте трезво ситуацию, зачастую компания еще не готова к крауд-маркетингу. При наличии
-                            действительно качественной продукции можно использовать данный метод, однако, упоминание
-                            лишь плюсов сделает ваш комментарий неестественным. </p>
-                    </div>
+        <div class="revews">
+
+            @if(count($tour->comments))
+                <h2 class=" revews_title headline-2">Отзывы</h2>
+
+                <div class="revews_group mod_border-grey">
+                    @foreach($tour->comments as $comment)
+                        <div class="revew">
+                            @if($comment->user)
+                                <h3 class="headline-2 revew_title">{{ $comment->user->first_name . ' ' . $comment->user->last_name}}</h3>
+                            @endif
+
+                            <div class="revew_date">22 сентября 2018</div>
+
+                            @if($comment->user)
+                                <a href="{{ route('seller', $comment->user->id ) }}" class="revew_revewer-link link">все
+                                    объявления</a>
+                            @endif
+
+                            <div class="revew_text text mod_normal">
+                                <p>{{ $comment->content }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="revew">
-                    <h3 class="headline-2 revew_title">Мария Ефремова</h3>
-                    <div class="revew_date">22 сентября 2018</div>
-                    <a href="" class="revew_revewer-link link">все объявления</a>
-                    <div class="revew_text text mod_normal">
-                        <p>Оценивайте трезво ситуацию, зачастую компания еще не готова к крауд-маркетингу. При наличии
-                            действительно качественной продукции можно использовать данный метод, однако, упоминание
-                            лишь плюсов сделает ваш комментарий неестественным. </p>
-                    </div>
-                </div>
-            </div>
+            @endif
 
             <div class="revews_form">
                 <form class="revew-form" action="" id="revew">

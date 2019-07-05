@@ -23,6 +23,21 @@ Route::get('/', function () {
 
 });
 
+
+Route::get('tour/{id}', 'ProductController@show');
+Route::get('seller/{id}', 'ProductController@show')->name('seller');
+
+//Route::get('search', 'ProductController@index');
+
+//function () {
+//    return view('/pages/product/product', [
+//'name'         => 'img/mountains.jpg',
+//                                           'body_class'   => 'product-page',
+//                                           'crumb_level2' => 'Михаил Павлов',
+//                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*']
+//    ]);
+//}
+
 Route::get('/gydeline', function () {
     return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
 });
@@ -50,13 +65,7 @@ Route::get('/search', function () {
     ]);
 });
 
-Route::get('/product', function () {
-    return view('/pages/product/product', ['name'         => 'img/mountains.jpg',
-                                           'body_class'   => 'product-page',
-                                           'crumb_level2' => 'Михаил Павлов',
-                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*']
-                                           ]);
-});
+
 
 Route::get('/orders', function () {
     return view('/pages/orders/orders', ['body_class'   => 'orders-page',
