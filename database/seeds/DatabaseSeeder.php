@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\Models\Tour::class, 50)->create();
         factory(\App\Models\Order::class, 30)->create();
         factory(\App\Models\Comment::class, 50)->create();
-
+        $this->call(TourMediaTableSeeder::class);
 
     }
 }
