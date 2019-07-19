@@ -29,6 +29,10 @@
 
 }
 
+.product-card_link{
+    text-decoration: none;
+}
+
 .product-card_img {
 
     @include absolute-extend();

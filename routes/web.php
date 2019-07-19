@@ -12,20 +12,24 @@
 */
 
 
-Route::get('/', function () {
-    return view('/pages/index/index', ['name1'      => 'img/mountains.jpg',
-                                       'name2'      => 'img/palm.jpg',
-                                       'name3'      => 'img/train.jpg',
-                                       'name'       => 'null',
-                                       'tour'       => 'null',
-                                       'title'      => 'index',
-                                       'body_class' => 'index'
-                                       ]);
+//Route::get('/', function () {
+//    return view('/pages/index/index', ['name1'      => 'img/mountains.jpg',
+//                                       'name2'      => 'img/palm.jpg',
+//                                       'name3'      => 'img/train.jpg',
+//                                       'name'       => 'null',
+//                                       'tour'       => 'null',
+//                                       'title'      => 'index',
+//                                       'body_class' => 'index'
+//                                       ]);
+//
+//});
 
-});
+Route::get('/', 'IndexController')->name('index');
 
 
-Route::get('tour/{id}', 'ProductController@show');
+
+
+Route::get('tour/{id}', 'ProductController@show')->name('tour');
 Route::get('seller/{id}', 'ProductController@show')->name('seller');
 
 //Route::get('search', 'ProductController@index');

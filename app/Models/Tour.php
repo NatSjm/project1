@@ -93,6 +93,11 @@ class Tour extends Model
         return $finish->diffInDays($start);
     }
 
+    public function getPriceAttribute($value)
+    {
+        return number_format($value, 0, ',', ' ');
+    }
+
 
 
 }

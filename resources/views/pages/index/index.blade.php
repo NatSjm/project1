@@ -4,35 +4,17 @@
     <section class="main-banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                @foreach($sliderTours as $sliderTour)
                 <div class="swiper-slide">
-
-                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
+                    <img class="main-banner_img" src="/storage/images/{{$sliderTour->mainImg->path}}" alt="{{$sliderTour->mainImg->name}}">
                     <div class="main-banner_text-block">
-                        <h2 class="main-banner_title">Чудеса Катара</h2>
+                        <h2 class="main-banner_title">{{$sliderTour->name}}</h2>
                         <h3 class="main-banner_description">Вся роскошь востока</h3>
-                        <a href="" class="main-banner_link button">Перейти к туру</a>
+                        <a href="{{ route('tour', $sliderTour) }}" class="main-banner_link button">Перейти к туру</a>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="swiper-slide">
-
-                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
-                    <div class="main-banner_text-block">
-                        <h2 class="main-banner_title">Чудеса Катара</h2>
-                        <h3 class="main-banner_description">Вся роскошь востока</h3>
-                        <a href="" class="main-banner_link button">Перейти к туру</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-
-                    <img class="main-banner_img" src="img/main-banner.jpg" alt="">
-                    <div class="main-banner_text-block">
-                        <h2 class="main-banner_title">Чудеса Катара</h2>
-                        <h3 class="main-banner_description">Вся роскошь востока</h3>
-                        <a href="" class="main-banner_link button">Перейти к туру</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -55,11 +37,13 @@
         </div>
     </section>
 
+
+    @if(count($recommendedTours))
     <section class="recommendations cont">
         <div class="section-headlines">
             <h3 class="headline-2">ColorLife рекомендует</h3>
 
-            <a class="show-all" href=""><span>Показать все<span> (598)</span></span>
+            <a class="show-all" href=""><span>Показать все<span> ({{$recommendedTours->count()}})</span></span>
                 <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
@@ -69,25 +53,27 @@
             </div>
 
         <div class="products-list-top">
+            @foreach($recommendedTours->slice(6, 2) as $recommendedTour)
             @include ('components.product-card.product-card',['name' => $name2,
-                                                               'tour' => null] )
-            @include ('components.product-card.product-card',['name' => $name3,
-                                                               'tour' => null] )
+                                                               'tour' => $recommendedTour] )
+            @endforeach
+
+
         </div>
         <div class="products-list">
-            @for ($i = 0; $i < 6; $i++)
+            @foreach ($recommendedTours->take(6) as $recommendedTour)
                 @include ('components.product-card.product-card',['name' => $name1,
-                                                                   'tour' => null] )
-            @endfor
+                                                                   'tour' => $recommendedTour] )
+            @endforeach
         </div>
     </section>
-
+    @endif
     <section class="hot-tours cont ">
-
+        @if (count($hotTours))
         <div class="section-headlines">
             <h3 class="headline-2">Горящие туры</h3>
 
-            <a class="show-all" href=""><span>Показать все<span> (598)</span></span>
+            <a class="show-all" href=""><span>Показать все<span> ({{$hotTours->count()}})</span></span>
                 <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
@@ -98,20 +84,22 @@
         </div>
 
         <div class="products-list-top">
+            @foreach($hotTours->slice(6, 2) as $hotTour)
             @include ('components.product-card.product-card',['name' => $name2,
-                                                               'tour' => null] )
-            @include ('components.product-card.product-card',['name' => $name3,
-                                                               'tour' => null] )
+                                                               'tour' => $hotTour] )
+            @endforeach
+
         </div>
 
         <div class="products-list">
-            @for ($i = 0; $i < 6; $i++)
+            @foreach ($hotTours->take(6) as $hotTour)
+
                 @include ('components.product-card.product-card', ['name' => $name1,
-                                                                    'tour' => null])
-            @endfor
+                                                                    'tour' => $hotTour])
+            @endforeach
         </div>
     </section>
-
+    @endif
     <section class="about cont ">
         <h2 class="about_headline headline-2">О нас</h2>
         <p class="about_info text mod_normal">Туроператор ООО «Джоин АП!», плательщик налога на прибыль предприятий на
