@@ -27,6 +27,9 @@ class CreateToursTable extends Migration
             $table->dateTime('finish_at');
             $table->unsignedInteger('start_location_id');
             $table->boolean('for_children')->default(true);
+            $table->boolean('recommended')->default(false);
+            $table->boolean('hot')->default(false);
+            $table->boolean('advertisement')->default(false);
             $table->unsignedInteger('nutrition_id');
             $table->unsignedInteger('hotel_id');
             $table->softDeletes();

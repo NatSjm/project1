@@ -23,7 +23,5 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         //'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'password' => bcrypt('password'),
         'remember_token' => $faker->regexify('[A-Za-z0-9]{10}'),
-        'created_at' => now(),
-        'updated_at' => now(),
     ];
 });

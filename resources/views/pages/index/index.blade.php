@@ -69,12 +69,15 @@
             </div>
 
         <div class="products-list-top">
-            @include ('components.product-card.product-card',['name' => $name2] )
-            @include ('components.product-card.product-card',['name' => $name3] )
+            @include ('components.product-card.product-card',['name' => $name2,
+                                                               'tour' => null] )
+            @include ('components.product-card.product-card',['name' => $name3,
+                                                               'tour' => null] )
         </div>
         <div class="products-list">
             @for ($i = 0; $i < 6; $i++)
-                @include ('components.product-card.product-card',['name' => $name1] )
+                @include ('components.product-card.product-card',['name' => $name1,
+                                                                   'tour' => null] )
             @endfor
         </div>
     </section>
@@ -95,13 +98,16 @@
         </div>
 
         <div class="products-list-top">
-            @include ('components.product-card.product-card',['name' => $name2] )
-            @include ('components.product-card.product-card',['name' => $name3] )
+            @include ('components.product-card.product-card',['name' => $name2,
+                                                               'tour' => null] )
+            @include ('components.product-card.product-card',['name' => $name3,
+                                                               'tour' => null] )
         </div>
 
         <div class="products-list">
             @for ($i = 0; $i < 6; $i++)
-                @include ('components.product-card.product-card', ['name' => $name1])
+                @include ('components.product-card.product-card', ['name' => $name1,
+                                                                    'tour' => null])
             @endfor
         </div>
     </section>

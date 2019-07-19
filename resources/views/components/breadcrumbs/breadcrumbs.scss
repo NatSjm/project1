@@ -12,8 +12,11 @@
         margin-right:   3px;
         white-space: nowrap;
 
+
         &.mod_current {
             color: $med-grey;
+            text-transform: capitalize;
+
             &:first-of-type:before {
                 padding-right: 5px;
                 color:         $light-green;

@@ -17,6 +17,7 @@ Route::get('/', function () {
                                        'name2'      => 'img/palm.jpg',
                                        'name3'      => 'img/train.jpg',
                                        'name'       => 'null',
+                                       'tour'       => 'null',
                                        'title'      => 'index',
                                        'body_class' => 'index'
                                        ]);

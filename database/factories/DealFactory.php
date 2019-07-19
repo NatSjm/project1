@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Deal::class, function (Faker $faker) {
     $values = [
-        $faker->numberBetween($min = 1, $max = 10),
-        $faker->unique()->numberBetween($min = 1, $max = 10),
+        $faker->numberBetween($min = 1, $max = 40),
+        $faker->unique()->numberBetween($min = 1, $max = 40),
     ];
     return [
         'buyer_id'    => $values[0],

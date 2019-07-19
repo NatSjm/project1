@@ -14,10 +14,10 @@ class TourMediaTableSeeder extends Seeder
     {
         $tourmedia = [];
 
-        while (count($tourmedia) < 200) {
+        while (count($tourmedia) < 700) {
             $row = [
-                'tour_id' => rand(1, 50),
-                'media_id' => rand(1,50),
+                'tour_id' => rand(1, 300),
+                'media_id' => rand(1, 300),
             ];
 
             if (in_array($row, $tourmedia))

@@ -11,6 +11,11 @@ class Tour extends Model
     ];
     protected $guarded = ['id'];
 
+    protected $dates = [
+        'start_at',
+        'finish_at'
+    ];
+
     //belongsTo relations
     public function category()
     {
@@ -69,7 +74,24 @@ class Tour extends Model
         return $this->belongsToMany(Media::class, 'tour_media');
     }
 
+    //accessors
 
+    public function getForChildrenAttribute($value)
+    {
+        return $value? "Да" : "Нет";
+    }
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getLengthAttribute()
+    {
+        $start = $this->start_at;
+        $finish = $this->finish_at;
+        return $finish->diffInDays($start);
+    }
 
 
 
