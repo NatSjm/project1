@@ -7,7 +7,7 @@
         <div class="seller-page_breadcrumbs">
         @include('components.breadcrumbs.breadcrumbs')
          </div>
-        <h2 class="seller-page_title headline-2">Мои предложения</h2>
+        <h2 class="seller-page_title headline-2">Предложения продавца</h2>
 
 
         <div class="seller-page_main-content">
@@ -33,7 +33,7 @@
             </section>
 
 
-            @include('sections.products.products')
+            @include('sections.products.products', ['tours' => $sellerTours])
 
         </div>
     </div>

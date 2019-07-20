@@ -122,13 +122,13 @@
                         <div class="revew">
                             @if($comment->user)
                                 <img class="revew_avatar" src="{{$comment->user->avatar}}" alt="">
-                                <h3 class="headline-2 revew_title">{{ $comment->user->first_name . ' ' . $comment->user->last_name}}</h3>
+                                <h3 class="headline-2 revew_title">{{ $comment->user->fullName}}</h3>
                             @endif
 
                             <div class="revew_date">{{$comment->created_at}}</div>
 
                             @if($comment->user)
-                                <a href="{{ route('seller', $comment->user->id ) }}" class="revew_revewer-link link">все
+                                <a href="{{ route('seller', $comment->user) }}" class="revew_revewer-link link">все
                                     объявления</a>
                             @endif
 

@@ -16,7 +16,7 @@ class ProductController extends Controller
      // dd($tour->seller->belongingTours->except([$tour->id])->take(3));
        $sellerTours = $tour->seller->belongingTours->except([$tour->id]);
        $similarTours = $tour->tourType->tours->except([$tour->id]);
-       $seller_full_name = $tour->seller->first_name." ".$tour->seller->last_name;
+       $seller_full_name = $tour->seller->fullName;
       //dd($tour->seller->avatar);
 
 
