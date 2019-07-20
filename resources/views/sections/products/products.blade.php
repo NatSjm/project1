@@ -4,5 +4,5 @@
             @include ('components.product-card.product-card', ['tour' => $tour])
         @endforeach
     </div>
-    @include('components.pagination.pagination')
+    {{$tours->links('components.pagination.pagination', ['tours' => $tours])}}
 </section>

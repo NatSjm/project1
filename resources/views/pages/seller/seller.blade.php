@@ -35,6 +35,7 @@
 
             @include('sections.products.products', ['tours' => $sellerTours])
 
+
         </div>
     </div>
 

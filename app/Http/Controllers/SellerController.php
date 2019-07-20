@@ -16,16 +16,12 @@ class SellerController extends Controller
      */
     public function __invoke(Request $request, User $user)
     {
-        //$seller = $user->load('belongingTours');
 
-
-        //dd($user);
         $sellerTours = Tour::where('seller_id', $user->id)->paginate(12);
-        //dd($sellerTours);
+        // $sellerTours = Tour::paginate(12);
 
         return view('pages.seller.seller', [
             'sellerTours' => $sellerTours,
-            'name' => 'img/mountains.jpg',
             'body_class' => 'seller-page',
             'crumb_level2' => $user->fullName,
             'crumb_level3' => ['Предложения продавца'],
