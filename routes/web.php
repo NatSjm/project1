@@ -32,7 +32,7 @@ Route::get('/', 'IndexController')->name('index');
 Route::get('tour/{id}', 'ProductController@show')->name('tour');
 Route::get('seller/{user}', 'SellerController')->name('seller');
 
-//Route::get('search', 'ProductController@index');
+Route::get('search', 'ProductController@index');
 
 //function () {
 //    return view('/pages/product/product', [
@@ -59,16 +59,16 @@ Route::get('/gydeline', function () {
 //    ]);
 //});
 
-Route::get('/search', function () {
-    return view('/pages/search/search', ['name'         => 'img/mountains.jpg',
-                                         'body_class'   => 'search-page',
-                                         'crumb_level2' => 'Поиск',
-                                          'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
-                                                           'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
-                                                           'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
-                                                           'beach'=>'Пляжный', 'sp'=> 'SPA']
-    ]);
-});
+//Route::get('/search', function () {
+//    return view('/pages/search/search', ['name'         => 'img/mountains.jpg',
+//                                         'body_class'   => 'search-page',
+//                                         'crumb_level2' => 'Поиск',
+//                                          'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
+//                                                           'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
+//                                                           'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
+//                                                           'beach'=>'Пляжный', 'sp'=> 'SPA']
+//    ]);
+//});
 
 
 

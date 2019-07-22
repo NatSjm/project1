@@ -12,16 +12,16 @@
 
         <div class="seller-page_main-content">
             <section class="filter">
-                <form class="filter_form" action="#" id="filter_form">
+                <form class="filter_form" method="get" action="#" id="filter_form">
                     @csrf
                     <label class="filter_title" for="filter_form">Категория</label>
                     <fieldset class="filter_fields">
                         @foreach ($categories as $key=>$value)
                             <div class="filter_input">
-                            @include('./../components.checkboxes.checkbox',['checkbox_name' => 'category',
+                            @include('./../components.checkboxes.radio',['checkbox_name' => 'tour_type',
                                                             'checkbox_id' => $key,
-                                                             'checkbox_value' => $key,
-                                                             'checkbox_label' => $value
+                                                             'checkbox_value' => $value,
+                                                             'checkbox_label' => $value,
                                                              ])
                             </div>
                             @endforeach

@@ -1,3 +1,5 @@
+
+@isset($tours))
 @if($tours->lastPage() > 1)
 <ul class="pagination">
     @if(!$tours->onFirstPage())
@@ -13,3 +15,4 @@
         @endif
 </ul>
 @endif
+    @endisset

@@ -176,7 +176,7 @@
 
                     @if (count($sellerTours) > 3)
                         <article class="products-link product-card  mod_border-grey ">
-                            <a href="{{ route('seller', $tour->seller->id ) }}" class="products-link_link">
+                            <a href="{{ route('seller', $tour->seller) }}" class="products-link_link">
                                 <div class="products-link_icon"></div>
                                 <p class="products-link_text">Перейти к объявлениям
                                     продавца {{$tour->seller->first_name}}</p>
