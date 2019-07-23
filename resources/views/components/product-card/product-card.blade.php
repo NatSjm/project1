@@ -16,7 +16,7 @@
                 <span class="product-card_term">{{$tour->length}} дней/{{$tour->length + 1}} ночей {{$tour->hotel->hotel_class}}*</span>
             </div>
             <div class="product-card_price">
-                <span>{{$tour->price}} &#8383;</span>
+                <span>{{$tour->formattedPrice}} &#8383;</span>
             </div>
 
         </div>

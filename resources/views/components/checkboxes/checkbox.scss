@@ -26,10 +26,10 @@
     &:checked + .checkbox_label:before {
         content:        "\2022";
         color:          $med-blue;
-        font-size:      40px;
+        font-size:      38px;
         text-align:     center;
         vertical-align: center;
-        line-height:    10px;
+        line-height:    12px;
         border:         1px solid $med-blue;
     }
 }

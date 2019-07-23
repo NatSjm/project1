@@ -46,9 +46,9 @@
 
             <aside class="product_info mod_cont-mobile">
                 <div class="purchase mod_border-grey">
-                    <div class="purchase_price"><span>{{$tour->price}} &#8383</span></div>
+                    <div class="purchase_price"><span>{{$tour->formattedPrice}} &#8383</span></div>
                     <div class="purchase_buy-button">
-                        <button class="button mod_color-med-blue"> В корзину</button>
+                        <a href="{{ route('addToCart', $tour) }}" class="button mod_color-med-blue"> В корзину</a>
                     </div>
                 </div>
 

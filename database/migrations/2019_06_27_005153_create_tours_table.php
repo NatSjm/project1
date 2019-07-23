@@ -17,7 +17,7 @@ class CreateToursTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->decimal('price', 8, 2);
+            $table->unsignedBigInteger('price');
             $table->unsignedInteger('country_id');
             $table->unsignedBigInteger('main_img_id');
             $table->unsignedInteger('category_id');

@@ -17,7 +17,7 @@ $factory->define(App\Models\Tour::class, function (Faker $faker) {
         //'name' => $faker->sentence($nbWords = 2),
         'name' => $faker->words($nb = 2, $asText = true),
         'description' => $faker->text($maxNbChars = 500),
-        'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 50000),
+        'price' => $faker->numberBetween($min = 1, $max = 50000),
         'country_id' => $faker->numberBetween($min = 1, $max = 40),
         'main_img_id' => $faker->numberBetween($min = 1, $max = 300),
         'category_id' => $faker->numberBetween($min = 1, $max = 3),

@@ -33,6 +33,18 @@ Route::get('tour/{id}', 'ProductController@show')->name('tour');
 Route::get('seller/{user}', 'SellerController')->name('seller');
 
 Route::get('search', 'ProductController@index');
+Route::get('cart/{tour}', 'CartController@add')->name('addToCart');
+Route::get('cart', 'CartController@index')->name('cart');
+Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCart');
+
+
+
+//    return view('/pages/cart/cart', ['body_class'   => 'cart-page',
+//                                         'crumb_level2' => 'Михаил Павлов',
+//                                         'crumb_level3' => ['Корзина']
+//    ]);
+//});
+
 
 //function () {
 //    return view('/pages/product/product', [
@@ -80,12 +92,12 @@ Route::get('/orders', function () {
 });
 
 
-Route::get('/cart', function () {
-    return view('/pages/cart/cart', ['body_class'   => 'cart-page',
-                                         'crumb_level2' => 'Михаил Павлов',
-                                         'crumb_level3' => ['Корзина']
-    ]);
-});
+//Route::get('/cart/{{id}}', function () {
+//    return view('/pages/cart/cart', ['body_class'   => 'cart-page',
+//                                         'crumb_level2' => 'Михаил Павлов',
+//                                         'crumb_level3' => ['Корзина']
+//    ]);
+//});
 
 Route::get('/person', function () {
     return view('/pages/person/person', ['body_class'   => 'person-page',
