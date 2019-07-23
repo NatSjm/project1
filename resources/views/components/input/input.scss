@@ -80,7 +80,9 @@
     width:         100%;
     position:      relative;
     background:    $light-milk;
-    border-radius: 4px;
+     border-radius: 4px;
+     padding-right: 15px;
+     overflow: hidden;
  }
  .select {
     -webkit-appearance: none;
@@ -88,6 +90,8 @@
     appearance:         none;
     border:             none;
     outline:            none;
+     padding-right: 15px;
+     overflow: hidden;
     @include font-settings(12px, 1.5);
     color:              $nero;
     position:           relative;

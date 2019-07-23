@@ -95,7 +95,7 @@ class Tour extends Model
 
     public function getPriceAttribute($value)
     {
-        return number_format($value, 0, ',', ' ');
+        return number_format($value, 2, ',', ' ');
     }
 
 

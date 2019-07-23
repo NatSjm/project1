@@ -15,7 +15,7 @@
                     <svg class="filter-close">
                         <use xlink:href="#close"></use>
                     </svg>
-                    <form class="filter_form" action="#">
+                    <form class="filter_form" id="filter-form" action="#">
                         @csrf
 
                         <fieldset class="filter_fields fieldset" id="country">
@@ -23,9 +23,10 @@
                             <div class="select-wrapper">
                                 <select class="filter_select" name="country" id="">
                                     <option class="filter_option" value="">Все</option>
-                                    <option class="filter_option" value="Germany">Германия</option>
-                                    <option class="filter_option" value="Hungary">Венгрия</option>
-                                    <option class="filter_option" value="France">Франция</option>
+                                    @foreach($countryNames as $country)
+                                        <option class="filter_option" {{request()->country == $country? 'selected':
+                                    ''}} value="{{$country}}">{{$country}}</option>
+                                    @endforeach
                                 </select>
                                 <svg class="filter_icon">
                                     <use xlink:href="#selector"></use>
@@ -37,12 +38,12 @@
                         <fieldset class="filter_fields fieldset" id="hotel-class">
                             <label class="fieldset_title" for="hotel-class">Класс отеля</label>
                             <div class="select-wrapper">
-                                <select class="filter_select" name="hotel-class" id="">
+                                <select class="filter_select" name="hotel" id="">
                                     <option class="filter_option" value="">Любой</option>
-                                    <option class="filter_option" value="1-star">1<sup>*</sup></option>
-                                    <option class="filter_option" value="2-star">2<sup>*</sup></option>
-                                    <option class="filter_option" value="3-star">3<sup>*</sup></option>
-
+                                    @foreach ($hotels as $hotel)
+                                        <option class="filter_option" {{request()->hotel == $hotel? 'selected':
+                                    ''}} value="{{$hotel}}">{{$hotel}}<sup>*</sup></option>
+                                    @endforeach
                                 </select>
                                 <svg class="filter_icon">
                                     <use xlink:href="#selector"></use>
@@ -54,10 +55,11 @@
                         <fieldset class="filter_fields fieldset" id="tour-type">
                             <label class="fieldset_title" for="tour-tipe">Тип тура</label>
                             <div class="select-wrapper">
-                                <select class="filter_select" name="category" id="">
+                                <select class="filter_select" name="tour_type" id="">
                                     <option class="filter_option" value="">Любой</option>
-                                    @foreach ($categories as $key=>$value)
-                                        <option class="filter_option" value="{{ $key }}">{{ $value }}</option>
+                                    @foreach ($tourTypes as $tourType)
+                                        <option class="filter_option" {{request()->tourType == $tourType? 'selected':
+                                    ''}} value="{{$tourType}}">{{$tourType}}</option>
                                     @endforeach
                                 </select>
                                 <svg class="filter_icon">
@@ -72,22 +74,50 @@
                             <div class="radio_wrapper">
 
                                 <div class="mod_column-left">
-                                    <input checked type="radio" name="food" value="" class="checkbox_input" id="any">
-                                    <label class="checkbox_label" for="any">Любое</label>
-
-                                    <input type="radio" name="food" value="breakfast-supper" class="checkbox_input"
-                                           id="breakfast-supper">
-                                    <label class="checkbox_label" for="breakfast-supper">Завтрак и ужин</label>
+                                    <input checked type="radio" name="nutrition" value="" class="checkbox_input"
+                                           id="any-nutrition">
+                                    <label class="checkbox_label" for="any-nutrition">Любое</label>
+                                    @foreach($nutritionTypes as $key=>$nutritionType)
+                                        @if($loop->even)
+                                            <input type="radio" {{request()->nutrition == $nutritionType? 'checked':
+                                    ''}} name="nutrition" value="{{$nutritionType}}"
+                                                   class="checkbox_input"
+                                                   id="nutrition{{$key}}">
+                                            <label class="checkbox_label"
+                                                   for="nutrition{{$key}}">{{$nutritionType}}</label>
+                                        @endif
+                                    @endforeach
                                 </div>
                                 <div class="mod_column-right">
-                                    <input type="radio" name="food" value="breakfast" class="checkbox_input"
-                                           id="breakfast">
-                                    <label class="checkbox_label" for="breakfast">Завтрак</label>
-
-                                    <input type="radio" name="food" value="without" class="checkbox_input"
-                                           id="without">
-                                    <label class="checkbox_label" for="without">Без питания</label>
+                                    @foreach($nutritionTypes as $key=>$nutritionType)
+                                        @if($loop->odd)
+                                            <input type="radio"{{request()->nutrition == $nutritionType? 'checked':
+                                    ''}} name="nutrition" value="{{$nutritionType}}"
+                                                   class="checkbox_input"
+                                                   id="nutrition{{$key}}">
+                                            <label class="checkbox_label"
+                                                   for="nutrition{{$key}}">{{$nutritionType}}</label>
+                                        @endif
+                                    @endforeach
                                 </div>
+
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset class="filter_fields fieldset" id="category">
+                            <label class="fieldset_title" for="category">Категория</label>
+                            <div class="radio_wrapper">
+                                <input checked type="radio" name="category" value="" class="checkbox_input"
+                                        id="any-category">
+                                <label class="checkbox_label" for="any-category">Любая</label>
+
+                                @foreach($categories as $key=>$category)
+                                    <input type="radio" name="category" {{request()->category == $category? 'checked':
+                                    ''}} value="{{$category}}" class="checkbox_input"
+                                       id="category{{$key}}">
+                                <label class="checkbox_label" for="category{{$key}}">{{$category}}</label>
+                                    @endforeach
 
                             </div>
 
@@ -99,33 +129,38 @@
                             <div class="radio_wrapper">
 
                                 <div class="mod_column-left">
-                                    <input checked type="radio" name="price" value="" class="checkbox_input"
-                                           id="to-10">
-                                    <label class="checkbox_label" for="to-10">Не важно</label>
+                                    <input checked type="radio" name="price"  value="" class="checkbox_input"
+                                           id="any-price">
+                                    <label class="checkbox_label" for="any-price">Не важно</label>
 
-                                    <input type="radio" name="price" value="to100" class="checkbox_input"
-                                           id="to100">
-                                    <label class="checkbox_label" for="to100">до 100</label>
+                                    <input type="radio" name="price" {{request()->price == "<_1000"? 'checked':
+                                    ''}} value="<_1000" class="checkbox_input"
+                                           id="to1000">
+                                    <label class="checkbox_label" for="to1000">до 1000</label>
 
-                                    <input type="radio" name="price" value="from501-to1000" class="checkbox_input"
-                                           id="from501-to1000">
-                                    <label class="checkbox_label" for="from501-to1000">от 501 до 1000</label>
+                                    <input type="radio" name="price" {{request()->price == "1001_5000"? 'checked':
+                                    ''}} value="1001_5000" class="checkbox_input"
+                                           id="from1001-to5000">
+                                    <label class="checkbox_label" for="from1001-to5000">от 1001 до 5000</label>
 
                                 </div>
 
 
                                 <div class="mod_column-right">
-                                    <input type="radio" name="price" value="from11-to50" class="checkbox_input"
-                                           id="from11-to50">
-                                    <label class="checkbox_label" for="from11-to50">от 11 до 50</label>
+                                    <input type="radio" name="price" {{request()->price == "5001_10000"? 'checked':
+                                    ''}} value="5001_10000" class="checkbox_input"
+                                           id="from5001-to10000">
+                                    <label class="checkbox_label" for="from5001-to10000">от 5001 до 10000</label>
 
-                                    <input type="radio" name="price" value="from100-to500" class="checkbox_input"
-                                           id="from100-to500">
-                                    <label class="checkbox_label" for="from100-to500">от 100 до 500</label>
+                                    <input type="radio" name="price" {{request()->price == "10001_50000"? 'checked':
+                                    ''}} value="10001_50000" class="checkbox_input"
+                                           id="from10001-to50000">
+                                    <label class="checkbox_label" for="from10001-to50000">от 10001 до 50000</label>
 
-                                    <input type="radio" name="price" value="over1000" class="checkbox_input"
-                                           id="over1000">
-                                    <label class="checkbox_label" for="over1000">Более 1000</label>
+                                    <input type="radio" name="price" {{request()->price == ">_50001"? 'checked':
+                                    ''}} value=">_50001" class="checkbox_input"
+                                           id="over50000">
+                                    <label class="checkbox_label" for="over50000">Более 50000</label>
 
                                 </div>
                             </div>
@@ -136,10 +171,12 @@
                             <label class="fieldset_title" for="children-accessibility"><span>Доступно </span><span>для
                                     детей</span></label>
                             <div class="select-wrapper">
-                                <select class="filter_select" name="children-accessibility" id="">
-                                    <option class="filter_option" value="">Не важно</option>
-                                    <option class="filter_option" value="yes">Доступно</option>
-                                    <option class="filter_option" value="no">Не доступно</option>
+                                <select class="filter_select" name="children_accessibility" id="">
+                                    <option class="filter_option"  value="">Не важно</option>
+                                    <option class="filter_option" {{request()->children_accessibility == "1"?
+                                    'selected':''}} value="1">Доступно</option>
+                                    <option class="filter_option" {{request()->children_accessibility == "0"?
+                                    'selected':''}} value="0">Не доступно</option>
 
                                 </select>
                                 <svg class="filter_icon">
@@ -149,6 +186,26 @@
 
                         </fieldset>
 
+                        <fieldset class="filter_fields fieldset" id="recommended">
+                            <label class="fieldset_title" for="recommended">Рекомендованные туры</label>
+                            <div class="radio_wrapper">
+                                <input type="checkbox" name="recommended" {{request()->recommended == "1"?
+                                    'checked':''}} value="1" class="checkbox_input"
+                                       id="recommended-checkbox">
+                                <label class="checkbox_label" for="recommended-checkbox">Показать
+                                    рекомендованные</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="filter_fields fieldset" id="hot">
+                            <label class="fieldset_title" for="hot">Горящие туры</label>
+                            <div class="radio_wrapper">
+                                <input type="checkbox" name="hot" {{request()->hot == "1"?
+                                    'checked':''}} value="1" class="checkbox_input"
+                                       id="hot-checkbox">
+                                <label class="checkbox_label" for="hot-checkbox">Выбрать горящие</label>
+                            </div>
+                        </fieldset>
                     </form>
                 </aside>
             </div>
@@ -157,11 +214,14 @@
                 <section class="products-filter">
                     <p class="products-filter_toggler">Показать фильтр</p>
                     <div class="products-filter_info">
-                        <span class="products-filter_count">254 шт</span>
+                        <span class="products-filter_count">{{$toursCount}} шт</span>
                         <div class="products-filter_sorter">
-                            <select class="products-filter_select" name="products-sorter" id="">
-                                <option class="products-filter_option" value="by-default">По умолчанию</option>
-
+                            <select class="products-filter_select" name="sorter" form="filter-form" id="">
+                                <option class="products-filter_option" value="created_at">По умолчанию</option>
+                                <option class="products-filter_option" {{request()->sorter == 'price'? 'selected':
+                                    ''}} value="price">По цене</option>
+                                <option class="products-filter_option" {{request()->sorter == 'start_at'? 'selected':
+                                    ''}} value="start_at">По дате начала</option>
                             </select>
 
                             <svg class="products-filter_icon">
@@ -183,15 +243,11 @@
                         </div>
 
                     </div>
-
-
                 </section>
-
-
                 @include('sections.products.products')
             </div>
         </div>
-
+    </div>
 
 @endsection
 

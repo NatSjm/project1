@@ -29,10 +29,10 @@ class SellerController extends Controller
             });
         }
          $sellerTours = $sellerTours->paginate(12);
-         $categories =  ['ind' => 'Индустриальный', 'luxury' => 'Luxury', 'all-inclus' => 'Все включено',
-            'fam' => 'Семейный отдых', 'gastro' => 'Гастрономический', 'keep-calm' => 'Спокойный отдых',
-            'intertainment' => 'Программа развлечений', 'shop' => 'Шоппинг', 'extreem' => 'Экстрим',
-            'beach' => 'Пляжный', 'sp' => 'SPA'];
+//         $categories =  ['ind' => 'Индустриальный', 'luxury' => 'Luxury', 'all-inclus' => 'Все включено',
+//            'fam' => 'Семейный отдых', 'gastro' => 'Гастрономический', 'keep-calm' => 'Спокойный отдых',
+//            'intertainment' => 'Программа развлечений', 'shop' => 'Шоппинг', 'extreem' => 'Экстрим',
+//            'beach' => 'Пляжный', 'sp' => 'SPA'];
 
 
         return view('pages.seller.seller', [
@@ -40,7 +40,7 @@ class SellerController extends Controller
             'body_class' => 'seller-page',
             'crumb_level2' => $user->fullName,
             'crumb_level3' => ['Предложения продавца'],
-            'categories' => $categories,
+//            'categories' => $categories,
             'filterType' => 'tour_type',
         ]);
     }

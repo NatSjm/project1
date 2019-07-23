@@ -16,17 +16,15 @@
                     @csrf
                     <label class="filter_title" for="filter_form">Категория</label>
                     <fieldset class="filter_fields">
-                        @foreach ($categories as $key=>$value)
+                        @foreach ($tourTypes as $key=>$value)
                             <div class="filter_input">
                             @include('./../components.checkboxes.radio',['checkbox_name' => 'tour_type',
-                                                            'checkbox_id' => $key,
+                                                            'checkbox_id' => 'tour_type'.$key,
                                                              'checkbox_value' => $value,
                                                              'checkbox_label' => $value,
                                                              ])
                             </div>
                             @endforeach
-
-
                     </fieldset>
 
                 </form>
