@@ -19,11 +19,6 @@
         </div>
     </section>
 
-
-
-
-
-
     <section class="recreation-types">
         <div class="recreation-types_wrapper cont">
             <h3 class="headline-3">Виды отдыха</h3>
@@ -43,7 +38,8 @@
         <div class="section-headlines">
             <h3 class="headline-2">ColorLife рекомендует</h3>
 
-            <a class="show-all" href=""><span>Показать все<span> ({{$recommendedTours->count()}})</span></span>
+            <a class="show-all" href="{{ route('search').'?recommended=1' }}"><span>Показать все<span>
+                        ({{$recommendedTours->count()}})</span></span>
                 <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
@@ -51,19 +47,14 @@
             </span>
                 </a>
             </div>
-
         <div class="products-list-top">
             @foreach($recommendedTours->slice(6, 2) as $recommendedTour)
-            @include ('components.product-card.product-card',['name' => $name2,
-                                                               'tour' => $recommendedTour] )
+            @include ('components.product-card.product-card',['tour' => $recommendedTour] )
             @endforeach
-
-
         </div>
         <div class="products-list">
             @foreach ($recommendedTours->take(6) as $recommendedTour)
-                @include ('components.product-card.product-card',['name' => $name1,
-                                                                   'tour' => $recommendedTour] )
+                @include ('components.product-card.product-card',['tour' => $recommendedTour] )
             @endforeach
         </div>
     </section>
@@ -73,7 +64,8 @@
         <div class="section-headlines">
             <h3 class="headline-2">Горящие туры</h3>
 
-            <a class="show-all" href=""><span>Показать все<span> ({{$hotTours->count()}})</span></span>
+            <a class="show-all" href="{{ route('search').'?hot=1' }}"><span>Показать все<span> ({{$hotTours->count()}})
+                    </span></span>
                 <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
@@ -85,8 +77,7 @@
 
         <div class="products-list-top">
             @foreach($hotTours->slice(6, 2) as $hotTour)
-            @include ('components.product-card.product-card',['name' => $name2,
-                                                               'tour' => $hotTour] )
+            @include ('components.product-card.product-card',['tour' => $hotTour] )
             @endforeach
 
         </div>
@@ -94,8 +85,7 @@
         <div class="products-list">
             @foreach ($hotTours->take(6) as $hotTour)
 
-                @include ('components.product-card.product-card', ['name' => $name1,
-                                                                    'tour' => $hotTour])
+                @include ('components.product-card.product-card', ['tour' => $hotTour])
             @endforeach
         </div>
     </section>

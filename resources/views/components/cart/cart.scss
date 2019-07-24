@@ -1,14 +1,18 @@
 .cart {
     margin-left: 30px;
     font-family: $fbold;
-    & svg {
+    & .cart_link{
+        text-decoration: none;
+        color: white;
+    }
+    & .cart_icon {
         fill:   $white;
         width:  12px;
         height: 12px;
         margin-right: 5px;
         margin-left: 10px;
     }
-    .price {
+     & .cart_price {
         white-space: nowrap;
 
     }

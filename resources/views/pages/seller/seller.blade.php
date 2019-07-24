@@ -25,7 +25,7 @@
                                 <label class="checkbox_label" for="any-tourType">Все категории</label>
                             </div>
                         </div>
-                        @foreach ($tourTypes as $key=>$value)
+                        @foreach ($AllTourTypes as $key=>$value)
                             <div class="filter_input">
                                 @include('./../components.checkboxes.radio',['checkbox_name' => 'tour_type',
                                                                 'checkbox_id' => 'tour_type'.$key,

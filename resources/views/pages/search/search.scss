@@ -9,6 +9,9 @@
         }
 
     }
+    & .main-content_wrapper{
+        width: 100%;
+    }
     & .cont {
         padding-top: 24px;
 
@@ -149,6 +152,11 @@
 
                 @media screen and(max-width: 1279px){
                     margin-top: 10px;
+                }
+
+                &-link {
+                    text-decoration: none;
+                    color: $med-grey;
                 }
 
             }

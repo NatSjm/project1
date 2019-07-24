@@ -20,7 +20,8 @@ class SellerController extends Controller
     public function __invoke(Request $request, User $user)
     {
 
-        $sellerTours = Tour::where('seller_id', $user->id);
+        $sellerTours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg')->where('seller_id',
+            $user->id);
 
         $sellerHasTours = $sellerTours? true : false;
         $tourType = ($request->input('tour_type'));
@@ -45,8 +46,6 @@ class SellerController extends Controller
             'crumb_level2' => $user->fullName,
             'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',
-            'tourTypes' => TourType::pluck('name'),
-
         ]);
     }
 

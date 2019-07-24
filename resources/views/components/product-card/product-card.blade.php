@@ -28,12 +28,10 @@
             <h3 class="product-card_title headline-3 ">{{$tour->country->name}} ({{$tour->name}})</h3>
         </a>
         <h4 class="product-card_description headline-4">Вылет из {{$tour->startLocation->city->name}}</h4>
-        <a href="" class="button mod_color-light-green">Заказать</a>
+        <a href="{{ route('addToCart', $tour) }}" class="button mod_color-light-green">Заказать</a>
     </div>
     @else
     <header class="product-card_header">
-
-
 
             <img class="product-card_img" src="{{ asset($name) }}" alt="">
 

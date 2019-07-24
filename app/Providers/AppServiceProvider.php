@@ -28,19 +28,19 @@ class AppServiceProvider extends ServiceProvider
         //
         Date::setlocale(config('app.locale'));
 
-//        $countryNames = Country::pluck('name');
-//        $hotels = Hotel::pluck('hotel_class');
-//        $tourTypes = TourType::pluck('name');
-//        $nutritionTypes = Nutrition::pluck('nutrition_type');
-//        $categories = Category::pluck('name');
-//
-//        View::share([
-//                     'countryNames' => $countryNames,
-//                     'hotels'       => $hotels,
-//                     'tourTypes'    =>$tourTypes,
-//                     'nutritionTypes'=>$nutritionTypes,
-//                     'categories' =>$categories,
-//            ]);
+        $countryNames = Country::pluck('name');
+        $hotels = Hotel::pluck('hotel_class');
+        $tourTypes = TourType::pluck('name');
+        $nutritionTypes = Nutrition::pluck('nutrition_type');
+        $categories = Category::pluck('name');
+
+        View::share([
+                     'AllCountryNames' => $countryNames,
+                     'AllHotels'       => $hotels,
+                     'AllTourTypes'    =>$tourTypes,
+                     'AllNutritionTypes'=>$nutritionTypes,
+                     'AllCategories' =>$categories,
+            ]);
 
 
     }

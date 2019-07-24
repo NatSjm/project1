@@ -12,75 +12,28 @@
 */
 
 
-//Route::get('/', function () {
-//    return view('/pages/index/index', ['name1'      => 'img/mountains.jpg',
-//                                       'name2'      => 'img/palm.jpg',
-//                                       'name3'      => 'img/train.jpg',
-//                                       'name'       => 'null',
-//                                       'tour'       => 'null',
-//                                       'title'      => 'index',
-//                                       'body_class' => 'index'
-//                                       ]);
-//
-//});
+
 
 Route::get('/', 'IndexController')->name('index');
 
 
 
-
+Route::get('search', 'ProductController@index')->name('search');
 Route::get('tour/{id}', 'ProductController@show')->name('tour');
+
 Route::get('seller/{user}', 'SellerController')->name('seller');
 
-Route::get('search', 'ProductController@index');
 Route::get('cart/{tour}', 'CartController@add')->name('addToCart');
 Route::get('cart', 'CartController@index')->name('cart');
 Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCart');
 
 
 
-//    return view('/pages/cart/cart', ['body_class'   => 'cart-page',
-//                                         'crumb_level2' => 'Михаил Павлов',
-//                                         'crumb_level3' => ['Корзина']
-//    ]);
-//});
-
-
-//function () {
-//    return view('/pages/product/product', [
-//'name'         => 'img/mountains.jpg',
-//                                           'body_class'   => 'product-page',
-//                                           'crumb_level2' => 'Михаил Павлов',
-//                                           'crumb_level3' => ['Отель Мираколь', 'Неаполь', '4*']
-//    ]);
-//}
 
 Route::get('/gydeline', function () {
     return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
 });
 
-//Route::get('/seller', function () {
-//    return view('/pages/seller/seller', ['name'         => 'img/mountains.jpg',
-//                                         'body_class'   => 'seller-page',
-//                                         'crumb_level2' => 'Михаил Павлов',
-//                                         'crumb_level3' => ['Мои предложения'],
-//                                         'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
-//                                                              'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep calm'=>'Спокойный отдых',
-//                                                              'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
-//                                                              'beach'=>'Пляжный', 'sp'=> 'SPA']
-//    ]);
-//});
-
-//Route::get('/search', function () {
-//    return view('/pages/search/search', ['name'         => 'img/mountains.jpg',
-//                                         'body_class'   => 'search-page',
-//                                         'crumb_level2' => 'Поиск',
-//                                          'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
-//                                                           'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
-//                                                           'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
-//                                                           'beach'=>'Пляжный', 'sp'=> 'SPA']
-//    ]);
-//});
 
 
 
@@ -92,12 +45,7 @@ Route::get('/orders', function () {
 });
 
 
-//Route::get('/cart/{{id}}', function () {
-//    return view('/pages/cart/cart', ['body_class'   => 'cart-page',
-//                                         'crumb_level2' => 'Михаил Павлов',
-//                                         'crumb_level3' => ['Корзина']
-//    ]);
-//});
+
 
 Route::get('/person', function () {
     return view('/pages/person/person', ['body_class'   => 'person-page',

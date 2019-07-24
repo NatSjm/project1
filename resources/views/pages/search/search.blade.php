@@ -58,7 +58,7 @@
                                 <select class="filter_select" name="tour_type" id="">
                                     <option class="filter_option" value="">Любой</option>
                                     @foreach ($tourTypes as $tourType)
-                                        <option class="filter_option" {{request()->tourType == $tourType? 'selected':
+                                        <option class="filter_option" {{request()->tour_type == $tourType ? 'selected':
                                     ''}} value="{{$tourType}}">{{$tourType}}</option>
                                     @endforeach
                                 </select>
@@ -234,12 +234,14 @@
                         <ul class="products-filter_list">
                         </ul>
                         <div class="products-filter_reset">
+                            <a class="products-filter_reset-link" href="{{ route('search') }}">
                             <span>Очистить фильтр</span>
                             <span class="dell-them-all">
                             <svg class="filter-cleaner_icon">
                                 <use xlink:href="#close"></use>
                             </svg>
                             </span>
+                            </a>
                         </div>
 
                     </div>

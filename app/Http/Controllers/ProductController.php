@@ -24,7 +24,6 @@ class ProductController extends Controller
             'tour'         => $tour,
             'sellerTours'  => $sellerTours,
             'similarTours' => $similarTours,
-            'name'         => 'img/mountains.jpg',
             'body_class'   => 'product-page',
             'crumb_level2' => $seller_full_name,
             'crumb_level3' => [$tour->name, $tour->hotel->hotel_class . "*"]
@@ -34,7 +33,7 @@ class ProductController extends Controller
 
     public function index (Request $request)
     {
-        $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType');
+        $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg');
 
         if ($request->filled('country')) {
             $tours->whereHas('country', function (Builder $query) use ($request) {

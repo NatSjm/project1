@@ -170,8 +170,7 @@
                 <div class="similar_group">
 
                     @foreach ($sellerTours->take(3) as $sellerTour)
-                        @include ('components.product-card.product-card',['name' => $name,
-                                                                           'tour' => $sellerTour] )
+                        @include ('components.product-card.product-card',['tour' => $sellerTour] )
                     @endforeach
 
                     @if (count($sellerTours) > 3)
@@ -193,8 +192,7 @@
             <h3 class="similar_title headline-2">Еще в категории {{$tour->tourType->name}}</h3>
             <div class="similar_group">
                 @foreach ($similarTours->take(3) as $similarTour)
-                    @include ('components.product-card.product-card',['name' => $name,
-                                                                      'tour' => $similarTour] )
+                    @include ('components.product-card.product-card',['tour' => $similarTour] )
                 @endforeach
 
                 @if (count($similarTours) > 3)

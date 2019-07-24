@@ -62,7 +62,7 @@
 
                     <div class="full-cart_total mod_border-grey">
                         <div class="sum">
-                            <span>Итого:</span><span class="sum_value"> {{$totalPrice}}</span>
+                            <span>Итого:</span><span class="sum_value"> {{$totalPrice}}.  ₿</span>
                         </div>
                         <button class="full-cart_order-button button mod_color-med-blue">Заказать</button>
 

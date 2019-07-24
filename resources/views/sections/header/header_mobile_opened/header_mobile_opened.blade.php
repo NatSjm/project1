@@ -1,13 +1,13 @@
 
 <div class="header-mobile mod_opened ">
-    {{--<div class="menu-toggler">--}}
-    {{--</div>--}}
+
     <div class="header_top">
         <nav class="min-nav">
             <ul class="min-nav_list">
-                <li class="min-nav_item"><a href="" class="min-nav_link">Автобусные туры</a></li>
-                <li class="min-nav_item"><a href="" class="min-nav_link">Авиационные туры</a></li>
-                <li class="min-nav_item"><a href="" class="min-nav_link">Круизы</a></li>
+                @foreach ($AllCategories as $category)
+                <li class="min-nav_item"><a href="{{ route('search').'?category='.$category }}"
+                                            class="min-nav_link">{{ $category }}</a></li>
+                @endforeach
             </ul>
         </nav>
     </div>

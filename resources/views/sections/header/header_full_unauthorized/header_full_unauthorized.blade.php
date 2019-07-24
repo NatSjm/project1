@@ -4,9 +4,10 @@
     <div class="header_top">
         <nav class="main-nav">
             <ul class="main-nav_list">
-                <li class="main-nav_item"><a href="" class="main-nav_link">Автобусные туры</a></li>
-                <li class="main-nav_item"><a href="" class="main-nav_link">Авиационные туры</a></li>
-                <li class="main-nav_item"><a href="" class="main-nav_link">Круизы</a></li>
+                @foreach ($AllCategories as $category)
+                <li class="main-nav_item"><a href="{{ route('search').'?category='.$category }}"
+                                             class="main-nav_link">{{ $category }}</a></li>
+                @endforeach
             </ul>
         </nav>
 
