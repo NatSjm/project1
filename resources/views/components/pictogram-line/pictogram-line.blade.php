@@ -1,4 +1,6 @@
+
 @foreach($tourTypes as $tourType)
+
 <div class="pictogram">
     <a href="{{ route('search').'?tour_type='.$tourType->name }}" class="pictogram_link">
         <div class="pictogram_container">

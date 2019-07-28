@@ -37,9 +37,9 @@ class AppServiceProvider extends ServiceProvider
         View::share([
                      'AllCountryNames' => $countryNames,
                      'AllHotels'       => $hotels,
-                     'AllTourTypes'    =>$tourTypes,
-                     'AllNutritionTypes'=>$nutritionTypes,
-                     'AllCategories' =>$categories,
+                     'AllTourTypes'    => $tourTypes,
+                     'AllNutritionTypes'=> $nutritionTypes,
+                     'AllCategories' => $categories,
             ]);
 
 

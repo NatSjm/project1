@@ -92,16 +92,23 @@ class ProductController extends Controller
             $tours->orderBy($sorter, 'desc');
         }
 
+
         $selectedTours = $tours->get();
 
-        $countryNames = $selectedTours->pluck('country.name')->unique()->values();
-        $tourTypes = $selectedTours->pluck('tourType.name')->unique()->values();
-        $nutritionTypes = $selectedTours->pluck('nutrition.nutrition_type')->unique()->values();
-        $categories = $selectedTours->pluck('category.name')->unique()->values();
-        $hotels = $selectedTours->pluck('hotel.hotel_class')->unique()->values();
-        $toursCount = $selectedTours->count();
+        $plucker = function  ($selector) use ($selectedTours){
+             return $selectedTours->pluck($selector)->unique()->values();
+        };
+
+        $countryNames = $plucker('country.name');
+        $tourTypes = $plucker('tourType.name');
+        $nutritionTypes = $plucker('nutrition.nutrition_type');
+        $categories = $plucker('category.name');
+        $hotels = $plucker('hotel.hotel_class');
+
+//
 
         $tours = $tours->paginate(12);
+        $toursCount = $tours->total();
 //
 
         return view('/pages/search/search', ['name'           => 'img/mountains.jpg',
