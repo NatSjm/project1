@@ -221,7 +221,7 @@
                                 <option class="products-filter_option" {{request()->sorter == 'price'? 'selected':
                                     ''}} value="price">По цене</option>
                                 <option class="products-filter_option" {{request()->sorter == 'start_at'? 'selected':
-                                    ''}} value="start_at">По дате начала</option>
+                                    ''}} value="start_at">По дате старта</option>
                             </select>
 
                             <svg class="products-filter_icon">

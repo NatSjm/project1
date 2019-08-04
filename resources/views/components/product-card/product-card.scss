@@ -1,6 +1,7 @@
 .product-card {
     //width: 300px;
     margin-bottom: 20px;
+    @include media-set(min-width, (m: 280px, t: 300px, d: 300px));
     //@include media-set(flex-basis, (m: 280px, t: 300px, d: 300px));
     @media screen and(max-width: 660px) {
         &:nth-child(n+6) {
@@ -84,6 +85,9 @@
     border:         2px solid #f6fafb;
     padding-top:    18px;
     padding-bottom: 40px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
     & h3.product-card_title {
         color:       $med-blue;
         line-height: 1.33;
@@ -98,6 +102,7 @@
 
     & .button {
         margin-top: auto;
+        margin-bottom: 40px;
     }
 }
 

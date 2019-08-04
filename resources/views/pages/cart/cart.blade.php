@@ -41,7 +41,7 @@
                                         </div>
                                     </td>
 
-                                    <td class="cart-product_price">{{$cartProduct['price']}} ₿</td>
+                                    <td class="cart-product_price">{{number_format($cartProduct['price'], 0, ".", " ")}} ₿</td>
                                     <td class="cart-product_delete">
                                         <div class="cart-product_delete-container">
                                             <a href="{{ route('deleteFromCart', $cartProduct['item']['id']) }}">
@@ -62,7 +62,7 @@
 
                     <div class="full-cart_total mod_border-grey">
                         <div class="sum">
-                            <span>Итого:</span><span class="sum_value"> {{$totalPrice}}.  ₿</span>
+                            <span>Итого:</span><span class="sum_value"> {{number_format($totalPrice, 0, ".", " ")}}  ₿</span>
                         </div>
                         <button class="full-cart_order-button button mod_color-med-blue">Заказать</button>
 

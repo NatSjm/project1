@@ -5,10 +5,9 @@
     </svg>
 
 
-    <span>Корзина</span> <span class="cart_price">({{ session()->has('cart') ? session()->get('cart')->totalPrice :
-    '' }}
-        ₿ )
-    </span>
+    <span>Корзина</span> <span class="cart_price">{{ session()->has('cart') ? "( "
+    .number_format(session()->get('cart')->totalPrice, 0, ".", " ")
+    ." ₿ )" : '' }}</span>
     </a>
 </div>
 

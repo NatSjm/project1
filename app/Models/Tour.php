@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\ProductFilter;
+use Illuminate\Database\Eloquent\Builder;
 
 class Tour extends Model
 {
@@ -98,6 +100,11 @@ class Tour extends Model
         return number_format($this->price, 0, '.', ' ');
     }
 
+//    scopes
 
+   public function scopeFilter( $builder, $filters)
+    {
+          return $filters->apply($builder);
+    }
 
 }

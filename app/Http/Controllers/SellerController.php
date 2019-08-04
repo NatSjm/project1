@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\User;
 use App\Models\Tour;
-use App\Models\TourType;
+//use App\Models\TourType;
 
 
 class SellerController extends Controller

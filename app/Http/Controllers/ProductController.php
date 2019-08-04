@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tour;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
+use App\Filters\ProductFilter;
 
 
 class ProductController extends Controller
@@ -31,66 +31,11 @@ class ProductController extends Controller
     }
 
 
-    public function index (Request $request)
+    public function index (Request $request, ProductFilter $filters)
     {
-        $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg');
+        $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg')
+            ->filter($filters);
 
-        if ($request->filled('country')) {
-            $tours->whereHas('country', function (Builder $query) use ($request) {
-                $query->where('name', $request->country);
-            });
-        }
-
-        if ($request->filled('hotel')) {
-            $tours->whereHas('hotel', function (Builder $query) use ($request) {
-                $query->where('hotel_class', $request->hotel);
-            });
-        }
-
-        if ($request->filled('tour_type')) {
-            $tours->whereHas('tourType', function (Builder $query) use ($request) {
-                $query->where('name', $request->tour_type);
-            });
-        }
-
-        if ($request->filled('nutrition')) {
-            $tours->whereHas('nutrition', function (Builder $query) use ($request) {
-                $query->where('nutrition_type', $request->nutrition);
-            });
-        }
-
-        if ($request->filled('category')) {
-            $tours->whereHas('category', function (Builder $query) use ($request) {
-                $query->where('name', $request->category);
-            });
-        }
-
-        if ($request->filled('price')) {
-            $priceToStr = $request->price;
-            $priceToArr = explode('_', $priceToStr);
-            if (is_numeric($priceToArr[0]) && is_numeric($priceToArr[1])) {
-                $tours->whereBetween('price', [$priceToArr[0], $priceToArr[1]]);
-            } else {
-                $tours->where('price', $priceToArr[0], $priceToArr[1]);
-            }
-        }
-
-        if ($request->filled('children_accessibility')) {
-            $tours->where('for_children', $request->children_accessibility);
-        }
-
-        if ($request->filled('recommended')) {
-            $tours->where('recommended', '1');
-        }
-
-        if ($request->filled('hot')) {
-            $tours->where('hot', '1');
-        }
-
-        if ($request->filled('sorter')){
-            $sorter = $request->sorter;
-            $tours->orderBy($sorter, 'desc');
-        }
 
 
         $selectedTours = $tours->get();
@@ -111,7 +56,7 @@ class ProductController extends Controller
         $toursCount = $tours->total();
 //
 
-        return view('/pages/search/search', ['name'           => 'img/mountains.jpg',
+        return view('/pages/search/search', [
                                              'body_class'     => 'search-page',
                                              'crumb_level2'   => 'Поиск',
                                              'tours'          => $tours,
