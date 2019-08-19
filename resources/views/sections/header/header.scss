@@ -1,6 +1,5 @@
 //@import "hamburgers";
 
-
 .header {
     height:           120px;
     background-image: linear-gradient(85deg, $med-blue, #05a8d4);
@@ -17,7 +16,7 @@
         fill: $white;
     }
 
-    .logo{
+    .logo {
         margin-top: -2px;
     }
 
@@ -25,17 +24,17 @@
         height:           80px;
         box-shadow:       0 3px 6px 0 rgba(2, 56, 129, 0.26);
         background-image: linear-gradient(76deg, #084599, #05a8d4);
-      //  padding: 0 20px;
+        //  padding: 0 20px;
         @include for-flex(column, center);
-        padding: 0;
+        padding:          0;
 
         & .logo {
             margin-left: 20px;
-            z-index: 30;
+            z-index:     30;
 
         }
 
-        & .header_top{
+        & .header_top {
             margin-bottom: 0;
 
         }
@@ -44,10 +43,10 @@
             display: none;
         }
         & .hamburger {
-            display: block;
+            display:      block;
             margin-right: 17px;
-            margin-top: 7px;
-            z-index: 30;
+            margin-top:   7px;
+            z-index:      30;
         }
     }
 
@@ -61,7 +60,7 @@
 .header_top {
     margin-bottom: 17px;
     @include for-flex(row, space-between, center);
-    .cart{
+    .cart {
         margin-right: -3px;
     }
 }
@@ -70,7 +69,7 @@
     @include for-flex(row, space-between, center);
     flex-wrap: wrap;
 
-    & .search {
+    & .main-search {
         flex-grow:    1;
         margin-right: 30px;
 
@@ -103,18 +102,27 @@
 
 }
 
-.search {
+.main-search {
     height:           40px;
     border-radius:    4px;
     background-color: rgba(247, 247, 247, 0.5);
     position:         relative;
 
+    & .main-search_submit {
 
-    & .search_input {
+        border:           none;
+        outline:          none;
+        width:            0;
+        height:           0;
+        background-color: transparent;
+
+    }
+
+    & .main-search_input {
         background-color: inherit;
         border:           none;
         height:           40px;
-        color: white;
+        color:            white;
 
         &::-webkit-input-placeholder {
             color:   $white;
@@ -145,16 +153,25 @@
 
         }
     }
-    &::after {
-        content:           '';
-        @include centering('y');
-        right:             22px;
-        background-image:  url('/svg/search.svg');
-        width:             12px;
-        height:            12px;
-        background-repeat: no-repeat;
 
+    & .main-search_icon {
+        @include centering('y');
+        right:  22px;
+        width:  12px;
+        height: 12px;
     }
+
+    //&::after {
+    //    content:           '';
+    //    @include centering('y');
+    //    right:             22px;
+    //    background-image:  url('/svg/search.svg');
+    //    width:             12px;
+    //    height:            12px;
+    //    background-repeat: no-repeat;
+    //
+    //}
+
 }
 
 .add-tour {
@@ -167,10 +184,10 @@
     vertical-align:  middle;
     border-radius:   4px;
     font-weight:     bold;
-    line-height: 40px;
-
+    line-height:     40px;
 
 }
+
 .menu-mobile_wrapper {
 
     display: none;
@@ -193,12 +210,12 @@
         }
 
         & .header_top, & .header_bottom, & .user-block, & .min-nav_list {
-           @include for-flex(column);
+            @include for-flex(column);
 
         }
 
-      &  .user-block {
-           margin-bottom: 50px;
+        & .user-block {
+            margin-bottom: 50px;
             & .user.unauthorized {
                 padding-left: 24px;
 
@@ -232,6 +249,7 @@
 
     }
 }
+
 .header.mobile.closed {
     height:           80px;
     box-shadow:       0 3px 6px 0 rgba(2, 56, 129, 0.26);
@@ -239,24 +257,22 @@
     @include for-flex(row, space-between, center);
     padding:          22px 20px;
 
-
     & .logo {
-        margin: 0;
+        margin:  0;
 
         z-index: 30;
     }
     & .hamburger {
-        width:  39px;
-        height: 27px;
+        width:   39px;
+        height:  27px;
         z-index: 30;
-
 
     }
 }
 
 .hamburger {
-    cursor: pointer;
-    border: none;
+    cursor:  pointer;
+    border:  none;
     outline: none;
     display: none;
 }
@@ -267,7 +283,7 @@
 }
 
 .header_top.mod_fixed,
-.header_bottom.mod_fixed{
+.header_bottom.mod_fixed {
     @include media('d-only') {
         max-width:    1200px;
         margin-left:  auto;

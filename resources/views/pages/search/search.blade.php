@@ -206,6 +206,8 @@
                                 <label class="checkbox_label" for="hot-checkbox">Выбрать горящие</label>
                             </div>
                         </fieldset>
+
+                        <input class="hiddenInput" type="hidden" name="search" value="">
                     </form>
                 </aside>
             </div>

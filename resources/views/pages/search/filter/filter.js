@@ -4,13 +4,29 @@ require('./filter-toggler');
         let $form = $('.filter_form');
         let $select = $('.filter_select');
         let $input = $('.checkbox_input');
+        let $search = $('.main-search_input');
+        let $hiddenInput = $('.hiddenInput');
+
+
 
    $form.on('change', ($select, $input), function(e){
+      $hiddenInput.val($search.val());
        $(this).submit();
+
+
    });
 
    $('.products-filter_select').change(function(){
+       $hiddenInput.val($search.val());
        $form.submit();
+
+   });
+
+   $('.main-search_form').submit(function(e){
+       e.preventDefault();
+       $hiddenInput.val($search.val());
+       $form.submit();
+
    });
 
 

@@ -197,7 +197,7 @@
 
                 @if (count($similarTours) > 3)
                     <article class="products-link product-card mod_border-grey ">
-                        <a href="" class="products-link_link">
+                        <a href="{{ route('search').'?tour_type='.$tour->tourType->name }}" class="products-link_link">
                             <div class="products-link_icon"></div>
                             <p class="products-link_text">Перейти в категорию "{{$tour->tourType->name}}"</p>
                         </a>

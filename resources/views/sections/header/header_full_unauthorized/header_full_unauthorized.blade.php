@@ -32,9 +32,16 @@
     </div>
 
     <div class="header_bottom">
-        <div class="search">
-            <form action="">
-                <input placeholder="Поиск предложений" type="search" class=" ginput search_input">
+        <div class="main-search">
+            <form class="main-search_form" action="{{ route('search')}}" >
+                <input placeholder="Поиск предложений" type="search" name="search" value="{{request()->search}}"
+                       class="ginput
+                main-search_input">
+                <button type="submit" class="main-search_submit">
+                    <svg class="main-search_icon" viewBox="0 0 12 12">
+                        <use xlink:href="#search"></use>
+                    </svg>
+                    </button>
             </form>
         </div>
         <a class="add-tour mod_color-white" href="">+ Добавить тур</a>

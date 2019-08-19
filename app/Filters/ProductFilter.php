@@ -72,6 +72,14 @@ class ProductFilter
         });
     }
 
+    public function search ($value){
+        $this->builder->whereHas('country', function (Builder $query) use ($value) {
+            $query->where('name', 'like', "%$value%");
+        })->orwhere('name','like', "%$value%");
+
+     }
+
+
     public function price ($value)
     {
         $priceToStr = $value;
