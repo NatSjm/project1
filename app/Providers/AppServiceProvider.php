@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
 
         $countryNames = Country::pluck('name');
         $hotels = Hotel::pluck('hotel_class');
-        $tourTypes = TourType::pluck('name');
+        $tourTypes = TourType::all();
         $nutritionTypes = Nutrition::pluck('nutrition_type');
         $categories = Category::pluck('name');
 
@@ -40,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
                      'AllTourTypes'    => $tourTypes,
                      'AllNutritionTypes'=> $nutritionTypes,
                      'AllCategories' => $categories,
+                     'AllTourTypesNames' =>$tourTypes->pluck('name'),
             ]);
 
 

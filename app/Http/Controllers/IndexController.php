@@ -17,7 +17,7 @@ class IndexController extends Controller
 
         $recommendedTours = $tours->where('recommended', 1)->orderBy('created_at', 'desc')->get();
         $hotTours = $tours->where('hot', 1)->orderBy('start_at')->get();
-        $tourTypes = TourType::all();
+        //$tourTypes = TourType::all();
 
 
 
@@ -25,7 +25,7 @@ class IndexController extends Controller
             'sliderTours' => $sliderTours,
             'hotTours' => $hotTours,
             'recommendedTours' => $recommendedTours,
-            'tourTypes' => $tourTypes,
+            //'tourTypes' => $tourTypes,
             'title' => 'index',
             'body_class' => 'index'
         ]);

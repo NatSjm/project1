@@ -14,8 +14,8 @@
                     <label class="entrance_title" for="enter">01. Вход</label>
                     <div class="entrance_top">
                         <input type="text" class="entrance_input input"
-                               placeholder="Введите логин"
-                               name="login">
+                               placeholder="Введите email"
+                               name="email">
                         <input type="password" class="entrance_input input"
                                placeholder="Введите пароль"
                                name="password">
@@ -36,8 +36,8 @@
                 <label class="entrance_title" for="registration">02. Регистрация</label>
                 <div class="entrance_top">
                     <input type="text" class="entrance_input input"
-                           placeholder="Введите логин"
-                           name="login">
+                           placeholder="Введите email"
+                           name="email">
                     <input type="password" class="entrance_input input"
                            placeholder="Введите пароль"
                            name="password">
