@@ -1,0 +1,30 @@
+.reset-email-page,
+.reset-page
+{
+  & .enter-page_form{
+      max-width: 320px;
+
+      margin: auto auto;
+
+
+  }
+
+    & .entrance{
+        @include for-flex(column, center, center);
+    }
+
+    & .entrance_top,
+    & .entrance_bottom,
+    & .entrance_input.input,
+    & .entrance_submit{
+        width: 100%;
+    }
+
+    & .entrance_input.input
+    {
+      margin: 0;
+
+    }
+
+
+}

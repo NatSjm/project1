@@ -17,6 +17,10 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
 
+    protected $attributes = [
+        'first_name' => 'Аноним',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -227,6 +227,15 @@
 
                 }
             }
+
+            & .user.authorized{
+                margin-left: -45px;
+
+             & .user_avatar{
+                 display: none;
+             }
+
+            }
         }
 
         & .min-nav_item {

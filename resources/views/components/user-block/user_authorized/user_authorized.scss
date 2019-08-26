@@ -1,13 +1,29 @@
 .user.authorized {
-  &::before {
-    content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background-image: url('/img/pavl.jpg');
-    border-radius: 50%;
-    left: 10px;
-    @include centering('y');
-  }
+    //&::before {
+    //    content:          "";
+    //    position:         absolute;
+    //    width:            26px;
+    //    height:           26px;
+    //    background-image: url('/img/pavl.jpg');
+    //    border-radius:    50%;
+    //    left:             10px;
+    //    @include centering('y');
+    //}
+    font-family: $fbold;
+
+    & .user_avatar {
+        position:      absolute;
+        width:         26px;
+        height:        26px;
+        border-radius: 50%;
+        left:          10px;
+        @include centering('y');
+    }
+
+    & .user_logout-link {
+        cursor:          pointer;
+        text-decoration: none;
+        color:           white;
+    }
 }
 

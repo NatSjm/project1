@@ -13,9 +13,16 @@
     </div>
 
     <div class="user-block">
-        <div class="user unauthorized">
-            <a href="" class="user_entry">Войти</a>
-        </div>
+        {{--<div class="user unauthorized">--}}
+            @guest
+                @include('components.user-block.user_unauthorized.user_unauthorized')
+            @else
+                @include(('components.user-block.user_authorized.user_authorized'))
+
+            @endguest
+
+            {{--<a href="" class="user_entry">Войти</a>--}}
+        {{--</div>--}}
     </div>
 
     <div class="header_bottom">
