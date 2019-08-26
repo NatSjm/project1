@@ -27,6 +27,10 @@ Route::get('cart/{tour}', 'CartController@add')->name('addToCart');
 Route::get('cart', 'CartController@index')->name('cart');
 Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCart');
 
+Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middleware('auth');
+
+
+
 
 
 
@@ -65,11 +69,11 @@ Route::get('/product/create', function () {
     ]);
 });
 
-Route::get('/enter', function () {
-    return view('/pages/enter/enter', ['body_class'   => 'enter-page'
-
-    ]);
-});
+//Route::get('/enter', function () {
+//    return view('/pages/enter/enter', ['body_class'   => 'enter-page'
+//
+//    ]);
+//});
 
 
 

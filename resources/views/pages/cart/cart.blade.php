@@ -11,7 +11,7 @@
         <h2 class="cart-page_title headline-2">Корзина</h2>
 
         <section class="cart-page_main">
-            @if (session()->has('cart'))
+            @isset ($products)
                 <div class="full-cart">
 
                     <div class="full-cart_main">
@@ -64,14 +64,15 @@
                         <div class="sum">
                             <span>Итого:</span><span class="sum_value"> {{number_format($totalPrice, 0, ".", " ")}}  ₿</span>
                         </div>
-                        <button class="full-cart_order-button button mod_color-med-blue">Заказать</button>
+                        <a href="{{ route('makeOrder') }}" class="full-cart_order-button button
+                        mod_color-med-blue">Заказать</a>
 
 
                     </div>
                 </div>
             @else
                 <div>Корзина пуста</div>
-            @endif
+            @endisset
         </section>
     </div>
 @endsection
