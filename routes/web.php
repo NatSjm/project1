@@ -29,6 +29,9 @@ Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCar
 
 Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middleware('auth');
 
+Route::get('purchases', 'PurchaseController')->name('purchases')->middleware('auth');
+
+
 
 
 
@@ -41,12 +44,12 @@ Route::get('/gydeline', function () {
 
 
 
-Route::get('/orders', function () {
-    return view('/pages/orders/orders', ['body_class'   => 'orders-page',
-                                               'crumb_level2' => 'Михаил Павлов',
-                                                'crumb_level3' => ['Мои заказы']
-    ]);
-});
+//Route::get('/orders', function () {
+//    return view('/pages/orders/orders', ['body_class'   => 'orders-page',
+//                                               'crumb_level2' => 'Михаил Павлов',
+//                                                'crumb_level3' => ['Мои заказы']
+//    ]);
+//});
 
 
 

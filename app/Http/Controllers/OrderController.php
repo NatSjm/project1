@@ -24,7 +24,7 @@ class OrderController extends Controller
         $this->createDeals($groupedBySeller);
 
         $request->session()->forget('cart');
-        return redirect('/');
+        return redirect('/purchases');
     }
 
     public function createDeals($groupedBySeller){
