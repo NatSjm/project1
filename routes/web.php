@@ -32,7 +32,8 @@ Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middl
 Route::get('purchases', 'PurchaseController')->name('purchases')->middleware('auth');
 
 
-
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
 
 
 

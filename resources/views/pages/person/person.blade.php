@@ -11,21 +11,28 @@
 
         <section class="person-page_main">
             <div class="person mod_border-grey">
-                <img src="img/Pavl-superlarge.jpg" alt="" class="person_img">
-                <form action="" id="person_data" class="person_data">
+                <input type="file" form="person_data" name="avatar" class="person_img">
+                {{--<img src="img/Pavl-superlarge.jpg" alt="" class="person_img">--}}
+                <form id="person_data" class="person_data" action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="post">
+                    @csrf
+                    @method('PATCH')
                     <div class="person_fullname">
                         <label class="person_label" for="person_name">Имя</label>
-                        <input type="text" id="person_name" name="person_name" class="person_input" value="Михаил">
+                        <input type="text" id="person_name" name="first_name" class="person_input" value="{{ old
+                        ('first_name') ?? $user->first_name }}">
                         <label class="person_label" for="person_surname">Фамилия</label>
-                        <input type="text" id="person_surname" name="person_surname" class="person_input"
-                               value="Павлов">
+                        <input type="text" id="person_surname" name="last_name" class="person_input"
+                               value="{{ old
+                        ('last_name') ?? $user->last_name }}">
                     </div>
                     <div class="person_contacts">
                         <label class="person_label" for="person_phone">Телефон</label>
-                        <input type="tel" id="person_phone" name="person_phone" class="person_input" value="+38 (055) 555 55 55">
+                        <input type="tel" id="person_phone" name="phone" class="person_input" value="{{ old
+                        ('phone') ?? $user->phone }}">
                         <label class="person_label" for="person_email">Email</label>
-                        <input type="email" id="person_email" name="person_email" class="person_input"
-                               value="mihail@gmail.com">
+                        <input type="email" id="person_email" name="email" class="person_input"
+                               value="{{ old
+                        ('email') ?? $user->email }}">
                     </div>
 
 

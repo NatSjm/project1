@@ -20,7 +20,8 @@
         @include centering('y');
     }
 
-    & .user_logout-link {
+    & .user_logout-link,
+    & .user_profile-link{
         cursor:          pointer;
         text-decoration: none;
         color:           white;
