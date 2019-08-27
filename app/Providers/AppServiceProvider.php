@@ -8,6 +8,8 @@ use App\Models\Hotel;
 use App\Models\TourType;
 use App\Models\Nutrition;
 use App\Models\Category;
+use App\Models\Deal;
+
 
 
 use Illuminate\Support\Facades\View;

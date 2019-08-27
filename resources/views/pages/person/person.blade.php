@@ -11,9 +11,13 @@
 
         <section class="person-page_main">
             <div class="person mod_border-grey">
-                <input type="file" form="person_data" name="avatar" class="person_img">
+
+                <input type="file" form="person_data" id="foto" name="avatar" class="person_img">
+                <label class="person_img-title" for="foto"></label>
+
                 {{--<img src="img/Pavl-superlarge.jpg" alt="" class="person_img">--}}
-                <form id="person_data" class="person_data" action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="post">
+                <form id="person_data" class="person_data" action="/profile/{{ $user->id }}"
+                      enctype="multipart/form-data" method="post">
                     @csrf
                     @method('PATCH')
                     <div class="person_fullname">
@@ -41,7 +45,8 @@
 
             </div>
             <button type="submit" class="person_submit button mod_color-med-blue" form="person_data">Сохранить
-                изменения</button>
+                изменения
+            </button>
 
 
         </section>

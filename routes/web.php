@@ -32,8 +32,8 @@ Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middl
 Route::get('purchases', 'PurchaseController')->name('purchases')->middleware('auth');
 
 
-Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
-Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit')->middleware('auth');
+Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update')->middleware('auth');;
 
 
 
@@ -55,12 +55,12 @@ Route::get('/gydeline', function () {
 
 
 
-Route::get('/person', function () {
-    return view('/pages/person/person', ['body_class'   => 'person-page',
-                                     'crumb_level2' => 'Михаил Павлов',
-                                     'crumb_level3' => ['Личные данные']
-    ]);
-});
+//Route::get('/person', function () {
+//    return view('/pages/person/person', ['body_class'   => 'person-page',
+//                                     'crumb_level2' => 'Михаил Павлов',
+//                                     'crumb_level3' => ['Личные данные']
+//    ]);
+//});
 
 Route::get('/product/create', function () {
     return view('/pages/product/product-create/product-create', ['body_class'   => 'product-create-page',
@@ -113,4 +113,4 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 //POST запрос для сброса старого и установки нового пароля
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

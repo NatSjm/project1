@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -16,8 +15,9 @@ class ProfileController extends Controller
             ['body_class' => 'person-page']);
     }
 
-    public function update (User $user)
+    public function update (User $user, Request $request)
     {
+
 
         $data = request()->validate([
             'first_name' => '',
@@ -27,15 +27,15 @@ class ProfileController extends Controller
             'avatar'     => '',
         ]);
         if (request('avatar')) {
-            $imagePath = request('avatar')->store('profile', 'public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(180, 180);
-            $image->save();
-            $imageArray = ['avatar' => $imagePath];
+            $path = $request->file('avatar')->store('profile', 'public');
+            $data = (array_merge(
+                $data,
+                ['avatar' => $path]
+            ));
+
         }
-        auth()->user()->update(array_merge(
-            $data,
-            $imageArray ?? []
-        ));
+        auth()->user()->update($data);
+
         return redirect("/");
     }
 

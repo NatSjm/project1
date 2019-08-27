@@ -1,6 +1,6 @@
 .person-page {
     &_breadcrumbs {
-     margin-top: 24px;
+        margin-top: 24px;
     }
     &_title {
         text-transform: uppercase;
@@ -10,28 +10,28 @@
 
 .person {
     margin-bottom: 40px;
-    @include media('d-only'){
-        width: 940px;
-        margin: 0 auto;
+    @include media('d-only') {
+        width:         940px;
+        margin:        0 auto;
         @include for-flex(row, space-between, stretch);
         margin-bottom: 40px;
     }
 
-    &_data{
-        @include media('d-only'){
+    &_data {
+        @include media('d-only') {
             @include for-flex(row, space-between);
         }
     }
 
-    &_fullname{
-        @include media('d-only'){
+    &_fullname {
+        @include media('d-only') {
             margin-right: 40px;
         }
     }
 
     &_input {
         margin-bottom:    24px;
-        margin-top: 15px;
+        margin-top:       15px;
         border:           none;
         outline:          none;
         background-color: $light-milk;
@@ -39,43 +39,64 @@
         padding:          12px 20px;
         color:            $nero;
         @include font-settings(12px, 1.5);
-        &[type="email"]{
+        &[type="email"] {
             margin-bottom: 0;
         }
     }
-    &_img{
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 40px;
 
-        @include media('d-only'){
-            width: 180px;
-            height: 180px;
-            margin-right: 40px;
+    &_img-title {
+        width:            100%;
+        min-height:       180px;
+        border-radius:    4px;
+        margin-bottom:    40px;
+        background-color: $light-milk;
+        font-weight:      bold;
+        color:            $nero;
+        position:         relative;
+        z-index:          10;
+        &:hover {
+            cursor: pointer;
+        }
+        @include media('d-only') {
+            width:         180px;
+            height:        180px;
+            margin-right:  40px;
             margin-bottom: 0;
 
         }
 
     }
-    &_label{
+
+    &_img {
+        width:    0.1px;
+        height:   0.1px;
+        color:    transparent;
+        opacity:  0;
+        position: absolute;
+        z-index:  -10;
+
+    }
+
+    &_label {
         font-family: $fbold;
         @include font-settings(16px, 1.38);
-        color: $nero;
+        color:       $nero;
         font-weight: bold;
     }
-    &_submit{
-       width: 100%;
+
+    &_submit {
+        width:         100%;
         margin-bottom: 60px;
 
-        @include media('d-only'){
+        @include media('d-only') {
             margin-bottom: 100px;
-            width: 250px;
+            width:         250px;
 
-            text-align: center;
-            margin-left: 130px;
-
+            text-align:    center;
+            margin-left:   130px;
 
         }
 
     }
+
 }

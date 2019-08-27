@@ -15,13 +15,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
     return [
-        'first_name' => $faker->firstName($gender = 'male'),
-        'last_name' => $faker->lastName,
-        'phone' => $faker->phoneNumber,
-        'email' => $faker->unique()->safeEmail,
-        'avatar' => $faker->imageUrl($width = 640, $height = 480),
-        //'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'password' => bcrypt('password'),
+        'first_name'     => $faker->firstName($gender = 'male'),
+        'last_name'      => $faker->lastName,
+        'phone'          => $faker->phoneNumber,
+        'email'          => $faker->unique()->safeEmail,
+        'avatar'         => 'profile/' . $faker->image('public/storage/profile', 640, 480, null, false),
+        'password'       => bcrypt('password'),
         'remember_token' => $faker->regexify('[A-Za-z0-9]{10}'),
     ];
 });
