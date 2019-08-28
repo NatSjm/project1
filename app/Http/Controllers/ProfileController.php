@@ -11,8 +11,7 @@ class ProfileController extends Controller
     public function edit (User $user)
     {
 
-        return view('pages.person.person', compact('user'),
-            ['body_class' => 'person-page']);
+        return view('pages.person.person', compact('user'));
     }
 
     public function update (User $user, Request $request)

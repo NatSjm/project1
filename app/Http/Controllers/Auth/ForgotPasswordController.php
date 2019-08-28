@@ -30,9 +30,9 @@ class ForgotPasswordController extends Controller
         $this->middleware('guest');
     }
 
-    public function showLinkRequestForm()
-    {
-        return view('auth.passwords.email',
-                       ['body_class' => 'reset-email-page' ]                );
-    }
+//    public function showLinkRequestForm()
+//    {
+//        return view('auth.passwords.email',
+//                       ['body_class' => 'reset-email-page' ]                );
+//    }
 }

@@ -10,7 +10,8 @@
                     <div class="main-banner_text-block">
                         <h2 class="main-banner_title">{{$sliderTour->name}}</h2>
                         <h3 class="main-banner_description">Вся роскошь востока</h3>
-                        <a href="{{ route('tour', $sliderTour) }}" class="main-banner_link button">Перейти к туру</a>
+                        <a href="{{ route('product-page', $sliderTour) }}" class="main-banner_link button">Перейти к
+                            туру</a>
                     </div>
                 </div>
                 @endforeach
@@ -38,7 +39,7 @@
         <div class="section-headlines">
             <h3 class="headline-2">ColorLife рекомендует</h3>
 
-            <a class="show-all" href="{{ route('search').'?recommended=1' }}"><span>Показать все<span>
+            <a class="show-all" href="{{ route('search-page').'?recommended=1' }}"><span>Показать все<span>
                         ({{$recommendedTours->count()}})</span></span>
                 <span>
             <svg class="arrow">
@@ -64,7 +65,8 @@
         <div class="section-headlines">
             <h3 class="headline-2">Горящие туры</h3>
 
-            <a class="show-all" href="{{ route('search').'?hot=1' }}"><span>Показать все<span> ({{$hotTours->count()}})
+            <a class="show-all" href="{{ route('search-page').'?hot=1' }}"><span>Показать все<span> ({{$hotTours->count
+            ()}})
                     </span></span>
                 <span>
             <svg class="arrow">

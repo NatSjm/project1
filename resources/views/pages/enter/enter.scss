@@ -1,22 +1,22 @@
-.enter-page{
-    & .enter-page_breadcrumbs{
+.login{
+    & .login_breadcrumbs{
         margin-top: 28px;
 
     }
 
-    & .enter-page_title{
+    & .login_title{
         margin-bottom: 34px;
         @include media('d-only') {
             margin-bottom: 95px;
         }
     }
 
-    & .enter-page_form{
+    & .login_form{
         margin-bottom: 20px;
         padding-bottom: 40px;
     }
 
-    & .enter-page_main{
+    & .login_main{
         margin-bottom: 60px;
        @include media('d-only'){
            @include grid(2, 40px);

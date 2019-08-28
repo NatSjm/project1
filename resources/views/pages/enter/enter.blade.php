@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('content')
-    <div class="enter-page_wrapper cont">
-        <div class="enter-page_breadcrumbs">
+    <div class="login_wrapper cont">
+        <div class="login_breadcrumbs">
             @include('components.breadcrumbs.breadcrumbs')
         </div>
         <h2 class="headline-2 enter-page_title page-title">Авторизация</h2>
 
-        <div class="enter-page_main">
-            <div class="enter-page_form mod_border-grey">
+        <div class="login_main">
+            <div class="login_form mod_border-grey">
                 <form method="POST" action="{{ route('login') }}" id="enter" class="entrance">
                     @csrf
                     <label class="entrance_title" for="enter">01. Вход</label>
@@ -45,7 +45,7 @@
             </div>
 
 
-            <div class="enter-page_form  mod_border-grey">
+            <div class="login_form  mod_border-grey">
                 <form method="POST" action="{{ route('register') }}" id="registration" class="entrance">
                     @csrf
                     <label class="entrance_title" for="registration">02. Регистрация</label>

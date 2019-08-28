@@ -5,7 +5,7 @@
         <nav class="min-nav">
             <ul class="min-nav_list">
                 @foreach ($AllCategories as $category)
-                <li class="min-nav_item"><a href="{{ route('search').'?category='.$category }}"
+                <li class="min-nav_item"><a href="{{ route('search-page').'?category='.$category }}"
                                             class="min-nav_link">{{ $category }}</a></li>
                 @endforeach
             </ul>

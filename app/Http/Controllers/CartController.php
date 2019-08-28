@@ -16,7 +16,7 @@ class CartController extends Controller
     public function index (Request $request) {
 
         if (!$request->session()->has('cart')){
-            return view('/pages/cart/cart', ['body_class'   => 'cart-page',
+            return view('/pages/cart/cart', [
                                              'crumb_level2' => 'Михаил Павлов',
                                              'crumb_level3' => ['Корзина'],
 
@@ -25,7 +25,7 @@ class CartController extends Controller
         $oldCart = $request->session()->get('cart');
         $cart = new Cart($oldCart);
 
-        return view('/pages/cart/cart', ['body_class'   => 'cart-page',
+        return view('/pages/cart/cart', [
                                          'crumb_level2' => 'Михаил Павлов',
                                          'crumb_level3' => ['Корзина'],
                                          'products' => $cart->items,

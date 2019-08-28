@@ -236,7 +236,7 @@
                         <ul class="products-filter_list">
                         </ul>
                         <div class="products-filter_reset">
-                            <a class="products-filter_reset-link" href="{{ route('search') }}">
+                            <a class="products-filter_reset-link" href="{{ route('search-page') }}">
                             <span>Очистить фильтр</span>
                             <span class="dell-them-all">
                             <svg class="filter-cleaner_icon">

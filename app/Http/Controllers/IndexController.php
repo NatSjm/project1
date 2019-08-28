@@ -27,7 +27,7 @@ class IndexController extends Controller
             'recommendedTours' => $recommendedTours,
             //'tourTypes' => $tourTypes,
             'title' => 'index',
-            'body_class' => 'index'
+
         ]);
     }
 }

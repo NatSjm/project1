@@ -41,9 +41,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('pages.enter.enter', [
-            'body_class' => 'enter-page'
-        ]);
+        return view('pages.enter.enter');
     }
 
 }

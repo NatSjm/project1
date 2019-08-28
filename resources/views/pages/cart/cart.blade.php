@@ -2,15 +2,15 @@
 
 @section('content')
 
-    <div class="cart-page_container cont">
+    <div class="cart_container cont">
 
-        <div class="cart-page_breadcrumbs">
+        <div class="cart_breadcrumbs">
             @include('components.breadcrumbs.breadcrumbs')
         </div>
 
-        <h2 class="cart-page_title headline-2">Корзина</h2>
+        <h2 class="cart_title headline-2">Корзина</h2>
 
-        <section class="cart-page_main">
+        <section class="cart_main">
             @isset ($products)
                 <div class="full-cart">
 
@@ -31,7 +31,7 @@
                                             <img class="cart-product_img"
                                                  src="/storage/images/{{$cartProduct['item']->mainImg->path}}">
                                             <div class="cart-product_info">
-                                                <a href="{{ route('tour', $cartProduct['item']) }}"
+                                                <a href="{{ route('product-page', $cartProduct['item']) }}"
                                                    class="cart-product_link">{{$cartProduct['item']->country->name}}
                                                     {{$cartProduct['item']->hotel->hotel_class}}<sup> &#42;</sup>
                                                     {{$cartProduct['item']->tourType->name}}

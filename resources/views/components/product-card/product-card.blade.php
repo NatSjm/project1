@@ -4,7 +4,7 @@
     <header class="product-card_header">
 
 
-        <a class="product-card_link" href ="{{ route('tour', $tour) }}">
+        <a class="product-card_link" href ="{{ route('product-page', $tour) }}">
             <img class="product-card_img" src="/storage/images/{{$tour->mainImg->path}}" alt="">
         </a>
 
@@ -24,7 +24,7 @@
     </header>
     <div class="delimiter mod_color-light-green"></div>
     <div class="product-card_main">
-        <a class="product-card_link" href ="{{ route('tour', $tour) }}">
+        <a class="product-card_link" href ="{{ route('product-page', $tour) }}">
             <h3 class="product-card_title headline-3 ">{{$tour->country->name}} ({{$tour->name}})</h3>
         </a>
         <h4 class="product-card_description headline-4">Вылет из {{$tour->startLocation->city->name}}</h4>

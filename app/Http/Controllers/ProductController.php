@@ -24,7 +24,6 @@ class ProductController extends Controller
             'tour'         => $tour,
             'sellerTours'  => $sellerTours,
             'similarTours' => $similarTours,
-            'body_class'   => 'product-page',
             'crumb_level2' => $seller_full_name,
             'crumb_level3' => [$tour->name, $tour->hotel->hotel_class . "*"]
         ]);
@@ -57,7 +56,6 @@ class ProductController extends Controller
 //
 
         return view('/pages/search/search', [
-                                             'body_class'     => 'search-page',
                                              'crumb_level2'   => 'Поиск',
                                              'tours'          => $tours,
                                              'countryNames'   => $countryNames,

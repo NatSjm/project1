@@ -128,7 +128,7 @@
                             <div class="revew_date">{{$comment->created_at}}</div>
 
                             @if($comment->user)
-                                <a href="{{ route('seller', $comment->user) }}" class="revew_revewer-link link">все
+                                <a href="{{ route('seller-page', $comment->user) }}" class="revew_revewer-link link">все
                                     объявления</a>
                             @endif
 
@@ -175,7 +175,7 @@
 
                     @if (count($sellerTours) > 3)
                         <article class="products-link product-card  mod_border-grey ">
-                            <a href="{{ route('seller', $tour->seller) }}" class="products-link_link">
+                            <a href="{{ route('seller-page', $tour->seller) }}" class="products-link_link">
                                 <div class="products-link_icon"></div>
                                 <p class="products-link_text">Перейти к объявлениям
                                     продавца {{$tour->seller->first_name}}</p>
@@ -197,7 +197,8 @@
 
                 @if (count($similarTours) > 3)
                     <article class="products-link product-card mod_border-grey ">
-                        <a href="{{ route('search').'?tour_type='.$tour->tourType->name }}" class="products-link_link">
+                        <a href="{{ route('search-page').'?tour_type='.$tour->tourType->name }}"
+                           class="products-link_link">
                             <div class="products-link_icon"></div>
                             <p class="products-link_text">Перейти в категорию "{{$tour->tourType->name}}"</p>
                         </a>

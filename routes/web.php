@@ -18,10 +18,10 @@ Route::get('/', 'IndexController')->name('index');
 
 
 
-Route::get('search', 'ProductController@index')->name('search');
-Route::get('tour/{id}', 'ProductController@show')->name('tour');
+Route::get('search', 'ProductController@index')->name('search-page');
+Route::get('tour/{id}', 'ProductController@show')->name('product-page');
 
-Route::get('seller/{user}', 'SellerController')->name('seller');
+Route::get('seller/{user}', 'SellerController')->name('seller-page');
 
 Route::get('cart/{tour}', 'CartController@add')->name('addToCart');
 Route::get('cart', 'CartController@index')->name('cart');
@@ -29,10 +29,10 @@ Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCar
 
 Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middleware('auth');
 
-Route::get('purchases', 'PurchaseController')->name('purchases')->middleware('auth');
+Route::get('purchases', 'PurchaseController')->name('orders-page')->middleware('auth');
 
 
-Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit')->middleware('auth');
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('person-page')->middleware('auth');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update')->middleware('auth');;
 
 

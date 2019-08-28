@@ -41,8 +41,7 @@ class SellerController extends Controller
 
         return view('pages.seller.seller', [
             'sellerTours' => $sellerTours,
-            'body_class' => 'seller-page',
-           'sellerHasTours' => $sellerHasTours,
+            'sellerHasTours' => $sellerHasTours,
             'crumb_level2' => $user->fullName,
             'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',

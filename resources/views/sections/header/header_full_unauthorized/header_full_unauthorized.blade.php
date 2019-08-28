@@ -5,7 +5,7 @@
         <nav class="main-nav">
             <ul class="main-nav_list">
                 @foreach ($AllCategories as $category)
-                    <li class="main-nav_item"><a href="{{ route('search').'?category='.$category }}"
+                    <li class="main-nav_item"><a href="{{ route('search-page').'?category='.$category }}"
                                                  class="main-nav_link">{{ $category }}</a></li>
                 @endforeach
             </ul>
@@ -38,7 +38,7 @@
 
     <div class="header_bottom">
         <div class="main-search">
-            <form class="main-search_form" action="{{ route('search')}}">
+            <form class="main-search_form" action="{{ route('search-page')}}">
                 <input placeholder="Поиск предложений" type="search" name="search" value="{{request()->search}}"
                        class="ginput
                 main-search_input">

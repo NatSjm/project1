@@ -20,7 +20,7 @@ class PurchaseController extends Controller
             Auth::id())->latest()->get();
        // dd($deals);
 
-        return view('pages.orders.orders', ['body_class'   => 'orders-page',
+        return view('pages.orders.orders', [
                                                'crumb_level2' => 'Михаил Павлов',
                                                 'crumb_level3' => ['Мои покупки'],
                                                 'deals' => $deals
