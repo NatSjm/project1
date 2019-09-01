@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Deal extends Model
 {
     protected $guarded = ['id'];
@@ -23,5 +24,12 @@ class Deal extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function makeOrder($innerItem){
+        return $this->orders()->create([
+               'tour_id' => $innerItem->id,
+               'price' => $innerItem->price,
+        ]);
     }
 }
