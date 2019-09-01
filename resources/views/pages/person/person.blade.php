@@ -13,7 +13,7 @@
             <div class="person mod_border-grey">
 
                 <input type="file" form="person_data" id="foto" name="avatar" class="person_img">
-                <label class="person_img-title" for="foto"></label>
+                <label class="person_img-title" for="foto" style="background-image: url('{{ $user->url }}');"></label>
 
                 {{--<img src="img/Pavl-superlarge.jpg" alt="" class="person_img">--}}
                 <form id="person_data" class="person_data" action="/profile/{{ $user->id }}"
