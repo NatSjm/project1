@@ -27,6 +27,7 @@
             @else
                 @include(('components.user-block.user_authorized.user_authorized'))
 
+
             @endguest
             @include('components.cart.cart')
         </div>

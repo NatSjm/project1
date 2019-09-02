@@ -26,5 +26,25 @@
         text-decoration: none;
         color:           white;
     }
+
+    & .user_profile-link{
+        position: relative;
+
+    }
+
+    & .popup{
+        position: absolute;
+        display:none;
+        &:hover{
+            display: block;
+            z-index: 100;
+        }
+    }
+
+    & .user_profile-link:hover .popup{
+        display: block;
+    }
+
+
 }
 
