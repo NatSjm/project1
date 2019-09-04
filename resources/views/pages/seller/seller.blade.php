@@ -5,11 +5,16 @@
     <div class="seller-page_content-wrapper cont">
 
         <div class="seller-page_breadcrumbs">
-            @include('components.breadcrumbs.breadcrumbs')
+            @include('components.breadcrumbs.breadcrumbs', ['crumb_level2' => $seller->fullName])
         </div>
 
-        @if($sellerHasTours)
-            <h2 class="seller-page_title headline-2">Предложения продавца</h2>
+        @if(count($seller->belongingTours))
+
+            @if((Auth::check()) && ($seller->id === Auth::id()))
+                <h2 class="seller-page_title headline-2">Мои предложения</h2>
+            @else
+                <h2 class="seller-page_title headline-2">Предложения продавца</h2>
+            @endif
 
 
             <div class="seller-page_main-content">

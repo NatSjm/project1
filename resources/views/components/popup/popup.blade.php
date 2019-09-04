@@ -3,7 +3,7 @@
         <ul class="personal-menu">
             <li class="personal-menu_item my-propo active"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
                            <use xlink:href="#propositions"></use>
-                       </svg></span><a href="" class="personal-menu_link">Мои предложения</a></li>
+                       </svg></span><a href="{{ route('seller-page', Auth::user()) }}" class="personal-menu_link">Мои предложения</a></li>
             <li class="personal-menu_item my-purch"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
                            <use xlink:href="#purchases"></use>
                        </svg></span><a href="{{ route('orders-page') }}" class="personal-menu_link">Мои покупки</a></li>

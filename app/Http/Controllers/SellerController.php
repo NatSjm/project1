@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ProductFilter;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\User;
@@ -17,32 +18,17 @@ class SellerController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, User $user)
+    public function __invoke(Request $request, User $user, ProductFilter $filters )
     {
 
         $sellerTours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg')->where('seller_id',
-            $user->id);
+            $user->id)->filter($filters);
 
-        $sellerHasTours = $sellerTours? true : false;
-        $tourType = ($request->input('tour_type'));
-
-        if($request->filled('tour_type')){
-
-            $sellerTours->whereHas('tourType',function(Builder $query) use($tourType){
-                $query->where('name', $tourType);
-            });
-        }
          $sellerTours = $sellerTours->paginate(12);
-//         $categories =  ['ind' => 'Индустриальный', 'luxury' => 'Luxury', 'all-inclus' => 'Все включено',
-//            'fam' => 'Семейный отдых', 'gastro' => 'Гастрономический', 'keep-calm' => 'Спокойный отдых',
-//            'intertainment' => 'Программа развлечений', 'shop' => 'Шоппинг', 'extreem' => 'Экстрим',
-//            'beach' => 'Пляжный', 'sp' => 'SPA'];
-
 
         return view('pages.seller.seller', [
             'sellerTours' => $sellerTours,
-            'sellerHasTours' => $sellerHasTours,
-            'crumb_level2' => $user->fullName,
+            'seller' => $user,
             'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',
         ]);
