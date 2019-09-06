@@ -19,26 +19,35 @@
                                autofocus
                                autocomplete="email"
                                name="email">
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        <input type="password" class="entrance_input input"
-                               placeholder="Введите пароль"
-                               name="password"
-                               required autocomplete="new-password">
+                        <div>
+                            <input type="password" class="entrance_input input"
+                                   placeholder="Введите пароль"
+                                   name="password"
+                                   required autocomplete="new-password" style="margin-bottom: 5px;">
 
-                        <input type="password" class="entrance_input input"
-                               placeholder="Подтвердите пароль"
-                               name="password_confirmation"
-                               required autocomplete="new-password">
+                            <input type="password" class="entrance_input input"
+                                   placeholder="Подтвердите пароль"
+                                   name="password_confirmation"
+                                   required autocomplete="new-password">
+                        </div>
                     </div>
                     <div class="entrance_bottom">
                         <input type="submit" class="entrance_submit button mod_color-med-blue" value="Подтвердить">
                     </div>
                 </form>
             </div>
+
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
+
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
     </div>
 @endsection

@@ -26,10 +26,10 @@ class SellerController extends Controller
 
          $sellerTours = $sellerTours->paginate(12);
 
-        return view('pages.seller.seller', [
+         return view('pages.seller.seller', [
             'sellerTours' => $sellerTours,
             'seller' => $user,
-            'title' => (auth()->user() === $user)? 'Мои предложения': 'предложения продавца',
+            'title' => (auth()->user() == $user)? 'Мои предложения': 'предложения продавца',
             'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',
         ]);
