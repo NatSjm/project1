@@ -29,6 +29,7 @@ class SellerController extends Controller
         return view('pages.seller.seller', [
             'sellerTours' => $sellerTours,
             'seller' => $user,
+            'title' => (auth()->user() === $user)? 'Мои предложения': 'предложения продавца',
             'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',
         ]);

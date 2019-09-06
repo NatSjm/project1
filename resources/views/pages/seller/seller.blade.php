@@ -9,14 +9,7 @@
         </div>
 
         @if(count($seller->belongingTours))
-
-            @if((Auth::check()) && ($seller->id === Auth::id()))
-                <h2 class="seller-page_title headline-2">Мои предложения</h2>
-            @else
-                <h2 class="seller-page_title headline-2">Предложения продавца</h2>
-            @endif
-
-
+                <h2 class="seller-page_title headline-2">{{ $title }}</h2>
             <div class="seller-page_main-content">
                 <section class="filter">
                     <form class="filter_form" method="get" action="#" id="filter_form">
