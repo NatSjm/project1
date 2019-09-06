@@ -6,10 +6,10 @@
                        </svg></span><a href="{{ route('seller-page', Auth::user()) }}" class="personal-menu_link">Мои предложения</a></li>
             <li class="personal-menu_item my-purch"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
                            <use xlink:href="#purchases"></use>
-                       </svg></span><a href="{{ route('orders-page') }}" class="personal-menu_link">Мои покупки</a></li>
+                       </svg></span><a href="{{ route('purchases-page') }}" class="personal-menu_link">Мои покупки</a></li>
             <li class="personal-menu_item my-orders"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
                            <use xlink:href="#bell"></use>
-                           </svg></span><a href="" class="personal-menu_link">Мои заказы</a>
+                           </svg></span><a href="{{ route('orders-page') }}" class="personal-menu_link">Мои заказы</a>
             </li>
             <li class="personal-menu_item person-info"><span class="personal-menu_icon"><svg viewBox="0 0 9.999 10">
                            <use xlink:href="#user"></use>

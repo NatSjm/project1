@@ -28,8 +28,10 @@ Route::get('cart', 'CartController@index')->name('cart');
 Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCart');
 
 Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middleware('auth');
+Route::get('orders', 'OrderController@index')->name('orders-page')->middleware('auth');
 
-Route::get('purchases', 'PurchaseController')->name('orders-page')->middleware('auth');
+
+Route::get('purchases', 'PurchaseController')->name('purchases-page')->middleware('auth');
 
 
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('person-page')->middleware('auth');

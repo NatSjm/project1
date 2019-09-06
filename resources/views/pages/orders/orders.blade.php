@@ -4,7 +4,7 @@
         <div class="orders-page_breadcrumbs">
             @include('components.breadcrumbs.breadcrumbs')
         </div>
-        <h2 class="headline-2 orders-page_title">Мои покупки</h2>
+        <h2 class="headline-2 orders-page_title">{{ $title }}</h2>
         @isset($deals)
         <section class="orders-page_orders mod_border-grey">
             <table class="orders table">

@@ -7,7 +7,9 @@
                 <use xlink:href="#selector"></use>
             </svg>
         </td>
-        <td class="order_byer-link"><a class="link" href="#">{{ $deal->seller->fullName}}</a></td>
+
+        <td class="order_byer-link"><a class="link" href="#">{{(Request::route()->getName() == 'purchases-page')? $deal->seller->fullName : $deal->buyer->fullName}}</a></td>
+
         <td class="order_details-switcher js_details-switcher"><span>Подробности</span>
             <svg class="order_switcher-icon mod_desctop">
                 <use xlink:href="#selector"></use>

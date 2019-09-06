@@ -23,7 +23,8 @@ class PurchaseController extends Controller
         return view('pages.orders.orders', [
                                                'crumb_level2' => 'Михаил Павлов',
                                                 'crumb_level3' => ['Мои покупки'],
-                                                'deals' => $deals
+                                                'deals' => $deals,
+                                                'title' => 'Мои покупки'
     ]);
     }
 }

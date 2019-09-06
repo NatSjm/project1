@@ -34,7 +34,7 @@ $(document).ready(function() {
         require('./../views/pages/search/filter/filter');
     } else if($("body").hasClass("cart-page")){
         require('./../views/pages/cart/cart');
-    } else if($("body").hasClass("orders-page")){
+    } else if($("body").hasClass("orders-page") || $("body").hasClass("purchases-page")){
         require('./../views/pages/orders/order/order');
     }else if($("body").hasClass("seller-page")){
         require('./../views/pages/seller/seller');
