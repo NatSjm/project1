@@ -13,6 +13,9 @@ class ProfileController extends Controller
 {
     public function edit(User $user)
     {
+        if(auth()->user()->isNot($user)){
+            abort(403);
+        }
 
         return view('pages.person.person', compact('user'));
     }

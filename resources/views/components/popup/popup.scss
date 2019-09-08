@@ -66,17 +66,17 @@
   position: relative;
   margin-bottom: 5px;
 
-  & use{
+  & .personal-menu_use{
     fill: $med-grey;
   }
-}
 
-.personal-menu_item.active{
-  & a {
-    color: $med-blue;
-  }
-  & use{
-    fill: $med-blue;
+  &:hover{
+    & a {
+      color: $med-blue;
+    }
+    & use{
+      fill: $med-blue;
+    }
   }
 }
 
@@ -92,7 +92,7 @@
   transform: translateY(2px);
   margin-left: 8px;
 
-  & use {
+  & .personal-menu_use {
     fill: $med-grey;
   }
 }
