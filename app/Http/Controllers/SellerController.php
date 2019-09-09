@@ -30,7 +30,7 @@ class SellerController extends Controller
             'sellerTours' => $sellerTours,
             'seller' => $user,
             'title' => (auth()->user() == $user)? 'Мои предложения': 'предложения продавца',
-            'crumb_level3' => ['Предложения продавца'],
+//            'crumb_level3' => ['Предложения продавца'],
             'filterType' => 'tour_type',
         ]);
     }

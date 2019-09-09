@@ -17,15 +17,15 @@ class ProductController extends Controller
 
         $sellerTours = $tour->seller->belongingTours->except([$tour->id]);
         $similarTours = $tour->tourType->tours->except([$tour->id]);
-        $seller_full_name = $tour->seller->fullName;
+//        $seller_full_name = $tour->seller->fullName;
 
 
         return view('pages.product.product', [
             'tour'         => $tour,
             'sellerTours'  => $sellerTours,
             'similarTours' => $similarTours,
-            'crumb_level2' => $seller_full_name,
-            'crumb_level3' => [$tour->name, $tour->hotel->hotel_class . "*"]
+//            'crumb_level2' => $seller_full_name,
+//            'crumb_level3' => [$tour->name, $tour->hotel->hotel_class . "*"]
         ]);
     }
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
 //
 
         return view('/pages/search/search', [
-                                             'crumb_level2'   => 'Поиск',
+//                                             'crumb_level2'   => 'Поиск',
                                              'tours'          => $tours,
                                              'countryNames'   => $countryNames,
                                              'tourTypes'      => $tourTypes,

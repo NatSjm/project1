@@ -3,12 +3,10 @@
 @section('content')
 
     <div class="product-page_breadcrumbs cont">
-
-        @include('components.breadcrumbs.breadcrumbs')
+        {{ Breadcrumbs::render('product', $tour) }}
     </div>
-    <h2 class="headline-2 product-page_title cont">{{ $tour->name }}</h2>
+    <h2 class="headline-2 product-page_title cont">{{ $tour->name }} {{ $tour->hotel->hotel_class }} *</h2>
     {{--    <img src="/storage/images/{{$tour->mainImg->path}}">--}}
-
     <section class="product-page_main">
         <div class="product">
             @if(count($tour->medias))
@@ -57,7 +55,7 @@
                         <div class="tag mod_seller">
                             <img class="tag_avatar" src="{{$tour->seller->avatar}}" alt="">
                             <h4 class="headline-4 tag_title">Продавец</h4>
-                            <span>{{$crumb_level2}}</span>
+                            <span>{{$tour->seller->fullName}}</span>
                         </div>
                     </div>
 

@@ -5,7 +5,7 @@
     <div class="cart_container cont">
 
         <div class="cart_breadcrumbs">
-            @include('components.breadcrumbs.breadcrumbs')
+            {{ Breadcrumbs::render('cart') }}
         </div>
 
         <h2 class="cart_title headline-2">Корзина</h2>

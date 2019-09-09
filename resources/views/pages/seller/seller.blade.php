@@ -5,7 +5,7 @@
     <div class="seller-page_content-wrapper cont">
 
         <div class="seller-page_breadcrumbs">
-            @include('components.breadcrumbs.breadcrumbs', ['crumb_level2' => $seller->fullName])
+            {{ Breadcrumbs::render('seller', $seller) }}
         </div>
 
         @if(count($seller->belongingTours))

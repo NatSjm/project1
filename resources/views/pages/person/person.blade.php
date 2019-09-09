@@ -4,7 +4,7 @@
     <div class="person-page_container cont">
 
         <div class="person-page_breadcrumbs">
-            @include('components.breadcrumbs.breadcrumbs')
+            {{ Breadcrumbs::render('person', $user) }}
         </div>
 
         <h2 class="person-page_title headline-2">Личные данные</h2>

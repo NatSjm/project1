@@ -17,8 +17,8 @@ class CartController extends Controller
 
         if (!$request->session()->has('cart')){
             return view('/pages/cart/cart', [
-                                             'crumb_level2' => 'Михаил Павлов',
-                                             'crumb_level3' => ['Корзина'],
+//                                             'crumb_level2' => 'Михаил Павлов',
+//                                             'crumb_level3' => ['Корзина'],
 
             ]);
         }
@@ -26,8 +26,8 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
 
         return view('/pages/cart/cart', [
-                                         'crumb_level2' => 'Михаил Павлов',
-                                         'crumb_level3' => ['Корзина'],
+//                                         'crumb_level2' => 'Михаил Павлов',
+//                                         'crumb_level3' => ['Корзина'],
                                          'products' => $cart->items,
                                          'totalPrice' => $cart->totalPrice,
         ]);
