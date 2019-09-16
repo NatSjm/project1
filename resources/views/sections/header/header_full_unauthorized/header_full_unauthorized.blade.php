@@ -50,7 +50,7 @@
                 </button>
             </form>
         </div>
-        <a class="add-tour mod_color-white" href="">+ Добавить тур</a>
+        <a class="add-tour mod_color-white" href="{{ route('product-create-page')}}">+ Добавить тур</a>
     </div>
 
 </header>

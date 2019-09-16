@@ -17,9 +17,15 @@
 Route::get('/', 'IndexController')->name('index');
 
 
+Route::get('tour/create', 'ProductController@create')->name('product-create-page')->middleware('auth');
+Route::post('tour', 'ProductController@store')->name('tour.store');
+
 
 Route::get('search', 'ProductController@index')->name('search-page');
 Route::get('tour/{id}', 'ProductController@show')->name('product-page');
+
+
+
 
 Route::get('seller/{user}', 'SellerController')->name('seller-page');
 
@@ -27,59 +33,25 @@ Route::get('cart/{tour}', 'CartController@add')->name('addToCart');
 Route::get('cart', 'CartController@index')->name('cart');
 Route::get('cart/{id}/delete', 'CartController@removeItem')->name('deleteFromCart');
 
-Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder')->middleware('auth');
-Route::get('orders', 'OrderController@index')->name('orders-page')->middleware('auth');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('makeOrder', 'OrderController@handleOrder')->name('makeOrder');
+    Route::get('orders', 'OrderController@index')->name('orders-page');
 
 
-Route::get('purchases', 'PurchaseController')->name('purchases-page')->middleware('auth');
+    Route::get('purchases', 'PurchaseController')->name('purchases-page');
 
 
-Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('person-page')->middleware('auth');
-Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update')->middleware('auth');;
+    Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('person-page');
+    Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
 
-
+});
 
 
 Route::get('/gydeline', function () {
     return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
 });
 
-
-
-
-//Route::get('/orders', function () {
-//    return view('/pages/orders/orders', ['body_class'   => 'orders-page',
-//                                               'crumb_level2' => 'Михаил Павлов',
-//                                                'crumb_level3' => ['Мои заказы']
-//    ]);
-//});
-
-
-
-
-//Route::get('/person', function () {
-//    return view('/pages/person/person', ['body_class'   => 'person-page',
-//                                     'crumb_level2' => 'Михаил Павлов',
-//                                     'crumb_level3' => ['Личные данные']
-//    ]);
-//});
-
-Route::get('/product/create', function () {
-    return view('/pages/product/product-create/product-create', ['body_class'   => 'product-create-page',
-                                         'crumb_level2' => 'Михаил Павлов',
-                                         'crumb_level3' => ['Новое объявление'],
-                                         'categories' => ['ind'=>'Индустриальный', 'luxury'=>'Luxury','all-inclus'=> 'Все включено',
-                                                                                  'fam'=>'Семейный отдых', 'gastro'=>'Гастрономический', 'keep-calm'=>'Спокойный отдых',
-                                                                                  'intertainment'=>'Программа развлечений', 'shop'=>'Шоппинг', 'extreem'=>'Экстрим',
-                                                                                  'beach'=>'Пляжный', 'sp'=> 'SPA']
-    ]);
-});
-
-//Route::get('/enter', function () {
-//    return view('/pages/enter/enter', ['body_class'   => 'enter-page'
-//
-//    ]);
-//});
 
 
 

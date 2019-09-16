@@ -40,6 +40,11 @@ Breadcrumbs::for('person', function ($trail, $user) {
     $trail->push('Личные данные', route('person-page', $user));
 });
 
+Breadcrumbs::for('product-create', function ($trail) {
+    $trail->parent('seller', auth()->user());
+    $trail->push('Новое объявление', route('product-create-page'));
+});
+
 
 
 

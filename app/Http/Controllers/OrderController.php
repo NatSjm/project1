@@ -51,11 +51,9 @@ class OrderController extends Controller
 
         $deals = Deal::with('orders.tour', 'buyer')->where('seller_id',
             Auth::id())->latest()->get();
-        // dd($deals);
+
 
         return view('pages.orders.orders', [
-//            'crumb_level2' => 'Михаил Павлов',
-//            'crumb_level3' => ['Мои заказы'],
             'deals' => $deals,
             'title' => 'Мои заказы',
         ]);

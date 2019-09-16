@@ -3,10 +3,12 @@
 @section('content')
     <div class="product-create-page_wrapper cont">
         <div class="product-create-page_breadcrumbs">
-            @include('components.breadcrumbs.breadcrumbs')
+            {{ Breadcrumbs::render('product-create') }}
+{{--            @include('components.breadcrumbs.breadcrumbs')--}}
         </div>
         <h2 class="headline-2 product-create-page_title page-title">Новое объявление </h2>
-        <form action="" class="product-create-page_form product-form">
+        <form action="{{route('tour.store')}}" class="product-create-page_form product-form" enctype="multipart/form-data" method="post">
+            @csrf
             <div class="product-form_fieldset-wrapper">
                 <fieldset class="product-form_fieldset mod_border-grey">
                     <div class="product-form_selectwrapper">
@@ -14,19 +16,19 @@
                             <label class="product-select_title" for="product-name">Название объявления</label>
                             <input type="text" class="product-select_input input"
                                    placeholder="Введите название объявления"
-                                   name="product-name"
+                                   name="name"
                                    id="product-name">
                         </div>
                         <div class="product-form_select-group">
                             <div class="product-form_select product-select">
                                 <label class="product-select_title" for="country">Страна</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select " name="country"
+                                    <select class="product-select_select select " name="country_id"
                                             id="country">
                                         <option class="product-select_option" value="">Укажите страну отдыха</option>
-                                        <option class="product-select_option" value="Germany">Германия</option>
-                                        <option class="product-select_option" value="Hungary">Венгрия</option>
-                                        <option class="product-select_option" value="France">Франция</option>
+                                            @foreach($AllCountryNames as $key => $country)
+                                        <option class="product-select_option" value="{{ $key }}">{{ $country }}</option>
+                                            @endforeach
                                     </select>
                                     <svg class="product-select_icon select_icon">
                                         <use xlink:href="#selector"></use>
@@ -37,11 +39,11 @@
                             <div class="product-form_select product-select">
                                 <label class="product-select_title" for="hotel-class">Класс отеля</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select " name="hotel-class" id="hotel-class">
+                                    <select class="product-select_select select " name="hotel_id" id="hotel-class">
                                         <option class="product-select_option" value="">Укажите класс отеля</option>
-                                        <option class="product-select_option" value="1-star">1<sup>*</sup></option>
-                                        <option class="product-select_option" value="2-star">2<sup>*</sup></option>
-                                        <option class="product-select_option" value="3-star">3<sup>*</sup></option>
+                                        @foreach ($AllHotels as $key => $hotel)
+                                        <option class="product-select_option" value="{{ $key }}">{{ $hotel }}<sup>*</sup></option>
+                                        @endforeach
                                     </select>
                                     <svg class="product-select_icon select_icon">
                                         <use xlink:href="#selector"></use>
@@ -53,10 +55,11 @@
                         <div class="product-form_select product-select">
                             <label class="product-select_title" for="tour-cat">Категория тура</label>
                             <div class="select-wrapper">
-                                <select class="product-select_select select" name="tour-cat" id="tour-cat">
+                                <select class="product-select_select select" name="category_id" id="tour-cat">
                                     <option class="product-select_option" value="">Укажите категорию тура</option>
-                                    <option class="product-select_option" value="bus">Автобусный тур</option>
-                                    <option class="product-select_option" value="sea">Морской тур</option>
+                                    @foreach($AllCategories as $key => $category)
+                                    <option class="product-select_option" value="{{ $key }}">{{ $category }}</option>
+                                    @endforeach
                                 </select>
                                 <svg class="product-select_icon select_icon">
                                     <use xlink:href="#selector"></use>
@@ -69,12 +72,11 @@
                             <div class="product-form_select product-select">
                                 <label class="product-select_title" for="category">Тип тура</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select" name="category" id="category">
+                                    <select class="product-select_select select" name="tour_type_id" id="category">
                                         <option class="product-select_option" value="">Укажите категорию</option>
-                                        @foreach ($categories as $key=>$value)
-                                            <option class="filter_option" value="{{ $key }}">{{ $value }}</option>
+                                        @foreach ($AllTourTypesNames as $key => $tourType)
+                                            <option class="filter_option" value="{{ $key }}">{{ $tourType }}</option>
                                         @endforeach
-
                                     </select>
                                     <svg class="product-select_icon select_icon">
                                         <use xlink:href="#selector"></use>
@@ -92,14 +94,14 @@
                             <div class="product-form_select product-select">
                                 <label class="product-select_title" for="food">Питание</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select" name="food" id="food">
+                                    <select class="product-select_select select" name="nutrition_id" id="food">
                                         <option class="product-select_option " value="">Укажите питание в
                                             туре
                                         </option>
-                                        <option class="product-select_option" value="breakfast-supper">Завтрак и ужин
+                                        @foreach($AllNutritionTypes as $key => $nutritionType)
+                                        <option class="product-select_option" value="{{$key}}">{{$nutritionType}}
                                         </option>
-                                        <option class="product-select_option" value="breakfast">Завтрак</option>
-                                        <option class="product-select_option" value="without">Без питания</option>
+                                        @endforeach
                                     </select>
                                     <svg class="product-select_icon select_icon">
                                         <use xlink:href="#selector"></use>
@@ -111,11 +113,11 @@
                                 <label class="product-select_title" for="children-accessibility">Доступно для
                                     детей</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select" name="children-accessibility"
+                                    <select class="product-select_select select" name="children_accessibility"
                                             id="children-accessibility">
                                         <option class="product-select_option" value=""></option>
-                                        <option class="product-select_option" value="yes">Да</option>
-                                        <option class="product-select_option" value="no">Нет</option>
+                                        <option class="product-select_option" value="1">Да</option>
+                                        <option class="product-select_option" value="0">Нет</option>
                                     </select>
                                     <svg class="product-select_icon select_icon">
                                         <use xlink:href="#selector"></use>
@@ -134,12 +136,11 @@
                 </fieldset>
             </div>
 
-            <fieldset class="product-form_fieldset img-fieldset mod_border-grey id=" foto
-            ">
-            <label class="img-fieldset_title" for="foto">Фотографии</label>
+            <fieldset class="product-form_fieldset img-fieldset mod_border-grey" id="foto-fieldset">
+            <label class="img-fieldset_title" for="foto-fieldset">Фотографии</label>
             <div class="img-fieldset_container">
                 <div class="img-uploader">
-                    <input class="img-uploader_input" id="foto" title="" type="file">
+                    <input class="img-uploader_input" id="foto" name="main_img" title="" type="file">
                     <label class="img-uploader_title" for="foto"><span>Основное</span><span>фото</span></label>
                 </div>
 

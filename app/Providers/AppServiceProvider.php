@@ -30,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
         //
         Date::setlocale(config('app.locale'));
 
-        $countryNames = Country::pluck('name');
-        $hotels = Hotel::pluck('hotel_class');
+        $countryNames = Country::pluck('name', 'id')->sort();
+        $hotels = Hotel::pluck('hotel_class', 'id');
         $tourTypes = TourType::all();
-        $nutritionTypes = Nutrition::pluck('nutrition_type');
-        $categories = Category::pluck('name');
+        $nutritionTypes = Nutrition::pluck('nutrition_type', 'id');
+        $categories = Category::pluck('name', 'id');
 
         View::share([
                      'AllCountryNames' => $countryNames,
@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
                      'AllTourTypes'    => $tourTypes,
                      'AllNutritionTypes'=> $nutritionTypes,
                      'AllCategories' => $categories,
-                     'AllTourTypesNames' =>$tourTypes->pluck('name'),
+                     'AllTourTypesNames' =>$tourTypes->pluck('name', 'id'),
             ]);
 
 
