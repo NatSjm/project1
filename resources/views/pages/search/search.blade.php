@@ -4,7 +4,7 @@
 
     <div class="search-page_content-wrapper cont">
 
-        {{--@include('components.breadcrumbs.breadcrumbs')--}}
+
         {{ Breadcrumbs::render('search') }}
 
         <h2 class="search-page_title headline-2">Поиск</h2>

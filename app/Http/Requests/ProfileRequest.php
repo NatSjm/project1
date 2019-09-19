@@ -13,7 +13,7 @@ class ProfileRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize(User $user)
+    public function authorize (User $user)
     {
         //return auth()->check();
         return true;
@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules ()
     {
         $user = $this->route('user');
         return [

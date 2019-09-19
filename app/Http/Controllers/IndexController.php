@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tour;
 use App\Models\TourType;
+
 class IndexController extends Controller
 {
 
-    public function __invoke()
+    public function __invoke ()
     {
         $sliderTours = Tour::with('mainImg')->where('advertisement', 1)->orderBy('price',
-                'desc')->take(3)->get();
+            'desc')->take(3)->get();
 
         $tours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg');
 
@@ -20,13 +21,12 @@ class IndexController extends Controller
         //$tourTypes = TourType::all();
 
 
-
         return view('/pages/index/index', [
-            'sliderTours' => $sliderTours,
-            'hotTours' => $hotTours,
+            'sliderTours'      => $sliderTours,
+            'hotTours'         => $hotTours,
             'recommendedTours' => $recommendedTours,
             //'tourTypes' => $tourTypes,
-            'title' => 'index',
+            'title'            => 'index',
 
         ]);
     }

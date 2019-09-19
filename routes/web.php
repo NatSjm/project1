@@ -12,8 +12,6 @@
 */
 
 
-
-
 Route::get('/', 'IndexController')->name('index');
 
 
@@ -23,8 +21,6 @@ Route::post('tour', 'ProductController@store')->name('tour.store');
 
 Route::get('search', 'ProductController@index')->name('search-page');
 Route::get('tour/{id}', 'ProductController@show')->name('product-page');
-
-
 
 
 Route::get('seller/{user}', 'SellerController')->name('seller-page');
@@ -51,11 +47,6 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/gydeline', function () {
     return view('/pages/gydeline/gydeline', ['name' => 'img/mountains.jpg']);
 });
-
-
-
-
-
 
 
 //Auth::routes();

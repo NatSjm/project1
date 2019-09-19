@@ -16,7 +16,8 @@
                             <input type="text" class="product-select_input input"
                                    placeholder="Введите название объявления"
                                    name="name"
-                                   id="product-name">
+                                   id="product-name"
+                                   value="{{old('name')}}">
                         </div>
                         <div class="product-form_select-group">
                             <div class="product-form_select product-select">
@@ -24,7 +25,8 @@
                                 <div class="select-wrapper">
                                     <select class="product-select_select select " name="country_id"
                                             id="country">
-                                        <option class="product-select_option" value="">Укажите страну отдыха</option>
+                                        <option class="product-select_option" value="">Укажите страну
+                                            отдыха</option>
                                             @foreach($AllCountryNames as $key => $country)
                                         <option class="product-select_option" value="{{ $key }}">{{ $country }}</option>
                                             @endforeach
@@ -57,6 +59,7 @@
                                 <label class="product-select_title" for="start-date">Дата начала тура</label>
                                 <input type="date"  class="product-select_input input mod_date"
                                        name="start_at"
+                                       value="{{ old('start_at') }}"
                                        id="start-date">
                             </div>
 
@@ -64,6 +67,7 @@
                                 <label class="product-select_title" for="finish-date">Дата окончания тура </label>
                                 <input type="date"  class="product-select_input input mod_date"
                                        name="finish_at"
+                                       value="{{ old('finish_at') }}"
                                        id="finish-date">
                             </div>
 
@@ -106,6 +110,7 @@
                                 <label class="product-select_title" for="price">Цена</label>
                                 <input type="text" placeholder="Укажите цену" class="product-select_input  input"
                                        name="price"
+                                       value="{{ old('price') }}"
                                        id="price">
                             </div>
 
@@ -165,7 +170,8 @@
 
                     <label for="textarea" class="textarea_title">Комментарий</label>
 
-                    <textarea placeholder="Опишите ваш товар" name="description" class="input
+                    <textarea placeholder="Опишите ваш товар" name="description" value="{{ old('description') }}"
+                              class="input
                     textarea_input"></textarea>
 
                 </fieldset>
@@ -192,6 +198,10 @@
 
         </form>
 
-
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div>{{$error}}</div>
+            @endforeach
+        @endif
     </div>
 @endsection

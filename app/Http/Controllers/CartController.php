@@ -12,10 +12,10 @@ class CartController extends Controller
 {
 
 
+    public function index (Request $request)
+    {
 
-    public function index (Request $request) {
-
-        if (!$request->session()->has('cart')){
+        if (!$request->session()->has('cart')) {
             return view('/pages/cart/cart', [
 //                                             'crumb_level2' => 'Михаил Павлов',
 //                                             'crumb_level3' => ['Корзина'],
@@ -28,8 +28,8 @@ class CartController extends Controller
         return view('/pages/cart/cart', [
 //                                         'crumb_level2' => 'Михаил Павлов',
 //                                         'crumb_level3' => ['Корзина'],
-                                         'products' => $cart->items,
-                                         'totalPrice' => $cart->totalPrice,
+'products'   => $cart->items,
+'totalPrice' => $cart->totalPrice,
         ]);
     }
 
@@ -42,13 +42,14 @@ class CartController extends Controller
         return redirect()->route('cart');
     }
 
-    public function removeItem(Request $request, $id) {
+    public function removeItem (Request $request, $id)
+    {
         $oldCart = $request->session()->has('cart') ? $request->session()->get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->removeItem($id);
         if (count($cart->items)) {
             $request->session()->put('cart', $cart);
-        }else {
+        } else {
             $request->session()->forget('cart');
         }
         return redirect()->route('cart');

@@ -17,10 +17,10 @@ class OrderController extends Controller
         $products = collect($cart->items);
         $dealItems = collect();
 
-        $products->map(function ($item) use ($dealItems){
-            for ($i = 0; $i<$item['qty']; $i++){
-                 $dealItems->push($item['item']);
-             }
+        $products->map(function ($item) use ($dealItems) {
+            for ($i = 0; $i < $item['qty']; $i++) {
+                $dealItems->push($item['item']);
+            }
         });
 
         $groupedBySeller = $dealItems->groupBy(['seller_id']);
@@ -31,7 +31,8 @@ class OrderController extends Controller
         return redirect('/purchases');
     }
 
-    public function createDeals($groupedBySeller){
+    public function createDeals ($groupedBySeller)
+    {
 
         $groupedBySeller->each(function ($item, $seller) {
             $deal = new Deal;
@@ -40,14 +41,15 @@ class OrderController extends Controller
             $deal->total_price = $item->sum('price');
             $deal->save();
 
-            $item->each(function ($innerItem) use ($deal){
+            $item->each(function ($innerItem) use ($deal) {
                 $deal->makeOrder($innerItem);
             });
         });
 
     }
 
-    public function index(){
+    public function index ()
+    {
 
         $deals = Deal::with('orders.tour', 'buyer')->where('seller_id',
             Auth::id())->latest()->get();

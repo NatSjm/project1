@@ -16,16 +16,16 @@ class CreateToursTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('price');
             $table->unsignedInteger('country_id');
-            $table->unsignedBigInteger('main_img_id');
+            $table->unsignedBigInteger('main_img_id')->nullable();
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('tour_type_id');
             $table->unsignedBigInteger('seller_id');
-            $table->dateTime('start_at')->nullable();
-            $table->dateTime('finish_at')->nullable();
-            $table->unsignedInteger('start_location_id')->nullable();
+            $table->dateTime('start_at');
+            $table->dateTime('finish_at');
+            $table->unsignedInteger('start_location_id');
             $table->boolean('for_children')->default(true);
             $table->boolean('recommended')->default(false);
             $table->boolean('hot')->default(false);

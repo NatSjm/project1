@@ -11,24 +11,24 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
-    public function edit(User $user)
+    public function edit (User $user)
     {
-        if(auth()->user()->isNot($user)){
+        if (auth()->user()->isNot($user)) {
             abort(403);
         }
 
         return view('pages.person.person', compact('user'));
     }
 
-    public function update(User $user, ProfileRequest $request)
+    public function update (User $user, ProfileRequest $request)
     {
         $data = $request->validated();
 //
         if (request('avatar')) {
             $path = $request->file('avatar')->store('profile', 'public');
 
-            if($user->avatar) {
-                Storage::delete('/public/'.$user->avatar);
+            if ($user->avatar) {
+                Storage::delete('/public/' . $user->avatar);
             }
 
             $data = (array_merge(

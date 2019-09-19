@@ -23,8 +23,6 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
 
-
-
     /**
      * Where to redirect users after resetting their password.
      *
@@ -37,17 +35,16 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct ()
     {
         $this->middleware('guest');
     }
 
 
-
-    public function reset(Request $request)
+    public function reset (Request $request)
     {
         $request->validate($this->rules(), $this->validationErrorMessages());
-        $this->broker()->validator(function (array $credentials){
+        $this->broker()->validator(function (array $credentials) {
             [$password, $confirm] = [
                 $credentials['password'],
                 $credentials['password_confirmation'],
@@ -67,17 +64,16 @@ class ResetPasswordController extends Controller
     }
 
 
-
-    protected function rules()
+    protected function rules ()
     {
         return [
-            'token' => 'required',
-            'email' => 'required|email',
+            'token'    => 'required',
+            'email'    => 'required|email',
             'password' => 'required|confirmed|min:6',
         ];
     }
 
-    public function showResetForm(Request $request, $token = null)
+    public function showResetForm (Request $request, $token = null)
     {
         return view('auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
