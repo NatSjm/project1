@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Location;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Country;
 use App\Models\Hotel;
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
         $tourTypes = TourType::all();
         $nutritionTypes = Nutrition::pluck('nutrition_type', 'id');
         $categories = Category::pluck('name', 'id');
+        $locations = Location::pluck('name', 'id');
+
 
         View::share([
                      'AllCountryNames' => $countryNames,
@@ -43,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
                      'AllNutritionTypes'=> $nutritionTypes,
                      'AllCategories' => $categories,
                      'AllTourTypesNames' =>$tourTypes->pluck('name', 'id'),
+                     "AllLocations" => $locations,
             ]);
 
 

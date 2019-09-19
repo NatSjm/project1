@@ -39,6 +39,9 @@ $(document).ready(function() {
     }else if($("body").hasClass("seller-page")){
         require('./../views/pages/seller/seller');
     }
+    else if($("body").hasClass("product-create-page")){
+        require('./../views/pages/product/product-create/product-create');
+    }
     else if($("body").hasClass("person-page")){
         require('./../views/pages/person/person');
     }

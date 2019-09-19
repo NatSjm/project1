@@ -74,3 +74,5 @@ function  sliderResiser() {
 sliderResiser();
 
 $(window).resize(sliderResiser);
+
+

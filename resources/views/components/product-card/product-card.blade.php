@@ -27,7 +27,8 @@
         <a class="product-card_link" href ="{{ route('product-page', $tour) }}">
             <h3 class="product-card_title headline-3 ">{{$tour->country->name}} ({{$tour->name}})</h3>
         </a>
-        <h4 class="product-card_description headline-4">Вылет из {{$tour->startLocation->city->name}}</h4>
+        <h4 class="product-card_description headline-4">{{$tour->startLocation? "Вылет из ".
+            $tour->startLocation->city->name : ''}}</h4>
         <a href="{{ route('addToCart', $tour) }}" class="button mod_color-light-green">Заказать</a>
     </div>
     @else

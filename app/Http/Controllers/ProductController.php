@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+
+
+use App\Http\Requests\ProductRequest;
 use App\Filters\ProductFilter;
 
 
@@ -62,13 +66,40 @@ class ProductController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('pages.product.product-create.product-create');
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        dd($request);
-    }
+        $data = $request->validated();
+//        $data = (array_merge(
+//            $data,
+//            [
+//             'seller_id' => auth()->id()]
+//        ));
+//
+//        $path = $request->file('main_img_id')->store('images', 'public');
+//
+//        $tour = new Tour($data);
+//        $tour->mainImg = new Media();
+//        $tour->mainImg->path = $path ;
+//        $tour->push();
+
+
+        $data = (array_merge(
+            $data,
+            ['main_img_id' => 12,
+             'seller_id' => auth()->id()]
+        ));
+
+        $tour = Tour::create($data);
+//        dd($tour);
+
+
+        return redirect()->route('product-page', $tour);
+
+
+           }
 }

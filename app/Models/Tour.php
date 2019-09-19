@@ -90,6 +90,10 @@ class Tour extends Model
 
     public function getLengthAttribute()
     {
+        if (!$this->start_at || !$this->finish_at){
+            return 0;
+        }
+
         $start = $this->start_at;
         $finish = $this->finish_at;
         return $finish->diffInDays($start);

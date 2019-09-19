@@ -4,7 +4,6 @@
     <div class="product-create-page_wrapper cont">
         <div class="product-create-page_breadcrumbs">
             {{ Breadcrumbs::render('product-create') }}
-{{--            @include('components.breadcrumbs.breadcrumbs')--}}
         </div>
         <h2 class="headline-2 product-create-page_title page-title">Новое объявление </h2>
         <form action="{{route('tour.store')}}" class="product-create-page_form product-form" enctype="multipart/form-data" method="post">
@@ -51,7 +50,26 @@
                                 </div>
                             </div>
                         </div>
+{{--test--}}
+                        <div class="product-form_select-group">
 
+                            <div class="product-form_select product-select ">
+                                <label class="product-select_title" for="start-date">Дата начала тура</label>
+                                <input type="date"  class="product-select_input input mod_date"
+                                       name="start_at"
+                                       id="start-date">
+                            </div>
+
+                            <div class="product-form_select product-select mod_date ">
+                                <label class="product-select_title" for="finish-date">Дата окончания тура </label>
+                                <input type="date"  class="product-select_input input mod_date"
+                                       name="finish_at"
+                                       id="finish-date">
+                            </div>
+
+
+                        </div>
+{{--test--}}
                         <div class="product-form_select product-select">
                             <label class="product-select_title" for="tour-cat">Категория тура</label>
                             <div class="select-wrapper">
@@ -113,7 +131,7 @@
                                 <label class="product-select_title" for="children-accessibility">Доступно для
                                     детей</label>
                                 <div class="select-wrapper">
-                                    <select class="product-select_select select" name="children_accessibility"
+                                    <select class="product-select_select select" name="for_children"
                                             id="children-accessibility">
                                         <option class="product-select_option" value=""></option>
                                         <option class="product-select_option" value="1">Да</option>
@@ -125,13 +143,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="product-form_select product-select">
+                            <label class="product-select_title" for="start-location">Место отправления</label>
+                            <div class="select-wrapper">
+                                <select class="product-select_select select" name="start_location_id"
+                                        id="start-location">
+                                    <option class="product-select_option" value="">Укажите место отправления</option>
+                                    @foreach($AllLocations as $key => $location)
+                                        <option class="product-select_option" value="{{ $key }}">{{ $location }}</option>
+                                    @endforeach
+                                </select>
+                                <svg class="product-select_icon select_icon">
+                                    <use xlink:href="#selector"></use>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </fieldset>
                 <fieldset class="product-form_fieldset mod_border-grey textarea" id="textarea">
 
                     <label for="textarea" class="textarea_title">Комментарий</label>
 
-                    <textarea placeholder="Опишите ваш товар" class="input textarea_input"></textarea>
+                    <textarea placeholder="Опишите ваш товар" name="description" class="input
+                    textarea_input"></textarea>
 
                 </fieldset>
             </div>
@@ -140,8 +175,8 @@
             <label class="img-fieldset_title" for="foto-fieldset">Фотографии</label>
             <div class="img-fieldset_container">
                 <div class="img-uploader">
-                    <input class="img-uploader_input" id="foto" name="main_img" title="" type="file">
-                    <label class="img-uploader_title" for="foto"><span>Основное</span><span>фото</span></label>
+                    <input class="img-uploader_input mod_main" id="foto" name="main_img_id" title="" type="file">
+                    <label class="img-uploader_title mod_main" for="foto"><span>Основное</span><span>фото</span></label>
                 </div>
 
                 @for ($i = 0; $i < 9; $i++)
