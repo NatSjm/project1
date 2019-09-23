@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Facades\Session;
+
 
 class Cart
 {
@@ -24,7 +26,6 @@ class Cart
         if ($this->items) {
             if (array_key_exists($id, $this->items)) {
                 $storedItem = $this->items[$id];
-
             }
         }
         $storedItem['qty'] ++;
@@ -33,6 +34,7 @@ class Cart
         $this->items[$id] = $storedItem;
         $this->totalQty ++;
         $this->totalPrice += $item->price;
+        $this->sessionOperate();
 
     }
 
@@ -40,11 +42,15 @@ class Cart
         $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
         unset($this->items[$id]);
+        $this->sessionOperate();
     }
 
-
-
-
-
-
+    public function sessionOperate(){
+        if (count($this->items)) {
+            Session::put('cart', $this);
+        } else {
+            Session::forget('cart');
+        }
     }
+
+}

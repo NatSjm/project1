@@ -11,7 +11,7 @@
         <h2 class="cart_title headline-2">Корзина</h2>
 
         <section class="cart_main">
-            @isset ($products)
+            @isset ($cart->items)
                 <div class="full-cart">
 
                     <div class="full-cart_main">
@@ -24,7 +24,7 @@
                             </tr>
                             </thead>
                             <tbody class="cart-products_body">
-                            @foreach($products as $cartProduct)
+                            @foreach($cart->items as $cartProduct)
                                 <tr class="cart-product">
                                     <td class="cart-product_name">
                                         <div class="cart-product_details">
@@ -62,7 +62,9 @@
 
                     <div class="full-cart_total mod_border-grey">
                         <div class="sum">
-                            <span>Итого:</span><span class="sum_value"> {{number_format($totalPrice, 0, ".", " ")}}  ₿</span>
+                            <span>Итого:</span><span class="sum_value"> {{number_format($cart->totalPrice, 0, ".", "
+                            ")}}
+                                ₿</span>
                         </div>
                         <a href="{{ route('makeOrder') }}" class="full-cart_order-button button
                         mod_color-med-blue">Заказать</a>
