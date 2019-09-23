@@ -183,6 +183,7 @@
 
     & .filter_form {
         padding: 0;
+
         & .filter_fields {
             margin-top:    0;
             margin-bottom: 20px;
@@ -193,8 +194,11 @@
     & .fieldset {
         padding:       16px;
         padding-top:   18px;
-
         margin-bottom: 20px;
+        @include media('d-only'){
+            width: 200px;
+            overflow: hidden;
+        }
         & .fieldset_title {
             @include font-settings(18px, 1.33);
             font-family:    $fbold;
@@ -207,9 +211,17 @@
                     flex-direction: column;
                 }
             }
+            &[for="recommended"]{
+                @include media('d-only'){
+                    font-size: 15px;
+                }
+            }
         }
         & .select-wrapper {
             width:         100%;
+            @include media('d-only'){
+                width: 160px;
+            }
             position:      relative;
             background:    $light-milk;
             border-radius: 4px;

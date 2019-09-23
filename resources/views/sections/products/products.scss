@@ -17,6 +17,7 @@
 
          @include media('d-only') {
              @include grid(3, 30px);
+             justify-content: flex-start;
          }
 
          @media screen and (min-width: 1000px) and (max-width: 1279px) {

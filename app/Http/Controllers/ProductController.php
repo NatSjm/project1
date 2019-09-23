@@ -43,7 +43,7 @@ class ProductController extends Controller
             return $selectedTours->pluck($selector)->unique()->values();
         };
 
-        $countryNames = $plucker('country.name');
+        $countryNames = $plucker('country.name')->sort();
         $tourTypes = $plucker('tourType.name');
         $nutritionTypes = $plucker('nutrition.nutrition_type');
         $categories = $plucker('category.name');

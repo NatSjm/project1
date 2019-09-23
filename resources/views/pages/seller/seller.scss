@@ -58,7 +58,9 @@
         box-sizing:     border-box;
         width:          100%;
         margin-bottom: 20px;
+
     }
+
 
     & .filter_fields {
         //@include for-flex(row);
@@ -66,7 +68,7 @@
         margin-top:     20px;
         border:         solid 4px #f6fafb;
         border-radius:  2px;
-        padding-left:   18px;
+        padding-left:   16px;
         padding-top:    20px;
         padding-bottom: 5px;
         margin-bottom:  40px;

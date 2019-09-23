@@ -17,7 +17,7 @@
                         <use xlink:href="#close"></use>
                     </svg>
                     <form class="filter_form" id="filter-form" action="#">
-                        @csrf
+                        {{--@csrf--}}
 
                         <fieldset class="filter_fields fieldset" id="country">
                             <label class="fieldset_title" for="country">Страна</label>
@@ -194,7 +194,7 @@
                                     'checked':''}} value="1" class="checkbox_input"
                                        id="recommended-checkbox">
                                 <label class="checkbox_label" for="recommended-checkbox">Показать
-                                    рекомендованные</label>
+                                    </label>
                             </div>
                         </fieldset>
 

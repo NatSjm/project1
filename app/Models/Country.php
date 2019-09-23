@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 class Country extends Model
 {
@@ -16,5 +18,9 @@ class Country extends Model
     public function cities()
     {
         return $this->hasMany(City::class);
+    }
+
+    public function getShortNameAttribute() {
+        return Str::limit($this->name, 20);
     }
 }

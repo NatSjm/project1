@@ -1,3 +1,4 @@
+
 <article class="product-card">
 
     @isset($tour)
@@ -25,7 +26,8 @@
     <div class="delimiter mod_color-light-green"></div>
     <div class="product-card_main">
         <a class="product-card_link" href ="{{ route('product-page', $tour) }}">
-            <h3 class="product-card_title headline-3 ">{{$tour->country->name}} ({{$tour->name}})</h3>
+            <h3 class="product-card_title headline-3">
+                {{ $tour->country->shortName }} ({{$tour->name}})</h3>
         </a>
         <h4 class="product-card_description headline-4">{{$tour->startLocation? "Вылет из ".
             $tour->startLocation->city->name : ''}}</h4>
