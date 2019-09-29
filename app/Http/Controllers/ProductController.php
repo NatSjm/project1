@@ -48,12 +48,18 @@ class ProductController extends Controller
         $nutritionTypes = $plucker('nutrition.nutrition_type');
         $categories = $plucker('category.name');
         $hotels = $plucker('hotel.hotel_class');
+        $prices = $plucker('price');
 
-//
+
+
+        $newPriceRange = $this->priceRanger($prices);
+       // dd($newPriceRange);
+
+
 
         $tours = $tours->paginate(12);
         $toursCount = $tours->total();
-//
+
 
         return view('/pages/search/search', [
             'tours'          => $tours,
@@ -63,6 +69,7 @@ class ProductController extends Controller
             'categories'     => $categories,
             'hotels'         => $hotels,
             'toursCount'     => $toursCount,
+            'prices'         => $newPriceRange,
         ]);
     }
 
@@ -94,6 +101,34 @@ class ProductController extends Controller
 
         return redirect()->route('product-page', $tour);
 
+    }
 
+    public function priceRanger ($prices)
+    {
+        $priceRange = collect([
+            "до 1 000"            => "<_1000",
+            "от 1 000 до 5 000"   => "1001_5000",
+            "от 5 001 до 10 000"  => "5001_10000",
+            "от 10 001 до 50 000" => "10001_50000",
+            "более 50 000"        => ">_50001",
+        ]);
+
+        $newPriceRange = $priceRange->filter(function ($value) use ($prices) {
+            if ($value == "<_1000") {
+                return $prices->contains(function ($price) {
+                    return $price < 1000;
+                });
+            } else if ($value == ">_50001") {
+                return $prices->contains(function ($price) {
+                    return $price > 50001;
+                });
+            } else {
+                $value = explode('_', $value);
+                return $prices->contains(function ($price) use ($value) {
+                    return ($price > $value[0] && $price < $value[1]);
+                });
+            }
+        });
+        return $newPriceRange;
     }
 }

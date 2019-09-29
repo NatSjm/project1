@@ -133,35 +133,56 @@
                                     <input checked type="radio" name="price"  value="" class="checkbox_input"
                                            id="any-price">
                                     <label class="checkbox_label" for="any-price">Не важно</label>
+                                    @foreach($prices as $key=>$price)
+                                        @if($loop->iteration < ($loop->count)/2)
+                                            <input type="radio" {{request()->price == $price? 'checked':
+                                    ''}} name="price" value="{{$price}}"
+                                                   class="checkbox_input"
+                                                   id="price{{$price}}">
+                                            <label class="checkbox_label"
+                                                   for="price{{$price}}">{{$key}}</label>
+                                        @endif
+                                    @endforeach
 
-                                    <input type="radio" name="price" {{request()->price == "<_1000"? 'checked':
-                                    ''}} value="<_1000" class="checkbox_input"
-                                           id="to1000">
-                                    <label class="checkbox_label" for="to1000">до 1000</label>
+                                    {{--<input type="radio" name="price" {{request()->price == "<_1000"? 'checked':--}}
+                                    {{--''}} value="<_1000" class="checkbox_input"--}}
+                                           {{--id="to1000">--}}
+                                    {{--<label class="checkbox_label" for="to1000">до 1000</label>--}}
 
-                                    <input type="radio" name="price" {{request()->price == "1001_5000"? 'checked':
-                                    ''}} value="1001_5000" class="checkbox_input"
-                                           id="from1001-to5000">
-                                    <label class="checkbox_label" for="from1001-to5000">от 1001 до 5000</label>
+                                    {{--<input type="radio" name="price" {{request()->price == "1001_5000"? 'checked':--}}
+                                    {{--''}} value="1001_5000" class="checkbox_input"--}}
+                                           {{--id="from1001-to5000">--}}
+                                    {{--<label class="checkbox_label" for="from1001-to5000">от 1001 до 5000</label>--}}
 
                                 </div>
 
 
                                 <div class="mod_column-right">
-                                    <input type="radio" name="price" {{request()->price == "5001_10000"? 'checked':
-                                    ''}} value="5001_10000" class="checkbox_input"
-                                           id="from5001-to10000">
-                                    <label class="checkbox_label" for="from5001-to10000">от 5001 до 10000</label>
+                                    @foreach($prices as $key=>$price)
+                                        @if($loop->iteration >= $loop->count/2)
+                                            <input type="radio" {{request()->price == $price? 'checked':
+                                    ''}} name="price" value="{{$price}}"
+                                                   class="checkbox_input"
+                                                   id="price{{$price}}">
+                                            <label class="checkbox_label"
+                                                   for="price{{$price}}">{{$key}}</label>
+                                        @endif
+                                    @endforeach
 
-                                    <input type="radio" name="price" {{request()->price == "10001_50000"? 'checked':
-                                    ''}} value="10001_50000" class="checkbox_input"
-                                           id="from10001-to50000">
-                                    <label class="checkbox_label" for="from10001-to50000">от 10001 до 50000</label>
+                                    {{--<input type="radio" name="price" {{request()->price == "5001_10000"? 'checked':--}}
+                                    {{--''}} value="5001_10000" class="checkbox_input"--}}
+                                           {{--id="from5001-to10000">--}}
+                                    {{--<label class="checkbox_label" for="from5001-to10000">от 5001 до 10000</label>--}}
 
-                                    <input type="radio" name="price" {{request()->price == ">_50001"? 'checked':
-                                    ''}} value=">_50001" class="checkbox_input"
-                                           id="over50000">
-                                    <label class="checkbox_label" for="over50000">Более 50000</label>
+                                    {{--<input type="radio" name="price" {{request()->price == "10001_50000"? 'checked':--}}
+                                    {{--''}} value="10001_50000" class="checkbox_input"--}}
+                                           {{--id="from10001-to50000">--}}
+                                    {{--<label class="checkbox_label" for="from10001-to50000">от 10001 до 50000</label>--}}
+
+                                    {{--<input type="radio" name="price" {{request()->price == ">_50001"? 'checked':--}}
+                                    {{--''}} value=">_50001" class="checkbox_input"--}}
+                                           {{--id="over50000">--}}
+                                    {{--<label class="checkbox_label" for="over50000">Более 50000</label>--}}
 
                                 </div>
                             </div>
