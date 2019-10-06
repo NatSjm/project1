@@ -64,6 +64,19 @@ ul {
         border-collapse: collapse;
 
 }
+.error_box{
+    color: red;
+}
+
+.message_box{
+    margin-bottom: 40px;
+    color: $dark-blue;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -60px;
+}
+
 
 
 

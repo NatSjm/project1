@@ -53,7 +53,7 @@
                 <div class="tags mod_border-grey">
                     <div class="tags_item">
                         <div class="tag mod_seller">
-                            <img class="tag_avatar" src="{{$tour->seller->avatar}}" alt="">
+                            <img class="tag_avatar" src="/storage/{{$tour->seller->avatar}}" alt="">
                             <h4 class="headline-4 tag_title">Продавец</h4>
                             <span>{{$tour->seller->fullName}}</span>
                         </div>
@@ -119,7 +119,7 @@
                     @foreach($tour->comments as $comment)
                         <div class="revew">
                             @if($comment->user)
-                                <img class="revew_avatar" src="{{$comment->user->avatar}}" alt="">
+                                <img class="revew_avatar" src="/storage/{{$comment->user->avatar}}" alt="">
                                 <h3 class="headline-2 revew_title">{{ $comment->user->fullName}}</h3>
                             @endif
 
@@ -186,25 +186,25 @@
         @endif
 
         @if(count($similarTours))
-        <div class="similar">
-            <h3 class="similar_title headline-2">Еще в категории {{$tour->tourType->name}}</h3>
-            <div class="similar_group">
-                @foreach ($similarTours->take(3) as $similarTour)
-                    @include ('components.product-card.product-card',['tour' => $similarTour] )
-                @endforeach
+            <div class="similar">
+                <h3 class="similar_title headline-2">Еще в категории {{$tour->tourType->name}}</h3>
+                <div class="similar_group">
+                    @foreach ($similarTours->take(3) as $similarTour)
+                        @include ('components.product-card.product-card',['tour' => $similarTour] )
+                    @endforeach
 
-                @if (count($similarTours) > 3)
-                    <article class="products-link product-card mod_border-grey ">
-                        <a href="{{ route('search-page').'?tour_type='.$tour->tourType->name }}"
-                           class="products-link_link">
-                            <div class="products-link_icon"></div>
-                            <p class="products-link_text">Перейти в категорию "{{$tour->tourType->name}}"</p>
-                        </a>
-                    </article>
-                @endif
+                    @if (count($similarTours) > 3)
+                        <article class="products-link product-card mod_border-grey ">
+                            <a href="{{ route('search-page').'?tour_type='.$tour->tourType->name }}"
+                               class="products-link_link">
+                                <div class="products-link_icon"></div>
+                                <p class="products-link_text">Перейти в категорию "{{$tour->tourType->name}}"</p>
+                            </a>
+                        </article>
+                    @endif
+                </div>
             </div>
-        </div>
-         @endif
+        @endif
     </section>
 
 @endsection

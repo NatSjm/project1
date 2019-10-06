@@ -72,12 +72,13 @@ class ProductFilter
         });
     }
 
-    public function search ($value){
+    public function search ($value)
+    {
         $this->builder->whereHas('country', function (Builder $query) use ($value) {
             $query->where('name', 'like', "%$value%");
-        })->orwhere('name','like', "%$value%");
+        })->orwhere('name', 'like', "%$value%");
 
-     }
+    }
 
 
     public function price ($value)
@@ -96,20 +97,21 @@ class ProductFilter
         $this->builder->where('for_children', $value);
     }
 
-public function recommended($value)
-{
-$this->builder->where('recommended', $value);
-}
+    public function recommended ($value)
+    {
+        $this->builder->where('recommended', $value);
+    }
 
-public function hot($value) {
-    $this->builder->where('hot', $value);
-}
+    public function hot ($value)
+    {
+        $this->builder->where('hot', $value);
+    }
 
-public function sorter ($value){
+    public function sorter ($value)
+    {
 
-    $this->builder->orderBy($value, 'desc');
-}
-
+        $this->builder->orderBy($value, 'desc');
+    }
 
 
 }

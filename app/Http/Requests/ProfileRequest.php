@@ -15,9 +15,7 @@ class ProfileRequest extends FormRequest
      */
     public function authorize (User $user)
     {
-        //return auth()->check();
         return true;
-
     }
 
     /**
@@ -38,7 +36,6 @@ class ProfileRequest extends FormRequest
                 Rule::unique('users')->ignore($user->id),
             ],
             'avatar'     => 'image|mimes:jpg,jpeg,png,gif,svg|max:1024',
-
         ];
     }
 }

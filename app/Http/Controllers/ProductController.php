@@ -9,10 +9,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\ProductRequest;
 use App\Filters\ProductFilter;
+use App\Helpers\ProductHelper;
 
 
 class ProductController extends Controller
 {
+
+
+
     public function show ($id)
     {
 //        Tour::where('id', $id)->first();
@@ -31,7 +35,7 @@ class ProductController extends Controller
     }
 
 
-    public function index (Request $request, ProductFilter $filters)
+    public function index (Request $request, ProductFilter $filters, ProductHelper $helper)
     {
         $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg')
             ->filter($filters);
@@ -50,27 +54,14 @@ class ProductController extends Controller
         $hotels = $plucker('hotel.hotel_class');
         $prices = $plucker('price');
 
-
-
-        $newPriceRange = $this->priceRanger($prices);
-       // dd($newPriceRange);
-
-
+        $prices = $helper->priceRanger($prices);
 
         $tours = $tours->paginate(12);
         $toursCount = $tours->total();
 
+        return view('/pages/search/search', compact(
+            'tours', 'countryNames', 'tourTypes', 'nutritionTypes', 'categories', 'hotels', 'toursCount', 'prices'));
 
-        return view('/pages/search/search', [
-            'tours'          => $tours,
-            'countryNames'   => $countryNames,
-            'tourTypes'      => $tourTypes,
-            'nutritionTypes' => $nutritionTypes,
-            'categories'     => $categories,
-            'hotels'         => $hotels,
-            'toursCount'     => $toursCount,
-            'prices'         => $newPriceRange,
-        ]);
     }
 
     public function create (Request $request)
@@ -78,57 +69,36 @@ class ProductController extends Controller
         return view('pages.product.product-create.product-create');
     }
 
-    public function store (ProductRequest $request)
+    public function store (ProductRequest $request, ProductHelper $helper)
     {
         $data = $request->validated();
 
         if (array_key_exists('main_img_id', $data)) {
             $image = $request->file('main_img_id');
-            $path = $image->store('images', 'public');
-            $media = Media::create(['path' => substr($path, 7),
-                                    'name' => $data['name'],
-            ]);
-
+            $mediaId = $helper->imageCreator($image);
 
             $data = (array_merge(
                 $data,
-                ['main_img_id' => $media->id]
+                ['main_img_id' => $mediaId]
             ));
         }
         $data['seller_id'] = auth()->id();
         $tour = Tour::create($data);
+        if($request->has('media_id')){
+            foreach($request->file('media_id') as $image){
+                $mediaId = $helper->imageCreator($image);
+                $tour->medias()->attach($mediaId);
+            }
+        }
 
 
         return redirect()->route('product-page', $tour);
 
     }
 
-    public function priceRanger ($prices)
+    public function edit($id)
     {
-        $priceRange = collect([
-            "до 1 000"            => "<_1000",
-            "от 1 000 до 5 000"   => "1001_5000",
-            "от 5 001 до 10 000"  => "5001_10000",
-            "от 10 001 до 50 000" => "10001_50000",
-            "более 50 000"        => ">_50001",
-        ]);
-
-        $newPriceRange = $priceRange->filter(function ($value) use ($prices) {
-            if ($value == "<_1000") {
-                return $prices->contains(function ($price) {
-                    return $price < 1000;
-                });
-            } else if ($value == ">_50001") {
-                return $prices->contains(function ($price) {
-                    return $price > 50001;
-                });
-            } else {
-                $value = explode('_', $value);
-                return $prices->contains(function ($price) use ($value) {
-                    return ($price > $value[0] && $price < $value[1]);
-                });
-            }
-        });
-        return $newPriceRange;
+        //
     }
+
 }

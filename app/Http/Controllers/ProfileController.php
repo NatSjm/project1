@@ -11,12 +11,17 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
+
+    public function __construct (User $user)
+    {
+
+    }
+
     public function edit (User $user)
     {
-        if (auth()->user()->isNot($user)) {
+        if (auth()->id() !== ($user->id)) {
             abort(403);
         }
-
         return view('pages.person.person', compact('user'));
     }
 
@@ -40,7 +45,9 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        return redirect("/");
+        return redirect()->back()->withSuccess('Изменения сохранены');
+
+
     }
 
 }

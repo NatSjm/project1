@@ -31,6 +31,7 @@ class ProductRequest extends FormRequest
             'start_location_id' => 'start location',
             'main_img_id'       => 'main image',
 
+
         ];
     }
 
@@ -55,6 +56,24 @@ class ProductRequest extends FormRequest
             'finish_at'         => 'required|date|after:start_at',
             'start_location_id' => 'required|exists:locations,id',
             'main_img_id'       => 'image|mimes:jpg,jpeg,png,gif,svg|max:1024',
+
         ];
+
+//        return [
+//            'name'              => '',
+//            'country_id'        => '',
+//            'hotel_id'          => '',
+//            'category_id'       => '',
+//            'tour_type_id'      => '',
+//            'price'             => '',
+//            'nutrition_id'      => '',
+//            'for_children'      => '',
+//            'description'       => '',
+//            'start_at'          => '',
+//            'finish_at'         => '',
+//            'start_location_id' => '',
+//            'main_img_id'       => '',
+//            'media_id'          => '',
+//        ];
     }
 }
