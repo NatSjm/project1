@@ -14,7 +14,12 @@ use App\Helpers\ProductHelper;
 
 class ProductController extends Controller
 {
+    protected $helper;
 
+    public function __construct (ProductHelper $helper)
+    {
+        $this->helper = $helper;
+    }
 
 
     public function show ($id)
@@ -35,7 +40,7 @@ class ProductController extends Controller
     }
 
 
-    public function index (Request $request, ProductFilter $filters, ProductHelper $helper)
+    public function index (Request $request, ProductFilter $filters)
     {
         $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg')
             ->filter($filters);
@@ -54,7 +59,7 @@ class ProductController extends Controller
         $hotels = $plucker('hotel.hotel_class');
         $prices = $plucker('price');
 
-        $prices = $helper->priceRanger($prices);
+        $prices = $this->helper->priceRanger($prices);
 
         $tours = $tours->paginate(12);
         $toursCount = $tours->total();
@@ -69,36 +74,30 @@ class ProductController extends Controller
         return view('pages.product.product-create.product-create');
     }
 
-    public function store (ProductRequest $request, ProductHelper $helper)
+    public function store (ProductRequest $request)
     {
-        $data = $request->validated();
 
-        if (array_key_exists('main_img_id', $data)) {
-            $image = $request->file('main_img_id');
-            $mediaId = $helper->imageCreator($image);
+        $tour = $this->helper->createTour($request);
+        return redirect()->route('product-page', $tour);
+    }
 
-            $data = (array_merge(
-                $data,
-                ['main_img_id' => $mediaId]
-            ));
-        }
-        $data['seller_id'] = auth()->id();
-        $tour = Tour::create($data);
-        if($request->has('media_id')){
-            foreach($request->file('media_id') as $image){
-                $mediaId = $helper->imageCreator($image);
-                $tour->medias()->attach($mediaId);
-            }
-        }
+    public function edit ($id)
+    {
+        $tour = Tour::findOrFail($id);
+        return view('pages.product.product-update.product-update', compact('tour'));
+    }
 
-
+    public function update (ProductRequest $request, $id)
+    {
+        $tour = $this->helper->updateTour($request, $id);
         return redirect()->route('product-page', $tour);
 
     }
 
-    public function edit($id)
+
+    public function destroy ($id)
     {
-        //
+        dd('hello', __METHOD__);
     }
 
 }

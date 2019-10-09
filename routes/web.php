@@ -22,6 +22,10 @@ Route::post('tour', 'ProductController@store')->name('tour.store');
 Route::get('search', 'ProductController@index')->name('search-page');
 Route::get('tour/{id}', 'ProductController@show')->name('product-page');
 
+Route::get('tour/{tour}/edit', 'ProductController@edit')->name('product-edit-page');
+Route::patch('tour/{tour}', 'ProductController@update')->name('tour.update');
+Route::delete('tour/{tour}', 'ProductController@destroy')->name('tour.destroy');
+
 
 Route::get('seller/{user}', 'SellerController')->name('seller-page');
 

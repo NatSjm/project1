@@ -124,6 +124,7 @@
         border-radius: 50%;
         border:        solid 1px $white;
         position:      relative;
+        cursor: pointer;
         //& use {
         //    fill: $white;
         //}
@@ -146,11 +147,17 @@
             top:      6px;
             fill: white;
 
+
         }
 
         &:first-child {
             margin-right: 10px;
         }
     }
+}
+#delete-input{
+    display: none;
+    width: 0;
+    height: 0;
 }
 

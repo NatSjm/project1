@@ -5,13 +5,62 @@ namespace App\Helpers;
 
 use App\Models\Media;
 use App\Models\Tour;
-use Illuminate\Http\Request;
-
 
 use App\Http\Requests\ProductRequest;
 
+
+
 class ProductHelper
 {
+    public function createTour(ProductRequest $request){
+        $data = $request->validated();
+
+        if (array_key_exists('main_img_id', $data)) {
+            $image = $request->file('main_img_id');
+            $mediaId = $this->imageCreator($image);
+            $data = (array_merge(
+                $data,
+                ['main_img_id' => $mediaId]
+            ));
+        }
+        $data['seller_id'] = auth()->id();
+        $tour = Tour::create($data);
+        if ($request->has('media_id')) {
+            foreach ($request->file('media_id') as $image) {
+                $mediaId = $this->imageCreator($image);
+                $tour->medias()->attach($mediaId);
+            }
+        }
+        return $tour;
+
+    }
+
+    public function updateTour(ProductRequest $request, $id){
+        $tour = Tour::findOrFail($id);
+        $data = $request->validated();
+        if (array_key_exists('main_img_id', $data)) {
+            $image = $request->file('main_img_id');
+            $mediaId = $this->imageCreator($image);
+            $data = (array_merge(
+                $data,
+                ['main_img_id' => $mediaId]
+            ));
+        }
+        $tour->fill($data)->save();
+
+        $changedPhoto = collect($request->changedPhoto)->filter();
+        $changedPhoto->each(function ($item) use ($tour){
+            $tour->medias()->detach($item);
+        });
+
+        if ($request->has('media_id')) {
+            foreach ($request->file('media_id') as $image) {
+                $mediaId = $this->imageCreator($image);
+                $tour->medias()->attach($mediaId);
+            }
+        }
+        return $tour;
+    }
 
     public function priceRanger ($prices)
     {

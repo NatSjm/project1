@@ -45,6 +45,10 @@ Breadcrumbs::for('product-create', function ($trail) {
     $trail->push('Новое объявление', route('product-create-page'));
 });
 
+Breadcrumbs::for('product-update', function ($trail) {
+    $trail->parent('seller', auth()->user());
+    $trail->push('Редактор объявления', route('product-edit-page'));
+});
 
 
 
