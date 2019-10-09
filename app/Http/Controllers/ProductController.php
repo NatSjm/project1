@@ -97,7 +97,10 @@ class ProductController extends Controller
 
     public function destroy ($id)
     {
-        dd('hello', __METHOD__);
+        $tour = Tour::find($id);
+        $tour->medias()->detach();
+        $tour->delete();
+        return redirect('/');
     }
 
 }
