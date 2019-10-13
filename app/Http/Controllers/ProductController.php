@@ -19,6 +19,7 @@ class ProductController extends Controller
     public function __construct (ProductHelper $helper)
     {
         $this->helper = $helper;
+       // $this->middleware('update')->only('edit', 'update', 'destroy');
     }
 
 
@@ -83,13 +84,18 @@ class ProductController extends Controller
 
     public function edit ($id)
     {
+
         $tour = Tour::findOrFail($id);
+        //$this->authorize('update', $tour);
         return view('pages.product.product-update.product-update', compact('tour'));
     }
 
     public function update (ProductRequest $request, $id)
     {
-        $tour = $this->helper->updateTour($request, $id);
+        $tour = Tour::findOrFail($id);
+       // $this->authorize('update', $tour);
+
+        $tour = $this->helper->updateTour($request, $tour);
         return redirect()->route('product-page', $tour);
 
     }
@@ -98,6 +104,7 @@ class ProductController extends Controller
     public function destroy ($id)
     {
         $tour = Tour::find($id);
+        //$this->authorize('update', $tour);
         $tour->medias()->detach();
         $tour->delete();
         return redirect('/');

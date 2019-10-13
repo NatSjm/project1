@@ -15,10 +15,10 @@ class CreateTourMediaTable extends Migration
     {
         Schema::create('tour_media', function (Blueprint $table) {
             $table->unsignedBigInteger('tour_id');
-            $table->foreign('tour_id')->references('id')->on('tours');
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
             $table->unsignedBigInteger('media_id');
             $table->unique(['tour_id', 'media_id']);
-            $table->foreign('media_id')->references('id')->on('media');
+            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
         });
     }
 

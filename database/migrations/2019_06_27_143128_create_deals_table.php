@@ -16,9 +16,9 @@ class CreateDealsTable extends Migration
         Schema::create('deals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('buyer_id');
-            $table->foreign('buyer_id')->references('id')->on('users');
+            $table->foreign('buyer_id')->references('id')->on('users')->onDelete('no action');
             $table->unsignedBigInteger('seller_id');
-            $table->foreign('seller_id')->references('id')->on('users');
+            $table->foreign('seller_id')->references('id')->on('users')->onDelete('no action');
             $table->decimal('total_price');
             $table->timestamps();
         });

@@ -14,14 +14,14 @@ class AddForeignsToToursTable extends Migration
     public function up()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->foreign('country_id')->references('id')->on('countries');
-            $table->foreign('main_img_id')->references('id')->on('media');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('tour_type_id')->references('id')->on('tour_types');
-            $table->foreign('start_location_id')->references('id')->on('locations');
-            $table->foreign('nutrition_id')->references('id')->on('nutrition');
-            $table->foreign('hotel_id')->references('id')->on('hotels');
-            $table->foreign('seller_id')->references('id')->on('users');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('main_img_id')->references('id')->on('media')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('tour_type_id')->references('id')->on('tour_types')->onDelete('cascade');
+            $table->foreign('start_location_id')->references('id')->on('locations')->onDelete('cascade');
+            $table->foreign('nutrition_id')->references('id')->on('nutrition')->onDelete('cascade');
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

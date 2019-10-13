@@ -35,8 +35,8 @@ class ProductHelper
 
     }
 
-    public function updateTour(ProductRequest $request, $id){
-        $tour = Tour::findOrFail($id);
+    public function updateTour(ProductRequest $request, $tour){
+
         $data = $request->validated();
         if (array_key_exists('main_img_id', $data)) {
             $image = $request->file('main_img_id');

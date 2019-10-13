@@ -16,9 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tour_id');
-            $table->foreign('tour_id')->references('id')->on('tours');
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('no action');
             $table->unsignedBigInteger('deal_id');
-            $table->foreign('deal_id')->references('id')->on('deals');
+            $table->foreign('deal_id')->references('id')->on('deals')->onDelete('cascade');
             $table->decimal('price', 8, 2);
             $table->timestamps();
         });

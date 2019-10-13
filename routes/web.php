@@ -16,7 +16,7 @@ Route::get('/', 'IndexController')->name('index');
 
 
 Route::get('tour/create', 'ProductController@create')->name('product-create-page')->middleware('auth');
-Route::post('tour', 'ProductController@store')->name('tour.store');
+Route::post('tour', 'ProductController@store')->name('tour.store')->middleware('auth');
 
 
 Route::get('search', 'ProductController@index')->name('search-page');
