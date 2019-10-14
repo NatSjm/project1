@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Tour;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProductupdatetPolicy
+class ProductupdatePolicy
 {
     use HandlesAuthorization;
 

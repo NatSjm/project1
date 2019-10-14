@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
@@ -28,7 +30,7 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'name'
     ];
 
     /**
@@ -41,6 +43,8 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Категории', 'name')->sortable(),
+            HasMany::make('Туры категории', 'tours', 'App\Nova\Tour'),
         ];
     }
 

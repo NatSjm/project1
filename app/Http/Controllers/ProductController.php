@@ -86,7 +86,7 @@ class ProductController extends Controller
     {
 
         $tour = Tour::findOrFail($id);
-        //$this->authorize('update', $tour);
+       // $this->authorize('update', $tour);
         return view('pages.product.product-update.product-update', compact('tour'));
     }
 
@@ -104,7 +104,7 @@ class ProductController extends Controller
     public function destroy ($id)
     {
         $tour = Tour::find($id);
-        //$this->authorize('update', $tour);
+       // $this->authorize('update', $tour);
         $tour->medias()->detach();
         $tour->delete();
         return redirect('/');
