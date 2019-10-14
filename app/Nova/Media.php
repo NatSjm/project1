@@ -2,29 +2,29 @@
 
 namespace App\Nova;
 
-use function foo\func;
-use Laravel\Nova\Fields\Avatar;
+
+use Illuminate\Support\Facades\Storage;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Media extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\Models\\User';
+    public static $model = 'App\Models\Media';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'fullName';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -32,7 +32,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'first_name', 'last_name', 'email',
+        'id',
     ];
 
     /**
@@ -45,35 +45,36 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
+            Image::make('Image', 'path')
+                ->disk('public')
+                ->path('images')
+                ->thumbnail(function () {
+                    return $this->path ? Storage::disk('public')->url("images/{$this->path}") : null;
+                })
+                ->preview(function () {
+                    return $this->path ? Storage::disk('public')->url("images/{$this->path}") : null;
+                })
+//                ->store(function (Request $request, $model) {
+//
+//                    $path = $request->path->store('public/images');
+//
+//
+//                    return [
+//                       // 'path' => substr($path, 7)
+                   //        'path' => basename($path)
+//
+                      //'path' => substr($path, 14)
+//                    ];
+//                })
+////
+                ->storeOriginalName('name')
+                ->delete(function () {
+                    Storage::disk('public')->delete("images/{$this->path}");
+                })
+                ->prunable()
+               ->disableDownload(),
 
-            Avatar::make('Avatar')
-                ->nullable()
-          //      ->rounded()
-                ->disableDownload(),
-
-            Text::make('Last name')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('First name')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('phone')
-                ->nullable()
-                ->rules('max:20')->hideFromIndex(),
-
-
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
+            BelongsToMany::make('Tours', 'tours', 'App\Nova\Tour'),
         ];
     }
 
