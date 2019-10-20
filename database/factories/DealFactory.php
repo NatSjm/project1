@@ -13,6 +13,6 @@ $factory->define(App\Models\Deal::class, function (Faker $faker) {
     return [
         'buyer_id'    => $values[0],
         'seller_id'   => $values[1],
-        'total_price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 50000, $max = 500000),
+        'total_price' => $faker->numberBetween($min = 20000, $max = 570000),
     ];
 });

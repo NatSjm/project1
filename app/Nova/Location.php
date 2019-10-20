@@ -2,8 +2,11 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Location extends Resource
@@ -31,6 +34,21 @@ class Location extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return __('Отправление');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Отправление');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -41,6 +59,10 @@ class Location extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Наименование', 'name')->sortable(),
+            Text::make('Описание', 'description'),
+            BelongsTo::make('Город', 'city', 'App\Nova\City')->sortable(),
+            HasMany::make('Туры', 'tours', 'App\Nova\Tour'),
         ];
     }
 

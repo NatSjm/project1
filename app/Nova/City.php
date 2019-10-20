@@ -2,8 +2,11 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class City extends Resource
@@ -20,7 +23,7 @@ class City extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,8 +31,23 @@ class City extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'name'
     ];
+
+    public static function label()
+    {
+        return __('Города');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Город');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -41,6 +59,10 @@ class City extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Город', 'name')->sortable(),
+            BelongsTo::make('Страна', 'country', 'App\Nova\Country'),
+            HasMany::make('Место отправления', 'locations', 'App\Nova\Location')
+
         ];
     }
 

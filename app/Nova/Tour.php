@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\HotTours;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
@@ -30,6 +31,11 @@ class Tour extends Resource
      */
     public static $title = 'name';
 
+    public function subtitle ()
+    {
+        return $this->country->name;
+    }
+
     /**
      * The columns that should be searched.
      *
@@ -38,6 +44,21 @@ class Tour extends Resource
     public static $search = [
         'id', 'name', 'description'
     ];
+
+    public static function label()
+    {
+        return __('Туры');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Тур');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -49,23 +70,24 @@ class Tour extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->rules('required', 'min:3', 'max:50'),
+            Text::make('Name')->rules('required', 'min:3', 'max:50')->rules('required'),
             Textarea::make('Description')->rules('max:500'),
             Number::make('price')->rules('integer', 'required', 'min:1')->sortable(),
-            BelongsTo::make('Seller', 'seller', 'App\Nova\User')->sortable(),
-            BelongsTo::make('Country')->sortable(),
+            BelongsTo::make('Seller', 'seller', 'App\Nova\User')->sortable()->rules('required'),
+            BelongsTo::make('Country')->sortable()->rules('required'),
             BelongsTo::make('Main image', 'MainImg', 'App\Nova\Media')->hideFromIndex(),
             BelongsTo::make('Category')->sortable()->hideFromIndex(),
-            BelongsTo::make('Tour type', 'tourType', 'App\Nova\TourType')->sortable()->hideFromIndex(),
-            Date::make('Start at')->sortable()->hideFromIndex()->format('DD.MM.YYYY' ),
-            Date::make('Finish at')->sortable()->hideFromIndex()->format('DD.MM.YYYY' ),
-            BelongsTo::make('Start location', 'startLocation', 'App\Nova\Location')->sortable()->hideFromIndex(),
+            BelongsTo::make('Tour type', 'tourType', 'App\Nova\TourType')->sortable()->hideFromIndex()->rules('required'),
+            Date::make('Start at')->sortable()->hideFromIndex()->format('DD.MM.YYYY' )->rules('after:tomorrow', 'required'),
+            Date::make('Finish at')->sortable()->hideFromIndex()->format('DD.MM.YYYY' )->rules('after:start_at', 'required'),
+            BelongsTo::make('Start location', 'startLocation', 'App\Nova\Location')->sortable()->hideFromIndex()
+                ->rules('required'),
             Boolean::make('For children')->hideFromIndex(),
             Boolean::make('recommended')->hideFromIndex(),
             Boolean::make('hot')->hideFromIndex(),
             Boolean::make('advertisement')->hideFromIndex(),
-            BelongsTo::make('Nutrition')->hideFromIndex(),
-            BelongsTo::make('hotel')->hideFromIndex(),
+            BelongsTo::make('Nutrition')->hideFromIndex()->rules('required'),
+            BelongsTo::make('hotel')->hideFromIndex()->rules('required'),
             BelongsToMany::make('Images', 'medias', 'App\Nova\Media'),
         ];
     }
@@ -89,7 +111,9 @@ class Tour extends Resource
      */
     public function filters (Request $request)
     {
-        return [];
+        return [
+            new HotTours
+        ];
     }
 
     /**

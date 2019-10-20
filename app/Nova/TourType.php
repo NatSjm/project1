@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TourType extends Resource
@@ -41,7 +43,24 @@ class TourType extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Категория тура','name')->sortable(),
+            HasMany::make('Туры', 'tours', 'App\Nova\Tour'),
         ];
+    }
+
+    public static function label()
+    {
+        return __('Типы туров');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Тип тура');
     }
 
     /**

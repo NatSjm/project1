@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Comment extends Resource
@@ -31,6 +33,25 @@ class Comment extends Resource
         'id',
     ];
 
+    public function title(){
+        return ($this->tour->name . ' Автор: ' .$this->user->fullName);
+    }
+
+    public static function label()
+    {
+        return __('Комментарии');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Комментарий');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -41,6 +62,10 @@ class Comment extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Tour')->sortable(),
+            BelongsTo::make('User')->sortable(),
+            Textarea::make('Content'),
+
         ];
     }
 

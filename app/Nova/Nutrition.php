@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Nutrition extends Resource
@@ -28,8 +30,22 @@ class Nutrition extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'nutrition_type'
     ];
+    public static function label()
+    {
+        return __('Питание');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Питание');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -41,6 +57,8 @@ class Nutrition extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('nutrition_type'),
+            HasMany::make('Туры', 'tours', 'App\Nova\Tour')
         ];
     }
 

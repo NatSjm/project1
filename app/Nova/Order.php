@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
@@ -30,7 +32,20 @@ class Order extends Resource
     public static $search = [
         'id',
     ];
+    public static function label()
+    {
+        return __('Заказы');
+    }
 
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Заказ');
+    }
     /**
      * Get the fields displayed by the resource.
      *
@@ -41,6 +56,9 @@ class Order extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Тур', 'tour', 'App\Nova\Tour'),
+            BelongsTo::make('Сделка','deal','App\Nova\Deal'),
+            Number::make('Цена', 'price')
         ];
     }
 

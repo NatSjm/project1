@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Country extends Resource
@@ -31,6 +33,21 @@ class Country extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return __('Страны');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Страна');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -41,6 +58,9 @@ class Country extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('name')->sortable(),
+            HasMany::make('tours')->sortable(),
+            HasMany::make('cities')->sortable()
         ];
     }
 

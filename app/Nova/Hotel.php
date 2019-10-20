@@ -2,8 +2,10 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Hotel extends Resource
@@ -27,7 +29,20 @@ class Hotel extends Resource
         return ($this->hotel_class . '*');
     }
 
+    public static function label()
+    {
+        return __('Отели');
+    }
 
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Отель');
+    }
 
     /**
      * The columns that should be searched.
@@ -35,7 +50,7 @@ class Hotel extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'hotel_class',
     ];
 
     /**
@@ -48,6 +63,10 @@ class Hotel extends Resource
     {
         return [
             ID::make()->sortable(),
+            Number::make('Класс отеля', 'hotel_class')->nullable()->resolveUsing(function ($name) {
+                return ($name. '*');
+            })->textAlign('center'),
+            HasMany::make('Туры', 'tours', 'App\Nova\Tour'),
         ];
     }
 

@@ -35,6 +35,21 @@ class User extends Resource
         'id', 'first_name', 'last_name', 'email',
     ];
 
+    public static function label()
+    {
+        return __('Пользователи');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Пользователь');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

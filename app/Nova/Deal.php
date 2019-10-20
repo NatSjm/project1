@@ -2,8 +2,12 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Deal extends Resource
@@ -31,6 +35,21 @@ class Deal extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return __('Сделки');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Сделка');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -41,6 +60,10 @@ class Deal extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Продавец', 'buyer', 'App\Nova\User')->sortable(),
+            BelongsTo::make('Покупатель', 'seller', 'App\Nova\User')->sortable(),
+            Number::make('Цена', 'total_price')->sortable(),
+            HasMany::make('Заказы', 'orders', 'App\Nova\Order'),
         ];
     }
 

@@ -5,6 +5,7 @@ namespace App\Nova;
 
 use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Image;
@@ -34,6 +35,21 @@ class Media extends Resource
     public static $search = [
         'id',
     ];
+
+    public static function label()
+    {
+        return __('Фотографии');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Фотография');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -74,7 +90,8 @@ class Media extends Resource
                 ->prunable()
                ->disableDownload(),
 
-            BelongsToMany::make('Tours', 'tours', 'App\Nova\Tour'),
+            BelongsToMany::make('Туры', 'tours', 'App\Nova\Tour'),
+            HasMany::make('Основное изображение для туров:', 'mainImgTours', 'App\Nova\Tour'),
         ];
     }
 
