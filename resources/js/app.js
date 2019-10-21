@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,8 +7,7 @@
 require('./bootstrap');
 
 
-
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -20,10 +18,7 @@ $(document).ready(function() {
     require('./../views/sections/header/header');
 
 
-
     require('./index');
-
-
 
 
     if ($("body").hasClass("index")) {
@@ -32,21 +27,42 @@ $(document).ready(function() {
         require('./../views/pages/product/product');
     } else if ($("body").hasClass("search-page")) {
         require('./../views/pages/search/filter/filter');
-    } else if($("body").hasClass("cart-page")){
+    } else if ($("body").hasClass("cart-page")) {
         require('./../views/pages/cart/cart');
-    } else if($("body").hasClass("orders-page") || $("body").hasClass("purchases-page")){
+    } else if ($("body").hasClass("orders-page") || $("body").hasClass("purchases-page")) {
         require('./../views/pages/orders/order/order');
-    }else if($("body").hasClass("seller-page")){
+    } else if ($("body").hasClass("seller-page")) {
         require('./../views/pages/seller/seller');
-    }
-    else if($("body").hasClass("product-create-page") || $("body").hasClass("product-edit-page")){
+    } else if ($("body").hasClass("product-create-page") || $("body").hasClass("product-edit-page")) {
         require('./../views/pages/product/product-create/product-create');
-    }
-    else if($("body").hasClass("person-page")){
+    } else if ($("body").hasClass("person-page")) {
         require('./../views/pages/person/person');
     }
 });
+//
+
 // window.Vue = require('vue');
+import VueRouter from 'vue-router';
+import Vue from 'vue';
+import routes from './routes';
+
+
+// import routes from './product-card';
+// Vue.component('product-card', ProductCard);
+
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    routes
+});
+
+const app = new Vue({
+    router
+}).$mount('#app');
+
+
+
 //
 // /**
 //  * The following block of code may be used to automatically register your

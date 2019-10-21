@@ -21,13 +21,12 @@ class IndexController extends Controller
         //$tourTypes = TourType::all();
 
 
-        return view('/pages/index/index', [
+        return response()->json([
             'sliderTours'      => $sliderTours,
             'hotTours'         => $hotTours,
             'recommendedTours' => $recommendedTours,
             //'tourTypes' => $tourTypes,
             'title'            => 'index',
-
         ]);
     }
 }
