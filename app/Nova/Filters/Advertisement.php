@@ -5,7 +5,7 @@ namespace App\Nova\Filters;
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
 
-class HotTours extends Filter
+class Advertisement extends Filter
 {
     /**
      * The filter's component.
@@ -24,7 +24,8 @@ class HotTours extends Filter
      */
     public function apply (Request $request, $query, $value)
     {
-        return $query->where('hot', $value);
+        return $query->where('advertisement', $value);
+
     }
 
     /**
@@ -36,8 +37,8 @@ class HotTours extends Filter
     public function options (Request $request)
     {
         return [
-            'Горящие туры'    => '1',
-            'Не горящие туры' => '0'
+            "Оплаченные объявления" => '1',
+            "Обычные объявления"    => '0'
         ];
     }
 }

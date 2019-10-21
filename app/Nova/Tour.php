@@ -2,7 +2,10 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\MarkAsAdvertisement;
+use App\Nova\Filters\Advertisement;
 use App\Nova\Filters\HotTours;
+use App\Nova\Filters\Recommended;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
@@ -112,7 +115,9 @@ class Tour extends Resource
     public function filters (Request $request)
     {
         return [
-            new HotTours
+            new HotTours,
+            new Advertisement,
+            new Recommended
         ];
     }
 
@@ -135,6 +140,9 @@ class Tour extends Resource
      */
     public function actions (Request $request)
     {
-        return [];
+        return [
+            new MarkAsAdvertisement
+
+        ];
     }
 }
