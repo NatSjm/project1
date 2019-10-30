@@ -26,76 +26,73 @@
                 <use xlink:href="#arrow-right"></use>
             </svg>
             </span>
-
+                <div v-for="type in AllTourTypes">
+                    <pictogram-line :type="type"></pictogram-line>
+                </div>
             </div>
         </section>
 
 
         <section class="recommendations cont">
-            <div class="section-headlines">
+            <div class="section-headlines" v-if="recommendedTours.length > 0">
                 <h3 class="headline-2">ColorLife рекомендует</h3>
-
-                <!--<a class="show-all" href="{{ route('search-page').'?recommended=1' }}"><span>Показать все<span>-->
-                <!--(10)</span></span>-->
-                <span>
+                <router-link class="show-all" to="/search">
+                    <span>Показать все <span>({{recommendedTours.length}})</span></span>
+                    <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
             </svg>
             </span>
-                <!--</a>-->
+                </router-link>
             </div>
             <div class="products-list-top">
-                <!--       @foreach($recommendedTours->slice(6, 2) as $recommendedTour)
-                       @include ('components.product-card.product-card',['tour' => $recommendedTour] )
-                       @endforeach-->
+                <div v-for="tour in recommendedTours.slice(0,2)">
+                    <product-card :tour="tour"></product-card>
+                </div>
+
             </div>
             <div class="products-list">
-                <!--@foreach ($recommendedTours->take(6) as $recommendedTour)-->
-                <!--@include ('components.product-card.product-card',['tour' => $recommendedTour] )-->
-                <!--@endforeach-->
+                <div v-for="tour in recommendedTours.slice(2,8)">
+                    <product-card :tour="tour"></product-card>
+                </div>
             </div>
         </section>
 
         <section class="hot-tours cont ">
-            <!--@if (count($hotTours))-->
             <div class="section-headlines" v-if="hotTours.length > 0">
                 <h3 class="headline-2">Горящие туры</h3>
-
-                <!--<a class="show-all" href="{{ route('search-page').'?hot=1' }}"><span>Показать все<span>-->
-                <!--&lt;!&ndash;({{// $hotTours->count()}})&ndash;&gt;-->
-                <!--</span></span>-->
-                <!--<span>-->
-                <!--<svg class="arrow">-->
-                <!--<use xlink:href="#arrow-right"></use>-->
-                <!--</svg>-->
-                <!--</span>-->
-                <!--</a>-->
-
+                <router-link class="show-all" to="/search">
+                    <span>Показать все <span>({{hotTours.length}})</span></span>
+                    <span>
+            <svg class="arrow">
+                <use xlink:href="#arrow-right"></use>
+            </svg>
+            </span>
+                </router-link>
             </div>
-
             <div class="products-list-top">
-                <div v-for="tour in hotTours">
-                    {{ tour.name }}
-                    <!--<product-card :tour="tour"></product-card>-->
+                <div v-for="tour in hotTours.slice(0,2)">
+                    <product-card :tour="tour"></product-card>
                 </div>
 
-                <!--@foreach($hotTours->slice(6, 2) as $hotTour)-->
-                <!--@include ('components.product-card.product-card',['tour' => $hotTour] )-->
-                <!--@endforeach-->
-
             </div>
-
             <div class="products-list">
-                <!--@foreach ($hotTours->take(6) as $hotTour)-->
-
-                <!--@include ('components.product-card.product-card', ['tour' => $hotTour])-->
-                <!--@endforeach-->
+                <div v-for="tour in hotTours.slice(2,8)">
+                    <product-card :tour="tour"></product-card>
+                </div>
             </div>
         </section>
 
         <section class="about cont ">
-            <h2 class="about_headline headline-2">О нас</h2>
-            <p class="about_info text mod_normal">Туроператор ООО «Джоин АП!», плательщик налога на прибыль предприятий
+            <h2 class="about_headline headline-2" @click='aboutHeightChange'>О нас</h2>
+            <p class="about_info  text mod_normal"
+               v-bind:class="{ 'mod_full-size': toggle }"
+               ref="about"
+               v-bind:style="{ height: newHeight + 'px' }">Туроператор
+                ООО «Джоин
+                АП!», плательщик налога на
+                прибыль
+                предприятий
                 на
                 общих
                 основаниях,
@@ -117,7 +114,7 @@
                 подтверждения заказа и предоставления документов, дающих право получить туристический продукт не
                 считаются
                 одобрением Туроператором соглашения заключенного между Агентом и Туристом.</p>
-            <a class="about_button link " href="">Показать еще</a>
+            <a class="about_button link " @click.prevent='aboutHeightChange' href="" v-if="!toggle">Показать еще</a>
         </section>
     </div>
 </template>

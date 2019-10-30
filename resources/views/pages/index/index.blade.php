@@ -29,6 +29,7 @@
             </svg>
             </span>
 
+
             @include ('components.pictogram-line.pictogram-line')
         </div>
     </section>

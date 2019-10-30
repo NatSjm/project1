@@ -1,0 +1,12 @@
+<template>
+    <div>
+        A product
+    </div>
+</template>
+
+<script type="text/javascript">
+    export default {
+
+    }
+</script>
+

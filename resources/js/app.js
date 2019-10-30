@@ -45,10 +45,16 @@ $(document).ready(function () {
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routes';
-
+//window.Vue = require('vue');
 
 // import routes from './product-card';
-// Vue.component('product-card', ProductCard);
+import ProductCard from '../views/components/product-card/product-card.vue';
+Vue.component('product-card', ProductCard);
+
+import PictogramLine from '../views/components/pictogram-line/pictogram-line.vue';
+Vue.component('pictogram-line', PictogramLine);
+
+
 
 
 Vue.use(VueRouter);
