@@ -4,6 +4,7 @@
     <div class="header_top">
         <nav class="main-nav">
             <ul class="main-nav_list">
+
                 @foreach ($AllCategories as $category)
                     <li class="main-nav_item"><a href="{{ route('search-page').'?category='.$category }}"
                                                  class="main-nav_link">{{ $category }}</a></li>
@@ -26,8 +27,6 @@
                 @include('components.user-block.user_unauthorized.user_unauthorized')
             @else
                 @include(('components.user-block.user_authorized.user_authorized'))
-
-
             @endguest
             @include('components.cart.cart')
         </div>

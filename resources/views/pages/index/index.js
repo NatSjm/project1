@@ -6,6 +6,7 @@ export default {
             hotTours: [],
             AllTourTypes: [],
             recommendedTours: [],
+            sliderTours: [],
             toggle: false,
             aboutHeight: 0,
             newHeight: 400,
@@ -30,6 +31,8 @@ export default {
             this.hotTours = response.data.hotTours;
             this.AllTourTypes = response.data.AllTourTypes;
             this.recommendedTours = response.data.recommendedTours;
+            this.sliderTours = response.data.sliderTours;
+
 
         });
     },

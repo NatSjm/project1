@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function __invoke ()
     {
         $sliderTours = Tour::with('mainImg')->where('advertisement', 1)->orderBy('price',
-            'desc')->take(3)->get();
+            'desc')->take(7)->get();
 
         $tours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg', 'hotel');
 
@@ -25,7 +25,7 @@ class IndexController extends Controller
             'sliderTours'      => $sliderTours,
             'hotTours'         => $hotTours,
             'recommendedTours' => $recommendedTours,
-            'AllTourTypes'        => $tourTypes,
+            'AllTourTypes'     => $tourTypes,
             'title'            => 'index',
         ]);
     }

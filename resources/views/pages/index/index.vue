@@ -1,23 +1,24 @@
 <template>
     <div>
-        <section class="main-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <!--<img class="main-banner_img" src="/storage/images/{{$sliderTour->mainImg->path}}"-->
-                        <!--alt="{{$sliderTour->mainImg->name}}">-->
-                        <div class="main-banner_text-block">
-                            <h2 class="main-banner_title"></h2>
-                            <h3 class="main-banner_description">Вся роскошь востока</h3>
-                            <!--<a href="{{ route('product-page', $sliderTour) }}" class="main-banner_link button">Перейти к-->
-                            <!--туру</a>-->
-                        </div>
-                    </div>
+        <!--<section class="main-banner">-->
+            <!--&lt;!&ndash;<div class="swiper-container">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="swiper-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;<img class="main-banner_img" src="/storage/images/{{$sliderTour->mainImg->path}}"&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;alt="{{$sliderTour->mainImg->name}}">&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="main-banner_text-block">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h2 class="main-banner_title"></h2>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h3 class="main-banner_description">Вся роскошь востока</h3>&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;<a href="{{ route('product-page', $sliderTour) }}" class="main-banner_link button">Перейти к&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;туру</a>&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                </div>
-            </div>
-        </section>
-
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<carusel></carusel>-->
+        <!--</section>-->
+        <carusel :sliderTours="sliderTours"></carusel>
         <section class="recreation-types">
             <div class="recreation-types_wrapper cont">
                 <h3 class="headline-3">Виды отдыха</h3>

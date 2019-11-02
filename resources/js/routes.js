@@ -3,6 +3,8 @@ import Orders from '../views/pages/orders/orders.vue';
 import Cart from '../views/pages/cart/cart.vue';
 import Search from '../views/pages/search/search.vue';
 import Product from '../views/pages/product/product.vue';
+import Enter from '../views/pages/enter/enter.vue';
+import ProductCreate from  '../views/pages/product/product-create/product-create.vue';
 
 
 export default [
@@ -26,8 +28,13 @@ export default [
         path: '/product',
         name: 'product',
         component: Product
+    }, {
+        path: '/enter',
+        name: 'enter',
+        component: Enter
+    }, {
+        path: '/tour/create',
+        name: 'product-create-page',
+        component: ProductCreate
     },
-
-
-
 ];

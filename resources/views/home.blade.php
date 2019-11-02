@@ -16,11 +16,12 @@
 
 
 <div id="app">
-    <router-view :item="'Hello!'"></router-view>
-    <router-link to="/">Home</router-link>
+     <header-component :all-categories="AllCategories"></header-component>
+    <router-link to="/" exact>Home</router-link>
     <router-link to="/orders">Orders</router-link>
     <router-link to="/cart">Cart</router-link>
     <router-link to="/search">Search</router-link>
+    <router-view :item="'Hello!'"></router-view>
 
 </div>
 

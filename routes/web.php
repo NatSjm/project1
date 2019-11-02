@@ -12,11 +12,13 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/indexcat', 'HomeController@categories');
 
 
 
 
 Route::get('/api/index', 'IndexController')->name('index');
+
 
 
 Route::get('tour/create', 'ProductController@create')->name('product-create-page')->middleware('auth');
