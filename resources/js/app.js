@@ -70,6 +70,9 @@ Vue.component('user-unauthorized', UserUnauthorized);
 import HeaderCart from '../views/components/cart/cart.vue';
 Vue.component('header-cart', HeaderCart);
 
+import Footer from '../views/sections/footer/footer-component.vue';
+Vue.component('footer-component', Footer);
+
 
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 

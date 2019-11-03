@@ -17,12 +17,12 @@
 
 <div id="app">
      <header-component :all-categories="AllCategories"></header-component>
-    <router-link to="/" exact>Home</router-link>
-    <router-link to="/orders">Orders</router-link>
-    <router-link to="/cart">Cart</router-link>
-    <router-link to="/search">Search</router-link>
+    {{--<router-link to="/" exact>Home</router-link>--}}
+    {{--<router-link to="/orders">Orders</router-link>--}}
+    {{--<router-link to="/cart">Cart</router-link>--}}
+    {{--<router-link to="/search">Search</router-link>--}}
     <router-view :item="'Hello!'"></router-view>
-
+    <footer-component></footer-component>
 </div>
 
 
