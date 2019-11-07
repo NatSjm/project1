@@ -1,14 +1,11 @@
 import Swiper from 'Swiper';
+import { mapGetters } from 'vuex'
 
 export default {
 
 
     data() {
         return {
-            hotTours: [],
-            AllTourTypes: [],
-            recommendedTours: [],
-            sliderTours: [],
             toggle: false,
             aboutHeight: 0,
             newHeight: 400,
@@ -19,19 +16,32 @@ export default {
             this.toggle = true;
             this.newHeight = this.aboutHeight;
         }
-
     },
 
     created() {
-        axios.get('/api/index').then((response) => {
-            this.hotTours = response.data.hotTours;
-            this.AllTourTypes = response.data.AllTourTypes;
-            this.recommendedTours = response.data.recommendedTours;
-            this.sliderTours = response.data.sliderTours;
-        });
+        this.$store.dispatch('getToursForIndex');
     },
-    beforeDestroy() {
 
+    computed: {
+        ...mapGetters([
+            'hotTours',
+            'allTourTypes',
+            'recommendedTours',
+            'sliderTours',
+        ])
+
+        // hotTours() {
+        //    return this.$store.getters.getHotTours;
+        // },
+        // allTourTypes() {
+        //     return this.$store.getters.getAllTourTypes;
+        // },
+        // recommendedTours() {
+        //     return this.$store.getters.getRecomendedTours;
+        // },
+        // sliderTours() {
+        //     return this.$store.getters.getSliderTours;
+        // }
     },
 
 

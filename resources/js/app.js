@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+import Vuex from 'vuex'
+
 
 $(document).ready(function () {
     $.ajaxSetup({
@@ -100,8 +102,24 @@ const router = new VueRouter({
 });
 
 
+Vue.use(Vuex);
+
+import state from './vuex/state.js';
+import mutations from './vuex/mutations.js';
+import getters from './vuex/getters.js';
+import actions from './vuex/actions.js';
+
+const store = new Vuex.Store({
+    state,
+    mutations,
+    getters,
+    actions
+});
+
+
 const app = new Vue({
     router,
+    store,
     data: {
         AllCategories: [],
 

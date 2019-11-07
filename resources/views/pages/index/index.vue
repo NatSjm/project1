@@ -9,7 +9,7 @@
                 <use xlink:href="#arrow-right"></use>
             </svg>
             </span>
-                <div v-for="type in AllTourTypes">
+                <div v-for="type in allTourTypes">
                     <pictogram-line :type="type"></pictogram-line>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TourResource;
 use Illuminate\Http\Request;
 use App\Models\Tour;
 use App\Models\TourType;
@@ -9,7 +10,7 @@ use App\Models\TourType;
 class IndexController extends Controller
 {
 
-    public function __invoke ()
+    public function __invoke()
     {
         $sliderTours = Tour::with('mainImg')->where('advertisement', 1)->orderBy('price',
             'desc')->take(7)->get();
@@ -22,7 +23,7 @@ class IndexController extends Controller
 
 
         return response()->json([
-            'sliderTours'      => $sliderTours,
+            'sliderTours'      => TourResource::collection($sliderTours),
             'hotTours'         => $hotTours,
             'recommendedTours' => $recommendedTours,
             'AllTourTypes'     => $tourTypes,
