@@ -32,7 +32,7 @@
         </div>
 
         <div v-if="menuMobile" class="menu-mobile_wrapper">
-            <header-mobile :allCategories="allCategories" @closed="toggleMenu"></header-mobile>
+            <header-mobile :allCategories="allCategories" ></header-mobile>
         </div>
 
         <div class="header_bottom">
@@ -59,16 +59,33 @@
 <script>
     export default {
         props: ['all-categories'],
+
         data() {
             return {
                 menuMobile: false,
+
             }
 
         },
+
+        watch: {
+            $route(to, from) {
+                this.menuMobile = false;
+            }
+        },
+
+
         methods: {
             toggleMenu: function () {
                 this.menuMobile = !this.menuMobile;
-            }
+            },
+
+        },
+
+
+        created() {
+
+
         }
     }
 </script>

@@ -1,6 +1,8 @@
 import Swiper from 'Swiper';
 
 export default {
+
+
     data() {
         return {
             hotTours: [],
@@ -20,27 +22,20 @@ export default {
 
     },
 
-    // computed: {
-    //
-    //
-    // },
-
-
     created() {
         axios.get('/api/index').then((response) => {
             this.hotTours = response.data.hotTours;
             this.AllTourTypes = response.data.AllTourTypes;
             this.recommendedTours = response.data.recommendedTours;
             this.sliderTours = response.data.sliderTours;
-
-
         });
+    },
+    beforeDestroy() {
+
     },
 
 
     mounted() {
-
-
         this.aboutHeight = this.$refs.about.scrollHeight;
 
         // var mySwiper = new Swiper('.swiper-container', {

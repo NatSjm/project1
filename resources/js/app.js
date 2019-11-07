@@ -46,31 +46,37 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routes';
 
-//window.Vue = require('vue');
 
-// import routes from './product-card';
 import ProductCard from '../views/components/product-card/product-card.vue';
+
 Vue.component('product-card', ProductCard);
 
 import PictogramLine from '../views/components/pictogram-line/pictogram-line.vue';
+
 Vue.component('pictogram-line', PictogramLine);
 
 import Header from '../views/sections/header/header-component.vue';
+
 Vue.component('header-component', Header);
 
 import HeaderMobile from '../views/sections/header/header_mobile_opened/header-mobile.vue';
+
 Vue.component('header-mobile', HeaderMobile);
 
 import Logo from '../views/components/logo/logo.vue';
+
 Vue.component('logo', Logo);
 
 import UserUnauthorized from '../views/components/user-block/user_unauthorized/user-unauthorized.vue';
+
 Vue.component('user-unauthorized', UserUnauthorized);
 
 import HeaderCart from '../views/components/cart/cart.vue';
+
 Vue.component('header-cart', HeaderCart);
 
 import Footer from '../views/sections/footer/footer-component.vue';
+
 Vue.component('footer-component', Footer);
 
 
@@ -83,6 +89,7 @@ Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 
 import Carusel from '../views/components/swiper/carusel.vue';
+
 Vue.component('carusel', Carusel);
 
 
@@ -92,18 +99,21 @@ const router = new VueRouter({
     routes
 });
 
+
 const app = new Vue({
     router,
     data: {
         AllCategories: [],
+
     },
+    methods: {},
     created() {
         axios.get('/indexcat').then((response) => {
             this.AllCategories = response.data.AllCategories;
         });
+
     },
 }).$mount('#app');
-
 
 
 //

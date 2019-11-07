@@ -26,14 +26,14 @@
             <div class="delimiter mod_color-light-green"></div>
             <div class="product-card_main">
                 <router-link class="product-card_link" to="/product">
-            <h3 class="product-card_title headline-3">
-            {{tour.country.name }} ({{tour.name}})</h3>
+                    <h3 class="product-card_title headline-3">
+                        {{tour.country.name }} ({{tour.name}})</h3>
                 </router-link>
 
-            <h4 class="product-card_description headline-4">Вылет из
-                {{tour.start_location.city.name}}</h4>
+                <h4 class="product-card_description headline-4">Вылет из
+                    {{tour.start_location.city.name}}</h4>
 
-            <a href="#" class="button mod_color-light-green">Заказать</a>
+                <a href="#" class="button mod_color-light-green">Заказать</a>
             </div>
         </article>
     </div>
@@ -47,7 +47,7 @@
         },
 
         computed: {
-            // геттер вычисляемого значения
+
             length: function () {
                 let finish = new Date(this.tour.finish_at),
                     start = new Date(this.tour.start_at);

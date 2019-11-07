@@ -4,7 +4,7 @@ import Cart from '../views/pages/cart/cart.vue';
 import Search from '../views/pages/search/search.vue';
 import Product from '../views/pages/product/product.vue';
 import Enter from '../views/pages/enter/enter.vue';
-import ProductCreate from  '../views/pages/product/product-create/product-create.vue';
+import ProductCreate from '../views/pages/product/product-create/product-create.vue';
 
 
 export default [
