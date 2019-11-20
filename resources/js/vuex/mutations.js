@@ -10,5 +10,9 @@ export default {
     },
     setSliderTours(state, tours) {
         state.sliderTours = tours;
-    }
+    },
+
+    setAllCategories(state, categories) {
+        state.allCategories = categories;
+    },
 }

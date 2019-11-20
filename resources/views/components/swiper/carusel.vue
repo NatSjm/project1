@@ -5,7 +5,7 @@
 
             <swiper-slide v-for="tour in sliderTours" v-bind:key="tour.id">
                 <div class="swiper-slide">
-                    <img class="product-card_img" v-bind:src="'/storage/images/' + tour.main_img.path " alt="">
+                    <img class="product-card_img" v-bind:src="'/storage/images/' + tour.mainImg " alt="">
                     <div class="main-banner_text-block">
                         <h2 class="main-banner_title">{{tour.name}}</h2>
                         <h3 class="main-banner_description">Вся роскошь востока</h3>

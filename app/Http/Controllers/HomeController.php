@@ -12,7 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct ()
     {
 //        $this->middleware('auth');
     }
@@ -22,16 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index ()
     {
         return view('home');
     }
 
-    public function categories()
+    public function categories ()
     {
+
         $categories = Category::pluck('name', 'id');
+
         return response()->json([
-            'AllCategories'      => $categories,
+            'AllCategories'     => $categories,
         ]);
 
     }

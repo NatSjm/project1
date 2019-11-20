@@ -11,4 +11,8 @@ export default {
     allTourTypes: (state) => {
         return state.allTourTypes;
     },
+
+    allCategories: (state) => {
+        return state.allCategories;
+    }
 }

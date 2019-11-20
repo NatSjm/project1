@@ -10,3 +10,17 @@
 // sum=sum.toLocaleString();
 // sumValue.text(sum+' ₿');
 //
+import {mapState, mapGetters, mapActions} from 'vuex'
+export default {
+    computed: {
+        ...mapState('cart', {
+            cartItems: state => state.cartItems,
+        }),
+        ...mapGetters('cart', {
+            cartTotal: 'cartTotal'
+        }),
+    },
+    methods: {
+        ...mapActions('cart', ['removeProductFromCart'])
+    }
+}

@@ -2,5 +2,6 @@ export default {
     hotTours: [],
     allTourTypes: [],
     recommendedTours: [],
-    sliderTours: []
+    sliderTours: [],
+    allCategories: [],
 }

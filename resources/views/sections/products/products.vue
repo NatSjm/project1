@@ -1,10 +1,17 @@
 <template>
-    $END$
+    <section class="products">
+        <div class="products-list">
+            <product-card v-for="tour in tours" :key="tour.id" :tour="tour"></product-card>
+        </div>
+
+    </section>
 </template>
 
 <script>
     export default {
-        name: "products"
+        props: [
+           'tours'
+        ]
     }
 </script>
 

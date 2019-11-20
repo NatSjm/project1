@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function __construct (ProductHelper $helper)
     {
         $this->helper = $helper;
-       // $this->middleware('update')->only('edit', 'update', 'destroy');
+
     }
 
 

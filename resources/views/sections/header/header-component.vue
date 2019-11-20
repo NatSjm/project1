@@ -57,8 +57,9 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     export default {
-        props: ['all-categories'],
+        // props: ['all-categories'],
 
         data() {
             return {
@@ -66,6 +67,11 @@
 
             }
 
+        },
+        computed: {
+            ...mapGetters([
+                'allCategories'
+            ])
         },
 
         watch: {

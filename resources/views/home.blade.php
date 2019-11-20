@@ -16,9 +16,11 @@
 
 
 <div id="app">
-    <header-component :all-categories="AllCategories"></header-component>
+
+    <header-component ></header-component>
     <router-view :item="'Hello!'"></router-view>
     <footer-component></footer-component>
+
 </div>
 
 

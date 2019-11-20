@@ -5,6 +5,7 @@
                 <use xlink:href="#shopping-cart"></use>
             </svg>
             <span>Корзина</span> <span class="cart_price">
+             <span class="cart_price">{{total}}</span>
          </span>
         </router-link>
     </div>
@@ -12,7 +13,14 @@
 </template>
 
 <script>
-    export default {}
+    import {mapState, mapGetters, mapActions} from 'vuex';
+    export default {
+        computed: {
+            ...mapGetters('cart', {
+                total: 'cartTotal',
+            }),
+        }
+    }
 </script>
 
 <style scoped>

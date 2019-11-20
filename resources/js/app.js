@@ -81,6 +81,10 @@ import Footer from '../views/sections/footer/footer-component.vue';
 
 Vue.component('footer-component', Footer);
 
+import Products from '../views/sections/products/products.vue';
+
+Vue.component('products', Products);
+
 
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
@@ -100,6 +104,9 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     routes
 });
+router.afterEach((to, from) => {
+    document.body.className = to.name;
+});
 
 
 Vue.use(Vuex);
@@ -108,12 +115,17 @@ import state from './vuex/state.js';
 import mutations from './vuex/mutations.js';
 import getters from './vuex/getters.js';
 import actions from './vuex/actions.js';
+import cart from './vuex/modules/cart.js';
 
 const store = new Vuex.Store({
     state,
     mutations,
     getters,
-    actions
+    actions,
+    modules: {
+        cart,
+    },
+
 });
 
 
@@ -121,14 +133,18 @@ const app = new Vue({
     router,
     store,
     data: {
-        AllCategories: [],
+        // AllCategories: [],
 
     },
     methods: {},
+
     created() {
-        axios.get('/indexcat').then((response) => {
-            this.AllCategories = response.data.AllCategories;
-        });
+
+        this.$store.dispatch('getCategories');
+
+        // axios.get('/indexcat').then((response) => {
+        //     this.AllCategories = response.data.AllCategories;
+        // });
 
     },
 }).$mount('#app');
