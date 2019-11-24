@@ -15,4 +15,26 @@ export default {
     setAllCategories(state, categories) {
         state.allCategories = categories;
     },
+    setAllHotels(state, hotels) {
+        state.allHotels = hotels;
+    },
+    setAllCountryNames(state, countries) {
+        state.allCountryNames = countries;
+    },
+
+    setAllNutritionTypes(state, nutritions) {
+        state.allNutritionTypes = nutritions;
+    },
+
+    setAllLocations(state, locations) {
+        state.allLocations = locations;
+    },
+
+    setPrices(state, prices) {
+        state.prices = prices;
+    },
+    setSearchTours(state, tours) {
+        state.searchTours = tours;
+    }
+
 }

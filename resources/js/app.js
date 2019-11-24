@@ -24,11 +24,11 @@ $(document).ready(function () {
 
 
     if ($("body").hasClass("index")) {
-        require('./../views/pages/index/index');
+        // require('./../views/pages/index/index');
     } else if ($("body").hasClass("product-page")) {
         require('./../views/pages/product/product');
     } else if ($("body").hasClass("search-page")) {
-        require('./../views/pages/search/filter/filter');
+        // require('./../views/pages/search/filter/filter');
     } else if ($("body").hasClass("cart-page")) {
         require('./../views/pages/cart/cart');
     } else if ($("body").hasClass("orders-page") || $("body").hasClass("purchases-page")) {

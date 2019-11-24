@@ -9,7 +9,7 @@
                     <router-link tag="li" v-for="(category, key) in allCategories"
                                  v-bind:key="key" class="main-nav_item" to="/search">
                         <a class="main-nav_link">
-                            {{category}}
+                            {{category.name}}
                         </a>
                     </router-link>
                 </ul>

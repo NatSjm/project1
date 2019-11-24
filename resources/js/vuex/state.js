@@ -3,5 +3,13 @@ export default {
     allTourTypes: [],
     recommendedTours: [],
     sliderTours: [],
+
     allCategories: [],
+    allNutritionTypes: [],
+    allHotels: [],
+    allCountryNames: [],
+    allLocations: [],
+
+    prices: [],
+    searchTours: [],
 }

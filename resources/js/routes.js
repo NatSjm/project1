@@ -22,7 +22,7 @@ export default [
         component: Cart
     }, {
         path: '/search',
-        name: 'search',
+        name: 'search-page',
         component: Search
     }, {
         path: '/product',

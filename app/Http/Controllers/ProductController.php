@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Media;
 use App\Models\Tour;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\TourCollection;
 
 use App\Http\Requests\ProductRequest;
 use App\Filters\ProductFilter;
@@ -65,8 +65,21 @@ class ProductController extends Controller
         $tours = $tours->paginate(12);
         $toursCount = $tours->total();
 
-        return view('/pages/search/search', compact(
-            'tours', 'countryNames', 'tourTypes', 'nutritionTypes', 'categories', 'hotels', 'toursCount', 'prices'));
+//        return view('/pages/search/search', compact(
+//            'tours', 'countryNames', 'tourTypes', 'nutritionTypes', 'categories', 'hotels', 'toursCount', 'prices'));
+
+        $priceRange = collect([
+            "до 1 000"            => "<_1000",
+            "от 1 000 до 5 000"   => "1001_5000",
+            "от 5 001 до 10 000"  => "5001_10000",
+            "от 10 001 до 50 000" => "10001_50000",
+            "более 50 000"        => ">_50001",
+        ]);
+        return response()->json([
+             'prices'           => $priceRange,
+             'searchTours'      => (new TourCollection($selectedTours)),
+             'searchToursCount' => $toursCount,
+        ]);
 
     }
 

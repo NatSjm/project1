@@ -18,6 +18,8 @@ Route::get('/indexcat', 'HomeController@categories');
 
 
 Route::get('/api/index', 'IndexController')->name('index');
+Route::get('/api/search', 'ProductController@index');
+
 
 
 

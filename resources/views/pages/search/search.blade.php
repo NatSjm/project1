@@ -54,7 +54,7 @@
                         </fieldset>
 
                         <fieldset class="filter_fields fieldset" id="tour-type">
-                            <label class="fieldset_title" for="tour-tipe">Тип тура</label>
+                            <label class="fieldset_title" for="tour-type">Тип тура</label>
                             <div class="select-wrapper">
                                 <select class="filter_select" name="tour_type" id="">
                                     <option class="filter_option" value="">Любой</option>
