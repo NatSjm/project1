@@ -12,4 +12,10 @@ export default {
 
     prices: [],
     searchTours: [],
+
+    tour: {},
+    // productSimilar: [],
+    // productSellerTours: [],
+
+    paginator: {},
 }

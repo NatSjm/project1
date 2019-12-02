@@ -4,7 +4,7 @@
 
             <header class="product-card_header">
 
-                <router-link class="product-card_link" to="/product">
+                <router-link class="product-card_link" :to="'/product/' + tour.id">
                     <img class="product-card_img" v-bind:src="'/storage/images/' + tour.mainImg " alt="">
                 </router-link>
 
@@ -25,7 +25,7 @@
             </header>
             <div class="delimiter mod_color-light-green"></div>
             <div class="product-card_main">
-                <router-link class="product-card_link" to="/product">
+                <router-link class="product-card_link" :to="'/product/' + tour.id">
                     <h3 class="product-card_title headline-3">
                         {{tour.shortCountryName }} ({{tour.name}})</h3>
                 </router-link>
@@ -33,13 +33,14 @@
                 <h4 class="product-card_description headline-4">Вылет из
                     {{tour.startLocationCity}}</h4>
 
-                <a href="#"  @click.prevent="addProductToCart(tour)" class="button mod_color-light-green">Заказать</a>
+                <a href="#" @click.prevent="addProductToCart(tour)" class="button mod_color-light-green">Заказать</a>
             </div>
         </article>
     </div>
 </template>
 <script type="text/javascript">
     import {mapState, mapGetters, mapActions} from 'vuex';
+
     export default {
         props: ['tour'],
         data() {
@@ -52,15 +53,6 @@
             })
         },
 
-        computed: {
-
-            //
-            // length: function () {
-            //     let finish = new Date(this.tour.finish_at),
-            //         start = new Date(this.tour.start_at);
-            //     return Math.ceil((finish - start) / (60 * 60 * 24 * 1000));
-            //
-            // }
-        }
+        computed: {}
     }
 </script>

@@ -35,5 +35,19 @@ export default {
    },
    searchTours: (state) => {
         return state.searchTours;
-   }
+   },
+
+    tour: (state) => {
+        return state.tour;
+    },
+    // productSimilar: (state) => {
+    //     return state.productSimilar;
+    // },
+    // productSellerTours: (state) => {
+    //     return state.productSellerTours;
+    // },
+
+    paginator: (state) => {
+        return state.paginator;
+    }
 }

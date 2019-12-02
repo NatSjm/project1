@@ -13,7 +13,7 @@
                     <svg class="filter-close">
                     <use xlink:href="#close"></use>
                     </svg>
-                    <form @change="sendSearchRequest" class="filter_form" id="filter-form" action="#">
+                    <form @change="filterResults" class="filter_form" id="filter-form" action="#">
                         <fieldset class="filter_fields fieldset" id="country">
                             <label class="fieldset_title" for="country">Страна</label>
                             <div class="select-wrapper">
@@ -205,7 +205,7 @@
                 <section class="products-filter">
                     <p class="products-filter_toggler">Показать фильтр</p>
                     <div class="products-filter_info">
-                        <span class="products-filter_count">{{searchTours.length}} шт</span>
+                        <span class="products-filter_count">{{paginator.total}} шт</span>
                         <div class="products-filter_sorter">
                             <select class="products-filter_select" name="sorter" form="filter-form">
                                 <option class="products-filter_option" value="created_at">По умолчанию</option>
@@ -235,7 +235,7 @@
 
                     </div>
                 </section>
-                <products :tours=searchTours></products>
+                <products @sendpage="changepage" :searchpage=searchpage :tours=searchTours></products>
 
             </div>
         </div>

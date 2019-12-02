@@ -1,7 +1,7 @@
 import Swiper from 'Swiper';
 
 
-function  sliderResiser() {
+function sliderResiser() {
     if (window.matchMedia("screen and (min-width: 1280px)").matches) {
 
         var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -18,26 +18,16 @@ function  sliderResiser() {
         });
 
 
-
         var galleryTop = new Swiper('.gallery-top', {
             spaceBetween: 10,
-            loop:true,
+            loop: true,
             loopedSlides: 10,
-
-
-
-
             //looped slides should be the same
-
             thumbs: {
                 swiper: galleryThumbs,
 
             },
         });
-
-
-
-
 
 
     } else {
@@ -68,9 +58,9 @@ function  sliderResiser() {
         });
 
 
-
     }
 }
+
 sliderResiser();
 
 $(window).resize(sliderResiser);

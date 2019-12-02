@@ -18,12 +18,26 @@ export default {
         });
     },
 
-    getItemsForSearch(store) {
-        axios.get('/api/search').then((response) => {
-            store.commit('setPrices', response.data.prices);
-            store.commit('setSearchTours', response.data.searchTours.tours)
+    getItemsForSearch(store, payload) {
+        axios.get('/api/search', payload).then((response) => {
+            store.commit('setPrices', response.data.data.prices);
+            store.commit('setSearchTours', response.data.data.tours);
+            store.commit('setPaginator', {
+                total: response.data.meta.total,
+                last_page: response.data.meta.last_page,
+                current_page: response.data.meta.current_page,
+            });
         });
     },
+
+    getItemsForProduct(store, id) {
+        axios.get('/api/product/' + id).then((response) => {
+            store.commit('setTour', response.data.tour);
+            // store.commit('setProductSimilar', response.data.similarTours);
+            // store.commit('setProductSellerTours', response.data.sellerTours);
+
+        });
+    }
 
 
 

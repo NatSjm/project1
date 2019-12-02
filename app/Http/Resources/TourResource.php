@@ -20,7 +20,6 @@ class TourResource extends JsonResource
             'name'              => $this->name,
             'for_children'      => $this->for_children,
             'length'            => $this->length,
-            'formattedPrice'    => $this->formattedPrice,
             'category'          => $this->category->name,
             'mainImg'           => $this->mainImg->path,
             'tourTypeIcon'      => $this->tourType->icon,

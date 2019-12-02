@@ -26,7 +26,7 @@ $(document).ready(function () {
     if ($("body").hasClass("index")) {
         // require('./../views/pages/index/index');
     } else if ($("body").hasClass("product-page")) {
-        require('./../views/pages/product/product');
+      //  require('./../views/pages/product/product');
     } else if ($("body").hasClass("search-page")) {
         // require('./../views/pages/search/filter/filter');
     } else if ($("body").hasClass("cart-page")) {
@@ -47,6 +47,10 @@ $(document).ready(function () {
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routes';
+
+
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate);
 
 
 import ProductCard from '../views/components/product-card/product-card.vue';

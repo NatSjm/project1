@@ -35,6 +35,19 @@ export default {
     },
     setSearchTours(state, tours) {
         state.searchTours = tours;
-    }
+    },
 
+    setTour(state, tour) {
+        state.tour = tour;
+    },
+    // setProductSimilar(state, tours) {
+    //     state.productSimilar = tours;
+    // },
+    // setProductSellerTours(state, tours) {
+    //     state.productSellerTours = tours;
+    // },
+
+    setPaginator(state, paginator) {
+        state.paginator = paginator;
+    },
 }

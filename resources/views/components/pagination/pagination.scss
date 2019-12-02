@@ -12,6 +12,21 @@
     display:      inline-block;
     margin-right: 10px;
     font-family: $fbold;
+    border: none;
+    outline: none;
+
+    &.disabled .pagination_item{
+        background: none;
+    }
+    &.active .pagination_item{
+        background-color: $med-green;
+        color:            $white;
+        box-shadow:       0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border: none;
+        outline: none;
+    }
+
+
     & span {
         color:       $nero;
         @include font-settings(16px, 1.38);
@@ -27,11 +42,13 @@
     background-color: $dark-milk;
     padding:          3px 10px 6px 10px;
     color:            $nero;
+    border: none;
+    outline: none;
     @include font-settings(16px, 1.38);
-    &.active {
-        background-color: $med-green;
-        color:            $white;
-        box-shadow:       0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    }
+    //&.active {
+    //    background-color: $med-green;
+    //    color:            $white;
+    //    box-shadow:       0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    //}
 
 }

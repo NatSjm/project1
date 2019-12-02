@@ -15,13 +15,15 @@ export default {
             children_accessibility: null,
             recommended: null,
             hot: null,
+            page: 1,
+            searchpage: true
 
 
         };
     },
     methods: {
         sendSearchRequest() {
-            axios.get('/api/search', {
+            let payload = {
                 params: {
                     country: this.country,
                     hotel: this.hotel,
@@ -30,31 +32,43 @@ export default {
                     category: this.category,
                     price: this.price,
                     children_accessibility: this.children_accessibility,
-                    recommended: this.recommended? 1 : '' ,
-                    hot: this.hot? 1 : '',
+                    recommended: this.recommended ? 1 : '',
+                    hot: this.hot ? 1 : '',
+                    page: this.page,
                 }
-            })
-                .then(response => {
-                    this.$store.commit('setSearchTours', response.data.searchTours.tours);
-                })
+            };
+            this.$store.dispatch('getItemsForSearch', payload);
         },
-        filterReset(){
-                this.country = null;
-                this.hotel = null;
-                this.tour_type = null;
-                this. nutrition = null;
-                this.category = null;
-                this.price = null;
-                this.children_accessibility = null;
-                this.recommended = null;
-                this.hot = null;
 
-                this.sendSearchRequest();
+
+        filterReset() {
+            this.country = null;
+            this.hotel = null;
+            this.tour_type = null;
+            this.nutrition = null;
+            this.category = null;
+            this.price = null;
+            this.children_accessibility = null;
+            this.recommended = null;
+            this.hot = null;
+            this.page = 1;
+            this.sendSearchRequest();
+        },
+
+        changepage(page) {
+            this.page = page;
+            this.sendSearchRequest();
+        },
+
+        filterResults() {
+            this.page = 1;
+            this.sendSearchRequest();
+            this.searchpage = !this.searchpage;
         }
+
     },
 
     created() {
-
         this.$store.dispatch('getItemsForSearch');
     },
 
@@ -68,6 +82,7 @@ export default {
             'allLocations',
             'prices',
             'searchTours',
+            'paginator'
         ])
     },
 

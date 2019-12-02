@@ -25,9 +25,10 @@ export default [
         name: 'search-page',
         component: Search
     }, {
-        path: '/product',
-        name: 'product',
-        component: Product
+        path: '/product/:id',
+        name: 'product-page',
+        component: Product,
+        props: true,
     }, {
         path: '/enter',
         name: 'enter',
