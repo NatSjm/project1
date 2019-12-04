@@ -11,7 +11,10 @@ export default [
     {
         path: '/',
         name: 'home',
-        component: Index
+        component: Index,
+        meta: {
+            breadcrumb: 'Home'
+        },
     }, {
         path: '/orders',
         name: 'orders',

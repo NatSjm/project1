@@ -47,6 +47,7 @@ $(document).ready(function () {
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routes';
+import VueBreadcrumbs from 'vue-2-breadcrumbs';
 
 
 import Paginate from 'vuejs-paginate'
@@ -104,6 +105,8 @@ Vue.component('carusel', Carusel);
 
 
 Vue.use(VueRouter);
+Vue.use(VueBreadcrumbs);
+
 
 const router = new VueRouter({
     routes

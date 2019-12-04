@@ -255,7 +255,6 @@
 
         created() {
             this.$store.dispatch('getItemsForProduct', this.$route.params.id);
-
         },
 
         computed: {

@@ -16,9 +16,8 @@ export default {
             recommended: null,
             hot: null,
             page: 1,
-            searchpage: true
-
-
+            searchpage: true,
+            filterToggler: false,
         };
     },
     methods: {
@@ -38,6 +37,17 @@ export default {
                 }
             };
             this.$store.dispatch('getItemsForSearch', payload);
+        },
+
+        filterToggle() {
+            this.filterToggler = !this.filterToggler;
+        },
+
+        windowResizeHandler(){
+            let w = window.innerWidth;
+            if (w > 1279 && this.filterToggler === false) {
+               this.filterToggler = true;
+            }
         },
 
 
@@ -88,8 +98,11 @@ export default {
 
 
     mounted() {
-
-
+        let w = window.innerWidth;
+        if (w > 1279 && this.filterToggler === false) {
+            this.filterToggler = true;
+        }
+        window.addEventListener('resize', this.windowResizeHandler);
     },
 }
 

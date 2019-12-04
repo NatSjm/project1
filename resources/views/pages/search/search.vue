@@ -8,16 +8,16 @@
 
 
         <div class="search-page_main-content">
-            <div class="filter-wrapper mod_desctop">
+            <div v-if="filterToggler" class="filter-wrapper mod_desctop">
                 <aside class="filter">
-                    <svg class="filter-close">
-                    <use xlink:href="#close"></use>
+                    <svg @click="filterToggle" v-if="filterToggler" class="filter-close">
+                        <use xlink:href="#close"></use>
                     </svg>
                     <form @change="filterResults" class="filter_form" id="filter-form" action="#">
                         <fieldset class="filter_fields fieldset" id="country">
                             <label class="fieldset_title" for="country">Страна</label>
                             <div class="select-wrapper">
-                                <select  v-model="country" class="filter_select"
+                                <select v-model="country" class="filter_select"
                                         name="country">
                                     <option class="filter_option" value="">Все</option>
                                     <option v-for="country in allCountryNames" class="filter_option"
@@ -33,7 +33,7 @@
                         <fieldset class="filter_fields fieldset" id="hotel-class">
                             <label class="fieldset_title" for="hotel-class">Класс отеля</label>
                             <div class="select-wrapper">
-                                <select  v-model="hotel" class="filter_select" name="hotel">
+                                <select v-model="hotel" class="filter_select" name="hotel">
                                     <option class="filter_option" value="">Любой</option>
                                     <option v-for="hotel in allHotels" class="filter_option" :value="hotel.hotelClass">
                                         {{hotel.hotelClass}}<sup>*</sup></option>
@@ -97,12 +97,14 @@
                         <fieldset class="filter_fields fieldset" id="category">
                             <label class="fieldset_title" for="category">Категория</label>
                             <div class="radio_wrapper">
-                                <input checked type="radio"
-                                       name="category" value=""
-                                       v-model="category"
-                                       class="checkbox_input"
-                                       id="any-category">
+                                <div class="checkbox_block">
+                                    <input checked type="radio"
+                                           name="category" value=""
+                                           v-model="category"
+                                           class="checkbox_input"
+                                           id="any-category">
                                 <label class="checkbox_label" for="any-category">Любая</label>
+                                </div>
                                 <div class="checkbox_block" v-for="(categoryName) in allCategories">
                                     <input type="radio"
                                            name="category"
@@ -163,10 +165,11 @@
                             <label class="fieldset_title" for="children-accessibility"><span>Доступно </span><span>для
                         детей</span></label>
                             <div class="select-wrapper">
-                                <select class="filter_select" v-model="children_accessibility" name="children_accessibility">
+                                <select class="filter_select" v-model="children_accessibility"
+                                        name="children_accessibility">
                                     <option class="filter_option" value="">Не важно</option>
-                                    <option class="filter_option"  value="1">Доступно</option>
-                                    <option class="filter_option"  value="0">Не доступно</option>
+                                    <option class="filter_option" value="1">Доступно</option>
+                                    <option class="filter_option" value="0">Не доступно</option>
                                 </select>
                                 <svg class="filter_icon">
                                     <use xlink:href="#selector"></use>
@@ -176,15 +179,15 @@
                         </fieldset>
 
                         <fieldset class="filter_fields fieldset" id="recommended">
-                        <label class="fieldset_title" for="recommended">Рекомендованные туры</label>
-                        <div class="radio_wrapper">
-                            <input type="checkbox" name="recommended" v-model="recommended" value="1"
-                                   class="checkbox_input"
-                                   id="recommended-checkbox">
-                            <label class="checkbox_label" for="recommended-checkbox">Показать
-                            </label>
-                        </div>
-                    </fieldset>
+                            <label class="fieldset_title" for="recommended">Рекомендованные туры</label>
+                            <div class="radio_wrapper">
+                                <input type="checkbox" name="recommended" v-model="recommended" value="1"
+                                       class="checkbox_input"
+                                       id="recommended-checkbox">
+                                <label class="checkbox_label" for="recommended-checkbox">Показать
+                                </label>
+                            </div>
+                        </fieldset>
 
                         <fieldset class="filter_fields fieldset" id="hot">
                             <label class="fieldset_title" for="hot">Горящие туры</label>
@@ -203,7 +206,7 @@
 
             <div class="main-content_wrapper">
                 <section class="products-filter">
-                    <p class="products-filter_toggler">Показать фильтр</p>
+                    <p v-if="!filterToggler" @click="filterToggle" class="products-filter_toggler">Показать фильтр</p>
                     <div class="products-filter_info">
                         <span class="products-filter_count">{{paginator.total}} шт</span>
                         <div class="products-filter_sorter">
@@ -220,18 +223,18 @@
                         </div>
                     </div>
                     <div class="products-filter_display">
-                    <ul class="products-filter_list">
-                    </ul>
-                    <div @click="filterReset" class="products-filter_reset">
-                    <a class="products-filter_reset-link" href="#">
-                    <span>Очистить фильтр</span>
-                    <span class="dell-them-all">
+                        <ul class="products-filter_list">
+                        </ul>
+                        <div @click="filterReset" class="products-filter_reset">
+                            <a class="products-filter_reset-link" href="#">
+                                <span>Очистить фильтр</span>
+                                <span class="dell-them-all">
                     <svg class="filter-cleaner_icon">
                     <use xlink:href="#close"></use>
                     </svg>
                     </span>
-                    </a>
-                    </div>
+                            </a>
+                        </div>
 
                     </div>
                 </section>

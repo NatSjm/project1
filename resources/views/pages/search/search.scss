@@ -35,7 +35,7 @@
         }
 
         & .filter-wrapper.mod_desctop {
-            display: none;
+            display: block;
             @include media('d-only') {
                 display:      block;
                 //margin-right: 40px;
@@ -168,15 +168,12 @@
 
 
 .filter {
-
     padding:       20px;
     padding-left:  0;
     padding-right: 0;
     @include media('d-only') {
         padding: 0;
-
         width:   200px;
-
     }
 
     @include for-flex(column, space-between, stretch);
@@ -195,6 +192,9 @@
         padding:       16px;
         padding-top:   18px;
         margin-bottom: 20px;
+        &#category .checkbox_block{
+            margin-right: 40px;
+        }
         @include media('d-only'){
             width: 200px;
             overflow: hidden;
@@ -216,6 +216,7 @@
                     font-size: 15px;
                 }
             }
+
         }
         & .select-wrapper {
             width:         100%;
