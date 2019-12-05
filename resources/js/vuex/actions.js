@@ -32,10 +32,21 @@ export default {
 
     getItemsForProduct(store, id) {
         axios.get('/api/product/' + id).then((response) => {
+            console.log(response.data.tour);
             store.commit('setTour', response.data.tour);
             // store.commit('setProductSimilar', response.data.similarTours);
             // store.commit('setProductSellerTours', response.data.sellerTours);
+        });
+    },
 
+    getItemsForSeller(store, id, payload) {
+        axios.get('/api/seller/' + id, payload).then((response) => {
+            store.commit('setPersonTours', response.data.data.tours);
+            store.commit('setPaginator', {
+                total: response.data.meta.total,
+                last_page: response.data.meta.last_page,
+                current_page: response.data.meta.current_page,
+            });
         });
     }
 

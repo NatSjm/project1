@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\User;
 use App\Models\Tour;
+use App\Http\Resources\TourCollection;
 
 //use App\Models\TourType;
 
@@ -19,21 +20,23 @@ class SellerController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke (Request $request, User $user, ProductFilter $filters)
+    public function __invoke (Request $request, $id, ProductFilter $filters)
     {
 
         $sellerTours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg')->where('seller_id',
-            $user->id)->filter($filters);
+            $id)->filter($filters);
 
         $sellerTours = $sellerTours->paginate(12);
+        return new TourCollection($sellerTours);
+//
 
-        return view('pages.seller.seller', [
-            'sellerTours' => $sellerTours,
-            'seller'      => $user,
-            'title'       => (auth()->id() == $user->id) ? 'Мои предложения' : 'предложения продавца',
-            //            'crumb_level3' => ['Предложения продавца'],
-            'filterType'  => 'tour_type',
-        ]);
+//        return view('pages.seller.seller', [
+//            'sellerTours' => $sellerTours,
+//            'seller'      => $user,
+//            'title'       => (auth()->id() == $user->id) ? 'Мои предложения' : 'предложения продавца',
+//            //            'crumb_level3' => ['Предложения продавца'],
+//            'filterType'  => 'tour_type',
+//        ]);
     }
 
 }

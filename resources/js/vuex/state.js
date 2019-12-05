@@ -14,6 +14,7 @@ export default {
     searchTours: [],
 
     tour: {},
+    personTours: [],
     // productSimilar: [],
     // productSellerTours: [],
 

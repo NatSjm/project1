@@ -2,7 +2,7 @@ export default {
     setHotTours(state, tours) {
         state.hotTours = tours;
     },
-        setAllTourTypes(state, tours) {
+    setAllTourTypes(state, tours) {
         state.allTourTypes = tours;
     },
     setRecommendedTours(state, tours) {
@@ -39,6 +39,9 @@ export default {
 
     setTour(state, tour) {
         state.tour = tour;
+    },
+    setPersonTours(state, tours) {
+        state.personTours = tours;
     },
     // setProductSimilar(state, tours) {
     //     state.productSimilar = tours;

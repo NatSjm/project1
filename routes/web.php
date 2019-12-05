@@ -21,6 +21,8 @@ Route::get('/api/index', 'IndexController')->name('index');
 Route::get('/api/search', 'ProductController@index');
 
 Route::get('/api/product/{id}', 'ProductController@show');
+Route::get('/api/seller/{id}', 'SellerController');
+
 
 
 

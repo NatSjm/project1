@@ -43,10 +43,10 @@ export default {
             this.filterToggler = !this.filterToggler;
         },
 
-        windowResizeHandler(){
+        windowResizeHandler() {
             let w = window.innerWidth;
             if (w > 1279 && this.filterToggler === false) {
-               this.filterToggler = true;
+                this.filterToggler = true;
             }
         },
 

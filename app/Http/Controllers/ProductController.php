@@ -42,8 +42,8 @@ class ProductController extends Controller
 //        ]);
         return response()->json([
             'tour' => new TourDetailResource($tour),
-//            'sellerTours'  =>  new TourCollection($sellerTours),
-//            'similarTours' => new TourCollection($similarTours),
+            //            'sellerTours'  =>  new TourCollection($sellerTours),
+            //            'similarTours' => new TourCollection($similarTours),
         ]);
 
 
@@ -86,8 +86,7 @@ class ProductController extends Controller
 //            'searchToursCount' => $toursCount,
 //        ]);
 
-        return  new TourCollection($tours);
-
+        return new TourCollection($tours);
 
 
     }

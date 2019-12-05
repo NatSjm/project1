@@ -1,6 +1,6 @@
 <template>
     <section class="products">
-        {{paginator.total}}
+
         <div class="products-list">
             <product-card v-for="tour in tours" :key="tour.id" :tour="tour"></product-card>
         </div>

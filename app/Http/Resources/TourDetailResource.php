@@ -26,6 +26,7 @@ class TourDetailResource extends TourResource
             'description'      => $this->description,
             'comments'         => $this->comments,
             'shortCountryName' => $this->country->name,
+            'sellerId'         => $this->seller->id,
             'sellerTours'      => TourResource::collection($this->seller->belongingTours->except([$this->id])),
             'similarTours'     => TourResource::collection($this->tourType->tours->except([$this->id])),
 

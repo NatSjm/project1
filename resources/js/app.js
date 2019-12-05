@@ -26,7 +26,7 @@ $(document).ready(function () {
     if ($("body").hasClass("index")) {
         // require('./../views/pages/index/index');
     } else if ($("body").hasClass("product-page")) {
-      //  require('./../views/pages/product/product');
+        //  require('./../views/pages/product/product');
     } else if ($("body").hasClass("search-page")) {
         // require('./../views/pages/search/filter/filter');
     } else if ($("body").hasClass("cart-page")) {
@@ -51,6 +51,7 @@ import VueBreadcrumbs from 'vue-2-breadcrumbs';
 
 
 import Paginate from 'vuejs-paginate'
+
 Vue.component('paginate', Paginate);
 
 

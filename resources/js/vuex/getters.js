@@ -40,6 +40,10 @@ export default {
     tour: (state) => {
         return state.tour;
     },
+
+    personTours: (state) => {
+        return state.personTours;
+    },
     // productSimilar: (state) => {
     //     return state.productSimilar;
     // },

@@ -148,7 +148,9 @@
         <section class="product-page_similar cont">
 
             <div class="similar">
-                <h3 class="similar_title headline-2">Еще объявления продавца {{tour.sellerFirstName}}</h3>
+                <router-link :to="'/seller/' + tour.sellerId">
+                    <h3 class="similar_title headline-2">Еще объявления продавца {{tour.sellerFirstName}}</h3>
+                </router-link>
                 <div class="similar_group">
                     <product-card v-for="(productCardTour, index) in tour.sellerTours"
                                   v-if="index < 3" :key="productCardTour.id"
@@ -193,6 +195,7 @@
         data: function () {
             return {}
         },
+
         methods: {
             sliderResiser() {
                 if (window.matchMedia("screen and (min-width: 1280px)").matches) {
@@ -246,15 +249,22 @@
 
                 }
             },
+            fetchData(){
+                this.$store.dispatch('getItemsForProduct', this.$route.params.id);
+            },
             ...mapActions({
-                addProductToCart: 'cart/addProductToCart'
+                addProductToCart: 'cart/addProductToCart',
+
             })
 
         },
 
 
         created() {
-            this.$store.dispatch('getItemsForProduct', this.$route.params.id);
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
 
         computed: {
@@ -274,9 +284,9 @@
             window.addEventListener('resize', this.sliderResiser);
         },
 
-        updated() {
-            this.$store.dispatch('getItemsForProduct', this.$route.params.id);
-        }
+        // beforeRouteUpdate() {
+        //    this.$store.dispatch('getItemsForProduct', this.$route.params.id);
+        // }
     }
 
 

@@ -5,6 +5,7 @@ import Search from '../views/pages/search/search.vue';
 import Product from '../views/pages/product/product.vue';
 import Enter from '../views/pages/enter/enter.vue';
 import ProductCreate from '../views/pages/product/product-create/product-create.vue';
+import Seller from '../views/pages/seller/seller.vue';
 
 
 export default [
@@ -15,6 +16,12 @@ export default [
         meta: {
             breadcrumb: 'Home'
         },
+    },
+    {
+        path: '/seller/:id',
+        name: 'seller-page',
+        component: Seller,
+        props: true,
     }, {
         path: '/orders',
         name: 'orders',
