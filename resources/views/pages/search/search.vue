@@ -103,7 +103,7 @@
                                            v-model="category"
                                            class="checkbox_input"
                                            id="any-category">
-                                <label class="checkbox_label" for="any-category">Любая</label>
+                                    <label class="checkbox_label" for="any-category">Любая</label>
                                 </div>
                                 <div class="checkbox_block" v-for="(categoryName) in allCategories">
                                     <input type="radio"
@@ -210,8 +210,9 @@
                     <div class="products-filter_info">
                         <span class="products-filter_count">{{paginator.total}} шт</span>
                         <div class="products-filter_sorter">
-                            <select class="products-filter_select" name="sorter" @change="filterResults" v-model="sorter"
-                             form="filter-form">
+                            <select class="products-filter_select" name="sorter" @change="filterResults"
+                                    v-model="sorter"
+                                    form="filter-form">
                                 <option class="products-filter_option" value="created_at">По умолчанию</option>
                                 <option class="products-filter_option" value="price">По цене</option>
                                 <option class="products-filter_option" value="start_at">По дате начала</option>
@@ -225,7 +226,8 @@
                     </div>
                     <div class="products-filter_display">
                         <ul class="products-filter_list">
-                            <filter-tag v-for="(filter, i) in filterList" :key="i" :filter="filter"></filter-tag>
+                            <filter-tag @resetFromList="resetFromList" v-for="(filter, i) in filterList" :key="i"
+                                        :filter="filter"></filter-tag>
                         </ul>
                         <div @click="filterReset" class="products-filter_reset">
                             <a class="products-filter_reset-link" href="#">
@@ -241,7 +243,6 @@
                     </div>
                 </section>
                 <products @sendpage="changepage" :searchpage=searchpage :tours=searchTours></products>
-
             </div>
         </div>
     </div>

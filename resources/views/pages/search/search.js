@@ -1,5 +1,6 @@
 import {mapGetters} from 'vuex'
 import FilterTag from './filter/filter-tag.vue';
+
 export default {
     data() {
         return {
@@ -51,10 +52,18 @@ export default {
             if (params.hot == 1) {
                 params.hot = "горячие";
             }
-            let filterList = Object.values(params);
+
+            let filterList = Object.entries(params);
             filterList.pop();
-            this.filterList = filterList.filter(Boolean);
-            console.log(this.filterList);
+            this.filterList = filterList.filter(function (el) {
+                return el[1];
+            });
+
+        },
+
+        resetFromList(param) {
+            this[param] = null;
+            this.filterResults();
         },
 
         windowResizeHandler() {

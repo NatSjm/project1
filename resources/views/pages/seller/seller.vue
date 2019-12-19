@@ -3,7 +3,7 @@
     <div class="seller-page_content-wrapper cont">
 
         <div class="seller-page_breadcrumbs">
-       <breadcrumbs/>
+            <breadcrumbs/>
         </div>
 
         <!--@if(count($seller->belongingTours))-->
@@ -11,15 +11,16 @@
             <h2 class="seller-page_title headline-2">Предложения продавца</h2>
             <div class="seller-page_main-content">
                 <section class="filter">
-                    <form  @change="fetchData" class="filter_form" method="get" action="#" id="filter_form">
+                    <form @change="fetchData" class="filter_form" method="get" action="#" id="filter_form">
 
                         <label class="filter_title" for="filter_form">Категория</label>
                         <fieldset class="filter_fields">
                             <div class="filter_input">
                                 <div class="checkbox">
-                                    <input type="radio" v-model="tour_type" class="checkbox_input" name="tour_type" value=""
+                                    <input type="radio" v-model="tour_type" class="checkbox_input" name="tour_type"
+                                           value=""
                                            id="any-tourType">
-                                    <label class="checkbox_label"  for="any-tourType">Все категории</label>
+                                    <label class="checkbox_label" for="any-tourType">Все категории</label>
                                 </div>
                             </div>
 
@@ -42,7 +43,7 @@
                     </form>
                 </section>
 
-              <products  :tours="personTours"></products>
+                <products :tours="personTours"></products>
 
             </div>
         </div>
@@ -66,12 +67,12 @@
             }
         },
         methods: {
-            fetchData(){
+            fetchData() {
                 let payload = {
                     id: this.$route.params.id,
                     params: {tour_type: this.tour_type},
                 };
-                this.$store.dispatch('getItemsForSeller',  payload);
+                this.$store.dispatch('getItemsForSeller', payload);
             },
             ...mapActions({
                 addProductToCart: 'cart/addProductToCart'
@@ -79,7 +80,7 @@
         },
 
         created() {
-           this.fetchData();
+            this.fetchData();
         },
         watch: {
             '$route': 'fetchData'
@@ -90,7 +91,6 @@
                 'personTours',
                 'allTourTypes',
             ]),
-
         },
     }
 </script>

@@ -99,11 +99,10 @@
 
         </section>
         <section class="product-page_revews cont">
-
             <div class="revews">
                 <h2 class=" revews_title headline-2">Отзывы</h2>
                 <div class="revews_group mod_border-grey">
-                    <div v-for="comment in tour.comments" class="revew"><span>hello</span>
+                    <div v-for="comment in tour.comments" class="revew">
                         <img class="revew_avatar" :src="'/storage/' + comment.user.avatar" alt="">
                         <h3 class="headline-2 revew_title">{{ comment.user.first_name + ' ' + comment.user.last_name
                             }}</h3>
@@ -282,11 +281,9 @@
         },
 
         mounted() {
-            this.sliderResiser();
-            window.addEventListener('resize', this.sliderResiser);
+           this.sliderResiser();
+           window.addEventListener('resize', this.sliderResiser);
         },
-
-
     }
 </script>
 

@@ -63,8 +63,6 @@
                     </div>
                     <a href="#" class="full-cart_order-button button
                         mod_color-med-blue">Заказать</a>
-
-
                 </div>
             </div>
 

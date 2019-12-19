@@ -72,7 +72,7 @@ class ProductController extends Controller
 //        $prices = $this->helper->priceRanger($prices);
 
         $tours = $tours->paginate(12);
-       // $toursCount = $tours->total();
+        // $toursCount = $tours->total();
 
 //        return view('/pages/search/search', compact(
 //            'tours', 'countryNames', 'tourTypes', 'nutritionTypes', 'categories', 'hotels', 'toursCount', 'prices'));

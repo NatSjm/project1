@@ -29,7 +29,6 @@ class TourDetailResource extends TourResource
             'sellerId'         => $this->seller->id,
             'sellerTours'      => TourResource::collection($this->seller->belongingTours->except([$this->id])),
             'similarTours'     => TourResource::collection($this->tourType->tours->except([$this->id])),
-
         ]);
 
     }

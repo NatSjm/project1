@@ -32,7 +32,7 @@
         </div>
 
         <div v-if="menuMobile" class="menu-mobile_wrapper">
-            <header-mobile :allCategories="allCategories" ></header-mobile>
+            <header-mobile :allCategories="allCategories"></header-mobile>
         </div>
 
         <div class="header_bottom">
@@ -57,14 +57,14 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import {mapGetters} from 'vuex';
+
     export default {
         // props: ['all-categories'],
 
         data() {
             return {
                 menuMobile: false,
-
             }
 
         },
@@ -97,7 +97,7 @@
 </script>
 
 <style scoped>
-    .menu-mobile_wrapper{
+    .menu-mobile_wrapper {
         display: block;
     }
 </style>

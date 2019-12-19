@@ -24,7 +24,7 @@ export default {
             product.quantity++
         },
 
-        removeProductFromCart(state, cartItemIndex){
+        removeProductFromCart(state, cartItemIndex) {
             state.cartItems.splice(cartItemIndex, 1);
         },
 
@@ -42,7 +42,7 @@ export default {
                 commit('incrementItemQuantity', cartItem);
             }
         },
-        removeProductFromCart({state,commit}, productId){
+        removeProductFromCart({state, commit}, productId) {
             const cartItemIndex = state.cartItems.findIndex(item => item.id === productId);
             commit('removeProductFromCart', cartItemIndex);
         }

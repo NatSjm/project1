@@ -36,7 +36,7 @@ export default {
         });
     },
 
-    getItemsForSeller(store,  payload) {
+    getItemsForSeller(store, payload) {
         axios.get('/api/seller/' + payload.id, payload).then((response) => {
             store.commit('setPersonTours', response.data.data.tours);
             store.commit('setPaginator', {
@@ -47,18 +47,15 @@ export default {
         });
     },
 
-    getOrders(store,  id) {
+    getOrders(store, id) {
         axios.get('/api/orders/' + id).then((response) => {
-            var personOrders = response.data.deals.map(function(deal){
+            var personOrders = response.data.deals.map(function (deal) {
                 deal.opened = false;
                 return deal;
-                });
+            });
             store.commit('setPersonOrders', personOrders);
         });
     },
-
-
-
 
 
 }

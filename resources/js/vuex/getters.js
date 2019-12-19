@@ -13,7 +13,6 @@ export default {
     },
 
 
-
     allCategories: (state) => {
         return state.allCategories;
     },
@@ -30,12 +29,12 @@ export default {
         return state.allCountryNames;
     },
 
-   prices: (state) => {
+    prices: (state) => {
         return state.prices;
-   },
-   searchTours: (state) => {
+    },
+    searchTours: (state) => {
         return state.searchTours;
-   },
+    },
 
     tour: (state) => {
         return state.tour;
