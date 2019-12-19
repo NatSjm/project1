@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 
 class ProductFilter
 {
-
-
     protected $builder;
     protected $request;
 

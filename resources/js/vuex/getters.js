@@ -50,6 +50,10 @@ export default {
     // productSellerTours: (state) => {
     //     return state.productSellerTours;
     // },
+    personOrders: (state) => {
+        return state.personOrders;
+    },
+
 
     paginator: (state) => {
         return state.paginator;

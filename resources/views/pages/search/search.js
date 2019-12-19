@@ -1,9 +1,6 @@
-import Swiper from 'Swiper';
 import {mapGetters} from 'vuex'
-
+import FilterTag from './filter/filter-tag.vue';
 export default {
-
-
     data() {
         return {
             country: null,
@@ -15,9 +12,11 @@ export default {
             children_accessibility: null,
             recommended: null,
             hot: null,
+            sorter: null,
             page: 1,
             searchpage: true,
             filterToggler: false,
+            filterList: [],
         };
     },
     methods: {
@@ -31,16 +30,31 @@ export default {
                     category: this.category,
                     price: this.price,
                     children_accessibility: this.children_accessibility,
+                    sorter: this.sorter,
                     recommended: this.recommended ? 1 : '',
                     hot: this.hot ? 1 : '',
                     page: this.page,
                 }
             };
             this.$store.dispatch('getItemsForSearch', payload);
+            this.renderFilterList(payload.params);
         },
 
         filterToggle() {
             this.filterToggler = !this.filterToggler;
+        },
+
+        renderFilterList(params) {
+            if (params.recommended == 1) {
+                params.recommended = "рекомендованные";
+            }
+            if (params.hot == 1) {
+                params.hot = "горячие";
+            }
+            let filterList = Object.values(params);
+            filterList.pop();
+            this.filterList = filterList.filter(Boolean);
+            console.log(this.filterList);
         },
 
         windowResizeHandler() {
@@ -94,6 +108,9 @@ export default {
             'searchTours',
             'paginator'
         ])
+    },
+    components: {
+        FilterTag,
     },
 
 

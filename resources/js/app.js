@@ -30,9 +30,9 @@ $(document).ready(function () {
     } else if ($("body").hasClass("search-page")) {
         // require('./../views/pages/search/filter/filter');
     } else if ($("body").hasClass("cart-page")) {
-        require('./../views/pages/cart/cart');
+        // require('./../views/pages/cart/cart');
     } else if ($("body").hasClass("orders-page") || $("body").hasClass("purchases-page")) {
-        require('./../views/pages/orders/order/order');
+        // require('./../views/pages/orders/order/order');
     } else if ($("body").hasClass("seller-page")) {
         require('./../views/pages/seller/seller');
     } else if ($("body").hasClass("product-create-page") || $("body").hasClass("product-edit-page")) {
@@ -106,7 +106,20 @@ Vue.component('carusel', Carusel);
 
 
 Vue.use(VueRouter);
-Vue.use(VueBreadcrumbs);
+Vue.use(VueBreadcrumbs, {
+    template:
+        '        <nav v-if="$breadcrumbs.length" aria-label="breadcrumb">\n' +
+        '            <ul class="breadcrumbs">\n' +
+        '      <li  class="breadcrumbs_item">\n' +
+        '                    <router-link to="/">Главная</router-link>' +
+        '                    </li>\n' +
+        '                <li v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb" :key="key"' +
+        '                class="breadcrumbs_item" aria-current="mod_current">\n' +
+        '                    <router-link :to="{ path: getPath(crumb) }">{{ getBreadcrumb(crumb.meta.breadcrumb) }}</router-link>' +
+        '                </li>\n' +
+        '            </ul>\n' +
+        '        </nav>'
+});
 
 
 const router = new VueRouter({
@@ -140,10 +153,7 @@ const store = new Vuex.Store({
 const app = new Vue({
     router,
     store,
-    data: {
-        // AllCategories: [],
-
-    },
+    data: {},
     methods: {},
 
     created() {

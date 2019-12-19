@@ -1,5 +1,7 @@
 <template>
+
     <div>
+        <breadcrumbs/>
         <h2 class="headline-2 product-page_title cont">{{ tour.name }} {{tour.hotelClass}} *</h2>
         <section class="product-page_main">
             <div class="product">
@@ -105,23 +107,15 @@
                         <img class="revew_avatar" :src="'/storage/' + comment.user.avatar" alt="">
                         <h3 class="headline-2 revew_title">{{ comment.user.first_name + ' ' + comment.user.last_name
                             }}</h3>
-
-
                         <div class="revew_date">{{comment.created_at}}</div>
-
-
                         <a href="#" class="revew_revewer-link link">все
                             объявления</a>
-
-
                         <div class="revew_text text mod_normal">
                             <p>{{ comment.content }}</p>
                         </div>
                     </div>
 
                 </div>
-
-
                 <div class="revews_form">
                     <form class="revew-form" action="" id="revew">
 
@@ -146,21 +140,20 @@
             </div>
         </section>
         <section class="product-page_similar cont">
-
             <div class="similar">
-                <router-link :to="'/seller/' + tour.sellerId">
-                    <h3 class="similar_title headline-2">Еще объявления продавца {{tour.sellerFirstName}}</h3>
-                </router-link>
+                <h3 class="similar_title headline-2">Еще объявления продавца {{tour.sellerFirstName}}</h3>
                 <div class="similar_group">
                     <product-card v-for="(productCardTour, index) in tour.sellerTours"
                                   v-if="index < 3" :key="productCardTour.id"
                                   :tour="productCardTour"></product-card>
                     <article class="products-link product-card  mod_border-grey ">
-                        <a href="#" class="products-link_link">
+                        <router-link class="products-link_link" :to="{name:'seller-page', params:
+                           {id: tour.sellerId,
+                            name: tour.sellerName}}">
                             <div class="products-link_icon"></div>
                             <p class="products-link_text">Перейти к объявлениям
                                 продавца {{ tour.sellerFirstName}}</p>
-                        </a>
+                        </router-link>
                     </article>
 
                 </div>
@@ -249,8 +242,13 @@
 
                 }
             },
-            fetchData(){
+            fetchData() {
                 this.$store.dispatch('getItemsForProduct', this.$route.params.id);
+
+            },
+            changeRouteName() {
+                this.$route.meta.breadcrumb = this.tour.name;
+
             },
             ...mapActions({
                 addProductToCart: 'cart/addProductToCart',
@@ -264,19 +262,23 @@
             this.fetchData();
         },
         watch: {
-            '$route': 'fetchData'
+            $route() {
+                this.fetchData();
+            }
         },
+
 
         computed: {
             ...mapGetters([
                 'tour',
             ]),
 
+
         },
 
 
-        beforeMount() {
-
+        updated() {
+            this.$route.meta.breadcrumb = this.tour.name;
         },
 
         mounted() {
@@ -284,11 +286,7 @@
             window.addEventListener('resize', this.sliderResiser);
         },
 
-        // beforeRouteUpdate() {
-        //    this.$store.dispatch('getItemsForProduct', this.$route.params.id);
-        // }
+
     }
-
-
 </script>
 

@@ -23,6 +23,9 @@ Route::get('/api/search', 'ProductController@index');
 Route::get('/api/product/{id}', 'ProductController@show');
 Route::get('/api/seller/{id}', 'SellerController');
 
+Route::get('/api/orders/{id}', 'OrderController@index');
+
+
 
 
 

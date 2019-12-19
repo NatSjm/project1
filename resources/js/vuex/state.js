@@ -17,6 +17,7 @@ export default {
     personTours: [],
     // productSimilar: [],
     // productSellerTours: [],
+    personOrders: [],
 
     paginator: {},
 }

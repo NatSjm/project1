@@ -49,6 +49,9 @@ export default {
     // setProductSellerTours(state, tours) {
     //     state.productSellerTours = tours;
     // },
+    setPersonOrders(state, orders) {
+        state.personOrders = orders;
+    },
 
     setPaginator(state, paginator) {
         state.paginator = paginator;

@@ -32,15 +32,12 @@ export default {
 
     getItemsForProduct(store, id) {
         axios.get('/api/product/' + id).then((response) => {
-            console.log(response.data.tour);
             store.commit('setTour', response.data.tour);
-            // store.commit('setProductSimilar', response.data.similarTours);
-            // store.commit('setProductSellerTours', response.data.sellerTours);
         });
     },
 
-    getItemsForSeller(store, id, payload) {
-        axios.get('/api/seller/' + id, payload).then((response) => {
+    getItemsForSeller(store,  payload) {
+        axios.get('/api/seller/' + payload.id, payload).then((response) => {
             store.commit('setPersonTours', response.data.data.tours);
             store.commit('setPaginator', {
                 total: response.data.meta.total,
@@ -48,7 +45,18 @@ export default {
                 current_page: response.data.meta.current_page,
             });
         });
-    }
+    },
+
+    getOrders(store,  id) {
+        axios.get('/api/orders/' + id).then((response) => {
+            var personOrders = response.data.deals.map(function(deal){
+                deal.opened = false;
+                return deal;
+                });
+            store.commit('setPersonOrders', personOrders);
+        });
+    },
+
 
 
 

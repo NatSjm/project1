@@ -48,16 +48,34 @@ class OrderController extends Controller
 
     }
 
-    public function index ()
+//    public function index ()
+//    {
+//
+//        $deals = Deal::with('orders.tour', 'buyer')->where('seller_id',
+//            Auth::id())->latest()->get();
+//
+//
+//        return view('pages.orders.orders', [
+//            'deals' => $deals,
+//            'title' => 'Мои заказы',
+//        ]);
+//
+//    }
+
+    public function index ($id)
     {
 
-        $deals = Deal::with('orders.tour', 'buyer')->where('seller_id',
-            Auth::id())->latest()->get();
+        $deals = Deal::with('orders.tour', 'buyer', 'orders.tour.country', 'orders.tour.mainImg',
+            'orders.tour.hotel','orders.tour.tourType' )->where
+        ('seller_id',
+           // ('buyer_id',
+            $id)->latest()->get();
 
 
-        return view('pages.orders.orders', [
+        return response()->json([
+           // 'id'    => $id,
             'deals' => $deals,
-            'title' => 'Мои заказы',
+            //'title' => 'Мои заказы',
         ]);
 
     }

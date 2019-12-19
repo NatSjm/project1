@@ -97,4 +97,7 @@
 </script>
 
 <style scoped>
+    .menu-mobile_wrapper{
+        display: block;
+    }
 </style>

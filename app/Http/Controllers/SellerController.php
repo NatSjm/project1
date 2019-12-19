@@ -23,10 +23,12 @@ class SellerController extends Controller
     public function __invoke (Request $request, $id, ProductFilter $filters)
     {
 
+
         $sellerTours = Tour::with('tourType', 'country', 'startLocation.city', 'mainImg')->where('seller_id',
             $id)->filter($filters);
 
         $sellerTours = $sellerTours->paginate(12);
+
         return new TourCollection($sellerTours);
 //
 

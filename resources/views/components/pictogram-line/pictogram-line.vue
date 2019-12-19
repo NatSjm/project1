@@ -1,6 +1,6 @@
 <template>
     <div class="pictogram">
-        <router-link class="pictogram_link" to="/search">
+        <router-link class="pictogram_link" :to="{name: 'search-page'}">
             <div class="pictogram_container">
                 <svg class="pictogram_icon" viewBox="0 0 23 21">
                     <use v-bind:xlink:href="'#' + type.icon "></use>

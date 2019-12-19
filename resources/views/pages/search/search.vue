@@ -1,7 +1,7 @@
 <template>
     <div class="search-page_content-wrapper cont">
 
-
+        <breadcrumbs/>
         <!--{{ Breadcrumbs::render('search') }}-->
 
         <h2 class="search-page_title headline-2">Поиск</h2>
@@ -210,10 +210,11 @@
                     <div class="products-filter_info">
                         <span class="products-filter_count">{{paginator.total}} шт</span>
                         <div class="products-filter_sorter">
-                            <select class="products-filter_select" name="sorter" form="filter-form">
+                            <select class="products-filter_select" name="sorter" @change="filterResults" v-model="sorter"
+                             form="filter-form">
                                 <option class="products-filter_option" value="created_at">По умолчанию</option>
                                 <option class="products-filter_option" value="price">По цене</option>
-                                <option class="products-filter_option" value="start_at">По дате старта</option>
+                                <option class="products-filter_option" value="start_at">По дате начала</option>
                             </select>
 
                             <svg class="products-filter_icon">
@@ -224,6 +225,7 @@
                     </div>
                     <div class="products-filter_display">
                         <ul class="products-filter_list">
+                            <filter-tag v-for="(filter, i) in filterList" :key="i" :filter="filter"></filter-tag>
                         </ul>
                         <div @click="filterReset" class="products-filter_reset">
                             <a class="products-filter_reset-link" href="#">

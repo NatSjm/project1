@@ -2,9 +2,9 @@
 
     <div class="seller-page_content-wrapper cont">
 
-        <!--<div class="seller-page_breadcrumbs">-->
-        <!--{{ Breadcrumbs::render('seller', $seller) }}-->
-        <!--</div>-->
+        <div class="seller-page_breadcrumbs">
+       <breadcrumbs/>
+        </div>
 
         <!--@if(count($seller->belongingTours))-->
         <div v-if="personTours">
@@ -17,9 +17,9 @@
                         <fieldset class="filter_fields">
                             <div class="filter_input">
                                 <div class="checkbox">
-                                    <input type="radio" class="checkbox_input" name="tour_type" value=""
+                                    <input type="radio" v-model="tour_type" class="checkbox_input" name="tour_type" value=""
                                            id="any-tourType">
-                                    <label class="checkbox_label" v-model="tour_type" for="any-tourType">Все категории</label>
+                                    <label class="checkbox_label"  for="any-tourType">Все категории</label>
                                 </div>
                             </div>
 
@@ -29,7 +29,7 @@
                                            v-model="tour_type"
                                            class="checkbox_input"
                                            name="tour_type"
-                                           :value="tourType.icon.name"
+                                           :value="tourType.name"
                                            :id="'tourType' + tourType.id">
                                     <label class="checkbox_label"
                                            :for="'tourType' + tourType.id">{{ tourType.name}}</label>
@@ -68,10 +68,10 @@
         methods: {
             fetchData(){
                 let payload = {
-
-                    tour_type: this.tour_type,
+                    id: this.$route.params.id,
+                    params: {tour_type: this.tour_type},
                 };
-                this.$store.dispatch('getItemsForSeller', this.$route.params.id, payload);
+                this.$store.dispatch('getItemsForSeller',  payload);
             },
             ...mapActions({
                 addProductToCart: 'cart/addProductToCart'

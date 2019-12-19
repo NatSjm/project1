@@ -9,36 +9,51 @@ import Seller from '../views/pages/seller/seller.vue';
 
 
 export default [
+
     {
         path: '/',
         name: 'home',
         component: Index,
         meta: {
-            breadcrumb: 'Home'
+            breadcrumb: 'Главная'
         },
+
     },
     {
         path: '/seller/:id',
         name: 'seller-page',
         component: Seller,
         props: true,
+        meta: {
+            breadcrumb: routeParameters => `${routeParameters.name}`
+        }
     }, {
-        path: '/orders',
-        name: 'orders',
-        component: Orders
+        path: '/orders/:id',
+        name: 'orders-page',
+        component: Orders,
+        props: true,
     }, {
         path: '/cart',
         name: 'cart',
         component: Cart
-    }, {
+    },
+    {
         path: '/search',
         name: 'search-page',
-        component: Search
-    }, {
+        component: Search,
+        meta: {
+            breadcrumb: 'Поиск'
+        }
+    },
+
+    {
         path: '/product/:id',
         name: 'product-page',
         component: Product,
         props: true,
+        meta: {
+            breadcrumb: routeParameters => `${routeParameters.name}`
+        }
     }, {
         path: '/enter',
         name: 'enter',

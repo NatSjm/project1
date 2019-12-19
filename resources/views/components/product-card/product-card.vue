@@ -4,7 +4,8 @@
 
             <header class="product-card_header">
 
-                <router-link class="product-card_link" :to="'/product/' + tour.id">
+                <router-link class="product-card_link" :to="{name:'product-page', params: {id: tour.id,
+                name: tour.name}}">
                     <img class="product-card_img" v-bind:src="'/storage/images/' + tour.mainImg " alt="">
                 </router-link>
 

@@ -3,6 +3,7 @@
     font-weight: bold;
     color:       $nero;
     cursor: pointer;
+    width: 100%;
     @media screen and(max-width: 1279px) {
         & td:nth-child(n + 3) {
             display: none;
