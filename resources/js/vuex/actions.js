@@ -31,7 +31,7 @@ export default {
     },
 
     getItemsForProduct(store, id) {
-        axios.get('/api/product/' + id).then((response) => {
+        return axios.get('/api/product/' + id).then((response) => {
             store.commit('setTour', response.data.tour);
         });
     },

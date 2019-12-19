@@ -22,7 +22,11 @@ class TourCollection extends ResourceCollection
 //        return [
 //            'data' => parent::toArray($request),
 //        ];
-        return ['tours'  => $this->collection,
+        return [
+            'tours'  => $this->collection,
+//            'currentPage' => $this->currentPage(),
+
+
                 'prices' => [
                     "до 1 000"            => "<_1000",
                     "от 1 000 до 5 000"   => "1001_5000",

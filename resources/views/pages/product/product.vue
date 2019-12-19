@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="tour.medias!=undefined && tour.medias.length > 0" class="product_slider  mod_desctop">
+                <div v-if="tour.medias!=undefined && tour.medias.length > 0" class="product_slider mod_desctop">
                     <div class="swiper-container gallery-top">
                         <div class="swiper-wrapper">
                             <div v-for="media in tour.medias" class="swiper-slide"
@@ -191,7 +191,6 @@
         methods: {
             sliderResiser() {
                 if (window.matchMedia("screen and (min-width: 1280px)").matches) {
-
                     var galleryThumbs = new Swiper('.gallery-thumbs', {
                         spaceBetween: 20,
                         slidesPerView: 4,
@@ -242,7 +241,10 @@
                 }
             },
             fetchData() {
-                this.$store.dispatch('getItemsForProduct', this.$route.params.id);
+                this.$store.dispatch('getItemsForProduct', this.$route.params.id).then(() => {
+                    this.sliderResiser();
+                    this.$route.meta.breadcrumb = this.tour.name;
+                });
 
             },
             changeRouteName() {
@@ -275,15 +277,8 @@
 
         },
 
-
-        updated() {
-            this.$route.meta.breadcrumb = this.tour.name;
-        },
-
         mounted() {
-           this.sliderResiser();
-           window.addEventListener('resize', this.sliderResiser);
+            window.addEventListener('resize', this.sliderResiser);
         },
     }
 </script>
-
