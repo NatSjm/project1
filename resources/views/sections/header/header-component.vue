@@ -26,18 +26,19 @@
 
 
             <div class="user-block">
-                <user-unauthorized></user-unauthorized>
+                <user-unauthorized v-if="!authenticated"></user-unauthorized>
+                <user-authorized :user="user" v-else></user-authorized>
                 <header-cart></header-cart>
             </div>
         </div>
 
         <div v-if="menuMobile" class="menu-mobile_wrapper">
-            <header-mobile :allCategories="allCategories"></header-mobile>
+            <header-mobile :user="user" :authenticated="authenticated" :allCategories="allCategories"></header-mobile>
         </div>
 
         <div class="header_bottom">
             <div class="main-search">
-                <form class="main-search_form" action="">
+                <form class="main-search_form" @submit.prevent action="">
                     <input placeholder="Поиск предложений" type="search" name="search" value=""
                            class="ginput
                 main-search_input">
@@ -69,9 +70,11 @@
 
         },
         computed: {
-            ...mapGetters([
-                'allCategories'
-            ])
+            ...mapGetters({
+                allCategories: 'allCategories',
+                authenticated: 'auth/authenticated',
+                user: 'auth/user',
+            })
         },
 
         watch: {

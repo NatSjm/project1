@@ -11,9 +11,14 @@
         </td>
 
         <td class="order_byer-link">
-            <router-link class="link" :to="{name:'seller-page', params: {id: deal.buyer.id,
+            <router-link v-if="mode === 'orders'" class="link" :to="{name:'seller-page', params: {id: deal.buyer.id,
                 name: deal.buyer.last_name}}">
                 {{deal.buyer.first_name}} {{deal.buyer
+                .last_name}}
+            </router-link>
+            <router-link v-if="mode === 'purchases'" class="link" :to="{name:'seller-page', params: {id: deal.seller.id,
+                name: deal.seller.last_name}}">
+                {{deal.seller.first_name}} {{deal.seller
                 .last_name}}
             </router-link>
         </td>
@@ -49,6 +54,7 @@
             'deal',
             'index',
             'orderTabToggler',
+            'mode'
         ],
         watch: {
 

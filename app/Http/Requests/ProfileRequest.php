@@ -29,13 +29,13 @@ class ProfileRequest extends FormRequest
         return [
             'first_name' => 'min:2|max:100',
             'last_name'  => 'min:2|max:100',
-            'phone'      => 'numeric',
+            'phone'      => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'email'      => [
                 'required',
                 'email',
                 Rule::unique('users')->ignore($user->id),
             ],
-            'avatar'     => 'image|mimes:jpg,jpeg,png,gif,svg|max:1024',
+            'avatar'     => 'nullable|sometimes|image|mimes:jpg,jpeg,png,gif,svg|max:1024',
         ];
     }
 }

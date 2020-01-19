@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default {
     namespaced: true,
 
@@ -45,6 +47,13 @@ export default {
         removeProductFromCart({state, commit}, productId) {
             const cartItemIndex = state.cartItems.findIndex(item => item.id === productId);
             commit('removeProductFromCart', cartItemIndex);
+        },
+        makeOrder({state, commit}) {
+            if (state.cartItems) {
+                return axios.post('/api/makeOrder', state.cartItems).then(() => {
+                    commit('emptyCart');
+                });
+            }
         }
 
 

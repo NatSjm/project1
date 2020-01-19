@@ -24,16 +24,19 @@ class TourCollection extends ResourceCollection
 //        ];
         return [
             'tours'  => $this->collection,
-//            'currentPage' => $this->currentPage(),
+            'currentPage' => $this->currentPage(),
+            'lastPage' => $this->lastPage(),
+            'total' => $this->total(),
 
 
-                'prices' => [
-                    "до 1 000"            => "<_1000",
-                    "от 1 000 до 5 000"   => "1001_5000",
-                    "от 5 001 до 10 000"  => "5001_10000",
-                    "от 10 001 до 50 000" => "10001_50000",
-                    "более 50 000"        => ">_50001",
-                ],
+
+//                'prices' => [
+//                    "до 1 000"            => "<_1000",
+//                    "от 1 000 до 5 000"   => "1001_5000",
+//                    "от 5 001 до 10 000"  => "5001_10000",
+//                    "от 10 001 до 50 000" => "10001_50000",
+//                    "более 50 000"        => ">_50001",
+//                ],
         ];
 
 

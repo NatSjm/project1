@@ -13,7 +13,8 @@
             <div class="person mod_border-grey">
 
                 <input type="file" form="person_data" id="foto" name="avatar" class="person_img">
-                <label class="person_img-title" for="foto" style="background-image: url('{{ $user->url }}');"></label>
+                <label class="person_img-title" for="foto"
+                       style="background-image: url('{{ $user->url }}');"></label>
                 @error('avatar')
                 <div class="error_box">{{ $message }}</div>
                 @enderror

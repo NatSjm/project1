@@ -16,11 +16,17 @@ export default {
         ...mapState('cart', {
             cartItems: state => state.cartItems,
         }),
-        ...mapGetters('cart', {
-            cartTotal: 'cartTotal'
+        ...mapGetters( {
+            cartTotal: 'cart/cartTotal',
+            user: 'auth/user'
         }),
     },
     methods: {
-        ...mapActions('cart', ['removeProductFromCart'])
-    }
+        ...mapActions('cart', ['removeProductFromCart', 'makeOrder']),
+        makeOrderAndRedirect(){
+            this.makeOrder().then(()=>{
+                this.$router.push({name: 'purchases-page', params: {id: this.user.id}})
+            });
+        }
+    },
 }

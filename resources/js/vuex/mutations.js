@@ -52,6 +52,9 @@ export default {
     setPersonOrders(state, orders) {
         state.personOrders = orders;
     },
+    setPersonPurchases(state, orders) {
+        state.personPurchases = orders;
+    },
 
     setPaginator(state, paginator) {
         state.paginator = paginator;

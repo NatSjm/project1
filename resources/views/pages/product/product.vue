@@ -181,11 +181,19 @@
 
 <script type="text/javascript">
     import {mapGetters, mapActions} from 'vuex';
+
     import Swiper from 'Swiper';
+
 
     export default {
         data: function () {
             return {}
+        },
+        props: {
+            tour: {
+                type: Object,
+                required: true,
+            }
         },
 
         methods: {
@@ -231,26 +239,21 @@
                             1279: {
                                 autoplay: false
                             }
-
                         },
                         loop: true
 
                     });
-
-
                 }
             },
-            fetchData() {
-                this.$store.dispatch('getItemsForProduct', this.$route.params.id).then(() => {
-                    this.sliderResiser();
-                    this.$route.meta.breadcrumb = this.tour.name;
-                });
+            // fetchData() {
+            //    return this.$store.dispatch('getItemsForProduct', this.$route.params.id).then(() => {
+            //         this.sliderResiser();
+            //        // this.$route.meta.breadcrumb = this.tour.name;
+            //     });
+            //
+            // },
 
-            },
-            changeRouteName() {
-                this.$route.meta.breadcrumb = this.tour.name;
 
-            },
             ...mapActions({
                 addProductToCart: 'cart/addProductToCart',
 
@@ -258,27 +261,70 @@
 
         },
 
-
-        created() {
-            this.fetchData();
+        // created() {
+        //     this.sliderResiser();
+        //
+        // },
+        beforeRouteUpdate(routeTo, routeFrom, next) {
+            this.$store.dispatch('getItemsForProduct', routeTo.params.id).then(() => {
+                routeTo.params.tour = this.$store.state.tour;
+                next();
+            })
         },
-        watch: {
-            $route() {
-                this.fetchData();
-            }
-        },
+        // watch: {
+        //     $route: {
+        //         handler: 'sliderResiser',
+        //         immediate: true,
+        //     },
+        // },
+        //
+        // watch: {
+        //     $route(to, from) {
+        //         this.$route.push({ name: 'product-page', params: { id: to.params.id } });
+        //     }
+        // },
+
+        //     $route() {
+        //
+        //         // this.fetchData().then(() => {
+        //         //     console.log(this.$store.state.tour.name);
+        //         //     // to.params.name = this.$store.state.tour.name;
+        //         //      //this.$route.meta.breadcrumb = this.$store.state.tour.name;
+        //         // });
+        //
+        //         //this.$route.meta.breadcrumb = this.tour.name;
+        //     }
+        // },
+
+        // updated() {
+        //     this.$route.push();
+        // },
+        // beforeRouteEnter(routeTo, touteFrom, next){
+        //     console.log(store);
+        //     next();
+        //     // store.dispatch('getItemsForProduct', routeTo.params.id).then(() => {
+        //     //     console.log(store);
+        //     //     // routeTo.params.name = store.state.tour.name;
+        //     //      next();
+        //     //    // this.sliderResiser();
+        //     //
+        //     //     // this.$route.meta.breadcrumb = this.tour.name;
+        //     // });
+        // },
 
 
-        computed: {
-            ...mapGetters([
-                'tour',
-            ]),
-
-
-        },
+        // computed: {
+        //     ...mapGetters([
+        //         'tour',
+        //     ]),
+        //
+        //
+        // },
 
         mounted() {
+            this.sliderResiser();
             window.addEventListener('resize', this.sliderResiser);
+
         },
     }
 </script>

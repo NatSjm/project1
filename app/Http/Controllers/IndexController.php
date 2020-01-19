@@ -26,9 +26,9 @@ class IndexController extends Controller
 
 
         return response()->json([
-            'sliderTours'      => (new TourCollection($sliderTours)),
-            'hotTours'         => (new TourCollection($hotTours)),
-            'recommendedTours' => (new TourCollection($recommendedTours)),
+            'sliderTours'      => ( TourResource::collection($sliderTours)),
+            'hotTours'         => ( TourResource::collection($hotTours)),
+            'recommendedTours' => ( TourResource::collection($recommendedTours)),
             'AllTourTypes'     => $tourTypes,
             'title'            => 'index',
         ]);

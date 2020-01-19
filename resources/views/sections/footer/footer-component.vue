@@ -8,7 +8,9 @@
         <!--@else-->
         <!--@include(('components.user-block.user_authorized.user_authorized'))-->
         <!--@endguest-->
-        <user-unauthorized></user-unauthorized>
+
+        <user-unauthorized v-if="!authenticated"></user-unauthorized>
+        <user-authorized :user="user" v-else></user-authorized>
 
         <div class="copyright">
             <span>Design from Zirella</span>
@@ -18,7 +20,15 @@
 </template>
 
 <script>
-    export default {}
+    import {mapGetters} from 'vuex';
+    export default {
+        computed: {
+            ...mapGetters({
+                authenticated: 'auth/authenticated',
+                user: 'auth/user',
+            })
+        },
+    }
 </script>
 
 <style scoped>

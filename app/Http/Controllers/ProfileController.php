@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProfileController extends Controller
@@ -14,8 +15,9 @@ class ProfileController extends Controller
 
     public function __construct (User $user)
     {
-
+        $this->middleware('auth:api');
     }
+
 
     public function edit (User $user)
     {
@@ -27,8 +29,9 @@ class ProfileController extends Controller
 
     public function update (User $user, ProfileRequest $request)
     {
+
         $data = $request->validated();
-//
+
         if (request('avatar')) {
             $path = $request->file('avatar')->store('profile', 'public');
 
@@ -45,8 +48,9 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        return redirect()->back()->withSuccess('Изменения сохранены');
+//        return redirect()->back()->withSuccess('Изменения сохранены');
 
+        return response()->json($user);
 
     }
 

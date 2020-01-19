@@ -1,11 +1,12 @@
 <template>
     <div>
-        <article class="product-card">
+        <product-card-seller :tour="tour" v-if="user && tour.sellerId === user.id"></product-card-seller>
+        <article v-else class="product-card">
 
             <header class="product-card_header">
 
                 <router-link class="product-card_link" :to="{name:'product-page', params: {id: tour.id,
-                name: tour.name}}">
+                }}">
                     <img class="product-card_img" v-bind:src="'/storage/images/' + tour.mainImg " alt="">
                 </router-link>
 
@@ -26,7 +27,8 @@
             </header>
             <div class="delimiter mod_color-light-green"></div>
             <div class="product-card_main">
-                <router-link class="product-card_link" :to="'/product/' + tour.id">
+                <router-link class="product-card_link" :to="{name:'product-page', params: {id: tour.id
+               }}">
                     <h3 class="product-card_title headline-3">
                         {{tour.shortCountryName }} ({{tour.name}})</h3>
                 </router-link>
@@ -41,19 +43,28 @@
 </template>
 <script type="text/javascript">
     import {mapState, mapGetters, mapActions} from 'vuex';
-
+    import ProductCardSeller from './product-card-seller.vue'
     export default {
         props: ['tour'],
         data() {
             return {};
 
         },
+       components: {
+            ProductCardSeller
+       },
+
         methods: {
             ...mapActions({
                 addProductToCart: 'cart/addProductToCart'
             })
         },
+        computed: {
+            ...mapGetters({
+                user: 'auth/user',
+            })
+        },
 
-        computed: {}
+
     }
 </script>

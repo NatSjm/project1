@@ -1,9 +1,9 @@
 export default {
     getToursForIndex(store) {
         axios.get('/api/index').then((response) => {
-            store.commit('setHotTours', response.data.hotTours.tours);
-            store.commit('setRecommendedTours', response.data.recommendedTours.tours);
-            store.commit('setSliderTours', response.data.sliderTours.tours);
+            store.commit('setHotTours', response.data.hotTours);
+            store.commit('setRecommendedTours', response.data.recommendedTours);
+            store.commit('setSliderTours', response.data.sliderTours);
         });
     },
 
@@ -20,12 +20,12 @@ export default {
 
     getItemsForSearch(store, payload) {
         axios.get('/api/search', payload).then((response) => {
-            store.commit('setPrices', response.data.data.prices);
-            store.commit('setSearchTours', response.data.data.tours);
+            store.commit('setPrices', response.data.prices);
+            store.commit('setSearchTours', response.data.searchTours.tours);
             store.commit('setPaginator', {
-                total: response.data.meta.total,
-                last_page: response.data.meta.last_page,
-                current_page: response.data.meta.current_page,
+                total: response.data.searchTours.total,
+                last_page: response.data.searchTours.lastPage,
+                current_page: response.data.searchTours.currentPage,
             });
         });
     },
@@ -47,6 +47,7 @@ export default {
         });
     },
 
+
     getOrders(store, id) {
         axios.get('/api/orders/' + id).then((response) => {
             var personOrders = response.data.deals.map(function (deal) {
@@ -56,6 +57,17 @@ export default {
             store.commit('setPersonOrders', personOrders);
         });
     },
+    getPurchases(store, id) {
+        axios.get('/api/purchases/' + id).then((response) => {
+            var personPurchases = response.data.deals.map(function (deal) {
+                deal.opened = false;
+                return deal;
+            });
+            store.commit('setPersonPurchases', personPurchases);
+        });
+    },
+
+
 
 
 }

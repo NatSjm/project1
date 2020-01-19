@@ -61,7 +61,7 @@
                         <span>Итого:</span><span class="sum_value"> {{cartTotal}}
                                 ₿</span>
                     </div>
-                    <a href="#" class="full-cart_order-button button
+                    <a href="#" @click="makeOrderAndRedirect" class="full-cart_order-button button
                         mod_color-med-blue">Заказать</a>
                 </div>
             </div>

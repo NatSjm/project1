@@ -1,11 +1,15 @@
 import Index from '../views/pages/index/index.vue';
 import Orders from '../views/pages/orders/orders.vue';
+import Purchases from '../views/pages/orders/purchases.vue';
 import Cart from '../views/pages/cart/cart.vue';
 import Search from '../views/pages/search/search.vue';
 import Product from '../views/pages/product/product.vue';
 import Enter from '../views/pages/enter/enter.vue';
+import Person from '../views/pages/person/person.vue';
 import ProductCreate from '../views/pages/product/product-create/product-create.vue';
 import Seller from '../views/pages/seller/seller.vue';
+import ProductUpdate from '../views/pages/product/product-update/product-update.vue';
+import store from './store.js';
 
 
 export default [
@@ -32,7 +36,19 @@ export default [
         name: 'orders-page',
         component: Orders,
         props: true,
-    }, {
+        meta: {
+            breadcrumb: 'Мои заказы'
+        }
+    },
+    {
+        path: '/purchases/:id',
+        name: 'purchases-page',
+        component: Purchases,
+        props: true,
+        meta: {
+            breadcrumb: 'Мои покупки'
+        }
+    },{
         path: '/cart',
         name: 'cart',
         component: Cart
@@ -51,16 +67,53 @@ export default [
         name: 'product-page',
         component: Product,
         props: true,
+        beforeEnter(routeTo, routeFrom, next) {
+            store.dispatch('getItemsForProduct', routeTo.params.id).then(() => {
+                routeTo.params.tour = store.state.tour;
+                next();
+            })
+        },
+
         meta: {
-            breadcrumb: routeParameters => `${routeParameters.name}`
+            breadcrumb: routeParameters => `${store.state.tour.name}`
         }
     }, {
         path: '/enter',
-        name: 'enter',
-        component: Enter
-    }, {
+        name: 'login',
+        component: Enter,
+
+    },
+    {
+        path: '/profile/:id/edit',
+        name: 'person-page',
+        props: true,
+        component: Person,
+        meta: {
+            breadcrumb: 'Личные данные'
+        }
+    },{
         path: '/tour/create',
         name: 'product-create-page',
-        component: ProductCreate
+        component: ProductCreate,
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'enter'
+                })
+            }
+            next();
+        }
+    },{
+        path: '/tour/:id/edit',
+        name: 'product-edit-page',
+        component: ProductUpdate,
+        beforeEnter: (to, from, next) => {
+            if (!store.getters['auth/authenticated']) {
+                return next({
+                    name: 'enter'
+                })
+            }
+            next();
+        }
     },
 ];

@@ -15,7 +15,9 @@
         </div>
 
         <div class="user-block">
-            <user-unauthorized ></user-unauthorized>
+            <user-unauthorized v-if="!authenticated"></user-unauthorized>
+            <user-authorized :user="user" v-else></user-authorized>
+            <header-cart></header-cart>
             <!--@guest-->
             <!--@include('components.user-block.user_unauthorized.user_unauthorized')-->
             <!--@else-->
@@ -34,7 +36,7 @@
 
 <script>
     export default {
-        props: ['allCategories'],
+        props: ['allCategories', 'authenticated', 'user'],
 
     }
 </script>

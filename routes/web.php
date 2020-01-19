@@ -24,8 +24,11 @@ Route::get('/api/product/{id}', 'ProductController@show');
 Route::get('/api/seller/{id}', 'SellerController');
 
 Route::get('/api/orders/{id}', 'OrderController@index');
+Route::get('/api/purchases/{id}', 'PurchaseController');
 
+Route::patch('api/profile/{user}', 'ProfileController@update');
 
+Route::post('api/makeOrder', 'OrderController@handleOrder');
 
 
 

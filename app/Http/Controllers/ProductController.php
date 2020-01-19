@@ -55,7 +55,13 @@ class ProductController extends Controller
         $tours = Tour::with('country', 'category', 'hotel', 'nutrition', 'tourType', 'startLocation.city', 'mainImg')
             ->filter($filters);
 
-
+        $priceRange = collect([
+            "до 1 000"            => "<_1000",
+            "от 1 000 до 5 000"   => "1001_5000",
+            "от 5 001 до 10 000"  => "5001_10000",
+            "от 10 001 до 50 000" => "10001_50000",
+            "более 50 000"        => ">_50001",
+        ]);
 //        $selectedTours = $tours->get();
 //
 //        $plucker = function ($selector) use ($selectedTours) {
@@ -78,15 +84,16 @@ class ProductController extends Controller
 //            'tours', 'countryNames', 'tourTypes', 'nutritionTypes', 'categories', 'hotels', 'toursCount', 'prices'));
 
 //
-//        return response()->json([
-//            'prices'           => $priceRange,
-//           // 'searchTours'      => $tours,
-//           'searchTours'      => (new TourCollection($tours)),
-//
-//            'searchToursCount' => $toursCount,
-//        ]);
 
-        return new TourCollection($tours);
+        return response()->json([
+            'prices'           => $priceRange,
+           // 'searchTours'      => $tours,
+           'searchTours'      => (new TourCollection($tours)),
+
+            //'searchToursCount' => $toursCount,
+        ]);
+
+        //return new TourCollection($tours);
 
 
     }

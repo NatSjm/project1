@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deal;
+use App\Models\Tour;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -10,25 +11,41 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+//    public function handleOrder (Request $request)
+//    {
+//        $oldCart = $request->session()->get('cart');
+//        $cart = new Cart($oldCart);
+//        $products = collect($cart->items);
+//        $dealItems = collect();
+//
+//        $products->map(function ($item) use ($dealItems) {
+//            for ($i = 0; $i < $item['qty']; $i++) {
+//                $dealItems->push($item['item']);
+//            }
+//        });
+//
+//        $groupedBySeller = $dealItems->groupBy(['seller_id']);
+//
+//        $this->createDeals($groupedBySeller);
+//
+//        $request->session()->forget('cart');
+//        return redirect('/purchases');
+//    }
+
     public function handleOrder (Request $request)
     {
-        $oldCart = $request->session()->get('cart');
-        $cart = new Cart($oldCart);
-        $products = collect($cart->items);
+        $products = collect($request->all());
         $dealItems = collect();
-
         $products->map(function ($item) use ($dealItems) {
-            for ($i = 0; $i < $item['qty']; $i++) {
-                $dealItems->push($item['item']);
+            for ($i = 0; $i < $item['quantity']; $i++) {
+                $dealItems->push(Tour::find($item['id']));
             }
         });
 
         $groupedBySeller = $dealItems->groupBy(['seller_id']);
-
         $this->createDeals($groupedBySeller);
 
-        $request->session()->forget('cart');
-        return redirect('/purchases');
+
     }
 
     public function createDeals ($groupedBySeller)
@@ -66,14 +83,13 @@ class OrderController extends Controller
     {
 
         $deals = Deal::with('orders.tour', 'buyer', 'orders.tour.country', 'orders.tour.mainImg',
-            'orders.tour.hotel','orders.tour.tourType' )->where
+            'orders.tour.hotel', 'orders.tour.tourType')->where
         ('seller_id',
-           // ('buyer_id',
             $id)->latest()->get();
 
 
         return response()->json([
-           // 'id'    => $id,
+            // 'id'    => $id,
             'deals' => $deals,
             //'title' => 'Мои заказы',
         ]);

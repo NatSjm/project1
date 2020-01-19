@@ -52,6 +52,9 @@ export default {
     personOrders: (state) => {
         return state.personOrders;
     },
+    personPurchases: (state) => {
+        return state.personPurchases;
+    },
 
 
     paginator: (state) => {

@@ -79,6 +79,15 @@ import UserUnauthorized from '../views/components/user-block/user_unauthorized/u
 
 Vue.component('user-unauthorized', UserUnauthorized);
 
+import UserAuthorized from '../views/components/user-block/user_authorized/user-authorized.vue';
+
+Vue.component('user-authorized', UserAuthorized);
+
+import Popup from '../views/components/popup/popup.vue';
+
+Vue.component('popup', Popup);
+
+
 import HeaderCart from '../views/components/cart/cart.vue';
 
 Vue.component('header-cart', HeaderCart);
@@ -131,41 +140,47 @@ router.afterEach((to, from) => {
 
 
 Vue.use(Vuex);
+import store from './store.js'
 
-import state from './vuex/state.js';
-import mutations from './vuex/mutations.js';
-import getters from './vuex/getters.js';
-import actions from './vuex/actions.js';
-import cart from './vuex/modules/cart.js';
+// import state from './vuex/state.js';
+// import mutations from './vuex/mutations.js';
+// import getters from './vuex/getters.js';
+// import actions from './vuex/actions.js';
+// import cart from './vuex/modules/cart.js';
+//
+//  const store = new Vuex.Store({
+//     state,
+//     mutations,
+//     getters,
+//     actions,
+//     modules: {
+//         cart,
+//     },
+//
+// });
+require('./vuex/subscriber');
+store.dispatch('auth/attempt', localStorage.getItem('token')).then(()=>{
+    const app = new Vue({
+        router,
+        store,
+        data: {},
+        methods: {},
 
-const store = new Vuex.Store({
-    state,
-    mutations,
-    getters,
-    actions,
-    modules: {
-        cart,
-    },
+        created() {
 
+            this.$store.dispatch('getCategories');
+
+            // axios.get('/indexcat').then((response) => {
+            //     this.AllCategories = response.data.AllCategories;
+            // });
+
+        },
+    }).$mount('#app');
 });
 
 
-const app = new Vue({
-    router,
-    store,
-    data: {},
-    methods: {},
 
-    created() {
 
-        this.$store.dispatch('getCategories');
-
-        // axios.get('/indexcat').then((response) => {
-        //     this.AllCategories = response.data.AllCategories;
-        // });
-
-    },
-}).$mount('#app');
 
 
 //
