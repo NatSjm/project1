@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default {
     getToursForIndex(store) {
         axios.get('/api/index').then((response) => {
@@ -65,6 +67,19 @@ export default {
             });
             store.commit('setPersonPurchases', personPurchases);
         });
+    },
+
+    createTour({commit, state}, formData) {
+        return axios.post('api/tour' , formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'enctype' : 'multipart/form-data',
+                }
+            }
+        )
+
+
     },
 
 

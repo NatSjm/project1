@@ -95,6 +95,9 @@ export default [
         path: '/tour/create',
         name: 'product-create-page',
         component: ProductCreate,
+        meta: {
+            breadcrumb: 'Новое объявление'
+        },
         beforeEnter: (to, from, next) => {
             if (!store.getters['auth/authenticated']) {
                 return next({

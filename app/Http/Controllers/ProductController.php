@@ -107,7 +107,9 @@ class ProductController extends Controller
     {
 
         $tour = $this->helper->createTour($request);
-        return redirect()->route('product-page', $tour);
+
+        //return redirect()->route('product-page', $tour);
+        return response()->json( $tour->id);
     }
 
     public function edit ($id)

@@ -16,6 +16,7 @@
         props: [
             'user'
         ],
+
         // methods: {
         //     ...mapActions({
         //         logOutAction: 'auth/logOut'

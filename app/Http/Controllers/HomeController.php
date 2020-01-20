@@ -8,6 +8,7 @@ use App\Http\Resources\CountryResource;
 use App\Http\Resources\HotelResource;
 use App\Http\Resources\TourTypeResource;
 use App\Http\Resources\NutritionResource;
+use App\Http\Resources\LocationResource;
 use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Models\Country;
@@ -57,7 +58,7 @@ class HomeController extends Controller
             'AllTourTypes'      => TourTypeResource::collection(TourType::all()),
             'AllNutritionTypes' => NutritionResource::collection(Nutrition::all()),
             'AllCategories'     => CategoryResource::collection(Category::all()),
-            "AllLocations"      => $locations,
+            "AllLocations"      => LocationResource::collection(Location::all()),
         ]);
 
     }
