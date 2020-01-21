@@ -29,7 +29,7 @@ class TourResource extends JsonResource
             'startLocation'     => $this->startLocation,
             'startLocationCity' => $this->startlocation->city->name,
             'price'            => $this->price,
-            'sellerId'         => $this->seller_id
+            'sellerId'         => $this->seller_id,
         ];
     }
 }

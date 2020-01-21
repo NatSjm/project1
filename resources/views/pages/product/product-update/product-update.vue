@@ -26,6 +26,7 @@
                                 <label class="product-select_title" for="country">Страна</label>
                                 <div class="select-wrapper">
                                     <select v-model="newTour.country_id"
+
                                             class="product-select_select select"
                                             name="country_id"
                                             id="country">
@@ -35,6 +36,7 @@
 
                                         <option v-for="country in allCountryNames"
                                                 :key="country.id"
+                                                v-bind:selected="country.name === tour.shortCountryName"
                                                 class="product-select_option"
                                                 :value="country.id">{{country.name}}
                                         </option>
@@ -217,12 +219,28 @@
                     <div class="img-uploader">
                         <input class="img-uploader_input mod_main" id="foto" name="main_img_id" title="" type="file">
                         <label class="img-uploader_title mod_main"
+                               :style="{'background-image':`url('/storage/images/${tour.mainImg}')`}"
                                for="foto"><span>Основное</span><span>фото</span></label>
                     </div>
-                    <div v-for="i in 9" :key="i" class="img-uploader">
-                        <input class="img-uploader_input" name="media_id[]" v-bind:id="'foto'+ i" title=""
+                    <div v-for="media  in tour.medias" :key="media.id" class="img-uploader">
+                        <input class="img-uploader_input"
+                               name="media_id[]"
+                               :data-index="media.id"
+                               v-bind:id="'foto'+ media.id"
+                               title=""
                                type="file">
-                        <label class="img-uploader_title" v-bind:for="'foto'+i"></label>
+
+                        <label class="img-uploader_title"
+                               v-bind:for="'foto'+media.id"
+                               :style="{'background-image':`url('/storage/images/${media.path}')`}">
+
+                        </label>
+                    </div>
+
+                    <div v-for="i in emptyLabelsQuantity" class="img-uploader">
+                        <input class="img-uploader_input" name="media_id[]" :id="'newFoto' + i " title=""
+                               type="file">
+                        <label class="img-uploader_title" :for="'newFoto' + i "></label>
                     </div>
                 </div>
             </fieldset>
@@ -239,90 +257,139 @@
     import {mapGetters, mapActions} from 'vuex'
 
 
+    export default {
+        data: function () {
+            return {
+                newTour: {
+                    name: '',
+                    country_id: '',
+                    hotel_id: '',
+                    category_id: '',
+                    tour_type_id: '',
+                    price: '',
+                    nutrition_id: '',
+                    for_children: '',
+                    start_location_id: '',
+                    description: '',
+                },
+                media_id: [],
+                main_img_id: null,
+                start_at: '',
+                finish_at: '',
+                emptyLabelsQuantity: 9,
+                changedMediaIds: [],
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'tour',
+                'allCountryNames',
+                'allHotels',
+                'allNutritionTypes',
+                'allCategories',
+                'allTourTypes',
+                'allLocations',
+            ]),
+            forChildrenCode() {
+                switch (this.tour.for_children) {
+                    case 'Нет':
+                        return ('0');
+                        break;
+                    case 'Да':
+                        return ('1');
+                        break;
+                    default:
+                        return ('');
+                }
+            },
 
-        export default {
-            data: function () {
-                return {
-                    newTour: {
-                        name: '',
-                        country_id: '',
-                        hotel_id: '',
-                        category_id: '',
-                        tour_type_id: '',
-                        price: '',
-                        nutrition_id: '',
-                        for_children: '',
-                        start_location_id: '',
-                        description: '',
-                    },
-                    media_id: [],
-                    main_img_id: null,
-                    start_at: '',
-                    finish_at: '',
+        },
+        created() {
+            this.getItemsForProduct(this.$route.params.id).then(() => {
+                this.newTour.name = this.tour.name;
+                this.newTour.country_id = this.tour.countryId;
+                this.newTour.hotel_id = this.tour.hotelId;
+                this.start_at = this.tour.startAt;
+                this.finish_at = this.tour.finishAt;
+                this.newTour.category_id = this.tour.categoryId;
+                this.newTour.tour_type_id = this.tour.tourTypeId;
+                this.newTour.price = this.tour.price;
+                this.newTour.nutrition_id = this.tour.nutritionId;
+                this.newTour.for_children = this.forChildrenCode;
+                this.newTour.start_location_id = this.tour.startLocationId;
+                this.newTour.description = this.tour.description;
+                this.emptyLabelsQuantity = 9 - this.tour.medias.length;
+            });
+        },
+        methods: {
+            ...mapActions([
+                'updateTour',
+                'getItemsForProduct'
+            ]),
+            sendNewTour() {
 
+                let formData = new FormData();
+                formData.append("_method", 'PATCH');
+
+                for (let key in this.newTour) {
+                    formData.append(key, this.newTour[key]);
+                }
+
+                formData.append('start_at', this.start_at);
+                formData.append('finish_at', this.finish_at);
+
+                if (this.main_img_id) {
+                    formData.append('main_img_id', this.main_img_id);
+                }
+                if (this.media_id.length) {
+                    for (let i = 0; i < this.media_id.length; i++) {
+                        formData.append('media_id[' + i + ']', this.media_id[i]);
+                    }
+                }
+                if (this.changedMediaIds.length) {
+                    for (let i = 0; i < this.changedMediaIds.length; i++) {
+                        formData.append('changedMediaIds[' + i + ']', this.changedMediaIds[i]);
+                    }
+                }
+
+                let payload = {
+                    id: this.$route.params.id,
+                    params: formData
+                };
+
+
+                this.updateTour(payload).then((responce) => {
+                    this.$router.push({name: 'product-page', params: {id: responce.data}});
+                });
+
+
+            },
+
+            onFileSelected(e) {
+                let fotoInputId = (e.target.id);
+                let $fotoLabel = $(".img-uploader_title[for='" + fotoInputId + "']");
+                if (e.target.files[0]) {
+                    let fr = new FileReader();
+                    fr.addEventListener("load", function () {
+                        $fotoLabel.css("backgroundImage", "url(" + fr.result + ")");
+                    }, false);
+                    fr.readAsDataURL(e.target.files[0]);
+                    if (fotoInputId === 'foto') {
+                        this.main_img_id = e.target.files[0];
+                    }
+                    else {
+                        this.media_id.push(e.target.files[0]);
+                        if (e.target.dataset.index) {
+                            this.changedMediaIds.push(e.target.dataset.index);
+                        }
+
+                    }
 
                 }
             },
-            computed: {
-                ...mapGetters([
-                    'allCountryNames',
-                    'allHotels',
-                    'allNutritionTypes',
-                    'allCategories',
-                    'allTourTypes',
-                    'allLocations',
-                ])
-            },
-            methods: {
-                ...mapActions([
-                    'createTour'
-                ]),
-                sendNewTour() {
-                    let formData = new FormData();
-                    for (let key in this.newTour) {
-                        formData.append(key, this.newTour[key]);
-                    }
 
-                    formData.append('start_at', this.start_at);
-                    formData.append('finish_at', this.finish_at);
 
-                    if (this.main_img_id) {
-                        formData.append('main_img_id', this.main_img_id);
-                    }
-                    if (this.media_id.length) {
-                        for (let i = 0; i < this.media_id.length; i++) {
-                            formData.append('media_id[' + i + ']', this.media_id[i]);
-                        }
-                    }
-
-                    this.createTour(formData).then((responce) => {
-                        this.$router.push({name: 'product-page', params: {id: responce.data}});
-                    });
-
-                    for (var pair of formData.entries()) {
-                        console.log(pair[0] + ', ' + pair[1]);
-                    }
-                },
-
-                onFileSelected(e) {
-                    let fotoInputId = (e.target.id);
-                    let $fotoLabel = $(".img-uploader_title[for='" + fotoInputId + "']");
-                    if (e.target.files[0]) {
-                        let fr = new FileReader();
-                        fr.addEventListener("load", function () {
-                            $fotoLabel.css("backgroundImage", "url(" + fr.result + ")");
-                        }, false);
-                        fr.readAsDataURL(e.target.files[0]);
-                        if (fotoInputId === 'foto') {
-                            this.main_img_id = e.target.files[0];
-                        }
-                        else {
-                            this.media_id.push(e.target.files[0]);
-                        }
-
-                    }
-                },
-            },
+        },
 
     }
 </script>

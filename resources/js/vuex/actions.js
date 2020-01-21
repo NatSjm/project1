@@ -70,19 +70,25 @@ export default {
     },
 
     createTour({commit, state}, formData) {
-        return axios.post('api/tour' , formData,
+        return axios.post('api/tour', formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'enctype' : 'multipart/form-data',
+                    'enctype': 'multipart/form-data',
                 }
             }
         )
-
-
     },
-
-
+    updateTour({commit, state}, payload) {
+        return axios.post('api/tour/' + payload.id, payload.params,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'enctype': 'multipart/form-data',
+                }
+            }
+        )
+    },
 
 
 }

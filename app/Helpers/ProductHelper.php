@@ -48,7 +48,9 @@ class ProductHelper
         }
         $tour->fill($data)->save();
 
-        $changedPhoto = collect($request->changedPhoto)->filter();
+//        $changedPhoto = collect($request->changedPhoto)->filter();
+        $changedPhoto = collect($request->changedMediaIds)->filter();
+
         $changedPhoto->each(function ($item) use ($tour){
             $tour->medias()->detach($item);
         });

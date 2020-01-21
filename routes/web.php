@@ -31,6 +31,7 @@ Route::patch('api/profile/{user}', 'ProfileController@update');
 Route::post('api/makeOrder', 'OrderController@handleOrder');
 
 Route::post('api/tour', 'ProductController@store');
+Route::patch('api/tour/{tour}', 'ProductController@update');
 
 
 

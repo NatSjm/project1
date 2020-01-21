@@ -122,11 +122,14 @@ class ProductController extends Controller
 
     public function update (ProductRequest $request, $id)
     {
+
         $tour = Tour::findOrFail($id);
-        $this->authorize('update', $tour);
+
+//        $this->authorize('update', $tour);
 
         $tour = $this->helper->updateTour($request, $tour);
-        return redirect()->route('product-page', $tour);
+      //  return redirect()->route('product-page', $tour);
+          return response()->json( $tour->id);
 
     }
 
