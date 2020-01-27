@@ -28,6 +28,8 @@ export default {
             'allTourTypes',
             'recommendedTours',
             'sliderTours',
+            'hotToursCount',
+            'recommendedToursCount'
         ])
 
         // hotTours() {

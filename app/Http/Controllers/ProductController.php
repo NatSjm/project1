@@ -125,7 +125,7 @@ class ProductController extends Controller
 
         $tour = Tour::findOrFail($id);
 
-//        $this->authorize('update', $tour);
+        $this->authorize('update', $tour);
 
         $tour = $this->helper->updateTour($request, $tour);
       //  return redirect()->route('product-page', $tour);
@@ -136,11 +136,14 @@ class ProductController extends Controller
 
     public function destroy ($id)
     {
+
         $tour = Tour::find($id);
         $this->authorize('delete', $tour);
         $tour->medias()->detach();
         $tour->delete();
-        return redirect('/');
+//        return redirect('/');
+        return response()->json(null, 204);
+
     }
 
 }

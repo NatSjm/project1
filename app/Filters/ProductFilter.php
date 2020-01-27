@@ -96,8 +96,11 @@ class ProductFilter
     }
 
     public function recommended ($value)
+
     {
-        $this->builder->where('recommended', $value);
+        if($value) {
+            $this->builder->where('recommended', $value);
+        }
     }
 
     public function hot ($value)

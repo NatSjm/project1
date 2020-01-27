@@ -57,13 +57,23 @@
 </template>
 
 <script>
+    import {mapState, mapGetters, mapActions} from 'vuex';
     export default {
         props: ['tour'],
         methods: {
-            deleteProduct() {
-                console.log('deleted')
+            deleteProduct(){
+                axios.delete('api/tour/'+ this.tour.id).then(() => {
+                    this.$router.go(0);
+                })
             }
         },
+        computed: {
+            ...mapGetters({
+                user: 'auth/user',
+            })
+        },
+
+
 
     }
 </script>

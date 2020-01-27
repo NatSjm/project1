@@ -359,7 +359,7 @@
 
 
                 this.updateTour(payload).then((responce) => {
-                    this.$router.push({name: 'product-page', params: {id: responce.data}});
+                    this.$router.go({name: 'product-page', params: {id: responce.data}});
                 });
 
 

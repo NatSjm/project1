@@ -4,6 +4,7 @@ import FilterTag from './filter/filter-tag.vue';
 export default {
     data() {
         return {
+            search: null,
             country: null,
             hotel: null,
             tour_type: null,
@@ -20,10 +21,17 @@ export default {
             filterList: [],
         };
     },
+    props: ['routeParamsCategory',
+        'routeParamsSearch',
+        'routeParamsTourType',
+        'routeParamsHot',
+        'routeParamsRecommended'],
+
     methods: {
         sendSearchRequest() {
             let payload = {
                 params: {
+                    search: this.search,
                     country: this.country,
                     hotel: this.hotel,
                     tour_type: this.tour_type,
@@ -46,14 +54,16 @@ export default {
         },
 
         renderFilterList(params) {
-            if (params.recommended == 1) {
-                params.recommended = "рекомендованные";
-            }
-            if (params.hot == 1) {
-                params.hot = "горячие";
-            }
+            let clone = Object.assign({}, params);
 
-            let filterList = Object.entries(params);
+            if (clone.recommended) {
+                clone.recommended = "рекомендованные";
+            }
+            if (clone.hot) {
+                clone.hot = "горящие";
+            }
+            let filterList = Object.entries(clone);
+            // to remove the page number from the rendered list
             filterList.pop();
             this.filterList = filterList.filter(function (el) {
                 return el[1];
@@ -73,8 +83,8 @@ export default {
             }
         },
 
-
-        filterReset() {
+        resetData() {
+            this.search = null;
             this.country = null;
             this.hotel = null;
             this.tour_type = null;
@@ -85,6 +95,11 @@ export default {
             this.recommended = null;
             this.hot = null;
             this.page = 1;
+        },
+
+
+        filterReset() {
+            this.resetData();
             this.sendSearchRequest();
         },
 
@@ -100,10 +115,35 @@ export default {
         }
 
     },
+    beforeRouteUpdate(to, from, next) {
+        this.resetData();
+        this.category = to.query.routeParamsCategory;
+        this.search = to.query.routeParamsSearch;
+        this.sendSearchRequest();
+        next();
+    },
 
     created() {
-        this.$store.dispatch('getItemsForSearch');
+        this.category = this.routeParamsCategory;
+        this.search = this.routeParamsSearch;
+        this.tour_type = this.routeParamsTourType;
+        this.hot = this.routeParamsHot;
+        this.recommended = this.routeParamsRecommended;
+        this.sendSearchRequest();
     },
+//
+//     watch: {
+//         '$route' : {
+//             deep: true,
+//             immediate: true,
+//             handler : function (to, from) {
+//                 console.log('hello');
+//             this.category = to.params.routeParamsCategory;
+//                 this. sendSearchRequest();
+//         }
+//     },
+// },
+
 
     computed: {
         ...mapGetters([

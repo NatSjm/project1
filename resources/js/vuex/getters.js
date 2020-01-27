@@ -11,6 +11,12 @@ export default {
     allTourTypes: (state) => {
         return state.allTourTypes;
     },
+    hotToursCount: (state) => {
+        return state.hotToursCount;
+    },
+    recommendedToursCount: (state) => {
+        return state.recommendedToursCount;
+    },
 
 
     allCategories: (state) => {

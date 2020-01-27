@@ -11,6 +11,12 @@ export default {
     setSliderTours(state, tours) {
         state.sliderTours = tours;
     },
+    setHotToursCount(state, count) {
+        state.hotToursCount = count;
+    },
+    setRecommendedToursCount(state, count) {
+        state.recommendedToursCount = count;
+    },
 
     setAllCategories(state, categories) {
         state.allCategories = categories;

@@ -6,12 +6,22 @@
             <nav class="main-nav">
                 <ul class="main-nav_list">
 
-                    <router-link tag="li" v-for="(category, key) in allCategories"
-                                 v-bind:key="key" class="main-nav_item" to="/search">
-                        <a class="main-nav_link">
+                    <!--<router-link tag="li" v-for="(category, key) in allCategories"-->
+                    <!--v-bind:key="key"-->
+                    <!--class="main-nav_item"-->
+                    <!--:to="{name: 'search-page', params:  {routeParamsCategory: category.name}}">-->
+                    <!--<a class="main-nav_link">-->
+                    <!--{{category.name}}-->
+                    <!--</a>-->
+                    <!--</router-link>-->
+                    <li v-for="(category, key) in allCategories"
+                        v-bind:key="key"
+                        class="main-nav_item">
+                        <router-link class="main-nav_link"
+                                     :to="{path: '/search', query:  {routeParamsCategory: category.name}}">
                             {{category.name}}
-                        </a>
-                    </router-link>
+                        </router-link>
+                    </li>
                 </ul>
             </nav>
             <logo></logo>
@@ -38,10 +48,12 @@
 
         <div class="header_bottom">
             <div class="main-search">
-                <form class="main-search_form" @submit.prevent action="">
-                    <input placeholder="Поиск предложений" type="search" name="search" value=""
-                           class="ginput
-                main-search_input">
+                <form class="main-search_form" @submit.prevent="findByName" action="">
+                    <input placeholder="Поиск предложений"
+                           type="search" name="search"
+                           value=""
+                           v-model="searchName"
+                           class="ginput main-search_input">
                     <button type="submit" class="main-search_submit">
                         <svg class="main-search_icon" viewBox="0 0 12 12">
                             <use xlink:href="#search"></use>
@@ -54,7 +66,6 @@
             </router-link>
         </div>
     </header>
-
 </template>
 
 <script>
@@ -66,6 +77,7 @@
         data() {
             return {
                 menuMobile: false,
+                searchName: '',
             }
 
         },
@@ -88,6 +100,10 @@
             toggleMenu: function () {
                 this.menuMobile = !this.menuMobile;
             },
+
+            findByName: function(){
+                this.$router.push({ path: '/search', query: { routeParamsSearch: this.searchName } })
+            }
 
         },
 

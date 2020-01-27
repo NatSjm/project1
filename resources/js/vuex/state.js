@@ -3,6 +3,8 @@ export default {
     allTourTypes: [],
     recommendedTours: [],
     sliderTours: [],
+    hotToursCount: '',
+    recommendedToursCount: '',
 
     allCategories: [],
     allNutritionTypes: [],

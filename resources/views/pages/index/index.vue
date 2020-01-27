@@ -17,10 +17,10 @@
 
 
         <section class="recommendations cont">
-            <div class="section-headlines" v-if="recommendedTours.length > 0">
+            <div class="section-headlines" v-if="recommendedToursCount">
                 <h3 class="headline-2">ColorLife рекомендует</h3>
-                <router-link class="show-all" to="/search">
-                    <span>Показать все <span>({{recommendedTours.length}})</span></span>
+                <router-link class="show-all" :to="{path:'/search', query:  {routeParamsRecommended: 1}}">
+                    <span>Показать все <span>({{recommendedToursCount}})</span></span>
                     <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>
@@ -42,10 +42,12 @@
         </section>
 
         <section class="hot-tours cont ">
-            <div class="section-headlines" v-if="hotTours.length > 0">
+            <div class="section-headlines" v-if="hotToursCount">
                 <h3 class="headline-2">Горящие туры</h3>
-                <router-link class="show-all" to="/search">
-                    <span>Показать все <span>({{hotTours.length}})</span></span>
+                <router-link
+                        class="show-all"
+                        :to="{path:'/search', query:  {routeParamsHot: 1}}">
+                    <span>Показать все <span>({{hotToursCount}})</span></span>
                     <span>
             <svg class="arrow">
                 <use xlink:href="#arrow-right"></use>

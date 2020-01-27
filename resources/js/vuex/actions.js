@@ -6,6 +6,8 @@ export default {
             store.commit('setHotTours', response.data.hotTours);
             store.commit('setRecommendedTours', response.data.recommendedTours);
             store.commit('setSliderTours', response.data.sliderTours);
+            store.commit('setHotToursCount', response.data.hotToursCount);
+            store.commit('setRecommendedToursCount', response.data.recommendedToursCount);
         });
     },
 
@@ -89,6 +91,7 @@ export default {
             }
         )
     },
+
 
 
 }

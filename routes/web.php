@@ -32,6 +32,7 @@ Route::post('api/makeOrder', 'OrderController@handleOrder');
 
 Route::post('api/tour', 'ProductController@store');
 Route::patch('api/tour/{tour}', 'ProductController@update');
+Route::delete('api/tour/{tour}', 'ProductController@destroy');
 
 
 

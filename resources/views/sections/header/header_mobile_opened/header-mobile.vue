@@ -4,12 +4,14 @@
         <div class="header_top">
             <nav class="min-nav">
                 <ul class="min-nav_list">
-                    <router-link tag="li"  v-for="(category, key) in allCategories"
-                                 v-bind:key="key" class="main-nav_item" to="/search">
-                        <a  class="main-nav_link">
+                    <li v-for="(category, key) in allCategories"
+                        v-bind:key="key"
+                        class="main-nav_item">
+                        <router-link class="main-nav_link"
+                                     :to="{path: '/search', query:  {routeParamsCategory: category.name}}">
                             {{category.name}}
-                        </a>
-                    </router-link>
+                        </router-link>
+                    </li>
                 </ul>
             </nav>
         </div>

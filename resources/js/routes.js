@@ -57,6 +57,8 @@ export default [
         path: '/search',
         name: 'search-page',
         component: Search,
+        props: (route) => route.query,
+        // props: true,
         meta: {
             breadcrumb: 'Поиск'
         }
