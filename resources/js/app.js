@@ -106,7 +106,7 @@ Vue.component('products', Products);
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 // require styles
-import 'swiper/dist/css/swiper.css';
+// import 'swiper/dist/css/swiper.css';
 
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
