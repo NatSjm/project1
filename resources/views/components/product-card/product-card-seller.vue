@@ -6,7 +6,7 @@
                 <img class="product-card_img" v-bind:src="'/storage/images/' + tour.mainImg " alt="">
                 <div class="product-card_mask">
                     <div class="edit-icons">
-                        <router-link :to="{name:'product-edit-page', params: {id: tour.id}}">
+                        <router-link :to="{name:'product-edit-page', params: {id: tour.id, sellerId: tour.sellerId}}">
                             <div>
                                 <svg class="edit-icon" viewBox="0 0 14 13.932">
                                     <use xlink:href="#pencil"></use>

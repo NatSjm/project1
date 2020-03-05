@@ -49,12 +49,7 @@ export default {
     setPersonTours(state, tours) {
         state.personTours = tours;
     },
-    // setProductSimilar(state, tours) {
-    //     state.productSimilar = tours;
-    // },
-    // setProductSellerTours(state, tours) {
-    //     state.productSellerTours = tours;
-    // },
+
     setPersonOrders(state, orders) {
         state.personOrders = orders;
     },

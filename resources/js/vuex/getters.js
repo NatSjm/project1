@@ -49,12 +49,7 @@ export default {
     personTours: (state) => {
         return state.personTours;
     },
-    // productSimilar: (state) => {
-    //     return state.productSimilar;
-    // },
-    // productSellerTours: (state) => {
-    //     return state.productSellerTours;
-    // },
+
     personOrders: (state) => {
         return state.personOrders;
     },

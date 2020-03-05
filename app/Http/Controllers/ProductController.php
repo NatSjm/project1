@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\TourDetailResource;
 use App\Models\Media;
+use App\Models\Comment;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use App\Http\Resources\TourCollection;
@@ -49,6 +50,21 @@ class ProductController extends Controller
 
     }
 
+    public function makeComment (Request $request, $id)
+    {
+        // $tour = Tour::with('comments', 'comments.user', 'country', 'medias', 'seller', 'tourType')->find($id);
+        $tour = Tour::findOrFail($id);
+//        $tour = tap(Tour::with('comments', 'comments.user', 'country', 'medias', 'seller', 'tourType')->find($id)
+        $tour->comments()->create([
+            'content' => $request->review,
+            'user_id' => auth()->id(),
+        ]);
+        $tour = Tour::with('comments', 'comments.user', 'country', 'medias', 'seller', 'tourType')->find($id);
+        return response()->json([
+            'tour' => new TourDetailResource($tour),
+        ]);
+    }
+
 
     public function index (Request $request, ProductFilter $filters)
     {
@@ -86,9 +102,9 @@ class ProductController extends Controller
 //
 
         return response()->json([
-            'prices'           => $priceRange,
-           // 'searchTours'      => $tours,
-           'searchTours'      => (new TourCollection($tours)),
+            'prices'      => $priceRange,
+            // 'searchTours'      => $tours,
+            'searchTours' => (new TourCollection($tours)),
 
             //'searchToursCount' => $toursCount,
         ]);
@@ -109,7 +125,7 @@ class ProductController extends Controller
         $tour = $this->helper->createTour($request);
 
         //return redirect()->route('product-page', $tour);
-        return response()->json( $tour->id);
+        return response()->json($tour->id);
     }
 
     public function edit ($id)
@@ -128,8 +144,8 @@ class ProductController extends Controller
         $this->authorize('update', $tour);
 
         $tour = $this->helper->updateTour($request, $tour);
-      //  return redirect()->route('product-page', $tour);
-          return response()->json( $tour->id);
+        //  return redirect()->route('product-page', $tour);
+        return response()->json($tour->id);
 
     }
 

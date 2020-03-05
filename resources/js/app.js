@@ -48,6 +48,8 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 import routes from './routes';
 import VueBreadcrumbs from 'vue-2-breadcrumbs';
+import VueRouterMiddleware from 'vue-router-middleware';
+
 
 
 import Paginate from 'vuejs-paginate'
@@ -113,6 +115,9 @@ import Carusel from '../views/components/swiper/carusel.vue';
 
 Vue.component('carusel', Carusel);
 
+import Vuelidate from 'vuelidate';
+Vue.use(Vuelidate);
+
 
 Vue.use(VueRouter);
 Vue.use(VueBreadcrumbs, {
@@ -159,6 +164,7 @@ import store from './store.js'
 //
 // });
 require('./vuex/subscriber');
+Vue.use(VueRouterMiddleware, { router })
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(()=>{
     const app = new Vue({
         router,

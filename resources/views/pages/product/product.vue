@@ -102,7 +102,7 @@
             <div class="revews">
                 <h2 class=" revews_title headline-2">Отзывы</h2>
                 <div class="revews_group mod_border-grey">
-                    <div v-for="comment in tour.comments" class="revew">
+                    <div v-for="comment in tour.comments" :key="comment.id" class="revew">
                         <img class="revew_avatar" :src="'/storage/' + comment.user.avatar" alt="">
                         <h3 class="headline-2 revew_title">{{ comment.user.first_name + ' ' + comment.user.last_name
                             }}</h3>
@@ -116,19 +116,33 @@
 
                 </div>
                 <div class="revews_form">
-                    <form class="revew-form" action="" id="revew">
+                    <form @submit.prevent="makeRewiew" class="revew-form" action="" id="revew">
 
-                        <label class="revew-form_label" for="revew">Написать отзыв</label>
+                        <label class="revew-form_label" for="revew">Написать отзыв <span v-if="!authenticated">(только
+                            для
+                            зарегистрированных пользователей)</span></label>
                         <fieldset class="revew-form_fieldset mod_border-grey">
                             <div class="revew-form_fieldset-wrapper">
                                 <div class="revew-form_textarea-wrapper">
-        <textarea class="revew-form_input mod_text"
-                  placeholder="Сообщение"></textarea>
+        <textarea
+                :disabled='!authenticated'
+                v-model="review"
+                class="revew-form_input mod_text"
+                placeholder="Сообщение"></textarea>
                                 </div>
                                 <div class="revew-form_input-wrapper">
-                                    <input class="revew-form_input mod_name" type="text" placeholder="Ваше имя">
-                                    <input class="revew-form_input mod_email" type="email" placeholder="email">
-                                    <input class="button revew-form_submit mod_color-dark-blue" type="submit">
+                                    <input disabled class="revew-form_input mod_name"
+                                           type="text"
+                                           placeholder="Ваше имя"
+                                           :value=userFullName>
+                                    <input disabled
+                                           class="revew-form_input mod_email"
+                                           type="email"
+                                           :value=user.email
+                                           placeholder="email">
+                                    <input :disabled='!authenticated'
+                                           class="button revew-form_submit mod_color-dark-blue"
+                                           type="submit">
                                 </div>
                             </div>
                         </fieldset>
@@ -187,16 +201,55 @@
 
     export default {
         data: function () {
-            return {}
+            return {
+                review: '',
+                tour: {},
+
+            }
         },
         props: {
-            tour: {
+            propsTour: {
                 type: Object,
                 required: true,
             }
         },
+        computed: {
+            ...mapGetters({
+                user: 'auth/user',
+                authenticated: 'auth/authenticated'
+            }),
+            userFullName: function () {
+                return this.user.first_name + ' ' + this.user.last_name;
+            },
+
+        },
+        watch: {
+            propsTour: {
+                handler: function (val) {
+                    this.tour = val;
+                },
+                deep: true,
+                immediate: true
+            },
+
+        },
+
 
         methods: {
+            makeRewiew() {
+                let comment = {
+                    id: this.tour.id,
+                    review: this.review
+                };
+
+                this.sendComment(comment).then(() => {
+                    this.review = '';
+                    this.tour = this.$store.state.tour;
+                });
+
+            },
+
+
             sliderResiser() {
                 if (window.matchMedia("screen and (min-width: 1280px)").matches) {
                     var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -245,6 +298,8 @@
                     });
                 }
             },
+
+
             // fetchData() {
             //    return this.$store.dispatch('getItemsForProduct', this.$route.params.id).then(() => {
             //         this.sliderResiser();
@@ -254,12 +309,15 @@
             // },
 
 
-            ...mapActions({
-                addProductToCart: 'cart/addProductToCart',
+            ...
+                mapActions({
+                    addProductToCart: 'cart/addProductToCart',
+                    sendComment: 'sendComment'
 
-            })
+                })
 
-        },
+        }
+        ,
 
         // created() {
         //     this.sliderResiser();
@@ -267,10 +325,11 @@
         // },
         beforeRouteUpdate(routeTo, routeFrom, next) {
             this.$store.dispatch('getItemsForProduct', routeTo.params.id).then(() => {
-                routeTo.params.tour = this.$store.state.tour;
+                routeTo.params.propsTour = this.$store.state.tour;
                 next();
             })
-        },
+        }
+        ,
         // watch: {
         //     $route: {
         //         handler: 'sliderResiser',
@@ -324,7 +383,7 @@
         mounted() {
             this.sliderResiser();
             window.addEventListener('resize', this.sliderResiser);
-
         },
+
     }
 </script>

@@ -7,7 +7,7 @@ import getters from './vuex/getters.js';
 import actions from './vuex/actions.js';
 import cart from './vuex/modules/cart.js';
 import auth from './vuex/modules/auth.js';
-
+import createPersistedState from "vuex-persistedstate";
 import Vue from "vue";
 
 const store = new Vuex.Store({
@@ -19,6 +19,7 @@ const store = new Vuex.Store({
         cart,
         auth
     },
+    plugins: [createPersistedState()],
 
 });
 export default store;

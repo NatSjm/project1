@@ -17,8 +17,7 @@ export default {
 
     tour: {},
     personTours: [],
-    // productSimilar: [],
-    // productSellerTours: [],
+
     personOrders: [],
     personPurchases:[],
 

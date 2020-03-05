@@ -19,6 +19,12 @@
             width:         251px;
         }
     }
+    & .product-form_error-message{
+        color:  #bf4924;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: -40px;
+    }
     & .product-form_fieldset {
         padding-bottom: 13px;
     }
@@ -88,6 +94,12 @@
     & .product-select_title {
         @extend %label-title;
 
+    }
+
+    & .product-select_error-message{
+        color:  #bf4924;
+        font-size: 12px;
+        margin-top: 0;
     }
 
     & .select-wrapper {

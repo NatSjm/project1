@@ -1,6 +1,6 @@
 .ginput {
     width:         330px;
-    @include media('m-only'){
+    @include media('m-only') {
         width: 100%;
     }
     border-radius: 2px;
@@ -38,7 +38,8 @@
         border: 1px solid #bf4924;
     }
 }
-.input{
+
+.input {
 
     border:           none;
     outline:          none;
@@ -73,29 +74,32 @@
         outline: none;
     }
 
-    &.invalid{
+    &.invalid {
         border: 1px solid #bf4924;
     }
 
-
 }
 
- .select-wrapper {
+.select-wrapper {
     width:         100%;
     position:      relative;
     background:    $light-milk;
-     border-radius: 4px;
-     padding-right: 15px;
-     overflow: hidden;
- }
- .select {
+    border-radius: 4px;
+    padding-right: 15px;
+    overflow:      hidden;
+    &.invalid {
+        border: 1px solid #bf4924;
+    }
+}
+
+.select {
     -webkit-appearance: none;
     -moz-appearance:    none;
     appearance:         none;
     border:             none;
     outline:            none;
-     padding-right: 15px;
-     overflow: hidden;
+    padding-right:      15px;
+    overflow:           hidden;
     @include font-settings(12px, 1.5);
     color:              $nero;
     position:           relative;
@@ -105,10 +109,10 @@
     z-index:            3;
     background:         transparent;
     width:              100%;
-     cursor: pointer;
-
+    cursor:             pointer;
 
 }
+
 .select_icon {
     width:    12px;
     //height:      10px;
@@ -118,7 +122,6 @@
     z-index:  2;
     stroke:   $nero;
     @include centering('y');
-
 
 }
 

@@ -91,7 +91,9 @@ export default {
             }
         )
     },
-
-
-
+    sendComment(store, payload) {
+        return axios.post('api/tour/' + payload.id + '/comment', payload).then((response) => {
+            store.commit('setTour', response.data.tour);
+        });
+    },
 }

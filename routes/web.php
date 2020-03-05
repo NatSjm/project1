@@ -34,6 +34,9 @@ Route::post('api/tour', 'ProductController@store');
 Route::patch('api/tour/{tour}', 'ProductController@update');
 Route::delete('api/tour/{tour}', 'ProductController@destroy');
 
+Route::post('api/tour/{id}/comment', 'ProductController@makeComment');
+
+
 
 
 

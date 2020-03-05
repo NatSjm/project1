@@ -11,6 +11,34 @@ import Seller from '../views/pages/seller/seller.vue';
 import ProductUpdate from '../views/pages/product/product-update/product-update.vue';
 import store from './store.js';
 
+import VueRouterMiddleware,  { createMiddleware, middleware } from 'vue-router-middleware';
+
+
+createMiddleware('require-auth', (args, to, from, next) => {
+
+    if(store.getters['auth/authenticated'])
+        next();
+    else
+        next({
+            name: 'login',
+        })
+
+});
+createMiddleware('check-permission', (args, to, from, next) => {
+
+    if(store.getters['auth/authenticated'] && store.getters['auth/user'].id === to.params.id)
+
+        next();
+    else
+
+        console.log('You have no permission for the operation');
+
+        next(
+            false
+        )
+
+});
+
 
 export default [
 
@@ -24,6 +52,12 @@ export default [
 
     },
     {
+        path: '/enter',
+        name: 'login',
+        component: Enter,
+
+    },
+    {
         path: '/seller/:id',
         name: 'seller-page',
         component: Seller,
@@ -32,23 +66,6 @@ export default [
             breadcrumb: routeParameters => `${routeParameters.name}`
         }
     }, {
-        path: '/orders/:id',
-        name: 'orders-page',
-        component: Orders,
-        props: true,
-        meta: {
-            breadcrumb: 'Мои заказы'
-        }
-    },
-    {
-        path: '/purchases/:id',
-        name: 'purchases-page',
-        component: Purchases,
-        props: true,
-        meta: {
-            breadcrumb: 'Мои покупки'
-        }
-    },{
         path: '/cart',
         name: 'cart',
         component: Cart
@@ -71,7 +88,7 @@ export default [
         props: true,
         beforeEnter(routeTo, routeFrom, next) {
             store.dispatch('getItemsForProduct', routeTo.params.id).then(() => {
-                routeTo.params.tour = store.state.tour;
+                routeTo.params.propsTour = store.state.tour;
                 next();
             })
         },
@@ -79,12 +96,26 @@ export default [
         meta: {
             breadcrumb: routeParameters => `${store.state.tour.name}`
         }
-    }, {
-        path: '/enter',
-        name: 'login',
-        component: Enter,
-
     },
+    ...middleware('require-auth', [{
+        path: '/orders/:id',
+        name: 'orders-page',
+        component: Orders,
+        props: true,
+        meta: {
+            breadcrumb: 'Мои заказы'
+        }
+    },
+    {
+        path: '/purchases/:id',
+        name: 'purchases-page',
+        component: Purchases,
+        props: true,
+        meta: {
+            breadcrumb: 'Мои покупки'
+        }
+    },
+        ...middleware('check-permission', [
     {
         path: '/profile/:id/edit',
         name: 'person-page',
@@ -93,32 +124,32 @@ export default [
         meta: {
             breadcrumb: 'Личные данные'
         }
-    },{
+    }]),
+        {
+            path: '/tour/:id/edit',
+            name: 'product-edit-page',
+            component: ProductUpdate,
+            beforeEnter: (to, from, next) => {
+                if (store.getters['auth/user'].id !== to.params.sellerId) {
+                    console.log('wrong seller');
+                    return next(false);
+                }
+                next();
+            }
+        },{
         path: '/tour/create',
         name: 'product-create-page',
         component: ProductCreate,
         meta: {
             breadcrumb: 'Новое объявление'
         },
-        beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
-                return next({
-                    name: 'enter'
-                })
-            }
-            next();
-        }
-    },{
-        path: '/tour/:id/edit',
-        name: 'product-edit-page',
-        component: ProductUpdate,
-        beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
-                return next({
-                    name: 'enter'
-                })
-            }
-            next();
-        }
-    },
+        // beforeEnter: (to, from, next) => {
+        //     if (!store.getters['auth/authenticated']) {
+        //         return next({
+        //             name: 'login'
+        //         })
+        //     }
+        //     next();
+        // }
+    },]),
 ];
