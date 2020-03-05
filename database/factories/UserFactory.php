@@ -19,7 +19,8 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'last_name'      => $faker->lastName,
         'phone'          => $faker->phoneNumber,
         'email'          => $faker->unique()->safeEmail,
-        'avatar'         => 'profile/' . $faker->image('public/storage/profile', 640, 480, null, false),
+//        'avatar'         => 'profile/' . $faker->image('public/storage/profile', 640, 480, null, false),
+        'avatar'         => 'profile/9e3de20aaede2255fb050323b484dd5b.jpg',
         'password'       => bcrypt('password'),
         'remember_token' => $faker->regexify('[A-Za-z0-9]{10}'),
     ];
