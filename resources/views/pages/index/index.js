@@ -1,4 +1,4 @@
-import Swiper from 'Swiper';
+// import Swiper from 'Swiper';
 import { mapGetters } from 'vuex'
 
 export default {
