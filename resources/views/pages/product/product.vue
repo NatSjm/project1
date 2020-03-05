@@ -196,7 +196,7 @@
 <script type="text/javascript">
     import {mapGetters, mapActions} from 'vuex';
 
-    import Swiper from 'Swiper';
+    import Swiper from 'swiper';
 
 
     export default {
